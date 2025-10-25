@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Polytechnic College - Vadakara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="top-bar">
+            <div class="top-bar-item">
+                <i class="fas fa-phone"></i>
+                <span>8547005079</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-envelope"></i>
+                <span>mptvadakara.ihrd@gmail.com</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-gavel"></i> 
+                <span>Established in 1988</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-check-circle"></i>
+                <span>AICTE Approved</span>
+            </div>
+        </div>
+        
+        <div class="main-info">
+            <img src="icons/mptc.png" alt="MPTC Decoration" class="left-decoration-img">
+            
+            <div class="college-text">
+                <div class="college-name">
+                    MODEL POLYTECHNIC COLLEGE, VADAKARA
+                </div>
+                <div class="college-management">
+                    (IHRD - Govt. of Kerala)
+                </div>
+            </div>
+
+            <img src="icons/ihrd.png" alt="IHRD Logo" class="college-logo-img">
+        </div>
+    </div>
+
+    <ul id="nav">
+        <li class="top"><a href="#home" class="top_link" onclick="load_home()"> <span> Home </span></a></li>
+        <li class="top"><a href="#contacts" class="top_link"><span class="down">Administration</span></a>
+            <ul class="sub">
+                <li><a href="#principal" class="fly" onclick="load_principal()"> <span>Principal </span></a></li>
+                <li><a href="#orgchart" class="fly" onclick="load_orgchart()">Organization Chart</a></li>
+                <li><a href="#pta" class="fly" onclick="load_pta()">Parents & Teachers Association</a></li>
+                <li><a href="#staffclub" class="fly">Staff Club</a></li>
+                <li><a href="#ihrd" class="fly" onclick="load_ihrd()"> <span>About IHRD </span></a></li>
+            </ul>
+        </li>
+
+        <li class="top"><a href="#contacts" id="contacts" class="top_link"><span class="down">Departments</span></a>
+            <ul class="sub">
+                <li><a href="#bme" class="bme" onclick="load_bme()"> <span>Bio Medical Engineering </span> </a></li>
+                <li><a href="#ce" class="ce" onclick="load_ce()"> <span>Computer Engineering </span></a></li>
+                <li><a href="#che" class="che" onclick="load_che()"> <span>Computer Hardware Engineering </span></a></li>
+                <li><a href="#ec" class="ec" onclick="load_ec()"> <span>Electronics Engineering </span></a></li>
+                <li><a href="#eee" class="eee" onclick="load_eee()"> <span>Electrical & Electronics Engg </span></a></li>
+                <li><a href="#gen" class="gen" onclick="load_gen()"> <span>General Departments </span></a></li>
+                <li><a href="#Office" class="gen" onclick="load_office()"> <span>Office Administration </span></a></li>
+            </ul>
+        </li>
+
+        <li class="top"><a href="#nogo27" id="contacts" class="top_link"><span class="down">Committees</span></a>
+            <ul class="sub">
+                <li><a href="#acccomm" class="fly" onclick="load_acccomm()"> <span>Accademic Council </span> </a></li>
+                <li><a href="#anticomm" class="fly" onclick="load_antcomm()"> <span>Antiragging Cell </span> </a></li>
+                <li><a href="#antisquad" class="fly">Antiragging Squad</a></li>
+                <li><a href="#grc" class="fly">Grievance Redressal Committee</a></li>
+                <li><a href="#wcell" class="fly">Women's Cell</a></li>
+                <li><a href="#icc" class="fly">Internal Complaints Committee</a></li>
+                <li><a href="#iqa" class="fly">Internal Quality Assuarance Cell</a></li>
+            </ul>
+        </li>
+
+        <li class="top"><a href="#nogo27" id="contacts" class="top_link"><span class="down">Activities</span></a>
+            <ul class="sub">
+                <li><a href="#nss" class="fly" onclick="load_nss()"><span>National Service Scheme </span></a></li>
+                <li><a href="#vimukthi" class="fly" onclick="load_vimukthi()" > <span>Vimukthi Club </span></a></li>
+                <li><a href="#iedc" class="fly" onclick="load_iedc()"><span>IEDC Cell </span></a></li>
+                <li><a href="#yip" class="fly" onclick="load_yip()"><span>YIP Club </span></a></li>
+                <li><a href="#staffclub" class="fly" onclick="load_staff()"><span>Staff Club</span></a></li>
+                <li><a href="#council" class="fly" onclick="load_council()"><span>Students Council</span></a></li>
+                <li><a href="#arts" class="fly" onclick="load_arts()"><span>Arts & Sports Club</span></a></li>
+            </ul>
+        </li>
+        
+        <li class="top"><a href="#nogo27" id="contacts" class="top_link"><span class="down">Facilities</span></a>
+            <ul class="sub">
+                <li><a href="#library" class="fly" onclick="load_library()"><span>Library</span></a></li>
+                <li><a href="#nogo29" class="fly">Campus WiFi</a></li>
+                <li><a href="#nogo29" class="fly">Canteen</a></li>
+                <li><a href="#nogo29" class="fly">Central Computing Facility</a></li>
+            </ul>
+        </li>
+
+        <li class="top"><a href="#nogo27" id="contacts" class="top_link"><span class="down">Training & Placement Cell</span></a>
+            <ul class="sub">
+                <li><a href="#tpcell" class="fly" onclick="load_tpcell()"><span>About Training & Placement Cell</span></a></li>
+                <li><a href="#po" class="fly" onclick="load_po()"><span>T & P Cell Members</span></a></li>
+                <li><a href="#nogo29" class="fly">Placement Details</a></li>
+                <li><a href="#nogo29" class="fly">Placed Students</a></li>
+                <li><a href="#nogo29" class="fly">Major Recruiters</a></li>
+                <li><a href="#nogo29" class="fly">Recruiters Registration</a></li>
+                <li><a href="#nogo29" class="fly">Students Registration</a></li>
+                <li><a href="#nogo29" class="fly">BTech Joinees</a></li>
+            </ul>
+        </li>
+
+        <li class="top"><a href="#nogo27" id="contacts" class="top_link"><span class="down">Alumni</span></a>
+            <ul class="sub">
+                <li><a href="#alumniact" class="fly" onclick="load_alumniact()"><span>Alumni Activities</span></a></li>
+                <li><a href="#nogo29" class="fly">Register Alumni</a></li>
+            </ul>
+        </li>
+
+        <li class="top"><a href="#nogo27" id="contacts" class="top_link"><span class="down">Other Services</span></a>
+            <ul class="sub">
+                <li><a href="#nogo29" class="fly">Question Bank</a></li>
+                <li><a href="#nogo29" class="fly">Fee Structure</a></li>
+                <li><a href="#nogo29" class="fly">Gallery</a></li>
+            </ul>
+        </li>
+        <li class="top"><a href="#nogo57" id="privacy" class="top_link"><span>About Us</span></a></li>
+    </ul>
+
+    <div class="marquee-container">
+        <marquee width="100%" direction="left" scrollamount="5">
+            <a href="http://www.polyadmission.org">ADMISSION 2025 STARTED..... 
+            Last Date : June 10. Click here to submit online Application.</a> 
+            <font>Contact : 8547005079, 9961219065, 9497840006</font>
+        </marquee>
+    </div>
+
+    <div id="content">
+	 <table align="center" width="90%" style='font-family: Arial, sans-serif;font-weight: normal;font-size: 20px;'>
+		<tr>
+			<td></td>
+			<td align="center" width="70%" >
+				<img src="images/mptc.jpg" height="100%" width="100%">
+			</td>
+			<td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer-main">
+        <div class="footer-column">
+            <img src="icons/ihrd.png" alt="IHRD Logo in Footer">
+            <br>
+            Model Polytechnic College, Vadakara.
+            <br>
+            The institution is managed by 
+            <br>
+            Institute of Human Resources Development (IHRD) 
+            <br>
+            fully owned and controlled by Govt. of Kerala
+        </div>
+
+        <div class="footer-column">
+            <u><b>Quick Links</b></u>
+            <a href="#home" onclick="load_home()">Home</a>
+            <a href="#about" onclick="load_about()">About Us</a>
+            <a href="http://www.polyadmission.org">Admission</a>
+            <a href="#news" onclick="load_news()">News & Events</a>
+            <a href="#gallery" onclick="load_gallery()">Gallery</a>
+        </div>
+        
+        <div class="footer-column">
+            <u><b>Location Map</b></u>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.3157948389867!2d75.5964394!3d11.600819999999997!
+			2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6846d26d70171%3A0x7c9b131aee0ba2e2!2s
+			Model%20polytechnic%20college!5e0!3m2!1sen!2sin!4v1758550922345!5m2!1sen!2sin" 
+			width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        
+        <div class="footer-column">
+            <u><b>Get in Touch</b></u>
+            Model Polytechnic College, Vadakara
+            <br>
+            Cherusseri Road
+            <br>
+            Nut Street PO, Vadakara.
+            <br>
+            Phone No : 0496-2524920
+            <br>
+            Mobile No : 8547005079
+            <br>
+            Email : mptvadakara.ihrd@gmail.com
+        </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+        The site developed and managed by : Rajeevan M, Lecturer in Computer Application - MPTC Vadakara
+    </div>
+</body>
+</html>

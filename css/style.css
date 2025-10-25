@@ -1,0 +1,317 @@
+/* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light background for contrast */
+            color: #333;
+            /*line-height: 1.6;*/
+        }
+
+        /* --- Header Section --- */
+        .header-container {
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative; /* Needed for any absolute positioning inside if desired */
+        }
+
+        .top-bar {
+            background-color: #000080; /* Dark Blue */
+            color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 20px;
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar-item i {
+            font-size: 18px;
+        }
+
+        .main-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px 25px 50px;
+        }
+
+        .left-decoration-img {
+            width: 100px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .college-logo-img {
+            width: 110px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .college-text {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        .college-name {
+            font-size: 50px;
+            font-weight: bold;
+            color: #000080;
+            margin-bottom: 5px;
+        }
+
+        .college-management {
+            font-size: 30px;
+            color: #000080;
+            font-weight: normal;
+        }
+
+        /* --- Navigation Bar --- */
+        #nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #336600; /* Green from the image */
+            display: flex;
+            justify-content: center; /* Center the navigation items */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #nav li {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            white-space: nowrap;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        #nav li a:hover,
+        #nav li.top_link:hover { /* Added for the main links */
+            background-color: #4CAF50; /* Lighter green on hover */
+        }
+
+        /* Submenu Styling */
+        #nav ul.sub {
+            list-style: none;
+            position: absolute;
+            left: -999em; /* Hide dropdowns off-screen */
+            top: 100%; /* Position below parent */
+            background-color: #336600; /* Same green as main nav */
+            padding: 5px 0;
+            z-index: 1000;
+            min-width: 200px; /* Ensure dropdown has enough width */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #nav ul.sub li {
+            border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator */
+        }
+        #nav ul.sub li:last-child {
+            border-bottom: none;
+        }
+
+        #nav ul.sub li a {
+            padding: 8px 15px;
+            color: white;
+            font-size: 14px;
+        }
+
+        #nav ul.sub li a:hover {
+            background-color: #4CAF50;
+        }
+
+        #nav li:hover ul.sub {
+            left: 0; /* Show dropdown on hover */
+        }
+
+        /* Marquee Styles */
+        .marquee-container {
+            background-color: yellow;
+            color: black;
+            padding: 5px 0;
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: normal;
+        }
+        .marquee-container a {
+            color: #000080; /* Dark blue for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .marquee-container a:hover {
+            text-decoration: underline;
+        }
+        .marquee-container font { /* For the contact numbers */
+            color: black; /* Changed from 'while' to 'black' */
+            margin-left: 20px;
+        }
+
+        /* Main Content Area */
+        #content {
+            width: 100%;
+            /* min-height: 400px; Adjust as needed */
+            box-sizing: border-box; /* Include padding in width calculation */
+            overflow: hidden; /* Clear floats or handle large content */
+            margin-bottom: 20px; /* Space above footer */
+        }
+
+        #content img {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove extra space below image */
+        }
+        
+        #content object {
+            width: 100%;
+            height: 500px; /* Default height for dynamically loaded content */
+            border: none;
+        }
+
+        /* --- Footer Section --- */
+        .footer-main {
+            background-color: #0066FF; 
+            color: white;
+            padding: 5px 5px;
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            justify-content: space-around;
+            align-items: flex-start; /* Align content to the top of each column */
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-column {
+            flex: 1; /* Each column takes equal space */
+            min-width: 250px; /* Minimum width for each column before wrapping */
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 5px; /* Space between columns when wrapped */
+        }
+
+        .footer-column img {
+            max-width: 80px; /* Adjust footer logo size */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .footer-column u {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            display: block; /* Each link on its own line */
+            margin-bottom: 5px;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-column iframe {
+            max-width: 100%;
+            height: 100px;
+        }
+
+        .footer-bottom-bar {
+            background-color: #6699FF; /* Lighter blue from image */
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 1024px) {
+            .main-info {
+                padding: 15px 30px 20px 30px;
+            }
+            #nav li a {
+                padding: 10px 10px;
+            }
+            .college-name {
+                font-size: 28px;
+            }
+            .college-management {
+                font-size: 15px;
+            }
+            .footer-column {
+                min-width: 45%; /* Two columns per row on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 8px 20px;
+            }
+            .top-bar-item {
+                margin: 4px 0;
+            }
+            .main-info {
+                flex-direction: column;
+                padding: 15px 20px;
+                text-align: center;
+            }
+            .left-decoration-img,
+            .college-logo-img {
+                width: 60px;
+                margin-bottom: 10px;
+            }
+            #nav {
+                flex-direction: column; /* Stack nav items on small screens */
+                align-items: center;
+            }
+            #nav li {
+                width: 100%;
+                text-align: center;
+            }
+            #nav li ul.sub {
+                position: static; /* Make dropdowns flow normally */
+                width: 100%;
+                left: auto;
+                box-shadow: none;
+                background-color: #2a5200; /* Slightly darker green for sub-menus */
+            }
+            .college-name {
+                font-size: 24px;
+            }
+            .college-management {
+                font-size: 14px;
+            }
+            .marquee-container {
+                font-size: 16px;
+            }
+            .footer-main {
+                flex-direction: column;
+                padding: 20px 10px;
+            }
+            .footer-column {
+                min-width: 100%; /* Single column on small screens */
+                margin-bottom: 15px;
+            }
+        }
