@@ -313,6 +313,34 @@ Focus on Mobile-First Refinements
         max-width: 3.75rem; /* 60px */
         margin-bottom: 0.625rem;
     }
+
+
+    #nav li ul.sub {
+        position: static; 
+        width: 100%;
+        box-shadow: none;
+        background-color: #2a5200; 
+        
+        /* CRITICAL: Use max-height for smooth collapse/expand transition */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out; /* Add transition for animation */
+    }
+
+    /* CRITICAL: New class to open the submenu on click */
+    #nav li.item--open ul.sub {
+        /* Use a value large enough to accommodate all sub-links */
+        max-height: 500px; 
+        transition: max-height 0.5s ease-in; 
+    }
+    
+    /* Ensure the main link is styled for visual feedback */
+    #nav li.item--open > a.top_link {
+        background-color: #4CAF50; /* Highlight the active parent link */
+    }
+
+
+
     
     /* Mobile Navigation (Stacked Menu) */
     #nav {
@@ -452,4 +480,5 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     
     /* ... existing 768px styles for header/footer ... */
 }
+
 
