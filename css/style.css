@@ -220,7 +220,7 @@ img {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-around;
-    align-items: flux-start; 
+    align-items: flex-start; 
     text-align: center;
     font-size: 0.875rem; /* 14px */
 }
@@ -493,6 +493,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     
     /* ... existing 768px styles for header/footer ... */
 }
+
 
 
 
