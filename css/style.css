@@ -46,7 +46,7 @@ body {
     justify-content: space-between;
     align-items: center;
     /* Use 'em' or 'rem' for padding */
-    padding: 1.5rem 3rem 1.5rem 3rem; 
+    padding: .5rem 3rem .5rem 3rem; 
 }
 
 /* Use max-width and height: auto for flexible images */
@@ -493,6 +493,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     
     /* ... existing 768px styles for header/footer ... */
 }
+
 
 
 
