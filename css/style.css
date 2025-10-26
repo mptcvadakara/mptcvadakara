@@ -371,3 +371,85 @@ Focus on Mobile-First Refinements
         font-size: 0.875rem;
     }
 }
+
+
+
+
+
+
+/* --- New CSS for the Toggle Button --- */
+.nav-toggle {
+    display: none; /* Hide by default on desktop */
+    background-color: #336600; 
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    width: 100%; /* Make it full width below the header */
+    text-align: left;
+    font-size: 1.25rem;
+    border-radius: 0;
+}
+
+/* --- Navigation Bar Desktop Styles (No change needed here) --- */
+/* ... existing #nav styles remain for desktop display: flex ... */
+
+
+/* ********************************************************************************
+RESPONSIVE ADJUSTMENTS (Media Queries)
+********************************************************************************
+*/
+@media (max-width: 768px) {
+    
+    /* 1. Show the Mobile Toggle Button */
+    .nav-toggle {
+        display: block; 
+    }
+    
+    /* 2. Hide the Menu by Default and Prepare for Toggle */
+    #nav {
+        flex-direction: column; 
+        align-items: center;
+        /* HIDE THE MENU by default on mobile */
+        display: none; 
+        width: 100%;
+    }
+    
+    /* 3. State when the menu is active (Toggled via JS) */
+    #nav.nav-menu--open {
+        display: flex; /* SHOW the menu */
+    }
+
+    /* 4. Fix list item and dropdown behavior on mobile */
+    #nav li {
+        width: 100%;
+        text-align: left; /* Align links to the left inside the full-width button */
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    #nav li:first-child {
+        border-top: none;
+    }
+    
+    /* 5. Submenu modification for static flow on mobile */
+    #nav li ul.sub {
+        position: static; 
+        width: 100%;
+        box-shadow: none;
+        background-color: #2a5200; 
+        /* Initially hide sub-menus */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    /* Optional: If you want to allow submenus to expand on click (via JS) */
+    /* Add a class, e.g., 'sub--open', via JS on click */
+    /*
+    #nav li.item--open ul.sub {
+        max-height: 500px; // Use a large fixed value or calculated height 
+    }
+    */
+    
+    /* ... existing 768px styles for header/footer ... */
+}
+
