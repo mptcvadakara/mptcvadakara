@@ -1,47 +1,125 @@
 <!DOCTYPE html>
-<html>
-	<head>
-    	<meta charset="UTF-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<title>Model Polytechnic College - Vadakara</title>
-	</head>
-	<body>
-		<table align="center" width="70%">
-			<tr style='font-family: Arial, sans-serif;font-weight: normal;font-size: 20px; background-color:cornflowerblue;'>
-				<td>
-					<h3>&nbsp&nbspParents and Teachers Association </h3>
-				</td>
-			</tr>
-			<tr style='font-family: Arial, sans-serif;font-weight: normal;font-size: 16px;'>
-				<td>
-					<p><strong>Objectives</strong>:</p>
-				   <ol>
-					<li>To review and make recommendations to the principal about academic programs and strategic priorities.</li>
-					<li>To check the day-to-day academic affairs.</li>
-					<li>To ensure that the institution's academic programs are appropriate for students.</li>
-					<li>To ensure that the academic quality issues remain a top priority of the institution.</li>
-					<li>To recommend the principal regarding required facilities for academics such as books, journals etc.</li>
-					<li>To look after the infrastructure which affects academics.</li>
-					<li>To take care of the discipline and course and conduct in the campus.</li>
-					<li>To maintain the decorum of day to day activity.</li>
-					<li>To undertake quality-related research studies, consultancy and training programmes.</li>
-				     </ol>
-				</td>
-			</tr>
-			<tr style='font-family: Arial, sans-serif;font-weight: normal;font-size: 16px;'>
-				<td>
-					<p><strong>Members</strong>:</p>
-					<ol>
-						<li>Sajith P (Principal)</li>
-						<li>Member 1 (HOD, Bio Medical Engineering)</li>
-						<li>Member 2 (HOD, Computer Engineering)</li>
-						<li>Member 3 (HOD, Computer Hardware Engineering)</li>
-						<li>Member 4 (HOD, Electronics Engineering)</li>
-						<li>Member 5 (HOD, Electrical & Electronics Engineering)</li>
-						<li>Member 6 (Junior Supdt.)</li>
-					</ol>
-				</td>
-			</tr>
-		</table>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents and Teachers Association</title>
+    <style>
+        /* Base Styles and Typography */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background-color: #f0f2f5; /* Light background */
+            display: flex;
+            justify-content: center; /* Center the content container */
+        }
+
+        /* Container for responsiveness and max-width control */
+        .pta-container {
+            width: 100%;
+            max-width: 800px; /* Max width to prevent content from stretching too wide on large screens */
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden; /* Clear floats/contain elements */
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        .pta-header {
+            background-color: cornflowerblue;
+            color: #ffffff;
+            padding: 15px 20px; /* Use relative padding */
+            font-weight: normal;
+        }
+
+        .pta-header h3 {
+            margin: 0;
+            font-size: 1.5em; /* Relative font size */
+        }
+
+        /* Content Sections */
+        .pta-section {
+            padding: 15px 20px;
+            font-size: 1rem; /* Base relative font size */
+        }
+
+        .pta-section p strong {
+            display: block; /* Make the title stand out */
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* List Styling (Objectives and Members) */
+        .pta-section ol {
+            padding-left: 25px; /* Adjust padding for smaller screens */
+            margin: 0;
+        }
+
+        .pta-section li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        /* Device Independence via Media Queries */
+        @media (max-width: 600px) {
+            .pta-container {
+                margin: 10px 0;
+                border-radius: 0; /* Full width on very small screens */
+            }
+            .pta-header {
+                padding: 10px 15px;
+            }
+            .pta-header h3 {
+                font-size: 1.25em; /* Smaller header on mobile */
+            }
+            .pta-section {
+                padding: 10px 15px;
+                font-size: 0.95rem; /* Slightly smaller text for better fit */
+            }
+            .pta-section ol {
+                padding-left: 20px; /* Less indentation on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pta-container">
+
+        <div class="pta-header">
+            <h3>Parents and Teachers Association</h3>
+        </div>
+
+        <div class="pta-section">
+            <p><strong>Objectives</strong>:</p>
+           <ol>
+                <li>To review and make recommendations to the principal about academic programs and strategic priorities.</li>
+                <li>To check the day-to-day academic affairs.</li>
+                <li>To ensure that the institution's academic programs are appropriate for students.</li>
+                <li>To ensure that the academic quality issues remain a top priority of the institution.</li>
+                <li>To recommend the principal regarding required facilities for academics such as books, journals etc.</li>
+                <li>To look after the infrastructure which affects academics.</li>
+                <li>To take care of the discipline and course and conduct in the campus.</li>
+                <li>To maintain the decorum of day to day activity.</li>
+                <li>To undertake quality-related research studies, consultancy and training programmes.</li>
+             </ol>
+        </div>
+
+        <div class="pta-section">
+            <p><strong>Members</strong>:</p>
+            <ol>
+                <li>Sajith P (Principal)</li>
+                <li>Member 1 (HOD, Bio Medical Engineering)</li>
+                <li>Member 2 (HOD, Computer Engineering)</li>
+                <li>Member 3 (HOD, Computer Hardware Engineering)</li>
+                <li>Member 4 (HOD, Electronics Engineering)</li>
+                <li>Member 5 (HOD, Electrical & Electronics Engineering)</li>
+                <li>Member 6 (Junior Supdt.)</li>
+            </ol>
+        </div>
+    </div>
+</body>
 </html>
