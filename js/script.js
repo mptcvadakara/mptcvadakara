@@ -100,12 +100,25 @@
         }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Select the main elements
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
-        // Main Navigation Toggle Logic (Shows/Hides the menu when clicking the hamburger icon)
+        
+        // Function to collapse the entire mobile menu
+        const collapseMainMenu = () => {
+            if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
+                navMenu.classList.remove('nav-menu--open');
+                navToggle.setAttribute('aria-expanded', false);
+                
+                // Also collapse any open submenus when the main menu closes
+                document.querySelectorAll('#nav li.item--open').forEach(li => {
+                    li.classList.remove('item--open');
+                });
+            }
+        };
+
+        // 1. Main Navigation Toggle Logic (Hamburger Icon)
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu--open');
             const isExpanded = navMenu.classList.contains('nav-menu--open');
@@ -113,62 +126,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // ----------------------------------------------------
-        // 2. Submenu Toggle Logic for Mobile (Kept as before)
+        // 2. Submenu Toggle Logic for Mobile 
         // ----------------------------------------------------
-        const parentMenuItems = document.querySelectorAll('#nav li.top:has(ul.sub)');
+        const parentMenuItems = navMenu.querySelectorAll('li.top:has(ul.sub)');
 
         parentMenuItems.forEach(parentLi => {
             const mainLink = parentLi.querySelector('a.top_link');
             
             if (mainLink) {
                 mainLink.addEventListener('click', function(e) {
-                    // Only apply toggle logic on mobile (when the nav is vertically stacked)
                     if (window.innerWidth <= 768) {
                         
-                        // Prevent default navigation for main parent links
-                        e.preventDefault(); 
+                        // Check if the link's hash is '#', '#nogoXX', or similar non-content links
+                        // If it has a valid href (like #home), it should be allowed to navigate/close
+                        const isNavigationalLink = mainLink.hash && mainLink.hash !== '#';
                         
-                        // Toggle the 'item--open' class to expand/collapse the submenu
+                        // If the link is NOT a final destination link (i.e., it's just a menu header),
+                        // we prevent default to only handle the submenu toggle.
+                        if (mainLink.hash === "#contacts" || mainLink.hash.includes("#nogo")) {
+                             e.preventDefault();
+                        }
+                        
+                        // Always toggle the submenu on mobile click
                         parentLi.classList.toggle('item--open');
 
-                        // Optional: Collapse other open submenus
+                        // Collapse other open submenus
                         parentMenuItems.forEach(otherLi => {
                             if (otherLi !== parentLi && otherLi.classList.contains('item--open')) {
                                 otherLi.classList.remove('item--open');
                             }
                         });
+                        
+                        // If the main link IS a navigational link AND it doesn't have a submenu open,
+                        // collapse the main menu immediately.
+                        if (isNavigationalLink && !parentLi.classList.contains('item--open')) {
+                            // Use a slight delay to ensure the page navigation begins
+                            setTimeout(collapseMainMenu, 50);
+                        }
                     }
                 });
             }
         });
 
         // ----------------------------------------------------
-        // 3. CRITICAL: Collapse Menu When Any Link is Clicked
+        // 3. Collapse Menu When Any Submenu Link is Clicked
         // ----------------------------------------------------
         
-        // Select all anchor tags inside the main navigation
+        // Select all anchor tags (excluding those with submenus, as they were handled above)
+        // and add a listener to ensure they close the menu.
         const allNavLinks = navMenu.querySelectorAll('a');
 
         allNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                // Check if the menu is currently open on a small screen
-                if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
-                    
-                    // Delay the collapse slightly to allow the click action (like loading new content) to start
-                    setTimeout(() => {
-                        navMenu.classList.remove('nav-menu--open');
-                        navToggle.setAttribute('aria-expanded', false);
-                        
-                        // Optional: Also collapse any open submenus when the main menu closes
-                        document.querySelectorAll('#nav li.item--open').forEach(li => {
-                            li.classList.remove('item--open');
-                        });
-                        
-                    }, 50); // 50ms delay
-                }
-            });
+            // Check if the link is a destination link (i.e., not a parent menu header)
+            const isDestination = !link.parentElement.classList.contains('top') || link.parentElement.closest('ul').classList.contains('sub');
+
+            if (isDestination) {
+                link.addEventListener('click', function() {
+                    // Use a slight delay to ensure the page navigation begins before the menu hides
+                    setTimeout(collapseMainMenu, 50); 
+                });
+            }
         });
     }
 });
+
 
 
