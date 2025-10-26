@@ -99,44 +99,53 @@
 
         }
 
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Select the elements
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
-        // 2. Add the click event listener
+        // Main Navigation Toggle Logic (Kept as before)
         navToggle.addEventListener('click', function() {
-            // Toggle the CSS class 'nav-menu--open'
             navMenu.classList.toggle('nav-menu--open');
-            
-            // Optional: Update the accessibility attribute (aria-expanded)
             const isExpanded = navMenu.classList.contains('nav-menu--open');
             navToggle.setAttribute('aria-expanded', isExpanded);
         });
 
-        // 3. Optional: Add logic to handle submenu toggling on click (not hover)
-        const topLinksWithSub = document.querySelectorAll('#nav li.top > a.top_link span.down');
+        // ----------------------------------------------------
+        // CRITICAL: Submenu Toggle Logic for Mobile
+        // ----------------------------------------------------
         
-        topLinksWithSub.forEach(linkSpan => {
-            // Target the <a> parent of the <span>
-            const link = linkSpan.parentElement; 
-            // Target the <li> parent of the <a>
-            const parentLi = link.parentElement;
+        // Select all main menu items that have submenus
+        const parentMenuItems = document.querySelectorAll('#nav li.top:has(ul.sub)');
+
+        parentMenuItems.forEach(parentLi => {
+            // Find the main link for this parent item
+            const mainLink = parentLi.querySelector('a.top_link');
             
-            link.addEventListener('click', function(e) {
-                // Only act on mobile (when the menu is collapsed)
-                if (window.innerWidth <= 768) {
-                    // Prevent the default link action if the sub-menu is present
-                    e.preventDefault(); 
-                    
-                    // Toggle a class on the parent <li> to expand the sub-menu
-                    parentLi.classList.toggle('item--open');
-                }
-            });
+            // Check if the link exists and prevents navigation
+            if (mainLink) {
+                mainLink.addEventListener('click', function(e) {
+                    // Only apply toggle logic on mobile (when the nav is vertically stacked)
+                    if (window.innerWidth <= 768) {
+                        
+                        // Prevent default navigation (following the href)
+                        e.preventDefault(); 
+                        
+                        // Toggle the 'item--open' class on the parent <li> to expand/collapse the submenu
+                        parentLi.classList.toggle('item--open');
+
+                        // Optional: Collapse other open submenus
+                        parentMenuItems.forEach(otherLi => {
+                            if (otherLi !== parentLi && otherLi.classList.contains('item--open')) {
+                                otherLi.classList.remove('item--open');
+                            }
+                        });
+                    }
+                    // If window.innerWidth > 768, the link will follow its default behavior (hover dropdown)
+                });
+            }
         });
+        
     }
 });
+
