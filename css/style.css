@@ -57,7 +57,7 @@ body {
 }
 
 .college-logo-img {
-    max-width: 6.875rem; /* 110px / 16 = 6.875rem */
+    max-width: 5.875rem; /* 110px / 16 = 6.875rem */
     height: auto;
     object-fit: contain;
 }
@@ -72,7 +72,7 @@ body {
 
 .college-name {
     /* Large font size, will be reduced in media queries */
-    font-size: 3rem; /* 50px / 16 ≈ 3rem */
+    font-size: 2.5rem; /* 50px / 16 ≈ 3rem */
     font-weight: bold;
     color: #000080;
     margin-bottom: 0.3125rem; /* 5px */
@@ -516,6 +516,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
