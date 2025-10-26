@@ -197,8 +197,6 @@ body {
     max-width: 100%; /* Safety measure */
 }
 
-
-
 img {
     /* Ensures all images never exceed their container width, making them shrink on mobile */
     max-width: 100%; 
@@ -218,11 +216,11 @@ img {
     background-color: #0066FF; 
     color: white;
     /* Reduce vertical padding */
-    padding: 0.625rem 0.3125rem; 
+    padding: 0.12rem 0.1rem; 
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-around;
-    align-items: flex-start; 
+    align-items: center; 
     text-align: center;
     font-size: 0.875rem; /* 14px */
 }
@@ -495,6 +493,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     
     /* ... existing 768px styles for header/footer ... */
 }
+
 
 
 
