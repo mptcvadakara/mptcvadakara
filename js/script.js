@@ -96,4 +96,47 @@
 
         function load_alumniact() {
             document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumniact.html" ></object>';
+
         }
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Select the elements
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav');
+
+    if (navToggle && navMenu) {
+        // 2. Add the click event listener
+        navToggle.addEventListener('click', function() {
+            // Toggle the CSS class 'nav-menu--open'
+            navMenu.classList.toggle('nav-menu--open');
+            
+            // Optional: Update the accessibility attribute (aria-expanded)
+            const isExpanded = navMenu.classList.contains('nav-menu--open');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // 3. Optional: Add logic to handle submenu toggling on click (not hover)
+        const topLinksWithSub = document.querySelectorAll('#nav li.top > a.top_link span.down');
+        
+        topLinksWithSub.forEach(linkSpan => {
+            // Target the <a> parent of the <span>
+            const link = linkSpan.parentElement; 
+            // Target the <li> parent of the <a>
+            const parentLi = link.parentElement;
+            
+            link.addEventListener('click', function(e) {
+                // Only act on mobile (when the menu is collapsed)
+                if (window.innerWidth <= 768) {
+                    // Prevent the default link action if the sub-menu is present
+                    e.preventDefault(); 
+                    
+                    // Toggle a class on the parent <li> to expand the sub-menu
+                    parentLi.classList.toggle('item--open');
+                }
+            });
+        });
+    }
+});
