@@ -182,13 +182,20 @@ body {
     width: 100%;
     box-sizing: border-box; 
     overflow: hidden; 
-    margin-bottom: 1.25rem; /* 20px */
+    margin-bottom: 0.25rem; /* 20px */
 }
 
 #content img {
     max-width: 100%; /* Ensure responsiveness */
     height: auto; 
     display: block; 
+}
+
+img {
+    /* Ensures all images never exceed their container width, making them shrink on mobile */
+    max-width: 100%; 
+    height: auto;
+    display: block; /* Helps remove stray space below images */
 }
 
 /* Use relative height for embedded objects if possible */
@@ -480,5 +487,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     
     /* ... existing 768px styles for header/footer ... */
 }
+
 
 
