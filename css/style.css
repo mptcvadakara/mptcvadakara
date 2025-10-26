@@ -351,9 +351,6 @@ Focus on Mobile-First Refinements
     #nav li.item--open > a.top_link {
         background-color: #4CAF50; /* Highlight the active parent link */
     }
-
-
-
     
     /* Mobile Navigation (Stacked Menu) */
     #nav {
@@ -422,14 +419,16 @@ Focus on Mobile-First Refinements
     padding: 0.8rem 1rem;
     cursor: pointer;
     width: 100%;
-    
-    /* ADD FLEXBOX to align icon and text */
-    display: flex; 
-    justify-content: space-between; /* Pushes icon to left, text to right */
-    align-items: center;
-    
     font-size: 1.25rem;
     border-radius: 0;
+    
+    /* ADD FLEXBOX for alignment */
+    display: flex; 
+    /* CRITICAL CHANGE: Align items to the start (left) */
+    justify-content: flex-start; 
+    align-items: center;
+    /* Add space between the icon and the text */
+    gap: 0.6rem;
 }
 
 /* --- Navigation Bar Desktop Styles (No change needed here) --- */
@@ -446,7 +445,18 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
    .nav-toggle {
         display: flex; /* OVERRIDE 'display: none' from general styles */
     }
+
+    /* Style the text specifically to ensure its size is readable */
+    .nav-toggle .menu-text {
+        font-weight: bold;
+        font-size: 1rem; /* Adjust size relative to icon */
+    }
     
+    /* Optional: Ensure the icon (bars) is centered vertically */
+    .nav-toggle i.fa-bars {
+        font-size: 1.25rem;
+    }
+
     /* Optional: Style the text specifically */
     .nav-toggle span {
         font-weight: bold;
@@ -506,6 +516,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
