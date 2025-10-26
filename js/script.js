@@ -100,11 +100,12 @@
         }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // 1. Select the main elements
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
-        // Main Navigation Toggle Logic (Kept as before)
+        // Main Navigation Toggle Logic (Shows/Hides the menu when clicking the hamburger icon)
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu--open');
             const isExpanded = navMenu.classList.contains('nav-menu--open');
@@ -112,26 +113,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // ----------------------------------------------------
-        // CRITICAL: Submenu Toggle Logic for Mobile
+        // 2. Submenu Toggle Logic for Mobile (Kept as before)
         // ----------------------------------------------------
-        
-        // Select all main menu items that have submenus
         const parentMenuItems = document.querySelectorAll('#nav li.top:has(ul.sub)');
 
         parentMenuItems.forEach(parentLi => {
-            // Find the main link for this parent item
             const mainLink = parentLi.querySelector('a.top_link');
             
-            // Check if the link exists and prevents navigation
             if (mainLink) {
                 mainLink.addEventListener('click', function(e) {
                     // Only apply toggle logic on mobile (when the nav is vertically stacked)
                     if (window.innerWidth <= 768) {
                         
-                        // Prevent default navigation (following the href)
+                        // Prevent default navigation for main parent links
                         e.preventDefault(); 
                         
-                        // Toggle the 'item--open' class on the parent <li> to expand/collapse the submenu
+                        // Toggle the 'item--open' class to expand/collapse the submenu
                         parentLi.classList.toggle('item--open');
 
                         // Optional: Collapse other open submenus
@@ -141,11 +138,37 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         });
                     }
-                    // If window.innerWidth > 768, the link will follow its default behavior (hover dropdown)
                 });
             }
         });
+
+        // ----------------------------------------------------
+        // 3. CRITICAL: Collapse Menu When Any Link is Clicked
+        // ----------------------------------------------------
         
+        // Select all anchor tags inside the main navigation
+        const allNavLinks = navMenu.querySelectorAll('a');
+
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Check if the menu is currently open on a small screen
+                if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
+                    
+                    // Delay the collapse slightly to allow the click action (like loading new content) to start
+                    setTimeout(() => {
+                        navMenu.classList.remove('nav-menu--open');
+                        navToggle.setAttribute('aria-expanded', false);
+                        
+                        // Optional: Also collapse any open submenus when the main menu closes
+                        document.querySelectorAll('#nav li.item--open').forEach(li => {
+                            li.classList.remove('item--open');
+                        });
+                        
+                    }, 50); // 50ms delay
+                }
+            });
+        });
     }
 });
+
 
