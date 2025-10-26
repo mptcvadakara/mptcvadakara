@@ -99,19 +99,21 @@
 
         }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
         
-        // Function to collapse the entire mobile menu
+        // Function to collapse the entire mobile menu (HIDES the main UL)
         const collapseMainMenu = () => {
+            // Ensure we are on a small screen and the menu is currently open
             if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
                 navMenu.classList.remove('nav-menu--open');
                 navToggle.setAttribute('aria-expanded', false);
                 
-                // Also collapse any open submenus when the main menu closes
+                // Also close any currently open submenus (optional, but cleaner)
                 document.querySelectorAll('#nav li.item--open').forEach(li => {
                     li.classList.remove('item--open');
                 });
@@ -125,9 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navToggle.setAttribute('aria-expanded', isExpanded);
         });
 
-        // ----------------------------------------------------
-        // 2. Submenu Toggle Logic for Mobile 
-        // ----------------------------------------------------
+        // 2. Submenu Toggle Logic for Mobile (Parent Links)
         const parentMenuItems = navMenu.querySelectorAll('li.top:has(ul.sub)');
 
         parentMenuItems.forEach(parentLi => {
@@ -137,17 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainLink.addEventListener('click', function(e) {
                     if (window.innerWidth <= 768) {
                         
-                        // Check if the link's hash is '#', '#nogoXX', or similar non-content links
-                        // If it has a valid href (like #home), it should be allowed to navigate/close
-                        const isNavigationalLink = mainLink.hash && mainLink.hash !== '#';
+                        // Prevent default navigation for all parent links
+                        // as their primary role on mobile is to toggle the submenu.
+                        e.preventDefault(); 
                         
-                        // If the link is NOT a final destination link (i.e., it's just a menu header),
-                        // we prevent default to only handle the submenu toggle.
-                        if (mainLink.hash === "#contacts" || mainLink.hash.includes("#nogo")) {
-                             e.preventDefault();
-                        }
-                        
-                        // Always toggle the submenu on mobile click
+                        // Toggle the submenu state
                         parentLi.classList.toggle('item--open');
 
                         // Collapse other open submenus
@@ -156,39 +150,22 @@ document.addEventListener('DOMContentLoaded', function() {
                                 otherLi.classList.remove('item--open');
                             }
                         });
-                        
-                        // If the main link IS a navigational link AND it doesn't have a submenu open,
-                        // collapse the main menu immediately.
-                        if (isNavigationalLink && !parentLi.classList.contains('item--open')) {
-                            // Use a slight delay to ensure the page navigation begins
-                            setTimeout(collapseMainMenu, 50);
-                        }
                     }
                 });
             }
         });
 
-        // ----------------------------------------------------
-        // 3. Collapse Menu When Any Submenu Link is Clicked
-        // ----------------------------------------------------
-        
-        // Select all anchor tags (excluding those with submenus, as they were handled above)
-        // and add a listener to ensure they close the menu.
-        const allNavLinks = navMenu.querySelectorAll('a');
+        // 3. CRITICAL FIX: Collapse Menu When Any Navigational Link is Clicked
+        //    This targets: 
+        //    a) Top-level links without submenus (e.g., Home, About Us)
+        //    b) All links inside submenus (leaf links)
+        const navigationalLinks = navMenu.querySelectorAll('li:not(:has(ul.sub)) > a, ul.sub a');
 
-        allNavLinks.forEach(link => {
-            // Check if the link is a destination link (i.e., not a parent menu header)
-            const isDestination = !link.parentElement.classList.contains('top') || link.parentElement.closest('ul').classList.contains('sub');
-
-            if (isDestination) {
-                link.addEventListener('click', function() {
-                    // Use a slight delay to ensure the page navigation begins before the menu hides
-                    setTimeout(collapseMainMenu, 50); 
-                });
-            }
+        navigationalLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Wait a moment to ensure the content loading/navigation begins before hiding the menu
+                setTimeout(collapseMainMenu, 50); 
+            });
         });
     }
 });
-
-
-
