@@ -413,11 +413,6 @@ Focus on Mobile-First Refinements
     }
 }
 
-
-
-
-
-
 /* --- New CSS for the Toggle Button --- */
 .nav-toggle {
     display: none; /* Hide by default on desktop */
@@ -426,8 +421,13 @@ Focus on Mobile-First Refinements
     border: none;
     padding: 0.8rem 1rem;
     cursor: pointer;
-    width: 100%; /* Make it full width below the header */
-    text-align: left;
+    width: 100%;
+    
+    /* ADD FLEXBOX to align icon and text */
+    display: flex; 
+    justify-content: space-between; /* Pushes icon to left, text to right */
+    align-items: center;
+    
     font-size: 1.25rem;
     border-radius: 0;
 }
@@ -443,10 +443,16 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
 @media (max-width: 768px) {
     
     /* 1. Show the Mobile Toggle Button */
-    .nav-toggle {
-        display: block; 
+   .nav-toggle {
+        display: flex; /* OVERRIDE 'display: none' from general styles */
     }
     
+    /* Optional: Style the text specifically */
+    .nav-toggle span {
+        font-weight: bold;
+        font-size: 1rem; /* Adjust size relative to icon */
+    }
+   
     /* 2. Hide the Menu by Default and Prepare for Toggle */
     #nav {
         flex-direction: column; 
@@ -493,6 +499,14 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     
     /* ... existing 768px styles for header/footer ... */
 }
+
+/* Hide the icon/text on desktop */
+@media (min-width: 769px) {
+     .nav-toggle {
+        display: none;
+    }
+}
+
 
 
 
