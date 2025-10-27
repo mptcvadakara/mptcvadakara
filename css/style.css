@@ -531,6 +531,36 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
+/* ---------------------------------------------------- */
+/* 📌 Responsive Image Styling for the Content Area 📌 */
+/* ---------------------------------------------------- */
+
+.responsive-content-img {
+    /* CRUCIAL for responsiveness: Ensures the image scales down and never exceeds its parent width */
+    max-width: 100%; 
+    /* Maintains the image's original aspect ratio to prevent distortion */
+    height: auto; 
+    /* Ensures the image is treated as a block for correct layout flow */
+    display: block;
+    /* Centers the block-level image within its container */
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    /* Forces the table and its cells within #content to behave like full-width blocks */
+    #content table,
+    #content tr, 
+    #content td {
+        display: block; 
+        width: 100% !important; /* Force full width override */
+        padding: 0;
+    }
+    
+    /* Center the image cell on mobile */
+    #content td[align="center"] {
+        text-align: center;
+    }
+}
 
 
 
