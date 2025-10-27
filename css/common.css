@@ -3,16 +3,18 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
 /* Styles for the main table container */
 .content-table {
-    width: 95%;
     max-width: 1200px; /* Limits width on very large screens */
-    margin: 0 auto; /* Centers the table */
     font-family: Arial, sans-serif;
     font-weight: normal;
     font-size: 20px;
+    width: 90%; /* Use percentage for a flexible width */
+    margin: 20px auto; /* Center the table */
     border-collapse: collapse;
 }
 
@@ -40,8 +42,19 @@ body {
 
 /* Text content cell */
 .text-cell {
+    width: 20%; /* Allocate a fixed percentage for the image on large screens */
+    padding: 10px;
     vertical-align: top;
-    padding-left: 10px; /* Add some left padding for visual separation */
+}
+
+.spacer-cell {
+    width: 1%; /* Small spacer */
+}
+
+.text-cell {
+    width: 79%; /* Remaining width for text */
+    padding: 10px;
+    vertical-align: top;
 }
 
 /* Replaces the repeated '&nbsp;' with CSS indentation */
@@ -58,17 +71,21 @@ body {
 /* When the screen width is 768px or less, the layout changes to vertical stacking. */
 @media screen and (max-width: 768px) {
     /* Forces the table structure elements to behave like full-width blocks */
-    .content-table,
+    .content-table {
+        width: 100%; /* Use full width on small screens */
+        margin: 0;
+    }
     .content-table tr, 
     .content-table td {
         display: block; 
         width: 100%; /* Each stacked element takes full width */
+        padding: 5px 20px; /* Add padding for breathing room on the sides */
     }
 
     /* Reset padding and margins for stacked cells */
     .image-cell {
-        padding: 0 0 20px 0; /* Add bottom margin after the image */
-        width: 100%;
+        text-align: center; /* Center the image when it's on its own row */
+        padding-bottom: 0; /* Adjust padding for better flow */
     }
     
     .spacer-cell {
@@ -77,13 +94,17 @@ body {
     
     .text-cell {
         padding: 0;
-        width: 100%;
     }
     
     /* Adjust text size for better mobile readability */
     .content-table {
         font-size: 16px; 
     }
+
+    .paragraph-indent {
+        text-indent: 0; /* Remove text indentation on small screens for better readability */
+    }
 }
+
 
 
