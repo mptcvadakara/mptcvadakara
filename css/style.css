@@ -189,7 +189,7 @@ body {
 #content img {
     max-width: 60%; /* Ensure responsiveness */
     height: auto; 
-    display: block; 
+    display: flex; 
 }
 
 #content table {
@@ -516,6 +516,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
