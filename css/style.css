@@ -187,9 +187,10 @@ body {
     display: flex; 
 }
 
-#content img {
+#content content-img {
     max-width: 60%; /* Ensure responsiveness */
     height: auto; 
+    display: flex; 
 }
 
 #content table {
@@ -197,11 +198,11 @@ body {
     max-width: 100%; /* Safety measure */
 }
 
-img {
+content-img {
     /* Ensures all images never exceed their container width, making them shrink on mobile */
     max-width: 100%; 
     height: auto;
-    /* display: flex;  Helps remove stray space below images */
+    display: flex;  /* Helps remove stray space below images */
 }
 
 /* Use relative height for embedded objects if possible */
@@ -516,6 +517,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
