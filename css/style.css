@@ -562,6 +562,51 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
+/* --- Smallest Mobile Screens (Max-Width 480px) --- */
+@media (max-width: 480px) {
+    .college-name {
+        font-size: 1.25rem; /* Even smaller font */
+    }
+    .college-management {
+        font-size: 0.75rem; /* Smallest font */
+    }
+    .top-bar {
+        font-size: 0.75rem;
+    }
+    .footer-bottom-bar {
+        font-size: 0.875rem;
+    }
+}
+
+/* Styling for the slideshow container */
+.slideshow-container {
+    width: 100%;
+    max-width: 900px; /* Adjust max-width as needed for your design */
+    margin: 0 auto; /* Center the container in the #content area */
+    overflow: hidden;
+    /* Optional: Add a standard height to prevent content shifting if images have different aspect ratios */
+    /* height: 500px; 
+    border: 1px solid #ccc; */
+}
+
+/* 📌 Responsive Image Styling for the Slideshow 📌 */
+.responsive-slideshow-img {
+    /* CRUCIAL for responsiveness: Ensures the image scales down and never exceeds its parent width */
+    max-width: 100%; 
+    /* Maintains the image's original aspect ratio to prevent distortion */
+    height: auto; 
+    /* Ensures the image is treated as a block for correct layout flow */
+    display: block;
+    width: 100%; /* Ensure it fills the container horizontally */
+}
+
+/* You may need to add or keep media queries to further refine the overall site layout */
+@media screen and (max-width: 768px) {
+    .slideshow-container {
+        max-width: 100%; /* Allow container to take full width on mobile */
+    }
+}
+
 /* ---------------------------------------------------- */
 /* SLIDESHOW STYLING WITH NAVIGATION BUTTONS */
 /* ---------------------------------------------------- */
@@ -630,6 +675,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
