@@ -172,35 +172,78 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Example of a load function in js/script.js
-function load_gallery() {
-    // Check if running on a server environment (like a web server)
-    // If not using a server, this might require a different approach or an 
-    // AJAX call to load the file content. Using an iframe is the simplest 
-    // way to load an external HTML file instantly in a cross-browser compatible manner 
-    // without relying on advanced JavaScript/AJAX features, which might be overkill here.
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Array of image file paths (as uploaded)
+    const images = [
+        'mptc.jpg',
+        'ce1.jpg',
+        'bme1.jpg',
+        'che2.jpg',
+        'lib3.jpg',
+        'lib1.jpg',
+        'lib2.jpg'
+    ];
     
-    const contentArea = document.getElementById('content');
     
-    // Using an iframe to load the carousel content
-    contentArea.innerHTML = `
-        <object type="text/html" data="carousel.html" style="width:100%; height:550px;">
-            Your browser doesn't support the &lt;object&gt; tag.
-        </object>
-    `;
+    // Assuming the images are stored in a relative path like 'images/mptc.jpg'
+    const imagePathPrefix = 'images/'; 
     
-    // Alternative method (AJAX/Fetch - assumes file is accessible via network)
-    /*
-    fetch('carousel.html')
-        .then(response => response.text())
-        .then(html => {
-            contentArea.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error loading carousel content:', error);
-            contentArea.innerHTML = '<p>Error loading gallery content.</p>';
-        });
-    */
-}
+    let currentImageIndex = 0;
+    const slideshowElement = document.getElementById('slideshow-img');
+    const delay = 2000; // 3000 milliseconds = 3 seconds
 
 
+	// Function to display a specific slide
+const showImage = (n) => {
+    const slideshowElement = document.getElementById('slideshow-img');
+    if (!slideshowElement) return;
+
+    // Calculate the new index, ensuring it loops back correctly
+    currentImageIndex = (n + images.length) % images.length;
+
+    // Update the image source
+    slideshowElement.src = imagePathPrefix + images[currentImageIndex];
+};
+
+// Function to handle manual button clicks
+window.plusSlides = (n) => {
+    // Stop the automatic slideshow temporarily when manually navigating (optional but recommended)
+    // The setInterval function is restarted below.
+    clearInterval(slideshowInterval); 
+    
+    // Call showImage with the new direction (n can be +1 or -1)
+    showImage(currentImageIndex + n);
+    
+    // Restart the interval after a manual click
+    slideshowInterval = setInterval(autoSlideshow, 2000);
+};
+
+
+// Function for the automatic slideshow logic
+const autoSlideshow = () => {
+    // Show the current index, then increment for the next run
+    showImage(currentImageIndex);
+    currentImageIndex++;
+};
+
+    if (slideshowElement) {
+        // Function to change the image source
+        const changeImage = () => {
+            // Set the new image source
+            slideshowElement.src = imagePathPrefix + images[currentImageIndex];
+            
+            // Advance the index for the next image, wrapping around to 0
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        };
+
+        // Start the slideshow by calling the function immediately, then setting the interval
+        changeImage(); // Show the first image right away
+        
+        // Set an interval to continuously change the image every 3 seconds
+        setInterval(changeImage, delay);
+    }
+});
+
+// NOTE: Placeholder functions like load_home(), load_principal(), etc., 
+// which were in your original HTML, should also be defined in this script.js 
+// if they are needed for navigation.
