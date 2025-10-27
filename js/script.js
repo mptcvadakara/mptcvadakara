@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
     
     // Assuming the images are stored in a relative path like 'images/mptc.jpg'
-    const imagePathPrefix = 'images/'; 
+    const imagePathPrefix = '../images/'; 
     
     let currentImageIndex = 0;
     const slideshowElement = document.getElementById('slideshow-img');
@@ -243,4 +243,5 @@ const autoSlideshow = () => {
 // NOTE: Placeholder functions like load_home(), load_principal(), etc., 
 // which were in your original HTML, should also be defined in this script.js 
 // if they are needed for navigation.
+
 
