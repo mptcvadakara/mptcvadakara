@@ -49,6 +49,14 @@ body {
     padding: .5rem 3rem .5rem 3rem; 
 }
 
+/* --- New Rule for Centering and Limiting Width --- */
+#main-wrapper {
+    width: 100%; /* Enforce 60% width */
+    margin: 0 auto; /* Center the wrapper horizontally */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle border effect */
+    background-color: #ffffff; /* Ensure background is white inside the container */
+}
+
 /* Use max-width and height: auto for flexible images */
 .left-decoration-img {
     max-width: 6.25rem; /* 100px / 16 = 6.25rem */
@@ -517,6 +525,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
