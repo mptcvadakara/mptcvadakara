@@ -57,7 +57,7 @@ body {
 }
 
 .college-logo-img {
-    max-width: 5.875rem; /* 110px / 16 = 6.875rem */
+    max-width: 6.25rem; /* 110px / 16 = 6.875rem */
     height: auto;
     object-fit: contain;
 }
@@ -516,6 +516,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
