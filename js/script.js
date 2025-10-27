@@ -172,76 +172,66 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Array of image file paths (as uploaded)
-    const images = [
-        'mptc.jpg',
-        'ce1.jpg',
-        'bme1.jpg',
-        'che2.jpg',
-        'lib3.jpg',
-        'lib1.jpg',
-        'lib2.jpg'
-    ];
-    
-    
-    // Assuming the images are stored in a relative path like 'images/mptc.jpg'
-    const imagePathPrefix = 'images/'; 
-    
-    let currentImageIndex = 0;
-    const slideshowElement = document.getElementById('slideshow-img');
-    const delay = 2000; // 3000 milliseconds = 3 seconds
+// Array of image file paths (as uploaded by the user)
+const images = [
+    'mptc.jpg',
+    'ce1.jpg',
+    'bme1.jpg',
+    'che2.jpg',
+    'lib3.jpg',
+    'lib1.jpg',
+    'lib2.jpg'
+];
 
+const imagePathPrefix = 'images/'; 
+let currentImageIndex = 0;
+let slideshowInterval;
+const delay = 3000; // 3000 milliseconds = 3 seconds
 
-	// Function to display a specific slide
-const showImage = (n) => {
+// 1. Function to display a specific slide (by updating the index)
+const showImage = (newIndex) => {
     const slideshowElement = document.getElementById('slideshow-img');
     if (!slideshowElement) return;
 
-    // Calculate the new index, ensuring it loops back correctly
-    currentImageIndex = (n + images.length) % images.length;
+    // Use the modulo operator (%) to ensure the index wraps around correctly
+    // (n + images.length) % images.length handles both positive (Next) and negative (Prev) wrap-arounds.
+    currentImageIndex = (newIndex + images.length) % images.length;
 
     // Update the image source
     slideshowElement.src = imagePathPrefix + images[currentImageIndex];
 };
 
-// Function to handle manual button clicks
+// 2. Function for the automatic slideshow logic
+const autoSlideshow = () => {
+    // Simply moves to the next slide
+    showImage(currentImageIndex + 1);
+};
+
+
+// 3. Function to handle manual button clicks (called via onclick in HTML)
 window.plusSlides = (n) => {
-    // Stop the automatic slideshow temporarily when manually navigating (optional but recommended)
-    // The setInterval function is restarted below.
+    // A. Clear the existing automatic interval
     clearInterval(slideshowInterval); 
     
-    // Call showImage with the new direction (n can be +1 or -1)
+    // B. Manually move to the requested slide (current index + direction: +1 or -1)
     showImage(currentImageIndex + n);
     
-    // Restart the interval after a manual click
-    slideshowInterval = setInterval(autoSlideshow, 2000);
+    // C. Restart the automatic interval from the new current index
+    slideshowInterval = setInterval(autoSlideshow, delay);
 };
 
 
-// Function for the automatic slideshow logic
-const autoSlideshow = () => {
-    // Show the current index, then increment for the next run
-    showImage(currentImageIndex);
-    currentImageIndex++;
-};
-
-    if (slideshowElement) {
-        // Function to change the image source
-        const changeImage = () => {
-            // Set the new image source
-            slideshowElement.src = imagePathPrefix + images[currentImageIndex];
-            
-            // Advance the index for the next image, wrapping around to 0
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-        };
-
-        // Start the slideshow by calling the function immediately, then setting the interval
-        changeImage(); // Show the first image right away
-        
-        // Set an interval to continuously change the image every 3 seconds
-        setInterval(changeImage, delay);
-    }
+// 4. Initialization: Run the slideshow logic when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Start the automatic slideshow
+    slideshowInterval = setInterval(autoSlideshow, delay);
 });
 
-
+/*
+NOTE: The original HTML had various functions like load_home(), load_principal(), etc.
+These functions must be defined in this script.js file if they are needed for navigation.
+Example:
+window.load_home = () => { console.log("Loading Home Page"); };
+window.load_principal = () => { console.log("Loading Principal Page"); };
+// ... Define all other load_ functions here ...
+*/
