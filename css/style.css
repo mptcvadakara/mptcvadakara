@@ -336,6 +336,11 @@ Focus on Mobile-First Refinements
         margin-bottom: 0.625rem;
     }
 
+    #main-wrapper {
+        width: 100%;
+        margin: 0;
+        box-shadow: none; 
+    }
 
     #nav li ul.sub {
         position: static; 
@@ -525,6 +530,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
