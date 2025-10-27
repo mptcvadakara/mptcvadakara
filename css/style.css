@@ -187,7 +187,7 @@ body {
 }
 
 #content img {
-    max-width: 100%; /* Ensure responsiveness */
+    max-width: 60%; /* Ensure responsiveness */
     height: auto; 
     display: block; 
 }
@@ -516,6 +516,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
