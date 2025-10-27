@@ -12,7 +12,7 @@ body {
     margin: 0 auto; /* Centers the table */
     font-family: Arial, sans-serif;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 14px;
     border-collapse: collapse;
 }
 
@@ -82,9 +82,10 @@ body {
     
     /* Adjust text size for better mobile readability */
     .content-table {
-        font-size: 14px; 
+        font-size: 16px; 
     }
 
 }
+
 
 
