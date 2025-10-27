@@ -96,9 +96,11 @@
 
         function load_alumniact() {
             document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumniact.html" ></object>';
-
         }
 
+		function load_gallery() {
+            document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/carousel.html" ></object>';
+        }
 
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
@@ -169,3 +171,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Example of a load function in js/script.js
+function load_gallery() {
+    // Check if running on a server environment (like a web server)
+    // If not using a server, this might require a different approach or an 
+    // AJAX call to load the file content. Using an iframe is the simplest 
+    // way to load an external HTML file instantly in a cross-browser compatible manner 
+    // without relying on advanced JavaScript/AJAX features, which might be overkill here.
+    
+    const contentArea = document.getElementById('content');
+    
+    // Using an iframe to load the carousel content
+    contentArea.innerHTML = `
+        <object type="text/html" data="carousel.html" style="width:100%; height:550px;">
+            Your browser doesn't support the &lt;object&gt; tag.
+        </object>
+    `;
+    
+    // Alternative method (AJAX/Fetch - assumes file is accessible via network)
+    /*
+    fetch('carousel.html')
+        .then(response => response.text())
+        .then(html => {
+            contentArea.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading carousel content:', error);
+            contentArea.innerHTML = '<p>Error loading gallery content.</p>';
+        });
+    */
+}
+
+
