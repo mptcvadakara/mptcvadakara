@@ -184,11 +184,11 @@ body {
     box-sizing: border-box; 
     overflow: hidden; 
     margin-bottom: 0.25rem; /* 20px */
-    display: flex; 
+    /* display: flex; */ 
 }
 
 #content content-img {
-    max-width: 60%; /* Ensure responsiveness */
+    max-width: 1000%; /* Ensure responsiveness */
     height: auto; 
     display: flex; 
 }
@@ -517,6 +517,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         display: none;
     }
 }
+
 
 
 
