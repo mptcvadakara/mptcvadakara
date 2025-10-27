@@ -562,6 +562,75 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
+/* ---------------------------------------------------- */
+/* SLIDESHOW STYLING WITH NAVIGATION BUTTONS */
+/* ---------------------------------------------------- */
+
+.slideshow-container {
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto; 
+    overflow: hidden;
+    /* 📌 CRUCIAL: Must be relative for absolute positioning of buttons to work */
+    position: relative; 
+}
+
+.responsive-slideshow-img {
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    width: 100%;
+}
+
+/* Style for the navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    /* Absolute positioning relative to .slideshow-container */
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border: none;
+    border-radius: 3px;
+    z-index: 10; /* Ensure buttons are above the image */
+}
+
+/* Position the "Previous" button on the left */
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Position the "Next" button on the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a darker background color */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Media Query for Mobile/Smaller Screens */
+@media screen and (max-width: 768px) {
+    .slideshow-container {
+        max-width: 100%;
+    }
+    
+    /* Make buttons smaller on small screens */
+    .prev, .next {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
 
 
 
