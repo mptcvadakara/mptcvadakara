@@ -98,10 +98,6 @@
             document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumniact.html" ></object>';
         }
 
-		function load_gallery() {
-            document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/carousel.html" ></object>';
-        }
-
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
@@ -247,3 +243,4 @@ const autoSlideshow = () => {
 // NOTE: Placeholder functions like load_home(), load_principal(), etc., 
 // which were in your original HTML, should also be defined in this script.js 
 // if they are needed for navigation.
+
