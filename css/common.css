@@ -98,13 +98,14 @@ body {
     
     /* Adjust text size for better mobile readability */
     .content-table {
-        font-size: 16px; 
+        font-size: 14px; 
     }
 
     .paragraph-indent {
-        text-indent: 0; /* Remove text indentation on small screens for better readability */
+        text-indent: 40; /* Remove text indentation on small screens for better readability */
     }
 }
+
 
 
 
