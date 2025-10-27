@@ -98,8 +98,12 @@
             document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumniact.html" ></object>';
         }
 
-		 function load_gallery() {
+		function load_gallery() {
             document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/gallery.html" ></object>';
+        }
+
+		function load_alumnireg() {
+            document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumnireg.html" ></object>';
         }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -235,3 +239,4 @@ window.load_home = () => { console.log("Loading Home Page"); };
 window.load_principal = () => { console.log("Loading Principal Page"); };
 // ... Define all other load_ functions here ...
 */
+
