@@ -12,7 +12,7 @@ body {
     max-width: 1200px; /* Limits width on very large screens */
     font-family: Arial, sans-serif;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 14px;
     width: 90%; /* Use percentage for a flexible width */
     margin: 20px auto; /* Center the table */
     border-collapse: collapse;
@@ -105,6 +105,7 @@ body {
         text-indent: 40; /* Remove text indentation on small screens for better readability */
     }
 }
+
 
 
 
