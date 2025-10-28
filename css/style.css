@@ -225,7 +225,7 @@ content-img {
     background-color: #0066FF; 
     color: white;
     /* Reduce vertical padding */
-    padding: 0.625rem 0.3125rem; 
+    padding: 0.125rem 0.125rem; 
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-around;
@@ -675,6 +675,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
