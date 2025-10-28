@@ -195,9 +195,9 @@ body {
 }
 
 #content content-img {
-    max-width: 100%; /* Ensure responsiveness */
+   /* max-width: 100%; /* Ensure responsiveness */
     height: auto; 
-    display: flex; 
+    display: flex; */
 }
 
 #content table {
@@ -673,6 +673,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
