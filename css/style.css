@@ -172,6 +172,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     font-weight: normal;
+    margin-bottom: 0.5rem;
 }
 .marquee-container a {
     color: #000080; 
@@ -191,7 +192,7 @@ body {
     width: 100%;
     box-sizing: border-box; 
     overflow: hidden; 
-    margin-bottom: 1.25rem; /* 20px */
+    margin-bottom: 0.25rem; 
 }
 
 #content content-img {
@@ -673,6 +674,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
