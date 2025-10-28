@@ -183,15 +183,24 @@ document.addEventListener('DOMContentLoaded', function() {
 // Array of image file paths (as uploaded by the user)
 const images = [
     'mptc.jpg',
-    'ce1.jpg',
-    'bme1.jpg',
-    'che2.jpg',
-    'lib3.jpg',
-    'lib1.jpg',
-    'lib2.jpg'
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '4.jpg',
+    '5.jpg',
+    '6.jpg',
+    '7.jpg',
+    '8.jpg',
+    '9.jpg',
+    '10.jpg',
+    '11.jpg',
+    '12.jpg',
+    '13.jpg',
+    '14.jpg',
+    '15.jpg'
 ];
 
-const imagePathPrefix = 'images/'; 
+const imagePathPrefix = 'Slides/'; 
 let currentImageIndex = 0;
 let slideshowInterval;
 const delay = 3000; // 3000 milliseconds = 3 seconds
@@ -243,5 +252,6 @@ window.load_home = () => { console.log("Loading Home Page"); };
 window.load_principal = () => { console.log("Loading Principal Page"); };
 // ... Define all other load_ functions here ...
 */
+
 
 
