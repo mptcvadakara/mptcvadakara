@@ -192,7 +192,7 @@ body {
     box-sizing: border-box; 
     overflow: hidden; 
     margin-bottom: 0.25rem; /* 20px */
-    /* display: flex; */ 
+    display: flex;
 }
 
 #content content-img {
@@ -275,11 +275,10 @@ content-img {
     background-color: #6699FF; 
     color: black;
     /* Use 'rem' */
-    padding: 0.625rem 1.25rem; 
+    padding: 0.35rem .5rem; 
     text-align: center;
-    font-size: 1.125rem; /* 18px */
+    font-size: 1rem; /* 18px */
 }
-
 
 /* ********************************************************************************
 RESPONSIVE ADJUSTMENTS (Media Queries)
@@ -675,6 +674,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
