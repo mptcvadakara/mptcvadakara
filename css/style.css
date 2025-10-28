@@ -192,7 +192,8 @@ body {
     width: 100%;
     box-sizing: border-box; 
     overflow: hidden; 
-    margin-bottom: 0.25rem; 
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
 }
 
 #content content-img {
@@ -674,6 +675,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
