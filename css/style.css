@@ -193,7 +193,7 @@ body {
     overflow: hidden; 
     margin-bottom: 0.25rem; /* 20px */
     margin-top: 0.25rem;
-    /*display: flex;*/
+    display: flex;
 }
 
 #content content-img {
@@ -675,6 +675,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
