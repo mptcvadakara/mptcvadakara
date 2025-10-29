@@ -5,286 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Engineering Department</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <style>
-        /* BASE STYLES */
-        :root {
-            --primary-color: #000080; /* Dark Blue */
-            --secondary-color: #336600; /* Green */
-            --bg-light: #f9f9f9;
-            --text-dark: #333;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
-
-        .ce-section {
-            width: 90%;
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background-color: #fff;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-        }
-        
-        /* GENERAL IMAGE STYLING */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 4px;
-        }
-
-        /* --- 1. BANNER --- */
-        .ce-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .ce-header img {
-            width: 100%;
-            /* Fixed height for the banner, but uses object-fit to prevent stretching */
-            height: 300px; 
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* --- 2. INTRO SECTION --- */
-        .ce-intro {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            align-items: flex-start;
-        }
-
-        .intro-text {
-            flex: 3; /* Takes 65% space on desktop */
-            line-height: 1.8;
-            font-size: 1.125rem; /* 18px */
-            text-align: justify;
-        }
-
-        .intro-image {
-            flex: 1; /* Takes 35% space on desktop */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        /* --- 3. GALLERY --- */
-        .ce-gallery {
-            display: grid;
-            /* 3 equal columns on desktop */
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .gallery-item {
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 6px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 200px; /* Fixed height for gallery consistency */
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item img:hover {
-            transform: scale(1.05);
-        }
-        
-        /* --- 4. OBJECTIVES --- */
-        .ce-objectives {
-            margin-top: 2rem;
-        }
-        .ce-objectives h2 {
-            font-size: 1.375rem; /* 22px */
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .ce-objectives ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .ce-objectives li {
-            font-size: 1.125rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .ce-objectives li::before {
-            content: "\2731"; /* A decorative star bullet point */
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 1.25rem;
-            margin-right: 0.75rem;
-            margin-top: -0.2rem;
-        }
-
-        /* --- 5. FACULTY --- */
-        .faculty-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin: 2.5rem 0 1.5rem 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .faculty-hod {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .faculty-hod img {
-            width: 200px; 
-            height: 200px;
-            border-radius: 50%; /* Circular image */
-            margin: 0 auto 1rem auto;
-            border: 2px solid var(--primary-color);
-            object-fit: cover;
-        }
-        .faculty-hod p {
-            font-size: 1.125rem;
-            margin: 0.2rem 0;
-            font-weight: bold;
-        }
-        .faculty-hod small {
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-        }
-
-        .faculty-members {
-            display: grid;
-            /* 3 equal columns for faculty */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            text-align: center;
-        }
-
-        .member-card {
-            padding: 1rem 0;
-        }
-
-        .member-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 0.5rem auto;
-            object-fit: cover;
-        }
-        .member-card p {
-            margin: 0.2rem 0;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        .member-card small {
-             color: var(--text-dark);
-             font-size: 0.85rem;
-        }
-
-        /* --- RESPONSIVENESS (MOBILE) --- */
-        @media (max-width: 768px) {
-            .ce-section {
-                width: 95%;
-                padding: 0.5rem;
-            }
-            
-            /* Stack intro text and image vertically */
-            .ce-intro {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .intro-text {
-                order: 2; /* Text below image */
-                font-size: 1rem;
-            }
-            .intro-image {
-                order: 1;
-                width: 100%;
-                margin: 0 auto;
-            }
-            
-            /* 2 columns on mobile */
-            .ce-gallery {
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            .gallery-item img {
-                height: 150px; 
-            }
-            
-            /* Single column for faculty and adjust spacing */
-            .faculty-members {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            /* Single column for gallery on very small screens */
-            .ce-gallery {
-                grid-template-columns: 1fr; 
-            }
-            .faculty-title {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../css/staff.css">
 </head>
 
 <body>
-    <div class="ce-section">
-        
-        <header class="ce-header">
-            <img src="../images/ce1.jpg" alt="Computer Engineering Lab/Equipment Banner">
+    <div class="dept-section">  
+        <header class="dept-header">
+            <img src="../images/bme1.jpg" alt="Biomedical Engineering Lab/Equipment Banner">
         </header>
 
-        <div class="ce-intro">
+        <div class="dept-intro">
             <div class="intro-text">
                 <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A diploma in computer engineering or computer science engineering is a 10+3 level of academic programme. It provides students with the basic knowledge of computer science, mathematics, computing techniques, and engineering concepts. Students enrolled in the course acquire skills that help them to become an IT professional and enter the world of work. The duration of the course is three years.
-                </p>
-                <p>
-                    The course is composed of core concepts in computer science, such as operating systems, databases, and mobile computing, and also includes communication skills. The curriculum is designed to prepare students for various job roles. Students can opt to pursue careers as software developers or go on to pursue higher education. A diploma in computer engineering will equip you with the skills to program in a particular language, such as Java, Android, or web programming, and make you employable in the field. The coursework covers a variety of software and hardware topics, teaching students how to code in Java and C++, as well as the theory of programming languages, evaluation of algorithms, and design of computer-based systems.
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At the starting of the college we had a Medical Electronics 
+                    branch, and from 2015 onwards, the branch was renamed as Biomedical Engg., with a modification in the syllabus. 
+                    In this diploma course, students will gain a strong base in electronics. They study Basic Electronics, 
+                    Electrical Engg., Electronic circuits, Linear integrated circuits, Digital Electronics, 
+                    Communication Engg., etc.. After that, the syllabus includes various imaging technologies, Therapeutic 
+                    equipments, diagnostic equips, analytical equipments, and basics of hardware and networking. 
+                    Candidates completing this course can work as biomedical engineers / service technicians 
+                    in hospitals or biomedical equipment agencies. Many Biomedical alumni are working 
+                    in organizations manufacturing biomedical equipments. Like all other diploma courses, 
+                    short-term and long-term courses are available for biomedical diploma holders. Biomedical engineering focuses on the advances that improve human health and health 
+                    care at all levels.
                 </p>
             </div>
             <div class="intro-image">
-                <img src="../images/che2.jpg" alt="Computer Engineering image">
+                <img src="../images/bio-1.jpg" alt="Biomedical Equipment in use">
             </div>
         </div>
 
-        <div class="ce-gallery">
-            <div class="gallery-item"><img src="../images/che3.jpg" alt="Computer Lab 1"></div>
-            <div class="gallery-item"><img src="../images/che4.jpg" alt="Computer Students at Work"></div>
-            <div class="gallery-item"><img src="../images/che5.jpg" alt="Computer Lab 2"></div>
+        <div class="dept-gallery">
+            <div class="gallery-item"><img src="../images/bm2.jpg" alt="Biomedical Lab 1"></div>
+            <div class="gallery-item"><img src="../images/bm3.jpeg" alt="Biomedical Students at Work"></div>
+            <div class="gallery-item"><img src="../images/bm4.jpg" alt="Biomedical Lab 2"></div>
         </div>
 
-        <div class="ce-objectives">
+        <div class="dept-objectives">
             <h2>Objectives:</h2>
             <ul>
-                <li>To provide every student with a strong conceptual foundation in the core areas of their subject.</li>
-                <li>To enable students to engineer ingenious solutions with the greatest degree of accuracy, flexibility, and based on the latest engineering paradigms.</li>
-                <li>To familiarize students with the latest in Electronics Engineering.</li>
-                <li>To provide the greatest amount of pragmatism in approaching an engineering solution.</li>
-                <li>To provide students with hands-on engineering experience through laboratory courses and projects.</li>
-                <li>To coach students to work in teams and provide insight and direction into the atmosphere as might be encountered by professionals in the field.</li>
+                <li>Biomedical engineering is a branch of engineering that applies principles of science, 
+                    engineering design, and material science to medicine and biology for healthcare purposes.</li>
+                <li>This stream of engineering is largely responsible for the design of sophisticated medical 
+                    equipments such as diagnostic and therapeutic machines and lifesaving devices.</li>
+                <li>The course teaches the candidates the fundamental principles of operation and format of analytical and diagnostic equipments.</li>
+                <li>The main motive of the course is to train the students in research technologies that would 
+                    bring out new medical cures and improve healthcare standards.</li>
+                <li>Students, after the completion of diploma in biomedical engineering, are well-versed in the 
+                    different dimensions involved in the field. They are hired as design engineers, marketing 
+                    professionals, biomedical engineers, research engineers, quality control engineers, 
+                    and much more in government and private firms.</li>
             </ul>
         </div>
         
-        <section class="ce-faculty">
+        <section class="dept-faculty">
             <div class="faculty-title">Faculty Members</div>
 
             <div class="faculty-hod">
@@ -293,37 +67,39 @@
                 <small>Head of the Department</small>
             </div>
 
-            <div class="faculty-members">
+            <div class="lectures">
                 <div class="member-card">
                     <img src="../images/lr.jpg" alt="Lecturer 1">
-                    <p>Name: Computer Engg Name</p>
-                    <small>Lr. in Computer Engineering</small>
+                    <p>Name: Bio Medcal Engg. Name</p>
+                    <small>Lr. in Bio Medical Engineering</small>
                 </div>
                 <div class="member-card">
                     <img src="../images/lr.jpg" alt="Lecturer 2">
-                    <p>Name: Computer Engg Name</p>
-                    <small>Lr. in Computer Engineering</small>
+                    <p>Name: Bio Medcal Engg. Name</p>
+                    <small>Lr. in Bio Medical Engineering</small>
                 </div>
                 <div class="member-card">
                     <img src="../images/lr.jpg" alt="Lecturer 3">
-                    <p>Name: Computer Engg Name</p>
-                    <small>Lr. in Computer Engineering</small>
+                    <p>Name: Bio Medcal Engg. Name</p>
+                    <small>Lr. in Bio Medical Engineering</small>
                 </div>
-
+	     </div>
+		
+	     <div class="sup_staff">
                 <div class="member-card">
                     <img src="../images/demo.jpg" alt="Demonstrator 1">
                     <p>Name: Demonstrator Name</p>
-                    <small>Demonstrator - Computer Engineering</small>
+                    <small>Demonstrator in Bio Medical Engineering</small>
                 </div>
                 <div class="member-card">
                     <img src="../images/demo.jpg" alt="Demonstrator 2">
                     <p>Name: Demonstrator Name</p>
-                    <small>Demonstrator - Computer Engineering</small>
+                    <small>Demonstrator in Bio Medical Engineering</small>
                 </div>
                 <div class="member-card">
                     <img src="../images/demo.jpg" alt="Demonstrator 3">
                     <p>Name: Demonstrator Name</p>
-                    <small>Demonstrator - Computer Engineering</small>
+                    <small>Demonstrator in Bio Medical Engineering</small>
                 </div>
             </div>
         </section>
