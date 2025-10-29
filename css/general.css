@@ -24,7 +24,7 @@
     .general-header {
         background-color: rgb(3, 49, 133);
         color: #ffffff;
-        padding: 15px 20px; /* Use relative padding */
+        padding: 5px 5px; /* Use relative padding */
         font-weight: normal;
     }
 
@@ -85,6 +85,7 @@
             padding-left: 20px; /* Less indentation on mobile */
         }
     }
+
 
 
 
