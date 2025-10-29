@@ -1,0 +1,230 @@
+ /* BASE STYLES */
+	:root {
+            --primary-color: #000080; /* Dark Blue */
+            --secondary-color: #336600; /* Green */
+            --bg-light: #f9f9f9;
+            --text-dark: #333;
+            font-size: 14px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .dept-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+        
+/* GENERAL IMAGE STYLING */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+ /* --- 1. BANNER --- */
+        .dept-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .dept-header img {
+            width: 100%;
+            /* Fixed height for the banner, but uses object-fit to prevent stretching */
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+/* --- 2. INTRO SECTION --- */
+        .dept-intro {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .intro-text {
+            flex: 3; /* Takes 65% space on desktop */
+            line-height: 1.8;
+            font-size: 1.125rem; /* 18px */
+            text-align: justify;
+        }
+
+        .intro-image {
+            flex: 1; /* Takes 35% space on desktop */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+/* --- 3. GALLERY --- */
+        .dept-gallery {
+            display: grid;
+            /* 3 equal columns on desktop */
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .gallery-item {
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px; /* Fixed height for gallery consistency */
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+        
+/* --- 4. OBJECTIVES --- */
+        .dept-objectives h2 {
+            font-size: 1.375rem; /* 22px */
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dept-objectives ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dept-objectives li {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .dept-objectives li::before {
+            content: "\2731"; /* A decorative star bullet point */
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+            margin-top: -0.2rem;
+        }
+
+ /* --- 5. FACULTY --- */
+        .faculty-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 2.5rem 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .faculty-hod {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .faculty-hod img {
+            width: 200px; 
+            height: 250px;
+            border-radius: 5%; /* Circular image */
+            margin: 0 auto 1rem auto;
+            border: 2px solid var(--primary-color);
+            object-fit: cover;
+        }
+        .faculty-hod p {
+            font-size: 1.125rem;
+            margin: 0.2rem 0;
+            font-weight: bold;
+        }
+        .faculty-hod small {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .lectures, .sup_staff {
+            display: grid;
+            /* 3 equal columns for faculty */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	    margin: 4rem auto 1rem auto;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .member-card img {
+            width: 150px;
+            height: 200px;
+            border-radius: 5%;
+	    border: 2px solid var(--primary-color);
+            margin: 0 auto 0.5rem auto;
+            object-fit: cover;
+        }
+        .member-card p {
+            margin: 0.2rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .member-card small {
+             color: var(--text-dark);
+             font-size: 0.85rem;
+        }
+
+/* --- RESPONSIVENESS (MOBILE) --- */
+        @media (max-width: 768px) {
+            .dept-section {
+                width: 95%;
+                padding: 0.5rem;
+            }
+            
+            /* Stack intro text and image vertically */
+            .dept-intro {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .intro-text {
+                order: 2; /* Text below image */
+                font-size: 1rem;
+            }
+            .intro-image {
+                order: 1;
+                width: 100%;
+                margin: 0 auto;
+            }
+            
+		/* 2 columns on mobile */
+            .dept-gallery {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            .dept-item img {
+                height: 150px; 
+            }
+            
+		/* Single column for faculty and adjust spacing */
+            .faculty-members {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Single column for gallery on very small screens */
+            .dept-gallery {
+                grid-template-columns: 1fr; 
+            }
+            .dept-title {
+                font-size: 1.25rem;
+            }
+        }
