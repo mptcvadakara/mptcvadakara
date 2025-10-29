@@ -24,7 +24,15 @@
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
             border-radius: 8px;
         }
-        
+
+		.paragraph-indent {
+    		text-indent: 40px; 
+    		margin-top: 0;
+    		margin-bottom: 0;
+    		line-height: 1.5;
+    		text-align: justify; /* Improves readability of large blocks of text */
+		}   
+
 /* GENERAL IMAGE STYLING */
         img {
             max-width: 100%;
@@ -228,3 +236,4 @@
                 font-size: 1.25rem;
             }
         }
+
