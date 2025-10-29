@@ -39,6 +39,12 @@
         font-size: 1rem; /* Base relative font size */
     }
 
+    .general-content p {
+            margin-top: 0;
+            margin-bottom: 1em; /* Space between paragraphs */
+            text-indent: 30px; /* Indents the first line of the paragraph */
+    }
+
     .general-section p strong {
         display: block; /* Make the title stand out */
         font-size: 1.1em;
@@ -77,3 +83,4 @@
             padding-left: 20px; /* Less indentation on mobile */
         }
     }
+
