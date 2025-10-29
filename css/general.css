@@ -1,0 +1,79 @@
+/* Base Styles and Typography */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 10px;
+        background-color: #f0f2f5; /* Light background */
+        display: flex;
+        justify-content: center; /* Center the content container */
+    }
+
+/* Container for responsiveness and max-width control */
+    .general-container {
+        width: 100%;
+        max-width: 800px; /* Max width to prevent content from stretching too wide on large screens */
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden; /* Clear floats/contain elements */
+        background-color: #ffffff;
+        box-sizing: border-box;
+    }
+
+/* Header Section */
+    .general-header {
+        background-color: rgb(3, 49, 133);
+        color: #ffffff;
+        padding: 15px 20px; /* Use relative padding */
+        font-weight: normal;
+    }
+
+    .general-header h3 {
+        margin: 0;
+        font-size: 1.5em; /* Relative font size */
+    }
+
+/* Content Sections */
+    .general-section {
+        padding: 15px 20px;
+        font-size: 1rem; /* Base relative font size */
+    }
+
+    .general-section p strong {
+        display: block; /* Make the title stand out */
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+/* List Styling (Objectives and Members) */
+    .general-section ol {
+        padding-left: 25px; /* Adjust padding for smaller screens */
+        margin: 0;
+    }
+
+    .general-section li {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+/* Device Independence via Media Queries */
+    @media (max-width: 600px) {
+        .general-container {
+            margin: 10px 0;
+            border-radius: 0; /* Full width on very small screens */
+        }
+        .general-header {
+            padding: 10px 15px;
+        }
+        .general-header h3 {
+            font-size: 1.25em; /* Smaller header on mobile */
+        }
+        .general-section {
+            padding: 10px 15px;
+            font-size: 0.95rem; /* Slightly smaller text for better fit */
+        }
+        .general-section ol {
+            padding-left: 20px; /* Less indentation on mobile */
+        }
+    }
