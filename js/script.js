@@ -262,11 +262,11 @@ function showSlides(n) {
     const slideshowImg = document.getElementById("slideshow-img");
 
     // 1. Calculate the new index
-    if (n > slides.length) {
+    if (n > images.length) {
         slideIndex = 1;
     }
     if (n < 1) {
-        slideIndex = slides.length;
+        slideIndex = images.length;
     }
 
     // 2. Add the 'fade-out' class to start the transition
@@ -276,7 +276,7 @@ function showSlides(n) {
     // The delay should match or slightly exceed the CSS transition time (1500ms for 1.5s)
     setTimeout(() => {
         // Change the image source while it's invisible (opacity: 0)
-        slideshowImg.src = slides[slideIndex - 1]; 
+        slideshowImg.src = images[slideIndex - 1]; 
         
         // 4. Remove the 'fade-out' class to trigger the fade-in of the new image
         slideshowImg.classList.remove("fade-out");
@@ -286,6 +286,7 @@ function showSlides(n) {
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
+
 
 
 
