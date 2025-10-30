@@ -53,7 +53,6 @@ body {
     text-align: justify; /* Improves readability of large blocks of text */
 }
 
-
 .organization-chart {
     max-width: 100%; /* Ensure the image doesn't overflow its container */
     height: auto; /* Maintain aspect ratio */
@@ -65,6 +64,14 @@ body {
 /* 📱 Media Query for Mobile/Smaller Screens (Stacking Layout) 📱 */
 /* When the screen width is 768px or less, the layout changes to vertical stacking. */
 @media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .chart-container {
+        padding: 15px;
+    }
+    
     /* Forces the table structure elements to behave like full-width blocks */
     .content-table,
     .content-table tr, 
@@ -93,4 +100,10 @@ body {
         font-size: 16px; 
     }
 
+    .chart-container {
+        padding: 15px;
+    }
 }
+
+
+
