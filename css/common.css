@@ -53,6 +53,14 @@ body {
     text-align: justify; /* Improves readability of large blocks of text */
 }
 
+
+.organization-chart {
+    max-width: 100%; /* Ensure the image doesn't overflow its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+    margin: 0 auto; /* Center the image if it's smaller than the max-width */
+}
+
 /* ---------------------------------------------------- */
 /* 📱 Media Query for Mobile/Smaller Screens (Stacking Layout) 📱 */
 /* When the screen width is 768px or less, the layout changes to vertical stacking. */
@@ -86,14 +94,3 @@ body {
     }
 
 }
-
-.organization-chart {
-    max-width: 100%; /* Ensure the image doesn't overflow its container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space below the image */
-    margin: 0 auto; /* Center the image if it's smaller than the max-width */
-}
-
-
-
-
