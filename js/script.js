@@ -183,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Array of image file paths (as uploaded by the user)
 const images = [
     'mptc.jpg',
-    '1.jpg',
     '2.jpg',
     '3.jpg',
     '4.jpg',
@@ -197,7 +196,8 @@ const images = [
     '12.jpg',
     '13.jpg',
     '14.jpg',
-    '15.jpg'
+    '15.jpg',
+    '1.jpg',
 ];
 
 const imagePathPrefix = 'Slides/'; 
@@ -252,6 +252,41 @@ window.load_home = () => { console.log("Loading Home Page"); };
 window.load_principal = () => { console.log("Loading Principal Page"); };
 // ... Define all other load_ functions here ...
 */
+
+let slideIndex = 1;
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+    const slideshowImg = document.getElementById("slideshow-img");
+
+    // 1. Calculate the new index
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+
+    // 2. Add the 'fade-out' class to start the transition
+    slideshowImg.classList.add("fade-out");
+
+    // 3. Set a timeout to change the image source after the fade-out completes
+    // The delay should match or slightly exceed the CSS transition time (1500ms for 1.5s)
+    setTimeout(() => {
+        // Change the image source while it's invisible (opacity: 0)
+        slideshowImg.src = slides[slideIndex - 1]; 
+        
+        // 4. Remove the 'fade-out' class to trigger the fade-in of the new image
+        slideshowImg.classList.remove("fade-out");
+
+    }, 1500); // 1500 milliseconds (1.5 seconds) delay
+}
+
+// Initialize the slideshow when the page loads
+showSlides(slideIndex);
+
 
 
 
