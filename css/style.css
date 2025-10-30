@@ -192,8 +192,8 @@ body {
     width: 100%;
     box-sizing: border-box; 
     overflow: hidden; 
-    /*margin-top: 0.5rem;*/
-    /*margin-bottom: 0.5rem; */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
     padding:0.2rem;
 }
 
@@ -677,6 +677,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
