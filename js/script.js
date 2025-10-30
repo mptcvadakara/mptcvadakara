@@ -203,7 +203,7 @@ const images = [
 const imagePathPrefix = 'Slides/'; 
 let currentImageIndex = 0;
 let slideshowInterval;
-const delay = 1000; // 3000 milliseconds = 3 seconds
+const delay = 300; // 3000 milliseconds = 3 seconds
 
 // 1. Function to display a specific slide (by updating the index)
 const showImage = (newIndex) => {
@@ -281,11 +281,12 @@ function showSlides(n) {
         // 4. Remove the 'fade-out' class to trigger the fade-in of the new image
         slideshowImg.classList.remove("fade-out");
 
-    }, 500); // 1500 milliseconds (1.5 seconds) delay
+    }, 1500); // 1500 milliseconds (1.5 seconds) delay
 }
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
+
 
 
 
