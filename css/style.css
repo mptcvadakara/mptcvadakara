@@ -600,6 +600,8 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     /* Ensures the image is treated as a block for correct layout flow */
     display: block;
     width: 100%; /* Ensure it fills the container horizontally */
+    /* Apply a smooth transition effect to the opacity property */
+    transition: opacity 1.5s ease-in-out; /* 1.5 seconds fade duration */
 }
 
 /* You may need to add or keep media queries to further refine the overall site layout */
@@ -677,6 +679,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
