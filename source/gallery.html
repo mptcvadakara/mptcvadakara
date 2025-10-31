@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPTC Vadakara - Image Gallery</title>
-    <link rel="stylesheet" href="../css/gallery.css">
+    <title>Responsive Image Gallery</title>
+    
+<link rel="stylesheet" href="../css/gallery.css">
 </head>
 <body>
-    <h1>MPTC Vadakara - Image Gallery</h1>
+
+    <h1>My Awesome Photo Gallery</h1>
+
     <div class="gallery">
         <p>Loading images...</p>
     </div>
 
-    <div id="lightbox" class="lightbox">    
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" src="" alt="Full-size image">
-    </div>  
-    <script src="../js/gallery.js"></script>
+    <div id="lightbox" class="lightbox">
+        
+<span class="close-btn" onclick="closeLightbox()">&times;</span>
+        
+<a class="prev-btn" onclick="changeImage(-1)">&#10094;</a>
+        
+<a class="next-btn" onclick="changeImage(1)">&#10095;</a>
+        
+<img class="lightbox-content" id="lightbox-img" src="" alt="Full-size image">
+    </div>
+
+    
+<script src="../js/gallery.js"></script>
 </body>
 </html>
-
-
-
-
-
-
