@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-    margin: 40px 0 30px;
+    margin: 10px 0 10px;
     font-size: 1.5em;
     color: #2c3e50; /* Darker blue-grey for heading */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
@@ -196,6 +196,7 @@ h1 {
         right: 10px;
     }
 }
+
 
 
 
