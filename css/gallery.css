@@ -1,128 +1,198 @@
-/* Basic Reset and Global Styles (Same as before) */
+/* Universal Box-sizing for easier layout calculations */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Basic Reset and Global Styles */
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333;
     text-align: center;
+    line-height: 1.6;
 }
 
 h1 {
-    margin: 20px 0;
-    color: #333;
-}
-/* Lightbox Container */
-.lightbox {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    padding-top: 10px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.9); 
-    text-align: center; /* Important for centering block elements using auto margins */
+    margin: 40px 0 30px;
+    font-size: 2.5em;
+    color: #2c3e50; /* Darker blue-grey for heading */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
-/* Lightbox Content (The Image Itself) */
-.lightbox-content {
-    /* DEFAULT (for Desktop/Large Screens) */
-    width: 40%; 
-    max-width: 900px; /* Optional: Sets an absolute maximum size */
-    
-    /* Center the block element horizontally within its parent (.lightbox) */
-    margin: auto; 
-    
-    display: block;
-    max-height: 95vh; /* Ensure it fits vertically */
-    object-fit: contain;
-}
-
-/* ------------------------------------------- */
-/* 🧩 Mobile Override for Lightbox Content */
-/* ------------------------------------------- */
-
-/* Mobile Layout (Screens up to 500px wide) */
-@media (max-width: 500px) {
-    /* ... (Keep existing gallery adjustments here, e.g., grid-template-columns) ... */
-    
-    /* Force the lightbox image to take up most of the screen on small devices */
-    .lightbox-content {
-        width: 95%; /* Override 60% for a better mobile viewing experience */
-    }
-}
-
-/* Gallery Grid Layout (Desktop Default - 3 or more columns) */
+/* Gallery Grid Layout (Desktop Default) */
 .gallery {
     display: grid;
-    /* Default: Minimum item width of 250px, automatically fit as many columns as possible */
+    /* Automatically fit as many columns as possible, each at least 250px wide */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px;
+    gap: 20px; /* Spacing between grid items */
+    max-width: 1200px; /* Max width of the entire gallery */
+    margin: 0 auto; /* Center the gallery on the page */
+    padding: 20px;
 }
 
 .gallery-item {
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures image corners are rounded */
+    border-radius: 10px; /* Rounded corners for each item */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     cursor: pointer;
+    background-color: #fff; /* White background for items */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) scale(1.02); /* Lift and slightly enlarge on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    height: 200px; /* Fixed height for consistent thumbnail size */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block; /* Removes extra space below image */
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Slight zoom on image itself on hover */
 }
 
 /* ------------------------------------------- */
-/* 🧩 Media Queries for Mobile Responsiveness */
+/* 🧩 Responsive Adjustments (Media Queries)   */
 /* ------------------------------------------- */
 
 /* Tablet Layout (Screens up to 768px wide) */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+        margin-top: 30px;
+    }
     .gallery {
-        /* On tablets, ensure the minimum size is smaller, allowing 2-3 columns */
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* More columns on tablets */
+        gap: 15px;
+        padding: 15px;
+    }
+    .gallery-item img {
+        height: 150px; /* Adjust thumbnail height for tablets */
     }
 }
 
 /* Mobile Layout (Screens up to 500px wide) */
 @media (max-width: 500px) {
+    h1 {
+        font-size: 1.8em;
+        margin-top: 25px;
+    }
     .gallery {
-        /* On phones, switch to a simple 1 or 2 column layout for better viewing */
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: 1fr; /* Single column on phones */
+        gap: 10px;
         padding: 10px;
-        gap: 8px;
+    }
+    .gallery-item img {
+        height: 180px; /* Slightly larger thumbnails in single column */
     }
 }
 
-/* Extra Small Devices / Portrait Phone (Screens up to 360px wide) */
-@media (max-width: 360px) {
-    .gallery {
-        /* Force single column layout on very small screens */
-        grid-template-columns: 1fr;
-    }
+/* ------------------------------------------- */
+/* Lightbox Styling (Modal)                    */
+/* ------------------------------------------- */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stays in place */
+    z-index: 1000; /* Stays on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.9); /* Semi-transparent black background */
+    overflow: hidden; /* Prevent scrolling the modal itself */
+    display: flex; /* Use flexbox to easily center content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
-/* Close Button positioning on mobile */
+.lightbox-content {
+    /* Desktop Default: 60% width and centered */
+    width: 60%;
+    max-width: 900px; /* Max absolute width for the image */
+    max-height: 95vh; /* Max height relative to viewport */
+    object-fit: contain; /* Ensures the whole image is visible */
+    border-radius: 8px; /* Slightly rounded corners for the large image */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Shadow for the lightbox image */
+}
+
+/* Close Button for Lightbox */
 .close-btn {
-    position: fixed; /* Use fixed positioning for the close button */
-    top: 5px;
-    right: 15px;
-    color: #f1f1f1;
+    position: fixed; /* Fixed position relative to viewport */
+    top: 15px;
+    right: 25px;
+    color: #fff; /* White color */
     font-size: 40px;
     font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Shadow for better visibility */
+    z-index: 1002; /* Ensure close button is above navigation */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ccc; /* Lighter on hover/focus */
+    text-decoration: none;
     cursor: pointer;
 }
 
+/* Lightbox Navigation Buttons */
+.prev-btn, .next-btn {
+    cursor: pointer;
+    position: fixed; /* Fixed position relative to viewport */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the buttons */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    user-select: none; /* Prevent text selection */
+    z-index: 1001; /* Ensure buttons are above the image */
+}
+
+.prev-btn {
+    left: 0;
+    border-radius: 0 3px 3px 0; /* Rounded on the right side */
+}
+
+.next-btn {
+    right: 0;
+    border-radius: 3px 0 0 3px; /* Rounded on the left side */
+}
+
+/* On hover, add a black background with a little more opacity */
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* ------------------------------------------- */
+/* 📱 Lightbox Adjustments for Mobile          */
+/* ------------------------------------------- */
+@media (max-width: 500px) {
+    .lightbox-content {
+        width: 95%; /* Make lightbox image wider on small screens */
+        max-height: 90vh; /* Adjust max height for mobile */
+    }
+    .prev-btn, .next-btn {
+        font-size: 20px;
+        padding: 10px;
+        top: 50%; /* Re-center vertically */
+        background-color: rgba(0,0,0,0.7); 
+    }
+    .close-btn {
+        font-size: 30px;
+        top: 10px;
+        right: 10px;
+    }
+}
