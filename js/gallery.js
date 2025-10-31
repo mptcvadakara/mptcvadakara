@@ -14,7 +14,7 @@ const galleryContainer = document.querySelector('.gallery');
 
 // Function to generate the HTML items
 function generateGallery() {
-    let galleryHTML = '../gallery/';
+    let galleryHTML = '';
     
     // Loop through the array and create HTML for each image
     imageFiles.forEach((fileName, index) => {
@@ -23,7 +23,7 @@ function generateGallery() {
         // Use a template literal to easily create the HTML structure for each item
         galleryHTML += `
             <div class="gallery-item" onclick="openLightbox('${fileName}')">
-                <img src="${fileName}" alt="${altText}">
+                <img src="../gallery/+"${fileName}" alt="${altText}">
             </div>
         `;
     });
@@ -65,3 +65,4 @@ lightbox.addEventListener('click', function(event) {
 window.openLightbox = openLightbox;
 
 window.closeLightbox = closeLightbox;
+
