@@ -353,7 +353,7 @@ Focus on Mobile-First Refinements
         /* CRITICAL: Use max-height for smooth collapse/expand transition */
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-out; /* Add transition for animation */
+        transition: max-height 0.2s ease-out; /* Add transition for animation */
     }
 
     /* CRITICAL: New class to open the submenu on click */
@@ -601,7 +601,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     display: block;
     width: 100%; /* Ensure it fills the container horizontally */
     /* Apply a smooth transition effect to the opacity property */
-    transition: opacity 4.5s ease-in-out; /* 1.5 seconds fade duration */
+    transition: opacity .5s ease-in-out; /* 1.5 seconds fade duration */
 }
 
 /* You may need to add or keep media queries to further refine the overall site layout */
@@ -679,6 +679,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
