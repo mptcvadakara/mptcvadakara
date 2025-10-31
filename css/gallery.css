@@ -53,7 +53,7 @@ h1 {
     display: none; 
     position: fixed; 
     z-index: 1000; /* Ensure it's on top of everything */
-    padding-top: 50px; 
+    padding-top: 5px; 
     left: 0;
     top: 0;
     width: 100%; 
@@ -66,7 +66,7 @@ h1 {
 .lightbox-content {
     margin: auto;
     display: block;
-    width: 90%;
+    width: 60%;
     max-width: 900px;
     max-height: 90vh; /* Limits image height to viewport height */
     object-fit: contain;
