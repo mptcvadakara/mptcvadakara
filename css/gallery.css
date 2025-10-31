@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* Basic Reset and Global Styles (Same as before) */
 body {
     font-family: sans-serif;
     margin: 0;
@@ -12,12 +12,11 @@ h1 {
     color: #333;
 }
 
-/* Gallery Grid Layout */
+/* Gallery Grid Layout (Desktop Default - 3 or more columns) */
 .gallery {
-    /* Use CSS Grid for a responsive layout */
     display: grid;
-    /* This creates a fluid grid: min width 250px, automatically fitting columns */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* Default: Minimum item width of 250px, automatically fit as many columns as possible */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     max-width: 1200px;
     margin: 0 auto;
@@ -29,12 +28,10 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    /* Smooth transition for the hover effect */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .gallery-item:hover {
-    /* Subtle zoom and lift on hover for an attractive effect */
     transform: scale(1.03);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
@@ -42,51 +39,70 @@ h1 {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    /* Ensure images cover the area without distortion */
     object-fit: cover;
     display: block;
 }
 
+/* ------------------------------------------- */
+/* 🧩 Media Queries for Mobile Responsiveness */
+/* ------------------------------------------- */
+
+/* Tablet Layout (Screens up to 768px wide) */
+@media (max-width: 768px) {
+    .gallery {
+        /* On tablets, ensure the minimum size is smaller, allowing 2-3 columns */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+    }
+}
+
+/* Mobile Layout (Screens up to 500px wide) */
+@media (max-width: 500px) {
+    .gallery {
+        /* On phones, switch to a simple 1 or 2 column layout for better viewing */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        padding: 10px;
+        gap: 8px;
+    }
+}
+
+/* Extra Small Devices / Portrait Phone (Screens up to 360px wide) */
+@media (max-width: 360px) {
+    .gallery {
+        /* Force single column layout on very small screens */
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Lightbox Styling (Modal) */
 .lightbox {
-    /* Initially hidden by default */
     display: none; 
     position: fixed; 
-    z-index: 1000; /* Ensure it's on top of everything */
-    padding-top: 5px; 
+    z-index: 1000; 
+    padding-top: 20px; /* Reduced padding for mobile screens */
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
-    overflow: auto; 
-    /* Semi-transparent black background */
     background-color: rgba(0,0,0,0.9); 
 }
 
 .lightbox-content {
     margin: auto;
     display: block;
-    width: 60%;
+    width: 95%; /* Increased width usage on mobile */
     max-width: 900px;
-    max-height: 90vh; /* Limits image height to viewport height */
+    max-height: 95vh; /* Ensure it fits vertically within the mobile screen */
     object-fit: contain;
 }
 
-/* Close Button */
+/* Close Button positioning on mobile */
 .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
+    position: fixed; /* Use fixed positioning for the close button */
+    top: 5px;
+    right: 15px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: #bbb;
-    text-decoration: none;
     cursor: pointer;
 }
