@@ -1,69 +1,109 @@
-// --- 1. Define the List of Image Files ---
-// Update this array whenever you add or remove images from your folder.
-// Ensure these names EXACTLY match the file names in your image folder (e.g., 1.jpg, 2.jpg, mptc.jpg).
+// --- 1. DEFINE THE IMAGE LIST MANUALLY ---
+// IMPORTANT: You MUST update this array whenever you add or remove images from the 'gallery/' folder.
+// The paths MUST be relative to the HTML file (gallery.html is in 'source/').
+// Use '../gallery/' to correctly reference images from the HTML file's location.
 const imageFiles = [
-    '../gallery/1.jpg', '../gallery/2.jpg', '../gallery/3.jpg', '../gallery/4.jpg', '../gallery/5.jpg', 
-    '../gallery/6.jpg', '../gallery/7.jpg', '../gallery/8.jpg', '../gallery/9.jpg', '../gallery/10.jpg',
-    '../gallery/11.jpg', '../gallery/12.jpg', '../gallery/13.jpg', '../gallery/14.jpg', '../gallery/15.jpg', 
-    '../gallery/mptc.jpg' 
+    '../gallery/image1.jpg',
+    '../gallery/image2.png',
+    '../gallery/image3.jpg',
+    '../gallery/image4.jpeg', // Example: Add more images as needed
+    '../gallery/mptc.jpg',
+    // ... add all your image paths here ...
 ];
 
-// --- 2. Dynamic Gallery Generation ---
+// --- 2. Gallery and Lightbox DOM Elements ---
 const galleryContainer = document.querySelector('.gallery');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
 
-// Function to generate the HTML items
+let currentImageIndex; // Global variable to track the index of the currently displayed image
+
+// --- 3. Function to Dynamically Generate the Gallery ---
 function generateGallery() {
+    // Check if the imageFiles array is empty or not defined
+    if (!imageFiles || imageFiles.length === 0) {
+        galleryContainer.innerHTML = '<p>No images defined in the JavaScript file. Please update `imageFiles` array.</p>';
+        return;
+    }
+
     let galleryHTML = '';
     
-    // Loop through the array and create HTML for each image
+    // Loop through the imageFiles array and create HTML for each image thumbnail
     imageFiles.forEach((fileName, index) => {
-        const altText = `Gallery Image ${index + 1}`;
+        const altText = `Gallery Image ${index + 1}`; // Simple alt text
         
-        // Use a template literal to easily create the HTML structure for each item
+        // Construct the HTML for each gallery item.
+        // `onclick` calls `openLightbox` passing the image path and its index.
         galleryHTML += `
-            <div class="gallery-item" onclick="openLightbox('${fileName}')">
+            <div class="gallery-item" onclick="openLightbox('${fileName}', ${index})">
                 <img src="${fileName}" alt="${altText}">
             </div>
         `;
     });
     
-    // Insert all the generated HTML into the .gallery container
+    // Insert the generated HTML into the gallery container
     galleryContainer.innerHTML = galleryHTML;
 }
 
-// Call the function when the page loads
+// Ensure gallery generation runs once the HTML document is fully loaded
 document.addEventListener('DOMContentLoaded', generateGallery);
 
+// --- 4. Lightbox Functions (Made Global for HTML `onclick` attributes) ---
 
-// --- 3. Lightbox Functions (Same as before, but ensure they are available globally) ---
-
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-// Function to open the lightbox
-function openLightbox(imageSrc) {
-    lightboxImg.src = imageSrc; 
-    lightbox.style.display = 'block';
-    document.body.style.overflow = 'hidden'; 
+// Function to open the lightbox with a specific image
+function openLightbox(imageSrc, index) {
+    currentImageIndex = index; // Store the index of the image being opened
+    lightboxImg.src = imageSrc; // Set the source of the large image in the lightbox
+    lightbox.style.display = 'flex'; // Display the lightbox (uses flex for centering)
+    document.body.style.overflow = 'hidden'; // Prevent scrolling the main page while lightbox is open
 }
 
 // Function to close the lightbox
 function closeLightbox() {
-    lightbox.style.display = 'none';
-    document.body.style.overflow = 'auto'; 
+    lightbox.style.display = 'none'; // Hide the lightbox
+    document.body.style.overflow = 'auto'; // Re-enable scrolling on the main page
 }
 
-// Event listener for closing on background click
-lightbox.addEventListener('click', function(event) {
-    if (event.target === lightbox || event.target.className === 'close-btn') {
-        closeLightbox();
+// Function to navigate between images in the lightbox
+function changeImage(direction) {
+    // direction will be -1 for previous image, 1 for next image
+    currentImageIndex += direction;
+
+    // Handle looping: if we go past the end, go to the beginning; if past the beginning, go to the end
+    if (currentImageIndex < 0) {
+        currentImageIndex = imageFiles.length - 1; // Loop to the last image
+    } else if (currentImageIndex >= imageFiles.length) {
+        currentImageIndex = 0; // Loop to the first image
+    }
+
+    // Update the lightbox image source to the new current image
+    lightboxImg.src = imageFiles[currentImageIndex];
+}
+
+// Make these functions globally accessible so they can be called from HTML `onclick` attributes
+window.openLightbox = openLightbox;
+window.closeLightbox = closeLightbox;
+window.changeImage = changeImage;
+
+// --- 5. Optional: Keyboard Navigation (Arrow keys and Escape) ---
+document.addEventListener('keydown', function(event) {
+    // Only respond to key presses if the lightbox is currently visible
+    if (lightbox.style.display === 'flex') {
+        if (event.key === 'ArrowLeft') { // Left arrow key
+            changeImage(-1); // Move to previous image
+        } else if (event.key === 'ArrowRight') { // Right arrow key
+            changeImage(1); // Move to next image
+        } else if (event.key === 'Escape') { // Escape key
+            closeLightbox(); // Close the lightbox
+        }
     }
 });
 
-// Important: Attach the global functions to the window object so they can be called from the HTML's onclick
-window.openLightbox = openLightbox;
-
-window.closeLightbox = closeLightbox;
-
-
-
+// --- 6. Event Listener to Close Lightbox on Background Click ---
+lightbox.addEventListener('click', function(event) {
+    // If the click occurred directly on the lightbox container (the dark background),
+    // but NOT on the image itself or the navigation buttons, then close the lightbox.
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
