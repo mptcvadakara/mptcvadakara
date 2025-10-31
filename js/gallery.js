@@ -2,11 +2,10 @@
 // Update this array whenever you add or remove images from your folder.
 // Ensure these names EXACTLY match the file names in your image folder (e.g., 1.jpg, 2.jpg, mptc.jpg).
 const imageFiles = [
-    '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', 
-    '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
-    '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', 
-    'mptc.jpg' 
-    // Add or remove file names here
+    '../gallery/1.jpg', '../gallery/2.jpg', '../gallery/3.jpg', '../gallery/4.jpg', '../gallery/5.jpg', 
+    '../gallery/6.jpg', '../gallery/7.jpg', '../gallery/8.jpg', '../gallery/9.jpg', '../gallery/10.jpg',
+    '../gallery/11.jpg', '../gallery/12.jpg', '../gallery/13.jpg', '../gallery/14.jpg', '../gallery/15.jpg', 
+    '../gallery/mptc.jpg' 
 ];
 
 // --- 2. Dynamic Gallery Generation ---
@@ -65,5 +64,6 @@ lightbox.addEventListener('click', function(event) {
 window.openLightbox = openLightbox;
 
 window.closeLightbox = closeLightbox;
+
 
 
