@@ -28,7 +28,7 @@ h1 {
 /* Lightbox Content (The Image Itself) */
 .lightbox-content {
     /* DEFAULT (for Desktop/Large Screens) */
-    width: 60%; 
+    width: 40%; 
     max-width: 900px; /* Optional: Sets an absolute maximum size */
     
     /* Center the block element horizontally within its parent (.lightbox) */
@@ -125,3 +125,4 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
+
