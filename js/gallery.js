@@ -23,7 +23,7 @@ function generateGallery() {
         // Use a template literal to easily create the HTML structure for each item
         galleryHTML += `
             <div class="gallery-item" onclick="openLightbox('${fileName}')">
-                <img src="../gallery/+"${fileName}" alt="${altText}">
+                <img src="${fileName}" alt="${altText}">
             </div>
         `;
     });
@@ -65,4 +65,5 @@ lightbox.addEventListener('click', function(event) {
 window.openLightbox = openLightbox;
 
 window.closeLightbox = closeLightbox;
+
 
