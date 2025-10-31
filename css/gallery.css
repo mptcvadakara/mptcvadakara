@@ -69,12 +69,12 @@ h1 {
         margin-top: 30px;
     }
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* More columns on tablets */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 160 - More columns on tablets */
         gap: 15px;
         padding: 15px;
     }
     .gallery-item img {
-        height: 150px; /* Adjust thumbnail height for tablets */
+        height: 50px; /* Adjust thumbnail height for tablets */
     }
 }
 
@@ -114,7 +114,7 @@ h1 {
 
 .lightbox-content {
     /* Desktop Default: 60% width and centered */
-    width: 60%;
+    width: 70%;
     max-width: 900px; /* Max absolute width for the image */
     max-height: 95vh; /* Max height relative to viewport */
     object-fit: contain; /* Ensures the whole image is visible */
@@ -196,4 +196,5 @@ h1 {
         right: 10px;
     }
 }
+
 
