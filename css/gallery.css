@@ -17,10 +17,10 @@ h1 {
     display: none; 
     position: fixed; 
     z-index: 1000; 
-    padding-top: 20px; 
+    padding: 10px 0px 10px 0px; 
     left: 0;
     top: 0;
-    width: 100%; 
+    width: 60%; 
     height: 100%; 
     background-color: rgba(0,0,0,0.9); 
 }
@@ -64,7 +64,7 @@ h1 {
     gap: 15px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 .gallery-item {
@@ -150,4 +150,5 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
+
 
