@@ -1,0 +1,92 @@
+/* Basic Reset */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Gallery Grid Layout */
+.gallery {
+    /* Use CSS Grid for a responsive layout */
+    display: grid;
+    /* This creates a fluid grid: min width 250px, automatically fitting columns */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    /* Smooth transition for the hover effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+    /* Subtle zoom and lift on hover for an attractive effect */
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    /* Ensure images cover the area without distortion */
+    object-fit: cover;
+    display: block;
+}
+
+/* Lightbox Styling (Modal) */
+.lightbox {
+    /* Initially hidden by default */
+    display: none; 
+    position: fixed; 
+    z-index: 1000; /* Ensure it's on top of everything */
+    padding-top: 50px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    /* Semi-transparent black background */
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh; /* Limits image height to viewport height */
+    object-fit: contain;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
