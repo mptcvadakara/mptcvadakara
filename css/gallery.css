@@ -16,7 +16,7 @@ h1 {
     display: none; 
     position: fixed; 
     z-index: 1000; 
-    padding-top: 20px; 
+    padding-top: 10px; 
     left: 0;
     top: 0;
     width: 100%; 
@@ -147,6 +147,7 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
+
 
 
 
