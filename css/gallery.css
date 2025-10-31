@@ -12,6 +12,50 @@ h1 {
     color: #333;
 }
 
+/* Lightbox Styling (Modal) */
+.lightbox {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 20px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.lightbox-content {
+    /* 1. Set the desired width */
+    width: 60%; 
+    
+    /* 2. Center the block element horizontally */
+    margin: auto; 
+    
+    display: block;
+    max-width: 900px;
+    max-height: 95vh; 
+    object-fit: contain;
+}
+
+/* ------------------------------------------- */
+/* 🧩 Media Queries for Mobile Responsiveness */
+/* ------------------------------------------- */
+
+/* ... (Keep existing media queries, but we'll override the lightbox width for small screens) ... */
+
+/* Mobile Layout (Screens up to 500px wide) */
+@media (max-width: 500px) {
+    /* ... (Keep existing gallery adjustments) ... */
+    
+    .lightbox-content {
+        /* OVERRIDE: Revert to a larger width on mobile so the image isn't too small */
+        width: 95%; 
+    }
+}
+
+
+
 /* Gallery Grid Layout (Desktop Default - 3 or more columns) */
 .gallery {
     display: grid;
@@ -106,3 +150,4 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
+
