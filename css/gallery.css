@@ -115,28 +115,6 @@ h1 {
     }
 }
 
-/* Lightbox Styling (Modal) */
-.lightbox {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    padding-top: 20px; /* Reduced padding for mobile screens */
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.9); 
-}
-
-.lightbox-content {
-    margin: auto;
-    display: block;
-    width: 95%; /* Increased width usage on mobile */
-    max-width: 900px;
-    max-height: 95vh; /* Ensure it fits vertically within the mobile screen */
-    object-fit: contain;
-}
-
 /* Close Button positioning on mobile */
 .close-btn {
     position: fixed; /* Use fixed positioning for the close button */
@@ -147,3 +125,4 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
+
