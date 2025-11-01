@@ -33,6 +33,13 @@
         font-size: 1.5em; /* Relative font size */
     }
 
+.content-area {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 /* Content Sections */
     .general-section {
         padding: 15px 20px;
@@ -78,6 +85,35 @@
         text-align: justify;
     }
 
+.ragging-info {
+    /* Use Flexbox for side-by-side content on larger screens */
+    display: flex;
+    flex-direction: column; /* Stacks text and image vertically on small screens */
+    gap: 20px; /* Space between the text and image */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.ragging-text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.ragging-text ol {
+    padding-left: 20px;
+}
+
+/* --- Image Styling (Crucial for responsiveness) --- */
+.ragging-image img {
+    /* Ensures the image never exceeds the width of its container */
+    max-width: 100%; 
+    /* Allows the image to scale proportionally */
+    height: auto; 
+    display: block;
+    margin: 0 auto; /* Center the image on small screens */
+}
+
 /* Device Independence via Media Queries */
     @media (max-width: 600px) {
         .general-container {
@@ -98,6 +134,7 @@
             padding-left: 20px; /* Less indentation on mobile */
         }
     }
+
 
 
 
