@@ -1,0 +1,108 @@
+/* --- Base Styles (Mobile-First) --- */
+* {
+    /* Better box model for layout control */
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background for the page */
+}
+
+.container {
+    /* Constrain the overall width and center the content */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* --- Header Styling --- */
+.header {
+    background-color: rgb(7, 106, 187);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.header a {
+    color: #ffcc00; /* Yellow link color */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* --- Content Styling --- */
+.content-area {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ragging-info {
+    /* Use Flexbox for side-by-side content on larger screens */
+    display: flex;
+    flex-direction: column; /* Stacks text and image vertically on small screens */
+    gap: 20px; /* Space between the text and image */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.ragging-text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.ragging-text ol {
+    padding-left: 20px;
+}
+
+/* --- Image Styling (Crucial for responsiveness) --- */
+.ragging-image img {
+    /* Ensures the image never exceeds the width of its container */
+    max-width: 100%; 
+    /* Allows the image to scale proportionally */
+    height: auto; 
+    display: block;
+    margin: 0 auto; /* Center the image on small screens */
+}
+
+/* --- Cell Members Styling --- */
+.cell-members p, .cell-members ol {
+    font-size: 16px;
+}
+
+/* --- Media Query (For Tablets and Desktops) --- */
+/* This style applies when the screen is wider than 768px */
+@media (min-width: 768px) {
+    
+    .ragging-info {
+        /* Changes to a side-by-side layout */
+        flex-direction: row; 
+    }
+
+    .ragging-text {
+        /* Takes up 60% of the space */
+        flex: 3; 
+    }
+
+    .ragging-image {
+        /* Takes up 40% of the space and right-aligns */
+        flex: 2; 
+        text-align: right;
+    }
+
+    .ragging-image img {
+        /* Removes centering and keeps it aligned within the 40% column */
+        margin: 0;
+    }
+}
