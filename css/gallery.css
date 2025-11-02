@@ -52,6 +52,7 @@ h1 {
     object-fit: cover; /* Ensures images cover the area without distortion */
     display: block; /* Removes extra space below image */
     transition: transform 0.3s ease-in-out;
+    border-radius: 10px; /* Rounded corners for each item */
 }
 
 .gallery-item img:hover {
@@ -197,3 +198,4 @@ h1 {
         right: 10px;
     }
 }
+
