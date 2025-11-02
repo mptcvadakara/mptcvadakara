@@ -109,9 +109,8 @@ h1 {
     height: 100%; /* Full height */
     background-color: rgba(0,0,0,0.9); /* Semi-transparent black background */
     overflow: hidden; /* Prevent scrolling the modal itself */
-    display: flex; /* Use flexbox to easily center content */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
+    /* REMOVED: display: flex; align-items: center; justify-content: center; 
+       These should be applied by JavaScript when the lightbox is opened. */
 }
 
 .lightbox-content {
@@ -198,4 +197,3 @@ h1 {
         right: 10px;
     }
 }
-
