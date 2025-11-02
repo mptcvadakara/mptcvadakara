@@ -51,7 +51,9 @@ body {
 
 /* --- New Rule for Centering and Limiting Width --- */
 #main-wrapper {
-    width: 100%; /* Enforce 60% width */
+    /* UPDATED: Increased max-width to 1200px for larger desktop content area */
+    max-width: 1200px; 
+    width: 100%; 
     margin: 0 auto; /* Center the wrapper horizontally */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle border effect */
     background-color: #ffffff; /* Ensure background is white inside the container */
@@ -690,7 +692,8 @@ NEW CSS FOR HOME PAGE LAYOUT (News | Slideshow | Placed Students)
     display: flex;
     flex-direction: column; /* Stack vertically on mobile by default */
     gap: 1rem; /* Space between sections */
-    max-width: 1200px; /* Max width for the home layout */
+    /* UPDATED: Increased max-width for the home layout */
+    max-width: 1300px; 
     margin: 0 auto; /* Center the layout */
     padding: 10px;
 }
