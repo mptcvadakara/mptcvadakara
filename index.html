@@ -156,14 +156,41 @@
         </div>
 
 		<div id="content">
-            <div class="slideshow-container">
-                <img id="slideshow-img" class="responsive-slideshow-img" src="" alt="Model Polytechnic College Slide">
-                <button class="prev" onclick="plusSlides(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>  
-                <button class="next" onclick="plusSlides(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            <div class="home-layout">
+                <div class="news-events-section">
+                    <div class="home-section-header">News and Events</div>
+                    <ul>
+                        <li><a href="#news1">🎉 Admission 2025 Started! Click here to apply.</a></li>
+                        <li><a href="#news2">Placement drive for 2024 batch concludes with record offers.</a></li>
+                        <li><a href="#news3">IEDC Cell conducts state-level ideation workshop.</a></li>
+                        <li><a href="#news4">NSS Unit completes clean campus initiative.</a></li>
+                        <li><a href="#news5">Principal's message regarding semester exams.</a></li>
+                    </ul>
+                    <a href="#news" onclick="load_news()" style="display: block; text-align: right; font-weight: bold; margin-top: 10px; color: #336600;">View All ></a>
+                </div>
+                
+                <div class="slideshow-container">
+                    <img id="slideshow-img" class="responsive-slideshow-img" src="" alt="Model Polytechnic College Slide">
+                    <button class="prev" onclick="plusSlides(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>  
+                    <button class="next" onclick="plusSlides(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="placed-students-section">
+                    <div class="home-section-header">Placed Students - 2024-25</div>
+                    <p style="text-align: center; font-style: italic; margin-bottom: 5px;">Top Recruiters:</p>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="font-weight: bold;">TCS</li>
+                        <li>Wipro</li>
+                        <li style="font-weight: bold;">Infosys</li>
+                        <li>UST Global</li>
+                        <li style="font-weight: bold;">IBS Software</li>
+                    </ul>
+                    <a href="#placed" onclick="load_placed_students()" style="display: block; text-align: right; font-weight: bold; margin-top: 10px; color: #336600;">Full List ></a>
+                </div>
             </div>
 		</div>
 		
@@ -219,20 +246,3 @@
         </div>
     </div> </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
