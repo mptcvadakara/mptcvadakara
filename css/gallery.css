@@ -27,7 +27,8 @@ h1 {
     /* Automatically fit as many columns as possible, each at least 250px wide */
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px; /* Spacing between grid items */
-    max-width: 1200px; /* Max width of the entire gallery */
+    /*max-width: 1200px;  Max width of the entire gallery */
+    max-width: 50%;
     margin: 0 auto; /* Center the gallery on the page */
     padding: 10px;
 }
@@ -87,6 +88,7 @@ h1 {
     }
     .gallery {
         /* grid-template-columns: 1fr;  Single column on phones */
+        max-width: 95%;
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 10px;
         padding: 10px;
@@ -198,4 +200,5 @@ h1 {
         right: 10px;
     }
 }
+
 
