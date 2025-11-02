@@ -49,7 +49,6 @@ h1 {
 .gallery-item img {
     width: 100%;
     height: 100px; /* Fixed height for consistent thumbnail size */
-    border-radius: 10px; /* Rounded corners for each item */
     object-fit: cover; /* Ensures images cover the area without distortion */
     display: block; /* Removes extra space below image */
     transition: transform 0.3s ease-in-out;
@@ -198,4 +197,3 @@ h1 {
         right: 10px;
     }
 }
-
