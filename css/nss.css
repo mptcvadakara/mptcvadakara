@@ -1,0 +1,118 @@
+/* --- Base Styles (Mobile-First) --- */
+* {
+    /* Better box model for layout control */
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background for the page */
+}
+
+.container {
+    /* Constrain the overall width and center the content */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* --- Header Styling --- */
+.header {
+    background-color: rgb(7, 106, 187);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.header a {
+    color: #ffcc00; /* Yellow link color */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* --- Content Styling --- */
+.content-area {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ragging-info {
+    /* Use Flexbox for side-by-side content on larger screens */
+    display: flex;
+    flex-direction: column; /* Stacks text and image vertically on small screens */
+    gap: 20px; /* Space between the text and image */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.ragging-text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    /* 30px left and right margin for paragraph content */
+    margin: 0 30px; 
+}
+
+.ragging-text p {
+    margin-top: 0;
+    margin-bottom: 1em; /* Space between paragraphs */
+    text-indent: 30px; /* Indents the first line of the paragraph */
+    text-align: justify;
+}
+
+.ragging-text ol {
+    padding-left: 20px;
+}
+
+/* --- Image Styling (Crucial for responsiveness) --- */
+.ragging-image img {
+    /* Ensures the image never exceeds the width of its container */
+    max-width: 80%; 
+    /* Allows the image to scale proportionally */
+    height: auto; 
+    display: block;
+    /* CENTER IMAGE: Keeps the image centered on small screens */
+    margin: 0 auto; 
+}
+
+/* --- Cell Members Styling --- */
+.cell-members p, .cell-members ol {
+    font-size: 16px;
+}
+
+/* --- Media Query (For Tablets and Desktops) --- */
+/* This style applies when the screen is wider than 768px */
+@media (min-width: 768px) {
+    
+    .ragging-info {
+        /* Changes to a side-by-side layout */
+        flex-direction: row; 
+    }
+
+    .ragging-text {
+        /* CHANGED: Now takes up ~70% of the space (flex: 3.5) */
+        flex: 3.5; 
+    }
+
+    .ragging-image {
+        /* CHANGED: Now takes up ~30% of the space (flex: 1.5) and centers the content */
+        flex: 1.5; 
+        text-align: center;
+    }
+
+    .ragging-image img {
+        /* Explicitly center the block-level image on large screens */
+        margin: 0 auto; 
+    }
+}
