@@ -1,0 +1,121 @@
+/* --- Base Styles (Mobile-First) --- */
+* {
+    /* Better box model for layout control */
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Optional: light background for the page */
+}
+
+.container {
+    /* Main wrapper to constrain width and center content */
+    max-width: 900px;
+    width: 95%; /* Ensures it scales well on small screens */
+    margin: 20px auto;
+    padding: 10px;
+}
+
+/* --- Section Header Styling --- */
+.section-header {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    color: white;
+    border-radius: 5px;
+}
+
+.section-header h3 {
+    font-weight: normal;
+    font-size: 20px;
+    margin: 0;
+}
+
+.iedc-header {
+    background-color: rgb(66, 49, 3);
+    color: rgb(191, 243, 48);
+}
+
+.ksum-header {
+    background-color: rgb(5, 63, 36);
+    color: rgb(255, 82, 246);
+}
+
+/* --- Content Layout (for text and video) --- */
+.content-section {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    display: flex; /* Enable Flexbox for side-by-side layout on desktop */
+    flex-direction: column; /* Default: Stacks vertically on mobile */
+    gap: 20px;
+}
+
+.text-content {
+    text-align: justify;
+    padding: 10px 0;
+}
+
+.text-content p {
+    margin-bottom: 15px;
+    /* Simulate the old &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with text-indent */
+    text-indent: 35px;
+}
+
+.video-frame {
+    /* Container for the iframe */
+    width: 100%;
+    /* Creates a 16:9 aspect ratio container for the video */
+    padding-bottom: 56.25%; 
+    height: 0;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- List Styling --- */
+.objectives-list, .committee-list {
+    margin-top: 10px;
+}
+
+.objectives-list ul, .committee-list ol {
+    padding-left: 25px;
+}
+
+.committee-list p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+/* --- Media Query (For Tablets and Desktops) --- */
+@media (min-width: 768px) {
+    .content-section {
+        flex-direction: row; /* Side-by-side layout on wider screens */
+        align-items: flex-start; /* Aligns items to the top */
+    }
+
+    .text-content {
+        /* Text takes 60% of the width */
+        flex: 3; 
+        order: 1; /* Text first */
+    }
+
+    .video-frame {
+        /* Video takes 40% of the width */
+        flex: 2; 
+        order: 2; /* Video second */
+    }
+}
