@@ -60,6 +60,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     text-align: justify;
+    text-indent: 30px;
 }
 
 .ragging-text p {
@@ -113,4 +114,5 @@ body {
         margin: 0;
     }
 }
+
 
