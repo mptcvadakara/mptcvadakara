@@ -51,9 +51,7 @@ body {
 
 /* --- New Rule for Centering and Limiting Width --- */
 #main-wrapper {
-    /* UPDATED: Increased max-width to 1200px for larger desktop content area */
-    max-width: 1200px; 
-    width: 100%; 
+    width: 100%; /* Enforce 60% width */
     margin: 0 auto; /* Center the wrapper horizontally */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle border effect */
     background-color: #ffffff; /* Ensure background is white inside the container */
@@ -679,91 +677,5 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     .prev, .next {
         font-size: 16px;
         padding: 8px;
-    }
-}
-
-/* ********************************************************************************
-NEW CSS FOR HOME PAGE LAYOUT (News | Slideshow | Placed Students)
-********************************************************************************
-*/
-
-/* New Home Page Layout Wrapper (Mobile-First: Stacks Vertically) */
-.home-layout {
-    display: flex;
-    flex-direction: column; /* Stack vertically on mobile by default */
-    gap: 1rem; /* Space between sections */
-    /* UPDATED: Increased max-width for the home layout */
-    max-width: 1300px; 
-    margin: 0 auto; /* Center the layout */
-    padding: 10px;
-}
-
-/* Common styling for side content */
-.news-events-section, .placed-students-section {
-    background-color: #f9f9f9;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%; /* Full width on mobile */
-}
-
-.home-section-header {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #336600; /* Green color */
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.2rem;
-    border-bottom: 2px solid #ddd;
-}
-
-.news-events-section ul, .placed-students-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.news-events-section ul li a {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    padding: 0.3rem 0;
-    border-bottom: 1px dotted #eee;
-    font-size: 0.95rem;
-}
-
-.news-events-section ul li a:hover {
-    color: #000080;
-    text-decoration: underline;
-}
-
-/* Desktop Layout (Min-Width 900px) */
-@media (min-width: 900px) {
-    .home-layout {
-        flex-direction: row; /* Layout horizontally on desktop */
-        align-items: flex-start; /* Align content to the top */
-    }
-
-    /* Slideshow container needs to override its absolute centering from before */
-    .slideshow-container {
-        max-width: none; /* Remove max-width limit */
-        margin: 0; /* Remove auto margin for centering */
-    }
-    
-    /* Assign flex weights for 25% | 50% | 25% split (approx 1:2:1) */
-    .news-events-section {
-        flex: 1; /* News & Events: 25% */
-        order: 1;
-    }
-    
-    .slideshow-container {
-        flex: 2; /* Slideshow: 50% */
-        order: 2;
-        /* Add some horizontal margin to separate from the side boxes */
-        margin: 0 1rem; 
-    }
-
-    .placed-students-section {
-        flex: 1; /* Placed Students: 25% */
-        order: 3;
     }
 }
