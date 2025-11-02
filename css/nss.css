@@ -61,7 +61,7 @@ body {
     line-height: 1.5;
     text-align: justify;
     /* 30px left and right margin for paragraph content */
-    margin: 0 30px; 
+    margin: 0 20px; 
 }
 
 .ragging-text p {
@@ -115,4 +115,5 @@ body {
         /* Explicitly center the block-level image on large screens */
         margin: 0 auto; 
     }
+
 }
