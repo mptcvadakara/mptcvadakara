@@ -65,7 +65,7 @@ body {
 .ragging-text p {
     margin-top: 0;
     margin-bottom: 1em; /* Space between paragraphs */
-    text-indent: 40px; /* Indents the first line of the paragraph */
+    text-indent: 30px; /* Indents the first line of the paragraph */
     text-align: justify;
 }
 
@@ -113,6 +113,7 @@ body {
         margin: 0;
     }
 }
+
 
 
 
