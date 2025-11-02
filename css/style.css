@@ -59,13 +59,13 @@ body {
 
 /* Use max-width and height: auto for flexible images */
 .left-decoration-img {
-    max-width: 6.25rem; /* 100px / 16 = 6.25rem */
+    max-width: 5.25rem; /* 100px / 16 = 6.25rem */
     height: auto;
     object-fit: contain;
 }
 
 .college-logo-img {
-    max-width: 6.25rem; /* 110px / 16 = 6.875rem */
+    max-width: 5.25rem; /* 110px / 16 = 6.875rem */
     height: auto;
     object-fit: contain;
 }
@@ -679,4 +679,5 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
