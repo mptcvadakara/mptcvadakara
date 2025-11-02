@@ -65,6 +65,12 @@ body {
     margin: 0 20px; 
 }
 
+.vimukthi-pledge {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
 .ragging-text p {
     margin-top: 0;
     margin-bottom: 1em; /* Space between paragraphs */
@@ -118,4 +124,5 @@ body {
     }
 
 }
+
 
