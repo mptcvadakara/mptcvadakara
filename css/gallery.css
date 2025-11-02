@@ -53,7 +53,7 @@ h1 {
     object-fit: cover; /* Ensures images cover the area without distortion */
     display: block; /* Removes extra space below image */
     transition: transform 0.3s ease-in-out;
-    border-radius: 20px; /* Rounded corners for each item */
+    border-radius: 10px; /* Rounded corners for each item */
 }
 
 .gallery-item img:hover {
@@ -131,7 +131,7 @@ h1 {
     position: fixed; /* Fixed position relative to viewport */
     top: 15px;
     right: 25px;
-    color: #fff; /* White color */
+    color: #FF0000; /* Red color */
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
@@ -155,7 +155,6 @@ h1 {
     transform: translateY(-50%); /* Vertically center the buttons */
     width: auto;
     padding: 16px;
-    color: #4CAF50;
     font-weight: bold;
     font-size: 30px;
     transition: 0.6s ease;
@@ -167,11 +166,13 @@ h1 {
 .prev-btn {
     left: 0;
     border-radius: 0 3px 3px 0; /* Rounded on the right side */
+    color: #4CAF50;
 }
 
 .next-btn {
     right: 0;
     border-radius: 3px 0 0 3px; /* Rounded on the left side */
+    color: #FFFF00
 }
 
 /* On hover, add a black background with a little more opacity */
@@ -200,6 +201,7 @@ h1 {
         right: 10px;
     }
 }
+
 
 
 
