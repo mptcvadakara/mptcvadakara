@@ -195,7 +195,7 @@ body {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem; 
     padding:0.2rem;
-    height:auto;
+    height:600px
 }
 
 #content content-img {
@@ -680,6 +680,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
