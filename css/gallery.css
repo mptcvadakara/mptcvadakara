@@ -120,7 +120,8 @@ h1 {
     /* Desktop Default: 60% width and centered */
     width: 70%;
     max-width: 900px; /* Max absolute width for the image */
-    max-height: 95vh; /* Max height relative to viewport */
+    height:auto;
+    /*max-height: 95vh; Max height relative to viewport */
     object-fit: contain; /* Ensures the whole image is visible */
     border-radius: 8px; /* Slightly rounded corners for the large image */
     box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Shadow for the lightbox image */
@@ -201,6 +202,7 @@ h1 {
         right: 10px;
     }
 }
+
 
 
 
