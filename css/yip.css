@@ -149,9 +149,10 @@ body {
     
     .intro-image {
         /* Slightly reduce height on desktop */
-        min-height: 200px;
+        min-height: 150px;
     }
 
 
 }
+
 
