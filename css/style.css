@@ -200,8 +200,7 @@ body {
 
 #content content-img {
     max-width: 95%; 
-    margin-bottom: 0.5rem;
-    border-radius: 10px; 
+    margin-bottom: 0.5rem; 
     height: auto; 
     display: flex; 
 }
@@ -604,6 +603,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     width: 100%; /* Ensure it fills the container horizontally */
     /* Apply a smooth transition effect to the opacity property */
     transition: opacity .5s ease-in-out; /* 1.5 seconds fade duration */
+    border-radius: 10px;
 }
 
 /* You may need to add or keep media queries to further refine the overall site layout */
@@ -631,6 +631,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     height: auto; 
     display: block;
     width: 100%;
+    border-radius: 10px;
 }
 
 /* Style for the navigation buttons */
@@ -681,5 +682,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
