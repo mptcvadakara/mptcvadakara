@@ -23,8 +23,8 @@ body {
     background-color: rgb(2, 54, 43); /* YIP specific color */
     color: white;
     padding: 10px 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
 }
 
 .header h1 {
@@ -154,3 +154,4 @@ body {
 
 
 }
+
