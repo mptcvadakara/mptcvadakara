@@ -215,6 +215,7 @@ content-img {
     max-width: 100%; 
     height: auto;
     display: flex;  /* Helps remove stray space below images */
+    border-radius: 10px;
 }
 
 /* Use relative height for embedded objects if possible */
@@ -682,6 +683,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
