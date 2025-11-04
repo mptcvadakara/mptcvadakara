@@ -312,6 +312,9 @@ Focus on Mobile-First Refinements
     .footer-column {
         flex-basis: 45%; /* Two columns per row on medium screens */
     }
+    .content-img {
+        border-radius: 10px;
+    }
 }
 
 /* --- Mobile Screens (Max-Width 768px) --- */
@@ -410,6 +413,9 @@ Focus on Mobile-First Refinements
         min-width: 100%; 
         margin-bottom: 0.9375rem;
     }
+    .content-img {
+        border-radius: 10px;
+    }
 }
 
 /* --- Smallest Mobile Screens (Max-Width 480px) --- */
@@ -425,6 +431,9 @@ Focus on Mobile-First Refinements
     }
     .footer-bottom-bar {
         font-size: 0.875rem;
+    }
+    .content-img {
+        border-radius: 10px;
     }
 }
 
@@ -683,6 +692,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
