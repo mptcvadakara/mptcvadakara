@@ -200,7 +200,7 @@ const images = [
     '1.jpg',
 ];
 
-const imagePathPrefix = 'Slides/'; 
+const imagePathPrefix = '../Slides/'; 
 let currentImageIndex = 0;
 let slideshowInterval;
 const delay = 4000; // 3000 milliseconds = 3 seconds
@@ -286,6 +286,7 @@ function showSlides(n) {
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
+
 
 
 
