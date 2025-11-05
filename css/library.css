@@ -1,0 +1,92 @@
+/* Base styles for all elements */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* A container to center content and limit max-width for readability on large screens */
+.container {
+    width: 90%; /* Use percentage for fluid width */
+    max-width: 1200px; /* Max width to prevent content from spreading too wide */
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box; /* Includes padding in the element's total width and height */
+}
+
+/* Header styling */
+.header-section {
+    font-weight: normal;
+    font-size: 20px;
+    background-color: rgb(10, 56, 16);
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+.header-section h1 {
+    margin: 0;
+    font-size: 1.5em; /* Use em/rem for scalable font sizes */
+}
+
+/* Layout for content rows using Flexbox for responsiveness */
+.content-row {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+    margin-bottom: 30px;
+    gap: 20px; /* Space between columns */
+    align-items: flex-start;
+}
+
+/* Column distribution */
+.text-column {
+    flex: 1 1 55%; /* Grows, can shrink, and starts at 55% width */
+    font-size: 16px;
+    text-align: justify;
+}
+
+.image-column {
+    flex: 1 1 35%; /* Grows, can shrink, and starts at 35% width */
+    min-width: 250px; /* Minimum width to prevent image distortion */
+    text-align: right;
+}
+
+/* Make images responsive */
+.image-column img {
+    max-width: 100%; /* Ensures image scales down within its container */
+    height: auto; /* Maintains aspect ratio */
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Added for visual separation */
+}
+
+/* Style for the stacked images in the second row */
+.image-stack img {
+    display: block; /* Stacks images vertically */
+    width: 100%; /* Makes them take full width of their column */
+}
+
+/* List/Objectives styling */
+ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+ul li {
+    margin-bottom: 15px;
+}
+
+/* Media Query for smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+    .content-row {
+        flex-direction: column; /* Stack columns vertically on small screens */
+    }
+    .text-column, .image-column {
+        flex: 1 1 100%; /* Each element takes the full width */
+        min-width: 0; /* Remove min-width to allow full collapse */
+        text-align: left; /* Align images to center/left on mobile for better viewing */
+    }
+    .image-column {
+        order: -1; /* Move images above text on mobile for better flow */
+        text-align: center;
+    }
+}
