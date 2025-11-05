@@ -59,6 +59,7 @@ body {
     min-height: 250px;
     width: 100%;
     height:250px;
+    border-radius: 10px; 
     /*margin-top: 10px;*/
 }
 
@@ -127,7 +128,6 @@ body {
     padding-left: 35px;
 }
 
-
 /* --- Media Query (For Tablets and Desktops) --- */
 @media (min-width: 768px) {
     
@@ -151,8 +151,10 @@ body {
     .intro-image {
         /* Slightly reduce height on desktop */
         min-height: 150px;
+        border-radius: 10px; 
     }
 }
+
 
 
 
