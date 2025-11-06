@@ -25,7 +25,7 @@ body {
     margin-bottom: 20px;
 
     /* Constrain the header's width using properties similar to .container */
-    width: 90%; /* Use percentage for fluid width */
+    width: 88%; /* Use percentage for fluid width */
     max-width: 1200px; /* Max width to match content container */
     margin: 0 auto 20px auto; /* Center it and re-apply margin-bottom */
     box-sizing: border-box; /* Maintain proper box-sizing */
@@ -97,3 +97,4 @@ ul li {
     }
 
 }
+
