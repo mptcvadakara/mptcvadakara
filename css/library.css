@@ -96,7 +96,7 @@ ul li {
     .text-column, .image-column {
         flex: 1 1 100%; /* Each element takes the full width */
         min-width: 0; /* Remove min-width to allow full collapse */
-        text-align: left; /* Align images to center/left on mobile for better viewing */
+        text-align: justify; /* Align images to center/left on mobile for better viewing */
     }
     .image-column {
         order: -1; /* Move images above text on mobile for better flow */
@@ -104,4 +104,5 @@ ul li {
     }
 
 }
+
 
