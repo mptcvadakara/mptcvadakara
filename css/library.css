@@ -33,6 +33,7 @@ body {
 .header-section h1 {
     margin: 0;
     font-size: 1.5em; /* Use em/rem for scalable font sizes */
+    margin: 0 auto;
 }
 
 /* Layout for content rows using Flexbox for responsiveness */
@@ -49,6 +50,7 @@ body {
     flex: 1 1 55%; /* Grows, can shrink, and starts at 55% width */
     font-size: 16px;
     text-align: justify;
+    text-indent: 30px;
 }
 
 .image-column {
@@ -97,4 +99,3 @@ ul li {
     }
 
 }
-
