@@ -23,7 +23,7 @@
 /* Header Section */
     .general-header {
         /*background-color: rgb(, 49, 133);*/
-         background-color: rgb(7, 106, 187);
+        background-color: rgb(7, 106, 187);
         color: #ffffff;
         padding: 15px 20px; /* Use relative padding */
         font-weight: normal;
@@ -135,6 +135,7 @@
             padding-left: 20px; /* Less indentation on mobile */
         }
     }
+
 
 
 
