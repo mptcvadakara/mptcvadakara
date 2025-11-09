@@ -1,22 +1,21 @@
         // *** YOU MUST UPDATE THIS ARRAY WITH YOUR ACTUAL IMAGE FILENAMES ***
         const imageFiles = [
+            "mptc.jpg", 
             "1.jpg", 
             "2.jpg", 
             "3.jpg", 
             "4.jpg",
             "5.jpg", 
             "6.jpg", 
-            "7.jpeg",
+            "7.jpg",
             "8.jpg",
             "9.jpg", 
             "10.jpg", 
-            "11.jpeg",
+            "11.jpg",
             "12.jpg",
             "13.jpg", 
             "14.jpg", 
-            "15.jpeg",
-            "16.jpg",
-            // Add all other image file names here
+            "15.jpg"
         ];
 
         let imagePaths = []; // Global array to store full paths
@@ -99,4 +98,5 @@
 
         // Run this function once the page content is loaded to insert the images initially
         document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
 
