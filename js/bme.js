@@ -1,13 +1,21 @@
         // *** YOU MUST UPDATE THIS ARRAY WITH YOUR ACTUAL IMAGE FILENAMES ***
         const imageFiles = [
-            "bme5.jpg", 
-            "bme6.jpg", 
-            "bme7.jpg", 
-            "bme8.jpg",
-            "bm1.jpg", 
-            "bm2.jpg", 
-            "bm3.jpeg",
-            "bm4.jpg"
+            "1.jpg", 
+            "2.jpg", 
+            "3.jpg", 
+            "4.jpg",
+            "5.jpg", 
+            "6.jpg", 
+            "7.jpeg",
+            "8.jpg",
+            "9.jpg", 
+            "10.jpg", 
+            "11.jpeg",
+            "12.jpg",
+            "13.jpg", 
+            "14.jpg", 
+            "15.jpeg",
+            "16.jpg",
             // Add all other image file names here
         ];
 
@@ -58,7 +66,7 @@
             let galleryHTML = '';
 
             // 1. Populate the imagePaths array
-            imagePaths = imageFiles.map(fileName => `../images/${fileName}`);
+            imagePaths = imageFiles.map(fileName => `../Slides/${fileName}`);
 
             // 2. Generate gallery HTML using the index
             imagePaths.forEach((path, index) => {
@@ -91,3 +99,4 @@
 
         // Run this function once the page content is loaded to insert the images initially
         document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
