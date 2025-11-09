@@ -187,15 +187,74 @@ body {
     margin-left: 1.25rem; /* 20px */
 }
 
+/* ---------------------------------------------------- */
+/* NEW: Three-Column Layout Container */
+/* ---------------------------------------------------- */
+.main-content-layout {
+    display: flex;
+    /* Gap between columns */
+    gap: 0.5rem;
+    width: 98%; 
+    /* 📌 INCREASED: Max-width changed to 1800px for maximum horizontal space */
+    max-width: 1800px; 
+    margin: 0.5rem auto; 
+    align-items: flex-start; /* Align content to the top */
+}
+
+/* Style for the side panels */
+.side-panel {
+    /* 📌 INCREASED: Panel width set to 250px */
+    flex-basis: 250px; 
+    /* Prevent shrinking */
+    flex-shrink: 0; 
+    padding: 1rem;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 📌 INCREASED: Content font size */
+    font-size: 1rem; /* 16px */
+    line-height: 1.6; /* Increased line-height for better readability */
+    max-height: 550px; /* Max height to match content area */
+    overflow: auto; /* Allow scrolling if content is too long */
+}
+
+.side-panel h2 {
+    color: white;
+    /* 📌 INCREASED: Heading font size */
+    font-size: 1.25rem; /* 20px */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 0.5rem;
+}
+
+/* Specific colors for Mission (Left) and Vision (Right) */
+.mission-panel {
+    /* Dark Blue - consistent with primary color */
+    background-color: #000080; 
+}
+
+.vision-panel {
+    /* Green - consistent with secondary color */
+    background-color: #336600; 
+}
+
+
 /* Main Content Area */
 #content {
+    /* Allow content to grow and take up the remaining space */
+    flex-grow: 1; 
+    /* Use min-height to maintain height alignment with side panels */
+    min-height: 650px; 
+    
     width: 100%;
     box-sizing: border-box; 
     overflow: hidden; 
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem; 
+    margin-top: 0;
+    margin-bottom: 0; 
     padding:0.2rem;
-    height:550px
+    height: auto; 
 }
 
 #content content-img {
@@ -347,6 +406,26 @@ Focus on Mobile-First Refinements
         width: 100%;
         margin: 0;
         box-shadow: none; 
+    }
+
+    /* Stack columns vertically on mobile */
+    .main-content-layout {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        gap: 1rem;
+    }
+    
+    /* Allow side panels to take full width and stack horizontally */
+    .side-panel {
+        flex-basis: auto; 
+        max-width: 100%;
+        font-size: 1rem;
+        /* Reset max-height when stacked */
+        max-height: none; 
+    }
+    #content {
+        min-height: auto; /* Reset min-height for mobile content flow */
     }
 
     #nav li ul.sub {
@@ -692,8 +771,4 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
-
-
-
-
 
