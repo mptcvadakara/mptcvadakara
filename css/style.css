@@ -217,7 +217,7 @@ body {
     font-size: 1rem; 
     line-height: 1.6; 
     /* 📌 FIXED VERTICAL FIT: Removed fixed max-height to allow stretching */
-    max-height: none; 
+    max-height: 600px;
     overflow: auto; /* Allow scrolling if internal content is too long */
 }
 
@@ -248,7 +248,7 @@ body {
     /* Allow content to grow and take up the remaining space */
     flex-grow: 1; 
     /* 📌 FIXED VERTICAL FIT: Changed min-height to auto to allow content to dictate height */
-    min-height: auto; 
+    min-height: 600px;
     
     width: 100%;
     box-sizing: border-box; 
@@ -773,5 +773,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
