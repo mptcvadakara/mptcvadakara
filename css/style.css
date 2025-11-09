@@ -195,15 +195,16 @@ body {
     /* Gap between columns */
     gap: 0.5rem;
     width: 98%; 
-    /* 📌 INCREASED: Max-width changed to 1800px for maximum horizontal space */
+    /* Max-width remains at 1800px for maximum width */
     max-width: 1800px; 
     margin: 0.5rem auto; 
-    align-items: flex-start; /* Align content to the top */
+    /* 📌 FIXED VERTICAL FIT: Changed to stretch to ensure all columns match the content height */
+    align-items: stretch;
 }
 
 /* Style for the side panels */
 .side-panel {
-    /* 📌 INCREASED: Panel width set to 250px */
+   /* Panel width set to 250px */
     flex-basis: 250px; 
     /* Prevent shrinking */
     flex-shrink: 0; 
@@ -212,11 +213,12 @@ body {
     color: white;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* 📌 INCREASED: Content font size */
-    font-size: 1rem; /* 16px */
-    line-height: 1.6; /* Increased line-height for better readability */
-    max-height: 550px; /* Max height to match content area */
-    overflow: auto; /* Allow scrolling if content is too long */
+    /* Content font size 1rem (16px) */
+    font-size: 1rem; 
+    line-height: 1.6; 
+    /* 📌 FIXED VERTICAL FIT: Removed fixed max-height to allow stretching */
+    max-height: none; 
+    overflow: auto; /* Allow scrolling if internal content is too long */
 }
 
 .side-panel h2 {
@@ -245,16 +247,16 @@ body {
 #content {
     /* Allow content to grow and take up the remaining space */
     flex-grow: 1; 
-    /* Use min-height to maintain height alignment with side panels */
-    min-height: 650px; 
+    /* 📌 FIXED VERTICAL FIT: Changed min-height to auto to allow content to dictate height */
+    min-height: auto; 
     
     width: 100%;
     box-sizing: border-box; 
-    overflow: hidden; 
+    /* Removed explicit overflow: hidden */
     margin-top: 0;
     margin-bottom: 0; 
     padding:0.2rem;
-    height: auto; 
+    height: auto;
 }
 
 #content content-img {
@@ -771,4 +773,5 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
