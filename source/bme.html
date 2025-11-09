@@ -6,6 +6,8 @@
     <title>Biomedical Engineering Department</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../css/staff.css">
+    <script src="../js/bme.js"></script>
+
 </head>
 
 <body>
@@ -18,7 +20,7 @@
             <div class="intro-text">
                 <p class="paragraph-indent">
                     At the starting of the college we had a Medical Electronics branch, and from 2015 onwards, the branch was 
-					renamed as Biomedical Engg., with a modification in the syllabus. 
+		    renamed as Biomedical Engg., with a modification in the syllabus. 
                     In this diploma course, students will gain a strong base in electronics. They study Basic Electronics, 
                     Electrical Engg., Electronic circuits, Linear integrated circuits, Digital Electronics, 
                     Communication Engg., etc.. After that, the syllabus includes various imaging technologies, Therapeutic 
@@ -105,8 +107,20 @@
         </section>
 
     </div>
-</body>
+    
+    <a href="#" class="gallery-link" id="gallery-toggle-link" onclick="return toggleGallery();">
+        <i class="fas fa-camera"></i> VIEW DEPARTMENT GALLERY
+    </a>
+    <div id="department-gallery-section" class="dept-gallery-ext">
+        </div>
+    <div id="image-modal" class="modal">
+        <a class="prev" onclick="showPrevImage()">&#10094;</a>
+        
+        <img class="modal-content" id="full-image">
+        
+        <a class="next" onclick="showNextImage()">&#10095;</a>
+        
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+    </div>
+    </body>
 </html>
-
-
-
