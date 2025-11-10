@@ -1,0 +1,33 @@
+/* Styles for the main container that wraps the chart image */
+.chart-container {
+    width: 90%; /* Take up most of the page width */
+    max-width: 1200px; /* Limits width on very large screens */
+    margin: 20px auto; /* Centers the container horizontally and provides vertical spacing */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center; /* Ensures the image is centered within the container */
+    box-sizing: border-box;
+}
+
+/* Styles for the chart image itself (Key for responsiveness) */
+.organization-chart {
+    /* Critical for device independence: ensures the image never exceeds its container width */
+    max-width: 100%; 
+    
+    /* Critical for device independence: maintains the image's original aspect ratio */
+    height: auto; 
+    
+    display: block; /* Removes extra space below the image */
+    margin: 0 auto; /* Ensures the image is centered if it's smaller than max-width */
+}
+
+/* Media Query for smaller screens (e.g., mobile phones) */
+@media screen and (max-width: 768px) {
+    .chart-container {
+        width: 100%; /* Use full width on small screens */
+        margin: 10px 0; /* Adjust margin for mobile */
+        padding: 10px;
+    }
+}
