@@ -24,11 +24,14 @@ h1 {
 /* Gallery Grid Layout (Desktop Default) */
 .gallery {
     display: grid;
-    /* Automatically fit as many columns as possible, each at least 250px wide */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* Updated minmax to 140px to ensure 5 columns fit easily */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 10px; /* Spacing between grid items */
-    /*max-width: 1200px;  Max width of the entire gallery */
-    max-width: 50%;
+    
+    /* INCREASED WIDTH: Using 90% up to 1200px to accommodate 5 columns */
+    max-width: 1200px;
+    width: 90%; 
+    
     margin: 0 auto; /* Center the gallery on the page */
     padding: 10px;
 }
@@ -71,12 +74,19 @@ h1 {
         margin-top: 10px;
     }
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* 160 - More columns on tablets */
+        /*grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* 160 - More columns on tablets */
+        gap: 10px;
+        padding: 10px;*/
+
+        /* Adjusted minmax for better use of tablet screen space (aiming for 4 columns) */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
         gap: 10px;
         padding: 10px;
+        width: 95%; /* Use almost full width on tablets */
+        max-width: 95%;
     }
     .gallery-item img {
-        height: 25px; /* Adjust thumbnail height for tablets */
+        height: 70px;; /* Adjust thumbnail height for tablets */
     }
 }
 
@@ -201,6 +211,7 @@ h1 {
         right: 10px;
     }
 }
+
 
 
 
