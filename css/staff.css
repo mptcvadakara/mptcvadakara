@@ -80,8 +80,8 @@
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
             border-radius: 8px;
 
-            /* Grid Layout for new images */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            /* Grid Layout for new images - UPDATED for 5 columns */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
             gap: 1.5rem;
         }
 
@@ -91,9 +91,11 @@
             border-radius: 6px;
             cursor: pointer; /* Indicate that the image is clickable */
         }
+        
+        /* UPDATED HEIGHT for extended gallery images */
         .gallery-item-ext img {
             width: 100%;
-            height: 250px; /* Slightly taller for larger gallery items */
+            height: 120px; /* Reduced to 150px */
             object-fit: cover;
             transition: opacity 0.3s ease;
         }
@@ -150,9 +152,10 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 6px;
         }
+        /* UPDATED HEIGHT for main gallery images (from previous request) */
         .gallery-item img {
             width: 100%;
-            height: 200px; /* Fixed height for gallery consistency */
+            height: 150px; /* Reduced from 200px to 150px */
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -369,7 +372,8 @@
             .dept-gallery {
                 grid-template-columns: repeat(2, 1fr); 
             }
-            .dept-item img {
+            /* UPDATED MOBILE HEIGHT for main gallery images */
+            .gallery-item img {
                 height: 150px; 
             }
             
@@ -377,9 +381,10 @@
                  grid-template-columns: 1fr; /* Single column on mobile */
                  padding: 0.5rem;
             }
-
+            
+            /* UPDATED MOBILE HEIGHT for extended gallery images */
             .gallery-item-ext img {
-                height: 200px;
+                height: 150px; /* Maintained at 150px */
             }
             
 		/* Single column for faculty and adjust spacing */
