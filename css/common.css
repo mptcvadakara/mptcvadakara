@@ -1,0 +1,128 @@
+/* General body and container styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    /* Use Flexbox to center content vertically/horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Styles for the main content wrapper (replaces .content-table) */
+.content-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-weight: normal;
+    font-size: 15px;
+    
+    /* NEW: Flexbox for two-column layout */
+    display: flex;
+    gap: 30px; /* Space between the two columns */
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Column: Image and Location Info (replaces .image-cell) */
+.info-sidebar {
+   /* INCREASED SIZE: Changed from 40% to 50% */
+    flex: 0 0 50%; /* Takes 50% of the available space */
+    max-width: 50%; /* Maximum width is 50% */
+    text-align: center;
+    padding-right: 0;
+    /* Add padding/margin for visual separation within the sidebar */
+}
+
+/* Specific styling for the location text */
+.how-to-reach {
+    font-size: 16px; 
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.reach-heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.reach-list {
+    list-style: none; /* Remove bullet points */
+    padding-left: 0;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Right Column: Main Text Content (replaces .text-cell) */
+.main-content {
+   /* Decreased the space it takes to accommodate the larger image column */
+    flex-grow: 1; 
+    padding-left: 0;
+}
+
+/* Key for Responsive Image Display */
+.responsive-img {
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    border-radius: 4px; /* Optional: slightly rounded image corners */
+}
+
+/* Replaces the repeated '&nbsp;' with CSS indentation */
+.paragraph-indent {
+    text-indent: 40px; 
+    margin-top: 1em; /* Use em for vertical spacing */
+    margin-bottom: 1em;
+    line-height: 1.6; /* Increased line height for better readability */
+    text-align: justify; 
+}
+
+/* ---------------------------------------------------- */
+/* Media Query for Mobile/Smaller Screens (Stacking Layout) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    /* Stack the content columns vertically on mobile */
+    .content-container {
+        flex-direction: column;
+        gap: 0; /* Remove gap when stacking */
+        padding: 15px;
+    }
+
+    /* Make both columns take full width on mobile */
+    .info-sidebar,
+    .main-content {
+        flex: 0 0 auto;
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+    }
+
+    .info-sidebar {
+        margin-bottom: 20px; /* Space between the image section and text section */
+    }
+    
+    /* Adjust font size for better mobile readability */
+    .content-container {
+        font-size: 16px; 
+    }
+
+    .how-to-reach {
+        text-align: center; /* Center location details on mobile */
+    }
+}
+
+
