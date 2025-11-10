@@ -1,48 +1,63 @@
-/* ... (Universal Box-sizing and Basic Reset/Global Styles remain UNCHANGED) ... */
+/* Universal Box-sizing for easier layout calculations */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Basic Reset and Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333;
+    text-align: center;
+    line-height: 1.6;
+}
+
+h1 {
+    margin: 10px 0 10px;
+    font-size: 1.5em;
+    color: #2c3e50; /* Darker blue-grey for heading */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
 
 /* Gallery Grid Layout (Desktop Default) */
 .gallery {
     display: grid;
-    /* 1. INCREASED MAX-WIDTH to allow for 5 columns */
-    /* Automatically fit as many columns as possible, each at least 150px wide */
-    /* NOTE: Setting the minmax value smaller (e.g., 120px) would make it easier to guarantee 5 columns */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+    /* Automatically fit as many columns as possible, each at least 250px wide */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px; /* Spacing between grid items */
-    /* 2. SIGNIFICANTLY INCREASED MAX-WIDTH */
-    max-width: 1200px; /* A common max width that easily accommodates 5 columns (approx. 5 x 200px + gaps) */
+    /*max-width: 1200px;  Max width of the entire gallery */
+    max-width: 50%;
     margin: 0 auto; /* Center the gallery on the page */
     padding: 10px;
 }
 
 .gallery-item {
-/* ... (gallery-item styles remain UNCHANGED) ... */
-    overflow: hidden; 
-    border-radius: 10px; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; /* Ensures image corners are rounded */
+    border-radius: 10px; /* Rounded corners for each item */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     cursor: pointer;
-    background-color: #fff; 
+    background-color: #fff; /* White background for items */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .gallery-item:hover {
-/* ... (gallery-item:hover styles remain UNCHANGED) ... */
-    transform: translateY(-5px) scale(1.02); 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px) scale(1.02); /* Lift and slightly enlarge on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
 }
 
 .gallery-item img {
     width: 100%;
     height: 100px; /* Fixed height for consistent thumbnail size */
-/* ... (gallery-item img styles remain UNCHANGED) ... */
-    object-fit: cover; 
-    display: block; 
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block; /* Removes extra space below image */
     transition: transform 0.3s ease-in-out;
-    border-radius: 10px; 
+    border-radius: 10px; /* Rounded corners for each item */
 }
 
 .gallery-item img:hover {
-/* ... (gallery-item img:hover styles remain UNCHANGED) ... */
-    transform: scale(1.05); 
+    transform: scale(1.05); /* Slight zoom on image itself on hover */
 }
 
 /* ------------------------------------------- */
@@ -56,14 +71,12 @@
         margin-top: 10px;
     }
     .gallery {
-        /* Adjusted minmax for better use of tablet screen space */
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* 160 - More columns on tablets */
         gap: 10px;
         padding: 10px;
-        max-width: 95%; /* Use almost full width on tablets */
     }
     .gallery-item img {
-        height: 70px; /* Adjusted thumbnail height for tablets */
+        height: 25px; /* Adjust thumbnail height for tablets */
     }
 }
 
@@ -74,15 +87,122 @@
         margin-top: 10px;
     }
     .gallery {
+        /* grid-template-columns: 1fr;  Single column on phones */
         max-width: 95%;
-        /* Adjusted for smaller screens, aiming for 3 columns on typical phones */
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); 
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 10px;
         padding: 10px;
     }
     .gallery-item img {
-        height: 80px; /* Slightly adjusted height for phones */
+        height: 90px; /* Slightly larger thumbnails in single column */
     }
 }
 
-/* ... (Lightbox Styling remains UNCHANGED) ... */
+/* ------------------------------------------- */
+/* Lightbox Styling (Modal)                    */
+/* ------------------------------------------- */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stays in place */
+    z-index: 1000; /* Stays on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.9); /* Semi-transparent black background */
+    overflow: hidden; /* Prevent scrolling the modal itself */
+    display: flex; /* Use flexbox to easily center content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+.lightbox-content {
+    /* Desktop Default: 60% width and centered */
+    width: 70%;
+    max-width: 900px; /* Max absolute width for the image */
+    max-height: 95vh; /*Max height relative to viewport */
+    object-fit: contain; /* Ensures the whole image is visible */
+    border-radius: 8px; /* Slightly rounded corners for the large image */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Shadow for the lightbox image */
+}
+
+/* Close Button for Lightbox */
+.close-btn {
+    position: fixed; /* Fixed position relative to viewport */
+    top: 15px;
+    right: 25px;
+    color: #FF0000; /* Red color */
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Shadow for better visibility */
+    z-index: 1002; /* Ensure close button is above navigation */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ccc; /* Lighter on hover/focus */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Lightbox Navigation Buttons */
+.prev-btn, .next-btn {
+    cursor: pointer;
+    position: fixed; /* Fixed position relative to viewport */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the buttons */
+    width: auto;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    user-select: none; /* Prevent text selection */
+    z-index: 1001; /* Ensure buttons are above the image */
+}
+
+.prev-btn {
+    left: 0;
+    border-radius: 0 3px 3px 0; /* Rounded on the right side */
+    color: #4CAF50;
+}
+
+.next-btn {
+    right: 0;
+    border-radius: 3px 0 0 3px; /* Rounded on the left side */
+    color: #FFFF00
+}
+
+/* On hover, add a black background with a little more opacity */
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* ------------------------------------------- */
+/* 📱 Lightbox Adjustments for Mobile          */
+/* ------------------------------------------- */
+@media (max-width: 500px) {
+    .lightbox-content {
+        width: 95%; /* Make lightbox image wider on small screens */
+        max-height: 90vh; /* Adjust max height for mobile */
+    }
+    .prev-btn, .next-btn {
+        font-size: 20px;
+        padding: 10px;
+        top: 50%; /* Re-center vertically */
+        background-color: rgba(0,0,0,0.7); 
+    }
+    .close-btn {
+        font-size: 30px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+
+
+
+
