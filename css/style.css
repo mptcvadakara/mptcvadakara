@@ -242,27 +242,6 @@ body {
     background-color: #336600; 
 }
 
-/* Styling for the MISSION content (assuming it uses an unordered list <ul>) */
-.mission-panel ul {
-    /* Add space above the list, appearing as one blank line after the heading */
-    margin-top: 1rem; 
-    /* Ensure bulleted list style is used */
-    list-style-type: disc; 
-    /* Override 'text-align: center' from .side-panel to align bullets/text properly */
-    text-align: left;
-    /* Ensure bullets are visible by providing padding */
-    padding-left: 1.5rem;
-    /* Reset default bottom margin */
-    margin-bottom: 0;
-}
-
-.mission-panel li {
-    /* Add space between mission points */
-    margin-bottom: 0.5rem; 
-    /* Ensure list items are left-aligned */
-    text-align: left;
-}
-
 
 /* Main Content Area */
 #content {
@@ -375,60 +354,422 @@ Focus on Mobile-First Refinements
 
 /* --- Tablet and Medium Screens (Max-Width 1024px) --- */
 @media (max-width: 1024px) {
-    /* ... (rest of the media query for 1024px) ... */
+    .main-info {
+        padding: 1rem 1.5rem; /* Reduced padding */
+    }
+    .top-bar {
+        font-size: 0.8rem; /* Slightly smaller text */
+        padding: 0.5rem 1rem;
+    }
+    #nav li a {
+        padding: 0.625rem 0.625rem;
+    }
+    .college-name {
+        font-size: 1.75rem; /* 28px */
+    }
+    .college-management {
+        font-size: 0.9375rem; /* 15px */
+    }
+    .footer-column {
+        flex-basis: 45%; /* Two columns per row on medium screens */
+    }
+    .content-img {
+        border-radius: 10px;
+    }
 }
 
 /* --- Mobile Screens (Max-Width 768px) --- */
 @media (max-width: 768px) {
-    /* ... (rest of the media query for 768px) ... */
+    .top-bar {
+        /* Switch to column layout for top bar items */
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+    }
+    .top-bar-item {
+        width: 100%;
+        margin: 0.25rem 0;
+        /* Center text on mobile for better appearance */
+        justify-content: center; 
+    }
+    .main-info {
+        /* Stack logo and text vertically */
+        flex-direction: column; 
+        padding: 1rem 0.5rem;
+        text-align: center;
+    }
+    .left-decoration-img,
+    .college-logo-img {
+        max-width: 3.75rem; /* 60px */
+        margin-bottom: 0.625rem;
+    }
+
+    #main-wrapper {
+        width: 100%;
+        margin: 0;
+        box-shadow: none; 
+    }
+
+    /* Stack columns vertically on mobile */
+    .main-content-layout {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        gap: 1rem;
+    }
+    
+    /* Allow side panels to take full width and stack horizontally */
+    .side-panel {
+        flex-basis: auto; 
+        max-width: 100%;
+        font-size: 1rem;
+        /* Reset max-height when stacked */
+        max-height: none; 
+    }
+    #content {
+        min-height: auto; /* Reset min-height for mobile content flow */
+    }
+
+    #nav li ul.sub {
+        position: static; 
+        width: 100%;
+        box-shadow: none;
+        background-color: #2a5200; 
+        
+        /* CRITICAL: Use max-height for smooth collapse/expand transition */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out; /* Add transition for animation */
+    }
+
+    /* CRITICAL: New class to open the submenu on click */
+    #nav li.item--open ul.sub {
+        /* Use a value large enough to accommodate all sub-links */
+        max-height: 500px; 
+        transition: max-height 0.5s ease-in; 
+    }
+    
+    /* Ensure the main link is styled for visual feedback */
+    #nav li.item--open > a.top_link {
+        background-color: #4CAF50; /* Highlight the active parent link */
+    }
+    
+    /* Mobile Navigation (Stacked Menu) */
+    #nav {
+        /* Stack nav items vertically */
+        flex-direction: column; 
+        align-items: center;
+    }
+    #nav li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Make dropdowns static/visible on mobile (requires JS to toggle visibility) */
+    #nav li ul.sub {
+        position: static; 
+        width: 100%;
+        left: auto;
+        box-shadow: none;
+        background-color: #2a5200; /* Slightly darker green for sub-menus */
+        /* Initially hide sub-menus to prevent a huge list (JS required to reveal) */
+        /* display: none; */ 
+    }
+    
+    .college-name {
+        font-size: 1.5rem; /* 24px */
+    }
+    .college-management {
+        font-size: 0.875rem; /* 14px */
+    }
+    .marquee-container {
+        font-size: 1rem; /* 16px */
+    }
+    .footer-main {
+        /* Stack all columns vertically */
+        flex-direction: column;
+        padding: 1.25rem 0.625rem;
+    }
+    .footer-column {
+        min-width: 100%; 
+        margin-bottom: 0.9375rem;
+    }
+    .content-img {
+        border-radius: 10px;
+    }
 }
 
 /* --- Smallest Mobile Screens (Max-Width 480px) --- */
 @media (max-width: 480px) {
-    /* ... (rest of the media query for 480px) ... */
+    .college-name {
+        font-size: 1.25rem; /* Even smaller font */
+    }
+    .college-management {
+        font-size: 0.75rem; /* Smallest font */
+    }
+    .top-bar {
+        font-size: 0.75rem;
+    }
+    .footer-bottom-bar {
+        font-size: 0.875rem;
+    }
+    .content-img {
+        border-radius: 10px;
+    }
 }
 
 /* --- New CSS for the Toggle Button --- */
 .nav-toggle {
-    /* ... (rest of the nav-toggle styles) ... */
+    display: none; /* Hide by default on desktop */
+    background-color: #336600; 
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.25rem;
+    border-radius: 0;
+    
+    /* ADD FLEXBOX for alignment */
+    display: flex; 
+    /* CRITICAL CHANGE: Align items to the start (left) */
+    justify-content: flex-start; 
+    align-items: center;
+    /* Add space between the icon and the text */
+    gap: 0.6rem;
 }
 
+/* --- Navigation Bar Desktop Styles (No change needed here) --- */
+/* ... existing #nav styles remain for desktop display: flex ... */
+
+
+/* ********************************************************************************
+RESPONSIVE ADJUSTMENTS (Media Queries)
+********************************************************************************
+*/
 @media (max-width: 768px) {
-    /* ... (rest of the media query for nav-toggle visibility) ... */
+    
+    /* 1. Show the Mobile Toggle Button */
+   .nav-toggle {
+        display: flex; /* OVERRIDE 'display: none' from general styles */
+    }
+
+    /* Style the text specifically to ensure its size is readable */
+    .nav-toggle .menu-text {
+        font-weight: bold;
+        font-size: 1rem; /* Adjust size relative to icon */
+    }
+    
+    /* Optional: Ensure the icon (bars) is centered vertically */
+    .nav-toggle i.fa-bars {
+        font-size: 1.25rem;
+    }
+
+    /* Optional: Style the text specifically */
+    .nav-toggle span {
+        font-weight: bold;
+        font-size: 1rem; /* Adjust size relative to icon */
+    }
+   
+    /* 2. Hide the Menu by Default and Prepare for Toggle */
+    #nav {
+        flex-direction: column; 
+        align-items: center;
+        /* HIDE THE MENU by default on mobile */
+        display: none; 
+        width: 100%;
+    }
+    
+    /* 3. State when the menu is active (Toggled via JS) */
+    #nav.nav-menu--open {
+        display: flex; /* SHOW the menu */
+    }
+
+    /* 4. Fix list item and dropdown behavior on mobile */
+    #nav li {
+        width: 100%;
+        text-align: left; /* Align links to the left inside the full-width button */
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    #nav li:first-child {
+        border-top: none;
+    }
+    
+    /* 5. Submenu modification for static flow on mobile */
+    #nav li ul.sub {
+        position: static; 
+        width: 100%;
+        box-shadow: none;
+        background-color: #2a5200; 
+        /* Initially hide sub-menus */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    /* Optional: If you want to allow submenus to expand on click (via JS) */
+    /* Add a class, e.g., 'sub--open', via JS on click */
+    /*
+    #nav li.item--open ul.sub {
+        max-height: 500px; // Use a large fixed value or calculated height 
+    }
+    */
+    
+    /* ... existing 768px styles for header/footer ... */
 }
 
+/* Hide the icon/text on desktop */
 @media (min-width: 769px) {
-    /* ... (rest of the media query for nav-toggle hiding) ... */
+     .nav-toggle {
+        display: none;
+    }
 }
 
 /* ---------------------------------------------------- */
 /* 📌 Responsive Image Styling for the Content Area 📌 */
 /* ---------------------------------------------------- */
+
 .responsive-content-img {
-    /* ... (rest of the responsive-content-img styles) ... */
+    /* CRUCIAL for responsiveness: Ensures the image scales down and never exceeds its parent width */
+    max-width: 100%; 
+    /* Maintains the image's original aspect ratio to prevent distortion */
+    height: auto; 
+    /* Ensures the image is treated as a block for correct layout flow */
+    display: block;
+    /* Centers the block-level image within its container */
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    /* Forces the table and its cells within #content to behave like full-width blocks */
+    #content table,
+    #content tr, 
+    #content td {
+        display: block; 
+        width: 100% !important; /* Force full width override */
+        padding: 0;
+    }
+    
+    /* Center the image cell on mobile */
+    #content td[align="center"] {
+        text-align: center;
+    }
+}
+
+/* --- Smallest Mobile Screens (Max-Width 480px) --- */
+@media (max-width: 480px) {
+    .college-name {
+        font-size: 1.25rem; /* Even smaller font */
+    }
+    .college-management {
+        font-size: 0.75rem; /* Smallest font */
+    }
+    .top-bar {
+        font-size: 0.75rem;
+    }
+    .footer-bottom-bar {
+        font-size: 0.875rem;
+    }
 }
 
 /* Styling for the slideshow container */
 .slideshow-container {
-    /* ... (rest of the slideshow-container styles) ... */
+    width: 100%;
+    max-width: 900px; /* Adjust max-width as needed for your design */
+    margin: 0 auto; /* Center the container in the #content area */
+    overflow: hidden;
+    /* Optional: Add a standard height to prevent content shifting if images have different aspect ratios */
+    /* height: 500px; 
+    border: 1px solid #ccc; */
 }
 
 /* 📌 Responsive Image Styling for the Slideshow 📌 */
 .responsive-slideshow-img {
-    /* ... (rest of the responsive-slideshow-img styles) ... */
+    /* CRUCIAL for responsiveness: Ensures the image scales down and never exceeds its parent width */
+    max-width: 100%; 
+    /* Maintains the image's original aspect ratio to prevent distortion */
+    height: auto; 
+    /* Ensures the image is treated as a block for correct layout flow */
+    display: block;
+    width: 100%; /* Ensure it fills the container horizontally */
+    /* Apply a smooth transition effect to the opacity property */
+    transition: opacity .5s ease-in-out; /* 1.5 seconds fade duration */
+    border-radius: 10px;
+}
+
+/* You may need to add or keep media queries to further refine the overall site layout */
+@media screen and (max-width: 768px) {
+    .slideshow-container {
+        max-width: 100%; /* Allow container to take full width on mobile */
+    }
+}
+
+/* ---------------------------------------------------- */
+/* SLIDESHOW STYLING WITH NAVIGATION BUTTONS */
+/* ---------------------------------------------------- */
+
+.slideshow-container {
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto; 
+    overflow: hidden;
+    /* 📌 CRUCIAL: Must be relative for absolute positioning of buttons to work */
+    position: relative; 
+}
+
+.responsive-slideshow-img {
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    width: 100%;
+    border-radius: 10px;
 }
 
 /* Style for the navigation buttons */
 .prev, .next {
-    /* ... (rest of the prev, next styles) ... */
+    cursor: pointer;
+    /* Absolute positioning relative to .slideshow-container */
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border: none;
+    border-radius: 3px;
+    z-index: 10; /* Ensure buttons are above the image */
 }
 
 /* Position the "Previous" button on the left */
 .prev {
-    /* ... (rest of the prev styles) ... */
+    left: 0;
+    border-radius: 0 3px 3px 0;
 }
 
 /* Position the "Next" button on the right */
 .next {
-    /* ... (rest of the next styles) ... */
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a darker background color */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Media Query for Mobile/Smaller Screens */
+@media screen and (max-width: 768px) {
+    .slideshow-container {
+        max-width: 100%;
+    }
+    
+    /* Make buttons smaller on small screens */
+    .prev, .next {
+        font-size: 16px;
+        padding: 8px;
+    }
 }
