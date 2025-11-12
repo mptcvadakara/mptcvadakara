@@ -230,7 +230,6 @@ body {
     text-align: justify;
 }
 
-
 .side-panel h2 {
     color: white;
     /* 📌 INCREASED: Heading font size */
@@ -245,7 +244,7 @@ body {
 .side-panel h1 {
     color: red;
     /* 📌 INCREASED: Heading font size */
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.5rem; /* 20px */
     margin-top: 0px;
     margin-bottom: 0.5rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
@@ -879,6 +878,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
