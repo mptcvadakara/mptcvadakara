@@ -230,8 +230,10 @@ body {
     text-align: justify;
 }
 
+
 .side-panel h2 {
     color: white;
+    /* 📌 INCREASED: Heading font size */
     font-size: 1.25rem; /* 20px */
     margin-top: 0px;
     margin-bottom: 0.5rem;
@@ -239,6 +241,29 @@ body {
     padding-bottom: 0.5rem;
     text-align: center;
 }
+
+.side-panel h1 {
+    color: red;
+    /* 📌 INCREASED: Heading font size */
+    font-size: 1.25rem; /* 20px */
+    margin-top: 0px;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.side-panel h3 {
+    color: yellow;
+    /* 📌 INCREASED: Heading font size */
+    font-size: 1.5rem; /* 20px */
+    margin-top: 5px;
+    margin-bottom: 0rem;
+    /*border-bottom: 2px solid rgba(255, 255, 255, 0.5);*/
+    padding-bottom: 0rem;
+    text-align: center;
+}
+
 
 /* Specific colors for Mission (Left) and Vision (Right) */
 .mission-panel {
@@ -254,6 +279,74 @@ body {
     /* Green - consistent with secondary color */
     background-color: #336600; 
     text-align: center;
+}
+
+/* 📌 NEW STYLES for Placed Students Slideshow 📌 */
+/* Container for the student slideshow */
+.slideshow-container-students {
+    max-width: 300px; /* Limit the width of the slideshow */
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Individual slide container */
+.mySlides-student { /* ⬅️ Updated class name */
+    display: none; /* Initially hide all slides */
+}
+
+/* Image inside the slide */
+.responsive-placed-img {
+    max-width: 100%; 
+    height: auto;
+    display: block; 
+    margin: 0 auto;
+    border-radius: 5px; 
+    border: 3px solid rgba(255, 255, 255, 0.5); 
+}
+
+/* Next & previous buttons */
+.prev-student, .next-student {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px; /* Slightly increased padding */
+    margin-top: -20px; /* Adjusted margin for better centering */
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10; /* Ensure it is above the image */
+}
+
+/* Position the "previous button" to the left */
+.prev-student {
+    left: 0;
+    border-radius: 0 3px 3px 0; /* Rounded right edge */
+}
+
+/* Position the "next button" to the right */
+.next-student {
+    right: 0;
+    border-radius: 3px 0 0 3px; /* Rounded left edge */
+}
+
+/* On hover, add a black background with a little transparency */
+.prev-student:hover, .next-student:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Fade animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
 }
 
 /* Main Content Area */
@@ -786,6 +879,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
