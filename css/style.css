@@ -229,6 +229,7 @@ body {
     margin-bottom: 0.5rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 0.5rem;
+    text-align: center;
 }
 
 /* Specific colors for Mission (Left) and Vision (Right) */
@@ -240,6 +241,7 @@ body {
 .vision-panel {
     /* Green - consistent with secondary color */
     background-color: #336600; 
+    text-align: center;
 }
 
 
@@ -773,5 +775,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
