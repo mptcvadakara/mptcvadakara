@@ -211,7 +211,7 @@ body {
     padding: 1rem;
     border-radius: 8px;
     color: white;
-    text-align: center;
+    text-align: justify;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Content font size 1rem (16px) */
     font-size: 1rem; 
@@ -773,3 +773,4 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
