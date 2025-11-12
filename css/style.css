@@ -205,7 +205,7 @@ body {
 /* Style for the side panels */
 .side-panel {
    /* Panel width set to 250px */
-    flex-basis: 250px; 
+    flex-basis: 320px; 
     /* Prevent shrinking */
     flex-shrink: 0; 
     padding: 1rem;
@@ -773,4 +773,5 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
