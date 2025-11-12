@@ -221,7 +221,7 @@ body {
     overflow: auto; /* Allow scrolling if internal content is too long */
 }
 
-.side-panel p{
+.side-panel li{
     padding: 1rem;
     color: white;
     text-align: justify;  
@@ -781,6 +781,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
