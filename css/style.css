@@ -221,6 +221,12 @@ body {
     overflow: auto; /* Allow scrolling if internal content is too long */
 }
 
+.side-panel p{
+    padding: 1rem;
+    color: white;
+    text-align: justify;  
+}
+
 .side-panel h2 {
     color: white;
     /* 📌 INCREASED: Heading font size */
@@ -775,6 +781,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
