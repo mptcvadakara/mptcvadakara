@@ -232,7 +232,6 @@ body {
 
 .side-panel h2 {
     color: white;
-    /* 📌 INCREASED: Heading font size */
     font-size: 1.25rem; /* 20px */
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -784,6 +783,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
