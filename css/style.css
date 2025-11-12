@@ -244,7 +244,7 @@ body {
     background-color: #000080; 
 }
 
-.vision-panel {
+.notice-panel {
     /* Green - consistent with secondary color */
     background-color: #336600; 
     text-align: center;
@@ -781,6 +781,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
