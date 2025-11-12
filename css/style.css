@@ -240,6 +240,9 @@ body {
     text-align: center;
 }
 
+.vision-h2{
+    margin-top: 1rem;
+}
 /* Specific colors for Mission (Left) and Vision (Right) */
 .mission-panel {
     /* Dark Blue - consistent with primary color */
@@ -783,6 +786,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
