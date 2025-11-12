@@ -1,7 +1,26 @@
 // =================================================================
 // Placed Students Slideshow Logic (using class .mySlides-student)
 // =================================================================
+const TOTAL_STUDENT_SLIDES = 15; // Set the total number of images (1.jpg to 15.jpg)
 var slideIndexStudent = 0; // Start at 0 for initial auto-run logic
+
+// Function to dynamically generate the slideshow HTML
+function createStudentSlides() {
+    const container = document.getElementById("studentSlidesPlaceholder");
+    if (!container) return;
+
+    let slidesHTML = '';
+    // Loop from 1 to 15, assuming images are named 1.jpg, 2.jpg, ..., 15.jpg inside the 'placed/' directory
+    for (let i = 1; i <= TOTAL_STUDENT_SLIDES; i++) {
+        // Generates <div class="mySlides-student fade"><img src="placed/X.jpg" ...></div>
+        slidesHTML += `
+            <div class="mySlides-student fade">
+                <img src="placed/${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
+            </div>
+        `;
+    }
+    container.innerHTML = slidesHTML;
+}
 
 // Manual Next/Previous controls
 function plusSlidesStudent(n) {
@@ -34,7 +53,11 @@ function showSlidesStudent(n) {
 function autoShowSlidesStudent() {
   var slides = document.getElementsByClassName("mySlides-student");
   
-  if (slides.length === 0) return; // Exit if no slides are found
+  if (slides.length === 0) {
+      // If slides haven't been created yet, try again soon
+      setTimeout(autoShowSlidesStudent, 100); 
+      return; 
+  }
 
   // Hide all slides
   for (var i = 0; i < slides.length; i++) {
@@ -54,11 +77,12 @@ function autoShowSlidesStudent() {
 
 // Run the slideshow when the page loads
 window.onload = function() {
-    // Start the student slideshow if elements are present
-    if (document.getElementsByClassName("mySlides-student").length > 0) {
-        autoShowSlidesStudent();
-    }
+    // 1. Dynamically create the slides
+    createStudentSlides();
     
-    // NOTE: If you have other JavaScript initialization code, you should 
-    // add it here as well (e.g., initializing a main banner slideshow).
+    // 2. Start the automatic slideshow
+    autoShowSlidesStudent();
+    
+    // NOTE: If you have other JavaScript initialization code in script.js, 
+    // ensure it is still called, or move it to this function if appropriate.
 };
