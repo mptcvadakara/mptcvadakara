@@ -240,13 +240,14 @@ body {
     text-align: center;
 }
 
-.vision-h2{
-    margin-top: 1rem;
-}
 /* Specific colors for Mission (Left) and Vision (Right) */
 .mission-panel {
     /* Dark Blue - consistent with primary color */
     background-color: #000080; 
+}
+
+.mission-panel .last-vision-li {
+    margin-bottom: 2rem; /* Creates the desired blank line/space after the vision statement */
 }
 
 .notice-panel {
@@ -254,7 +255,6 @@ body {
     background-color: #336600; 
     text-align: center;
 }
-
 
 /* Main Content Area */
 #content {
@@ -786,6 +786,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
