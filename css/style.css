@@ -221,24 +221,12 @@ body {
     overflow: auto; /* Allow scrolling if internal content is too long */
 }
 
-/*.side-panel li{
-    padding: 1rem;
-    color: white;
-    text-align: justify;  
-}*/
-
 .side-panel li{
-    /* Vertical space between list items (from previous request) */
-    margin-top: 0.3125rem; /* 5px */
-    
-    /* Horizontal space before the bullet mark (new request) */
-    margin-left: 0.3125rem; /* 5px: Shifts the bullet and text block to the right */
-    
-    /* Reduced internal padding for cleaner list item look (was 1rem, now 0.5rem) */
-    padding: 0.5rem; 
-    
+    /*padding: 1rem;*/
     color: white;
-    text-align: justify;  
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: justify;
 }
 
 .side-panel h2 {
@@ -795,6 +783,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
