@@ -228,9 +228,15 @@ body {
 }*/
 
 .side-panel li{
-    /* Added margin-top to leave 5px space before the list item, as requested */
+    /* Vertical space between list items (from previous request) */
     margin-top: 0.3125rem; /* 5px */
-    padding: 1rem;
+    
+    /* Horizontal space before the bullet mark (new request) */
+    margin-left: 0.3125rem; /* 5px: Shifts the bullet and text block to the right */
+    
+    /* Reduced internal padding for cleaner list item look (was 1rem, now 0.5rem) */
+    padding: 0.5rem; 
+    
     color: white;
     text-align: justify;  
 }
@@ -789,6 +795,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
