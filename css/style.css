@@ -221,7 +221,15 @@ body {
     overflow: auto; /* Allow scrolling if internal content is too long */
 }
 
+/*.side-panel li{
+    padding: 1rem;
+    color: white;
+    text-align: justify;  
+}*/
+
 .side-panel li{
+    /* Added margin-top to leave 5px space before the list item, as requested */
+    margin-top: 0.3125rem; /* 5px */
     padding: 1rem;
     color: white;
     text-align: justify;  
@@ -781,6 +789,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
