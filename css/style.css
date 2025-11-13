@@ -194,7 +194,7 @@ body {
     display: flex;
     /* Gap between columns */
     gap: 0.5rem;
-    width: 98%; 
+    width: 95%; 
     /* Max-width remains at 1800px for maximum width */
     max-width: 1800px; 
     margin: 0.5rem auto; 
@@ -878,6 +878,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
