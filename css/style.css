@@ -295,7 +295,7 @@ body {
 
 /* Image inside the slide */
 .responsive-placed-img {
-    max-width: 100%; 
+    max-width: 95%; 
     height: auto;
     display: block; 
     margin: 0 auto;
@@ -878,6 +878,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
