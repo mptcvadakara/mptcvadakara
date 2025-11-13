@@ -13,6 +13,12 @@ body {
     padding: 20px 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* *** MODIFICATIONS START HERE *** */
+    width: 90%; /* Reduces the container width to 90% */
+    max-width: 1200px; /* Ensures it doesn't get too wide on huge screens */
+    margin: 20px auto 0 auto; /* Centers the container and adds margin above */
+    border-radius: 10px; /* Applies rounded corners */
+    /* *** MODIFICATIONS END HERE *** */
 }
 
 .page-heading {
@@ -32,7 +38,7 @@ body {
 
 .college-logo {
     max-width: 750px; 
-    width: 100%; /* Key for responsiveness: ensures it never exceeds the container width */
+    width: 100%; 
     height: auto;
     display: block; 
     margin: 0 auto;
@@ -59,7 +65,6 @@ body {
 }
 
 .paragraph-indent {
-    /* *** MODIFICATION: Set text alignment to justified *** */
     text-align: justify; 
     text-indent: 40px;
     line-height: 1.6;
