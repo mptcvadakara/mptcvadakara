@@ -31,9 +31,9 @@ body {
 
 /* Left Column: Image and Location Info (replaces .image-cell) */
 .info-sidebar {
-   /* INCREASED SIZE: Changed from 40% to 50% */
-    flex: 0 0 50%; /* Takes 50% of the available space */
-    max-width: 50%; /* Maximum width is 50% */
+   /* INCREASED SIZE: Changed from 50% to 55% as requested */
+    flex: 0 0 55%; /* Takes 55% of the available space */
+    max-width: 55%; /* Maximum width is 55% */
     text-align: center;
     padding-right: 0;
     /* Add padding/margin for visual separation within the sidebar */
@@ -66,7 +66,7 @@ body {
 
 /* Right Column: Main Text Content (replaces .text-cell) */
 .main-content {
-   /* Decreased the space it takes to accommodate the larger image column */
+   /* Decreased the space it takes to accommodate the larger image column (45%) */
     flex-grow: 1; 
     padding-left: 0;
 }
@@ -82,7 +82,7 @@ body {
 /* Replaces the repeated '&nbsp;' with CSS indentation */
 .paragraph-indent {
     text-indent: 40px; 
-    margin-top: 1em; /* Use em for vertical spacing */
+    margin-top: 0em; /* Use em for vertical spacing */
     margin-bottom: 1em;
     line-height: 1.6; /* Increased line height for better readability */
     text-align: justify; 
@@ -124,5 +124,3 @@ body {
         text-align: center; /* Center location details on mobile */
     }
 }
-
-
