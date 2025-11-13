@@ -14,8 +14,8 @@ body {
 
 /* Styles for the main content wrapper (replaces .content-table) */
 .content-container {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%; /* Increased from 90% */
+    max-width: 1400px; /* Increased from 1200px */
     margin: 0 auto;
     font-weight: normal;
     font-size: 15px;
@@ -31,7 +31,7 @@ body {
 
 /* Left Column: Image and Location Info (replaces .image-cell) */
 .info-sidebar {
-   /* INCREASED SIZE: Changed from 50% to 55% as requested */
+   /* RETAINED PREVIOUS CHANGE: 55% */
     flex: 0 0 55%; /* Takes 55% of the available space */
     max-width: 55%; /* Maximum width is 55% */
     text-align: center;
@@ -66,7 +66,7 @@ body {
 
 /* Right Column: Main Text Content (replaces .text-cell) */
 .main-content {
-   /* Decreased the space it takes to accommodate the larger image column (45%) */
+   /* RETAINED PREVIOUS CHANGE: Accommodating 55% sidebar */
     flex-grow: 1; 
     padding-left: 0;
 }
@@ -82,7 +82,7 @@ body {
 /* Replaces the repeated '&nbsp;' with CSS indentation */
 .paragraph-indent {
     text-indent: 40px; 
-    margin-top: 0em; /* Use em for vertical spacing */
+    margin-top: 1em; /* Use em for vertical spacing */
     margin-bottom: 1em;
     line-height: 1.6; /* Increased line height for better readability */
     text-align: justify; 
