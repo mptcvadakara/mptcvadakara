@@ -236,7 +236,7 @@ body {
     font-size: 1.25rem; /* 20px */
     margin-top: 0px;
     margin-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    /*border-bottom: 2px solid rgba(255, 255, 255, 0.5);*/
     padding-bottom: 0.5rem;
     text-align: center;
 }
@@ -256,7 +256,7 @@ body {
     color: yellow;
     /* 📌 INCREASED: Heading font size */
     font-size: 1.2rem; /* 20px */
-    margin-top: 5px;
+    margin-top: 3px;
     margin-bottom: 0rem;
     /*border-bottom: 2px solid rgba(255, 255, 255, 0.5);*/
     padding-bottom: 0rem;
@@ -878,6 +878,7 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
         padding: 8px;
     }
 }
+
 
 
 
