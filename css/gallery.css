@@ -123,7 +123,7 @@ h1 {
 
 .lightbox-content {
     /* Desktop Default: 70% width and centered */
-    width: 70%;
+    width: 90%;
     max-width: 900px; /* Max absolute width for the image */
     max-height: 95vh; /*Max height relative to viewport */
     object-fit: contain; /* Ensures the whole image is visible */
@@ -215,3 +215,4 @@ h1 {
         right: 10px;
     }
 }
+
