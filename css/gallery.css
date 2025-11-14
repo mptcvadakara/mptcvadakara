@@ -129,6 +129,15 @@ h1 {
     object-fit: contain; /* Ensures the whole image is visible */
     border-radius: 8px; /* Slightly rounded corners for the large image */
     box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Shadow for the lightbox image */
+    
+    /* SLIDESHOW EFFECT: Transition for opacity/fade effect */
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+/* Class to apply the Fade Out effect on navigation */
+.lightbox-content.fade {
+    opacity: 0;
+    transform: scale(0.95); /* Shrink slightly during fade-out */
 }
 
 /* Close Button for Lightbox */
