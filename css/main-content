@@ -74,16 +74,16 @@ body {
 
 /* Styles for the 'How to Reach' sidebar */
 .info-sidebar {
-    background-color: #e9f7e9; 
+    background-color: #97f365; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .reach-heading {
-    color: #006600; 
+    color: #f12805; 
     margin-top: 0;
-    border-bottom: 2px solid #b3e0b3;
+    border-bottom: 2px solid #0c0c0c;
     padding-bottom: 5px;
 }
 
@@ -97,4 +97,5 @@ body {
     padding-left: 20px;
     position: relative;
 }
+
 
