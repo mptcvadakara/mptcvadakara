@@ -24,13 +24,13 @@ body {
 .page-heading {
     margin: 0;
     font-size: 2em;
-    /*text-transform: uppercase;*/
+    text-transform: uppercase;
     letter-spacing: 0px;
 }
 
 /* Styles for the college logo at the top */
 .college-header {
-    /*background-color: #ffffff; */
+    background-color: #ffffff; 
     padding: 20px;
     text-align: center; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
@@ -58,7 +58,7 @@ body {
 
 /* Styles for the main college description section */
 .main-content {
-    /*background-color: #ffffff;*/
+    background-color: #ffffff;
     padding: 0px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -97,5 +97,6 @@ body {
     padding-left: 20px;
     position: relative;
 }
+
 
 
