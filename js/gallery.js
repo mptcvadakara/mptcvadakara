@@ -1,6 +1,6 @@
 // --- 1. DEFINE IMAGE COUNT & GENERATE FILE LIST ---
 // IMPORTANT: Set this constant to the total number of sequentially named images (e.g., 1.jpg, 2.jpg, ...).
-const TOTAL_GALLERY_IMAGES = 25; 
+const TOTAL_GALLERY_IMAGES = 28; 
 
 const imageFiles = [];
 // Loop from 1 up to the total number of images to generate paths
@@ -155,3 +155,4 @@ lightbox.addEventListener('click', function(event) {
         closeLightbox();
     }
 });
+
