@@ -52,7 +52,7 @@ body {
     flex-direction: column; 
     width: 90%;
     max-width: 1200px; 
-    margin: 20px auto;
+    margin: 3px auto;
     gap: 20px; 
 }
 
@@ -97,6 +97,7 @@ body {
     padding-left: 20px;
     position: relative;
 }
+
 
 
 
