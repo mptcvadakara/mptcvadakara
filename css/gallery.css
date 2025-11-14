@@ -143,7 +143,7 @@ h1 {
 /* Close Button for Lightbox */
 .close-btn {
     position: fixed; /* Fixed position relative to viewport */
-    top: 15px;
+    top: 10px;
     right: 25px;
     color: #FF0000; /* Red color */
     font-size: 40px;
@@ -215,4 +215,5 @@ h1 {
         right: 10px;
     }
 }
+
 
