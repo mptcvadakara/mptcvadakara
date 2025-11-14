@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Light background for the page */
+    /*background-color: #f4f4f4;*/
 }
 
 /* Styles for the new heading */
@@ -97,6 +97,7 @@ body {
     padding-left: 20px;
     position: relative;
 }
+
 
 
 
