@@ -1,38 +1,35 @@
-// --- 1. DEFINE THE IMAGE LIST MANUALLY ---
-// IMPORTANT: You MUST update this array whenever you add or remove images from the 'gallery/' folder.
-// The paths MUST be relative to the HTML file (gallery.html is in 'source/').
-// Use '../gallery/' to correctly reference images from the HTML file's location.
-const imageFiles = [
-    '../gallery/mptc.jpg', '../gallery/1.jpg', '../gallery/2.jpg', '../gallery/3.jpg', '../gallery/4.jpg', '../gallery/5.jpg', 
-    '../gallery/6.jpg', '../gallery/7.jpg', '../gallery/8.jpg', '../gallery/9.jpg', '../gallery/10.jpg','../gallery/11.jpg', 
-    '../gallery/12.jpg', '../gallery/13.jpg', '../gallery/14.jpg', '../gallery/15.jpg', '../gallery/17.jpg',  '../gallery/17.jpg',  
-    '../gallery/18.jpg',  '../gallery/19.jpg',  '../gallery/20.jpg',  '../gallery/21.jpg',  '../gallery/22.jpg',  '../gallery/23.jpg',  
-    '../gallery/24.jpg',  '../gallery/25.jpg',  '../gallery/26.jpg',  '../gallery/27.jpg',  '../gallery/28.jpg'  
-];
+// --- 1. DEFINE IMAGE COUNT & GENERATE FILE LIST ---
+// IMPORTANT: Set this constant to the total number of sequentially named images (e.g., 1.jpg, 2.jpg, ...).
+const TOTAL_GALLERY_IMAGES = 25; 
 
-// --- 2. Gallery and Lightbox DOM Elements ---
+const imageFiles = [];
+// Loop from 1 up to the total number of images to generate paths
+for (let i = 1; i <= TOTAL_GALLERY_IMAGES; i++) {
+    // The path MUST be relative to the HTML file (gallery.html).
+    // Assuming images are in the '../gallery/' folder.
+    imageFiles.push(`../gallery/${i}.jpg`);
+}
+
+// --- 2. Gallery and Lightbox DOM Elements & Global Vars ---
 const galleryContainer = document.querySelector('.gallery');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
 let currentImageIndex; // Global variable to track the index of the currently displayed image
+let slideshowTimeout; // Global variable to hold the timeout ID for auto-play
 
 // --- 3. Function to Dynamically Generate the Gallery ---
 function generateGallery() {
-    // Check if the imageFiles array is empty or not defined
     if (!imageFiles || imageFiles.length === 0) {
-        galleryContainer.innerHTML = '<p>No images defined in the JavaScript file. Please update `imageFiles` array.</p>';
+        galleryContainer.innerHTML = '<p>No images found. Please check TOTAL_GALLERY_IMAGES constant and file paths.</p>';
         return;
     }
 
     let galleryHTML = '';
-    
-    // Loop through the imageFiles array and create HTML for each image thumbnail
     imageFiles.forEach((fileName, index) => {
-        const altText = `Gallery Image ${index + 1}`; // Simple alt text
+        // Use the filename (e.g., 1.jpg) for the alt text
+        const altText = `Gallery Image ${fileName.substring(fileName.lastIndexOf('/') + 1)}`;
         
-        // Construct the HTML for each gallery item.
-        // `onclick` calls `openLightbox` passing the image path and its index.
         galleryHTML += `
             <div class="gallery-item" onclick="openLightbox('${fileName}', ${index})">
                 <img src="${fileName}" alt="${altText}">
@@ -40,72 +37,121 @@ function generateGallery() {
         `;
     });
     
-    // Insert the generated HTML into the gallery container
     galleryContainer.innerHTML = galleryHTML;
 }
 
-// Ensure gallery generation runs once the HTML document is fully loaded
 document.addEventListener('DOMContentLoaded', generateGallery);
 
-// --- 4. Lightbox Functions (Made Global for HTML `onclick` attributes) ---
+// --- 4. Slideshow Functions ---
+
+// Automatic Slideshow Function (Runs every 4 seconds)
+function autoShowSlides() {
+    // 1. Calculate the next slide (n=1)
+    let nextIndex = currentImageIndex + 1;
+    if (nextIndex >= imageFiles.length) {
+        nextIndex = 0;
+    }
+    
+    // 2. Apply Fade Out effect (start transition: 400ms)
+    lightboxImg.classList.add('fade');
+
+    // 3. Wait for fade-out, change src, and fade in
+    slideshowTimeout = setTimeout(() => {
+        currentImageIndex = nextIndex; // Update the global index
+        lightboxImg.src = imageFiles[currentImageIndex];
+        lightboxImg.classList.remove('fade'); // Triggers fade-in
+
+        // 4. Schedule the next auto-slide
+        slideshowTimeout = setTimeout(autoShowSlides, 4000); // Change image every 4 seconds (4000 milliseconds)
+    }, 400); // Wait 400ms for fade-out to complete before changing src
+}
+
+
+// Function for manual Next/Previous controls 
+function plusSlides(n) {
+    // 1. Stop the current auto-slide cycle and restart it 
+    clearTimeout(slideshowTimeout);
+    
+    // 2. Start the Fade Out effect
+    lightboxImg.classList.add('fade');
+
+    // Wait for the fade-out animation to complete (400ms defined in CSS)
+    setTimeout(() => {
+        // 3. Calculate the new index
+        currentImageIndex += n;
+
+        // Handle looping
+        if (currentImageIndex < 0) {
+            currentImageIndex = imageFiles.length - 1; 
+        } else if (currentImageIndex >= imageFiles.length) {
+            currentImageIndex = 0; 
+        }
+
+        // 4. Update the image source
+        lightboxImg.src = imageFiles[currentImageIndex];
+        
+        // 5. End the Fade In effect
+        lightboxImg.classList.remove('fade');
+        
+        // 6. Resume auto-play after manual navigation (starts new 4000ms timer)
+        slideshowTimeout = setTimeout(autoShowSlides, 4000); 
+
+    }, 400); // This delay must match the CSS transition duration
+}
 
 // Function to open the lightbox with a specific image
 function openLightbox(imageSrc, index) {
-    currentImageIndex = index; // Store the index of the image being opened
-    lightboxImg.src = imageSrc; // Set the source of the large image in the lightbox
-    lightbox.style.display = 'flex'; // Display the lightbox (uses flex for centering)
-    document.body.style.overflow = 'hidden'; // Prevent scrolling the main page while lightbox is open
+    currentImageIndex = index; 
+    
+    // 1. Set the source and ensure the fade class is ADDED (opacity: 0)
+    lightboxImg.src = imageSrc;
+    lightboxImg.classList.add('fade'); 
+    
+    // 2. Display the lightbox wrapper
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    // 3. Use a small timeout to remove the fade class, starting the smooth transition (fade-in)
+    // This delay ensures the browser registers the element is now visible before starting the transition.
+    setTimeout(() => {
+        lightboxImg.classList.remove('fade'); // Triggers fade-in/scale-up
+    }, 50);
+
+    // 4. START AUTO SLIDESHOW after the initial image is visible.
+    clearTimeout(slideshowTimeout); 
+    slideshowTimeout = setTimeout(autoShowSlides, 4000); // First transition will happen after 4s
 }
 
 // Function to close the lightbox
 function closeLightbox() {
-    lightbox.style.display = 'none'; // Hide the lightbox
-    document.body.style.overflow = 'auto'; // Re-enable scrolling on the main page
+    lightbox.style.display = 'none'; 
+    document.body.style.overflow = 'auto'; 
+    
+    // STOP AUTO SLIDESHOW
+    clearTimeout(slideshowTimeout); 
 }
 
-// Function to navigate between images in the lightbox
-function changeImage(direction) {
-    // direction will be -1 for previous image, 1 for next image
-    currentImageIndex += direction;
-
-    // Handle looping: if we go past the end, go to the beginning; if past the beginning, go to the end
-    if (currentImageIndex < 0) {
-        currentImageIndex = imageFiles.length - 1; // Loop to the last image
-    } else if (currentImageIndex >= imageFiles.length) {
-        currentImageIndex = 0; // Loop to the first image
-    }
-
-    // Update the lightbox image source to the new current image
-    lightboxImg.src = imageFiles[currentImageIndex];
-}
-
-// Make these functions globally accessible so they can be called from HTML `onclick` attributes
+// Make functions globally accessible
 window.openLightbox = openLightbox;
 window.closeLightbox = closeLightbox;
-window.changeImage = changeImage;
+window.plusSlides = plusSlides; 
 
 // --- 5. Optional: Keyboard Navigation (Arrow keys and Escape) ---
 document.addEventListener('keydown', function(event) {
-    // Only respond to key presses if the lightbox is currently visible
     if (lightbox.style.display === 'flex') {
-        if (event.key === 'ArrowLeft') { // Left arrow key
-            changeImage(-1); // Move to previous image
-        } else if (event.key === 'ArrowRight') { // Right arrow key
-            changeImage(1); // Move to next image
-        } else if (event.key === 'Escape') { // Escape key
-            closeLightbox(); // Close the lightbox
+        if (event.key === 'ArrowLeft') { 
+            plusSlides(-1); 
+        } else if (event.key === 'ArrowRight') { 
+            plusSlides(1); 
+        } else if (event.key === 'Escape') { 
+            closeLightbox(); 
         }
     }
 });
 
 // --- 6. Event Listener to Close Lightbox on Background Click ---
 lightbox.addEventListener('click', function(event) {
-    // If the click occurred directly on the lightbox container (the dark background),
-    // but NOT on the image itself or the navigation buttons, then close the lightbox.
     if (event.target === lightbox) {
         closeLightbox();
     }
 });
-
-
-
