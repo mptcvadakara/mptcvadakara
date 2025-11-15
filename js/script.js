@@ -197,7 +197,7 @@ const images = [
     '13.jpg',
     '14.jpg',
     '15.jpg',
-    '1.jpg',
+    '1.jpg'
 ];
 
 const imagePathPrefix = 'Slides/'; 
@@ -286,6 +286,7 @@ function showSlides(n) {
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
+
 
 
 
