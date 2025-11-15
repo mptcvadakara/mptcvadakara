@@ -15,7 +15,7 @@ body {
 
 /* Styles for the main content wrapper (replaces .content-table) */
 .content-container {
-    width: 90%;
+    width: 95%;
     max-width: 1200px;
     margin: 0 auto;
     font-weight: normal;
@@ -156,3 +156,4 @@ body {
         text-align: center; /* Center location details on mobile */
     }
 }
+
