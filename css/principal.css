@@ -6,8 +6,9 @@ body {
     background-color: #f4f4f4;
     /* Use Flexbox to center content vertically/horizontally */
     display: flex;
+    flex-direction: column; /* Changed to column to stack main and message */
     justify-content: center;
-    align-items: flex-start;
+    align-items: center; /* Center content horizontally */
     min-height: 100vh;
     box-sizing: border-box;
 }
@@ -20,13 +21,15 @@ body {
     font-weight: normal;
     font-size: 15px;
     
-    /* NEW: Flexbox for two-column layout */
+    /* Flexbox for two-column layout */
     display: flex;
     gap: 30px; /* Space between the two columns */
     padding: 20px;
     background-color: #ffffff; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Added margin-bottom to separate it from the message section */
+    margin-bottom: 20px; 
 }
 
 /* Left Column: Image and Location Info (replaces .image-cell) */
@@ -88,10 +91,21 @@ body {
     text-align: justify; 
 }
 
-/* NEW: Style for H2 in the main content section */
-.main-content h2 {
+/* NEW STYLING FOR THE FULL-WIDTH MESSAGE CONTAINER */
+.message-full-width {
+    width: 90%; /* Match the width of .content-container */
+    max-width: 1200px; /* Match the max-width of .content-container */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* NEW: Style for H2 in the message section */
+.message h2 {
     color: #0056b3; /* A professional blue color */
-    margin-top: 25px;
+    margin-top: 0; /* Reset top margin since it's a new block */
     margin-bottom: 15px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
@@ -103,6 +117,13 @@ body {
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
+        align-items: stretch; /* Allow content to take full width */
+    }
+    
+    .content-container,
+    .message-full-width {
+        width: 100%; /* Take full width on mobile */
+        max-width: none;
     }
 
     /* Stack the content columns vertically on mobile */
@@ -126,7 +147,8 @@ body {
     }
     
     /* Adjust font size for better mobile readability */
-    .content-container {
+    .content-container,
+    .message-full-width {
         font-size: 16px; 
     }
 
