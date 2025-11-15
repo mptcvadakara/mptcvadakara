@@ -23,7 +23,7 @@ body {
     
     /* Flexbox for two-column layout */
     display: flex;
-    gap: 30px; /* Space between the two columns */
+    gap: 25px; /* Space between the two columns */
     padding: 20px;
     background-color: #ffffff; 
     border-radius: 8px; 
@@ -156,5 +156,6 @@ body {
         text-align: center; /* Center location details on mobile */
     }
 }
+
 
 
