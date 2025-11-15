@@ -180,48 +180,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Array of image file paths (as uploaded by the user)
-const images = [
-    'mptc.jpg',
-    '2.jpg',
-    '3.jpg',
-    '4.jpg',
-    '5.jpg',
-    '6.jpg',
-    '7.jpg',
-    '8.jpg',
-    '9.jpg',
-    '10.jpg',
-    '11.jpg',
-    '12.jpg',
-    '13.jpg',
-    '14.jpg',
-    '15.jpg',
-    '1.jpg'
-];
+// --- UPDATED SLIDESHOW LOGIC ---
+
+// Dynamically generate the image file paths (1.jpg, 2.jpg, ... up to 15.jpg)
+const images = [];
+const numImages = 15; // Assuming files are 1.jpg up to 15.jpg
+for (let i = 1; i <= numImages; i++) {
+    images.push(`${i}.jpg`);
+}
+// Add the remaining static images if needed, based on the original list
+images.push('mptc.jpg'); // Add mptc.jpg and 1.jpg again if they were special
 
 const imagePathPrefix = 'Slides/'; 
-let currentImageIndex = 0;
+let slideIndex = 0; // Use 0-based index for array
 let slideshowInterval;
-const delay = 4000; // 3000 milliseconds = 3 seconds
+const delay = 4000; // 4000 milliseconds = 4 seconds
 
-// 1. Function to display a specific slide (by updating the index)
-const showImage = (newIndex) => {
+// 1. Function to display a specific slide
+const showImage = (n) => {
     const slideshowElement = document.getElementById('slideshow-img');
     if (!slideshowElement) return;
 
-    // Use the modulo operator (%) to ensure the index wraps around correctly
-    // (n + images.length) % images.length handles both positive (Next) and negative (Prev) wrap-arounds.
-    currentImageIndex = (newIndex + images.length) % images.length;
+    // 1. Calculate the new index, ensuring wrap-around (0 to max)
+    slideIndex = (n + images.length) % images.length;
 
-    // Update the image source
-    slideshowElement.src = imagePathPrefix + images[currentImageIndex];
+    // 2. Add the 'slide-out' class to start the transition (hides and moves left)
+    // We'll use a class named 'slide-out' for the initial effect.
+    slideshowElement.classList.add("slide-out");
+
+    // 3. Set a timeout to change the image source after the slide-out completes
+    // The delay should match or slightly exceed the CSS transition time (e.g., 300ms)
+    const transitionTime = 300; 
+
+    setTimeout(() => {
+        // Change the image source while it's hidden/moved off-screen
+        slideshowElement.src = imagePathPrefix + images[slideIndex]; 
+        
+        // 4. Remove the 'slide-out' class to trigger the 'fly from left' (slide-in) effect
+        // The default styles (or an 'slide-in' class combined with CSS transition) 
+        // will handle the smooth move back to position.
+        slideshowElement.classList.remove("slide-out");
+
+    }, transitionTime); 
 };
 
 // 2. Function for the automatic slideshow logic
 const autoSlideshow = () => {
-    // Simply moves to the next slide
-    showImage(currentImageIndex + 1);
+    // Moves to the next slide
+    showImage(slideIndex + 1);
 };
 
 
@@ -231,61 +237,31 @@ window.plusSlides = (n) => {
     clearInterval(slideshowInterval); 
     
     // B. Manually move to the requested slide (current index + direction: +1 or -1)
-    showImage(currentImageIndex + n);
+    // We pass the new desired index, which 'showImage' will normalize.
+    showImage(slideIndex + n);
     
-    // C. Restart the automatic interval from the new current index
+    // C. Restart the automatic interval
     slideshowInterval = setInterval(autoSlideshow, delay);
 };
 
 
 // 4. Initialization: Run the slideshow logic when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', (event) => {
+    // Initial display of the first image (slideIndex = 0)
+    const slideshowElement = document.getElementById('slideshow-img');
+    if(slideshowElement && images.length > 0) {
+        slideshowElement.src = imagePathPrefix + images[0];
+    }
+    
     // Start the automatic slideshow
     slideshowInterval = setInterval(autoSlideshow, delay);
 });
-
-/*
-NOTE: The original HTML had various functions like load_home(), load_principal(), etc.
-These functions must be defined in this script.js file if they are needed for navigation.
-Example:
-window.load_home = () => { console.log("Loading Home Page"); };
-window.load_principal = () => { console.log("Loading Principal Page"); };
-// ... Define all other load_ functions here ...
-*/
-
-let slideIndex = 1;
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-    const slideshowImg = document.getElementById("slideshow-img");
-
-    // 1. Calculate the new index
-    if (n > images.length) {
-        slideIndex = 1;
-    }
-    if (n < 1) {
-        slideIndex = images.length;
-    }
-
-    // 2. Add the 'fade-out' class to start the transition
-    slideshowImg.classList.add("fade-out");
-
-    // 3. Set a timeout to change the image source after the fade-out completes
-    // The delay should match or slightly exceed the CSS transition time (1500ms for 1.5s)
-    setTimeout(() => {
-        // Change the image source while it's invisible (opacity: 0)
-        slideshowImg.src = images[slideIndex - 1]; 
-        
-        // 4. Remove the 'fade-out' class to trigger the fade-in of the new image
-        slideshowImg.classList.remove("fade-out");
-
-    }, 1500); // 1500 milliseconds (1.5 seconds) delay
-}
+// Initialize the slideshow when the page loads
+showSlides(slideIndex);
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
+
 
 
 
