@@ -2,14 +2,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 5px;
     background-color: #f4f4f4;
     /* Use Flexbox to center content vertically/horizontally */
     display: flex;
     flex-direction: column; /* Changed to column to stack main and message */
     justify-content: center;
     align-items: center; /* Center content horizontally */
-    min-height: 100vh;
+    min-height: 90vh;
     box-sizing: border-box;
 }
 
@@ -156,6 +156,7 @@ body {
         text-align: center; /* Center location details on mobile */
     }
 }
+
 
 
 
