@@ -881,31 +881,29 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
+/* CSS for the Slideshow Image Transition */
 
+#slideshow-img {
+    /* 1. Set the transition property for smooth movement and opacity change */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    /* 2. Ensure the image starts in its correct, visible state */
+    transform: translateX(0);
+    opacity: 1;
+    /* Set display/width/height as needed for your layout */
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#slideshow-img.slide-out {
+    /* State when the image is hidden/off-screen (before changing the source) */
+    /* Move it far to the left */
+    transform: translateX(-100%);
+    /* Make it invisible */
+    opacity: 0;
+}
+/*
+When the 'slide-out' class is removed by the JavaScript (after the image source changes), 
+the image smoothly transitions from transform: translateX(-100%) back to transform: translateX(0), 
+creating the 'fly from left' effect.
+*/
