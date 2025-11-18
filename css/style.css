@@ -25,9 +25,9 @@ body {
     justify-content: space-between; 
     align-items: center;
     /* Use 'rem' for vertical padding */
-    padding: 0.5rem 2rem; 
-    padding: 0.5rem 2.5rem
-    /* Use 'rem' for font size */
+    padding: 0.5rem 10rem; 
+    /* padding: 0.5rem 2.5rem
+     Use 'rem' for font size */
     font-size: 1.2rem; 
 }
 
@@ -907,3 +907,4 @@ When the 'slide-out' class is removed by the JavaScript (after the image source 
 the image smoothly transitions from transform: translateX(-100%) back to transform: translateX(0), 
 creating the 'fly from left' effect.
 */
+
