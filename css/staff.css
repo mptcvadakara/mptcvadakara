@@ -142,10 +142,15 @@
 /* --- 3. GALLERY (Existing Section) --- */
         .dept-gallery {
             display: grid;
-            /* 3 equal columns on desktop */
-            grid-template-columns: repeat(3, 1fr); 
+            /* MODIFIED: Set to 2 columns and center the container */
+            grid-template-columns: repeat(2, 1fr); 
             gap: 1rem;
             margin-bottom: 2rem;
+            
+            /* Add max-width and center for centralization */
+            max-width: 800px; 
+            margin-left: auto;
+            margin-right: auto;
         }
         .gallery-item {
             overflow: hidden;
@@ -207,7 +212,7 @@
         .faculty-hod {
             text-align: center;
             margin-bottom: 2rem;
-            cursor: pointer; /* Indicate clickability */
+            cursor: pointer;
         }
 
         .faculty-hod img {
@@ -238,7 +243,7 @@
         }
 
         .member-card {
-             cursor: pointer; /* Indicate clickability */
+             cursor: pointer;
         }
         
         .member-card img {
@@ -259,7 +264,7 @@
              font-size: 0.85rem;
         }
         
-/* --- 6. IMAGE MODAL STYLING (Lightbox) --- */
+/* --- 6. MODAL STYLING --- */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -274,14 +279,14 @@
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
-/* --- NEW PROFILE MODAL STYLING (UPDATED) --- */
+/* --- PROFILE MODAL STYLING --- */
 .profile-modal-content {
     background-color: #fefefe;
     margin: 10% auto; /* 10% from the top and centered horizontally */
     padding: 20px;
     padding-top: 40px; /* Extra padding to make space for the close button */
     border: 1px solid #888;
-    width: 80%; /* Could be 80% */
+    width: 80%; 
     max-width: 600px;
     min-height: 25rem; /* ~10cm height */
     border-radius: 8px;
@@ -320,7 +325,7 @@
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
-/* --- END NEW PROFILE MODAL STYLING --- */
+/* --- END PROFILE MODAL STYLING --- */
 
 
 .modal-content {
@@ -328,8 +333,8 @@
     display: block;
     width: 90%;
     max-width: 900px;
-    max-height: 90vh; /* Viewport height for responsiveness */
-    object-fit: contain; /* Prevents cropping */
+    max-height: 90vh; 
+    object-fit: contain; 
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
     
@@ -340,33 +345,31 @@
     animation-duration: 0.6s;
 }
 
-/* The Close Button (MODIFIED: Use .profile-modal-content > .close-btn) */
-
+/* The Close Button (General Styles) */
 .close-btn {
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
     line-height: 1;
-    /* Removed z-index from generic class, will apply specifically if needed */
 }
 
-/* Style for the close button in the Image Modal (White on dark background) */
+/* Style for the close button in the Image Modal (White on dark background, positioned relative to viewport) */
 #image-modal .close-btn {
     position: absolute;
     top: 15px;
     right: 35px;
-    color: #f1f1f1; /* White on the dark background */
+    color: #f1f1f1;
     z-index: 1001; 
 }
 
-/* Style for the close button in the Profile Modal (Dark on white background) */
+/* Style for the close button in the Profile Modal (Dark on white background, positioned relative to content box) */
 #profile-modal .profile-modal-content .close-btn {
-    position: absolute; /* Positioned relative to .profile-modal-content */
+    position: absolute; 
     top: 5px; 
     right: 15px; 
-    color: var(--text-dark); /* Dark color on white background (ensures visibility) */
-    z-index: 100; /* Lower than modal overlay, but higher than content */
+    color: var(--text-dark); /* Dark color on white background for visibility */
+    z-index: 100;
 }
 
 .close-btn:hover,
@@ -378,6 +381,7 @@
 
 /* Previous and Next buttons */
 .prev, .next {
+/* ... (Rest of existing CSS for prev/next and keyframes) ... */
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -393,15 +397,105 @@
   -webkit-user-select: none;
   background-color: rgba(0,0,0,0.4);
 }
-/* ... (Rest of CSS) ... */
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a darker background color */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
 
 /* --- RESPONSIVENESS (MOBILE) --- */
         @media (max-width: 768px) {
-            /* ... (Other mobile styles) ... */
+            .dept-section {
+                width: 95%;
+                padding: 0.5rem;
+            }
             
-             /* Adjust profile modal for small screens */
-	    @media (max-width: 768px) {
-            /* ... (Other mobile styles) ... */
+            /* Stack intro text and image vertically */
+            .dept-intro {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .intro-text {
+                order: 2; /* Text below image */
+                font-size: 1rem;
+            }
+            .intro-image {
+                order: 1;
+                width: 100%;
+                margin: 0 auto;
+            }
+            
+		/* 2 columns on mobile */
+            .dept-gallery {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            /* UPDATED MOBILE HEIGHT for main gallery images */
+            .gallery-item img {
+                height: 120px; 
+            }
+            
+            .dept-gallery-ext {
+                 grid-template-columns: 1fr; /* Single column on mobile */
+                 padding: 0.5rem;
+            }
+            
+            /* UPDATED MOBILE HEIGHT for extended gallery images */
+            .gallery-item-ext img {
+                height: 150px; /* Maintained at 150px */
+            }
+            
+		/* Single column for faculty and adjust spacing */
+            .faculty-members {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-link {
+                font-size: 1.1rem;
+                padding: 0.75rem;
+            }
+            
+            /* Adjust modal size for small screens */
+            .modal-content {
+                width: 100%;
+                margin-top: 20%;
+            }
+            
+            /* Reduce button size on mobile */
+            .prev, .next {
+                font-size: 16px;
+                padding: 10px;
+                margin-top: -16px;
+            }
+
+            #image-modal .close-btn {
+                font-size: 30px;
+                top: 5px;
+                right: 20px;
+            }
+
+            #profile-modal .profile-modal-content .close-btn {
+                font-size: 30px;
+                top: 5px;
+                right: 10px;
+            }
             
              /* Adjust profile modal for small screens */
             .profile-modal-content {
@@ -411,14 +505,14 @@
                 padding-top: 35px; /* Adjust padding for close button on mobile */
                 min-height: 20rem; 
             }
-            
-            #profile-modal .profile-modal-content .close-btn {
-                font-size: 30px;
-                top: 5px;
-                right: 10px;
-            } 
         }
         
         @media (max-width: 480px) {
-            /* ... (Other very small screen styles) ... */
+            /* Single column for gallery on very small screens */
+            .dept-gallery {
+                grid-template-columns: 1fr; 
+            }
+            .dept-title {
+                font-size: 1.25rem;
+            }
         }
