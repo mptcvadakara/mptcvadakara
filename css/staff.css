@@ -207,6 +207,7 @@
         .faculty-hod {
             text-align: center;
             margin-bottom: 2rem;
+            cursor: pointer; /* Indicate clickability */
         }
 
         .faculty-hod img {
@@ -236,6 +237,10 @@
             text-align: center;
         }
 
+        .member-card {
+             cursor: pointer; /* Indicate clickability */
+        }
+        
         .member-card img {
             width: 140px;
             height: 180px;
@@ -269,6 +274,55 @@
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
+/* --- NEW PROFILE MODAL STYLING (UPDATED) --- */
+.profile-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered horizontally */
+    padding: 20px;
+    padding-top: 40px; /* Extra padding to make space for the close button */
+    border: 1px solid #888;
+    width: 80%; /* Could be 80% */
+    max-width: 600px;
+    min-height: 25rem; /* ~10cm height */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+    color: var(--text-dark);
+    position: relative; /* IMPORTANT: Set context for the absolute close button */
+    
+    /* Animation effect for the profile box */
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+.profile-modal-content h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.profile-modal-content p {
+    margin: 0.5rem 0;
+}
+
+/* Add an animation for the profile box (slide down from top) */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+/* --- END NEW PROFILE MODAL STYLING --- */
+
+
 .modal-content {
     margin: auto;
     display: block;
@@ -286,17 +340,33 @@
     animation-duration: 0.6s;
 }
 
-/* The Close Button */
+/* The Close Button (MODIFIED: Use .profile-modal-content > .close-btn) */
+
 .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
     line-height: 1;
+    /* Removed z-index from generic class, will apply specifically if needed */
+}
+
+/* Style for the close button in the Image Modal (White on dark background) */
+#image-modal .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1; /* White on the dark background */
+    z-index: 1001; 
+}
+
+/* Style for the close button in the Profile Modal (Dark on white background) */
+#profile-modal .profile-modal-content .close-btn {
+    position: absolute; /* Positioned relative to .profile-modal-content */
+    top: 5px; 
+    right: 15px; 
+    color: var(--text-dark); /* Dark color on white background (ensures visibility) */
+    z-index: 100; /* Lower than modal overlay, but higher than content */
 }
 
 .close-btn:hover,
@@ -323,109 +393,32 @@
   -webkit-user-select: none;
   background-color: rgba(0,0,0,0.4);
 }
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a darker background color */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-
-@-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
-    to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
+/* ... (Rest of CSS) ... */
 
 /* --- RESPONSIVENESS (MOBILE) --- */
         @media (max-width: 768px) {
-            .dept-section {
-                width: 95%;
-                padding: 0.5rem;
+            /* ... (Other mobile styles) ... */
+            
+             /* Adjust profile modal for small screens */
+	    @media (max-width: 768px) {
+            /* ... (Other mobile styles) ... */
+            
+             /* Adjust profile modal for small screens */
+            .profile-modal-content {
+                width: 90%;
+                margin: 20% auto;
+                padding: 15px;
+                padding-top: 35px; /* Adjust padding for close button on mobile */
+                min-height: 20rem; 
             }
             
-            /* Stack intro text and image vertically */
-            .dept-intro {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .intro-text {
-                order: 2; /* Text below image */
-                font-size: 1rem;
-            }
-            .intro-image {
-                order: 1;
-                width: 100%;
-                margin: 0 auto;
-            }
-            
-		/* 2 columns on mobile */
-            .dept-gallery {
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            /* UPDATED MOBILE HEIGHT for main gallery images */
-            .gallery-item img {
-                height: 120px; 
-            }
-            
-            .dept-gallery-ext {
-                 grid-template-columns: 1fr; /* Single column on mobile */
-                 padding: 0.5rem;
-            }
-            
-            /* UPDATED MOBILE HEIGHT for extended gallery images */
-            .gallery-item-ext img {
-                height: 150px; /* Maintained at 150px */
-            }
-            
-		/* Single column for faculty and adjust spacing */
-            .faculty-members {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .gallery-link {
-                font-size: 1.1rem;
-                padding: 0.75rem;
-            }
-            
-            /* Adjust modal size for small screens */
-            .modal-content {
-                width: 100%;
-                margin-top: 20%;
-            }
-            
-            /* Reduce button size on mobile */
-            .prev, .next {
-                font-size: 16px;
-                padding: 10px;
-                margin-top: -16px;
-            }
-            .close-btn {
+            #profile-modal .profile-modal-content .close-btn {
                 font-size: 30px;
                 top: 5px;
-                right: 20px;
-            }
+                right: 10px;
+            } 
         }
         
         @media (max-width: 480px) {
-            /* Single column for gallery on very small screens */
-            .dept-gallery {
-                grid-template-columns: 1fr; 
-            }
-            .dept-title {
-                font-size: 1.25rem;
-            }
+            /* ... (Other very small screen styles) ... */
         }
-
-
-
