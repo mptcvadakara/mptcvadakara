@@ -62,24 +62,24 @@
         <section class="dept-faculty">
             <div class="faculty-title">Faculty Members</div>
 
-            <div class="faculty-hod">
+            <div class="faculty-hod" onclick="openProfileModal(0)">
                 <img src="../staff/anoop.jpg" alt="HOD Name">
                 <p>Anoop Kumar N</p>
                 <small>Head of the Department</small>
             </div>
 
             <div class="lectures">
-                <div class="member-card">
+                <div class="member-card" onclick="openProfileModal(1)">
                     <img src="../staff/pooja.jpg" alt="Lecturer 1">
                     <p>Pooja K P</p>
                     <small>Lr. in Bio Medical Engineering</small>
                 </div>
-                <div class="member-card">
+                <div class="member-card" onclick="openProfileModal(2)">
                     <img src="../staff/arya.jpg" alt="Lecturer 2">
                     <p>Arya</p>
                     <small>Lr. in Bio Medical Engineering</small>
                 </div>
-                <div class="member-card">
+                <div class="member-card" onclick="openProfileModal(3)">
                     <img src="../staff/anjali.jpg" alt="Lecturer 3">
                     <p>Anjali</p>
                     <small>Lr. in Bio Medical Engineering</small>
@@ -87,7 +87,7 @@
 	     	</div>
 		
 	     	<div class="sup_staff">
-                <div class="member-card">
+                <div class="member-card" onclick="openProfileModal(4)">
                     <img src="../staff/bindu.jpg" alt="Demonstrator 1">
                     <p>Bindu</p>
                     <small>Demonstrator in Bio Medical Engineering</small>
@@ -103,20 +103,20 @@
 	
     <div id="department-gallery-section" class="dept-gallery-ext">
     </div>
+    
     <div id="image-modal" class="modal">
         <a class="prev" onclick="showPrevImage()">&#10094;</a>      
         <img class="modal-content" id="full-image">   
         <a class="next" onclick="showNextImage()">&#10095;</a>
         <span class="close-btn" onclick="closeModal()">&times;</span>
     </div>
+
+    <div id="profile-modal" class="modal">
+        <div class="profile-modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span> <div id="profile-content">
+                </div>
+        </div>
+    </div>
 	
     </body>
 </html>
-
-
-
-
-
-
-
-
