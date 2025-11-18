@@ -1,5 +1,5 @@
         // *** YOU MUST UPDATE THIS ARRAY WITH YOUR ACTUAL IMAGE FILENAMES ***
-        const imageFiles = [
+        /*const imageFiles = [
             "mptc.jpg", 
             "1.jpg", 
             "2.jpg", 
@@ -16,17 +16,27 @@
             "13.jpg", 
             "14.jpg", 
             "15.jpg"
-        ];
+        ]; */
 
-        let imagePaths = []; // Global array to store full paths
-        let currentImageIndex = 0; // Global variable to track the currently viewed image
+// *** UPDATED ARRAY GENERATION USING A FOR LOOP ***
+const imageFiles = [];
+let totalImages = 15;
+// Start at 1, go up to and include 15.
+for (let i = 1; i <= totalImages; i++) {
+    imageFiles.push(`${i}.jpg`);
+}
+// Add the 'mptc.jpg' file separately if it's not part of the sequence.
+imageFiles.unshift("mptc.jpg"); // Add 'mptc.jpg' to the beginning
 
-        // Function to update the modal image based on index
-        function displayImage(index) {
-            const modalImg = document.getElementById("full-image");
-            currentImageIndex = index;
-            modalImg.src = imagePaths[currentImageIndex];
-        }
+let imagePaths = []; // Global array to store full paths
+let currentImageIndex = 0; // Global variable to track the currently viewed image
+
+// Function to update the modal image based on index
+function displayImage(index) {
+        const modalImg = document.getElementById("full-image");
+        currentImageIndex = index;
+        modalImg.src = imagePaths[currentImageIndex];
+}
 
         // Function to display the full-screen image modal
         function openModal(index) {
@@ -98,5 +108,6 @@
 
         // Run this function once the page content is loaded to insert the images initially
         document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
 
 
