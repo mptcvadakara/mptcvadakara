@@ -1,6 +1,6 @@
-// *** FACULTY PROFILE DATA (New Array) ***
+// *** FACULTY PROFILE DATA ***
 const facultyProfiles = [
-    // HOD Profile (Index 0) - Anoop Kumar N
+    // HOD Profile (Index 0)
     { 
         name: "Anoop Kumar N", 
         designation: "Head of the Department, Lecturer in Bio Medical Engineering", 
@@ -8,7 +8,7 @@ const facultyProfiles = [
         email: "anoop.kumar@example.com", 
         expertise: "Medical Imaging, Electronic Instrumentation, Diagnostic Equipment Maintenance."
     },
-    // Lecturer 1 (Index 1) - Pooja K P
+    // Lecturer 1 (Index 1)
     { 
         name: "Pooja K P", 
         designation: "Lecturer in Bio Medical Engineering", 
@@ -16,7 +16,7 @@ const facultyProfiles = [
         email: "pooja.kp@example.com",
         expertise: "Bio-signals Processing, Therapeutic Devices, Microprocessors."
     },
-    // Lecturer 2 (Index 2) - Arya
+    // Lecturer 2 (Index 2)
     { 
         name: "Arya", 
         designation: "Lecturer in Bio Medical Engineering", 
@@ -24,7 +24,7 @@ const facultyProfiles = [
         email: "arya@example.com",
         expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
     },
-    // Lecturer 3 (Index 3) - Anjali
+    // Lecturer 3 (Index 3)
     { 
         name: "Anjali", 
         designation: "Lecturer in Bio Medical Engineering", 
@@ -32,7 +32,7 @@ const facultyProfiles = [
         email: "anjali@example.com",
         expertise: "Circuit Design, Analog Electronics, Medical Equipment Troubleshooting."
     },
-    // Demonstrator 1 (Index 4) - Bindu
+    // Demonstrator 1 (Index 4)
     { 
         name: "Bindu", 
         designation: "Demonstrator in Bio Medical Engineering", 
@@ -43,7 +43,7 @@ const facultyProfiles = [
 ];
 
 
-// *** GALLERY IMAGE SETUP (Existing) ***
+// *** GALLERY IMAGE SETUP ***
 const imageFiles = [];
 let totalImages = 15;
 // Start at 1, go up to and include 15.
@@ -56,27 +56,28 @@ imageFiles.unshift("mptc.jpg"); // Add 'mptc.jpg' to the beginning
 let imagePaths = []; // Global array to store full paths
 let currentImageIndex = 0; // Global variable to track the currently viewed image
 
-// --- GALLERY MODAL FUNCTIONS ---
-
 // Function to update the modal image based on index
-function displayGalleryImage(index) {
+function displayImage(index) {
         const modalImg = document.getElementById("full-image");
         currentImageIndex = index;
         modalImg.src = imagePaths[currentImageIndex];
 }
 
 // Function to display the full-screen image modal
-function openGalleryModal(index) {
+function openModal(index) {
         const modal = document.getElementById("image-modal");
         modal.style.display = "block";
-        displayGalleryImage(index); // Set the initial image
+        displayImage(index); // Set the initial image
 }
 
-// Function to close the modal (Updated to close both)
+// Function to close the modal (UPDATED to close both modals)
 function closeModal() {
-        // Close both modals
         document.getElementById("image-modal").style.display = "none";
-        document.getElementById("profile-modal").style.display = "none";
+        // Also close the profile modal if it is open
+        const profileModal = document.getElementById("profile-modal");
+        if (profileModal) {
+             profileModal.style.display = "none";
+        }
 }
         
 // Function to navigate to the previous image, looping to the end
@@ -85,7 +86,7 @@ function showPrevImage() {
         if (newIndex < 0) {
                 newIndex = imagePaths.length - 1; // Loop to the last image
         }
-        displayGalleryImage(newIndex);
+        displayImage(newIndex);
 }
 
 // Function to navigate to the next image, looping to the beginning
@@ -94,10 +95,10 @@ function showNextImage() {
         if (newIndex >= imagePaths.length) {
                 newIndex = 0; // Loop back to the first image
         }
-        displayGalleryImage(newIndex);
+        displayImage(newIndex);
 }
 
-// --- FACULTY PROFILE MODAL FUNCTIONS (New) ---
+// --- FACULTY PROFILE MODAL FUNCTIONS (New functions) ---
 
 // Function to display the faculty profile modal
 function openProfileModal(index) {
@@ -117,9 +118,7 @@ function openProfileModal(index) {
 }
 
 
-// --- GALLERY SETUP FUNCTIONS ---
-
-// Function to dynamically load all gallery images (Updated to use openGalleryModal)
+// Function to dynamically load all gallery images
 function loadGalleryImages() {
         const gallerySection = document.getElementById('department-gallery-section');
         let galleryHTML = '';
@@ -127,11 +126,11 @@ function loadGalleryImages() {
         // 1. Populate the imagePaths array
         imagePaths = imageFiles.map(fileName => `../Slides/${fileName}`);
 
-        // 2. Generate gallery HTML using the index, calling the *Gallery* modal
+        // 2. Generate gallery HTML using the index
         imagePaths.forEach((path, index) => {
                 galleryHTML += `
                 <div class="gallery-item-ext">
-                <img src="${path}" alt="Gallery image of Biomedical Engineering equipment/lab" onclick="openGalleryModal(${index})">
+                <img src="${path}" alt="Gallery image of Biomedical Engineering equipment/lab" onclick="openModal(${index})">
                 </div>
                 `;
         });
