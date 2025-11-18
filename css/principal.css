@@ -9,7 +9,7 @@ body {
     flex-direction: column; /* Changed to column to stack main and message */
     justify-content: center;
     align-items: center; /* Center content horizontally */
-    min-height: 90vh;
+    min-height: 84vh;
     box-sizing: border-box;
 }
 
@@ -156,6 +156,7 @@ body {
         text-align: center; /* Center location details on mobile */
     }
 }
+
 
 
 
