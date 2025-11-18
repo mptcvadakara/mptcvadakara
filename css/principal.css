@@ -93,7 +93,7 @@ body {
 
 /* NEW STYLING FOR THE FULL-WIDTH MESSAGE CONTAINER */
 .message-full-width {
-    width: 95%; /* Match the width of .content-container */
+    width: 94%; /* Match the width of .content-container */
     max-width: 1200px; /* Match the max-width of .content-container */
     margin: 0 auto;
     padding: 20px;
@@ -156,6 +156,7 @@ body {
         text-align: center; /* Center location details on mobile */
     }
 }
+
 
 
 
