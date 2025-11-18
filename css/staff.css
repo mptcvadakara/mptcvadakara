@@ -16,9 +16,9 @@
         }
 
         .dept-section {
-            width: 90%;
+            width: 95%;
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 1rem auto;
             padding: 1rem;
             background-color: #fff;
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
@@ -426,4 +426,5 @@
                 font-size: 1.25rem;
             }
         }
+
 
