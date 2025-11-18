@@ -210,8 +210,8 @@
         }
 
         .faculty-hod img {
-            width: 200px; 
-            height: 250px;
+            width: 180px; 
+            height: 225px;
             border-radius: 5%; /* Circular image */
             margin: 0 auto 1rem auto;
             border: 2px solid var(--primary-color);
@@ -231,14 +231,14 @@
             display: grid;
             /* 3 equal columns for faculty */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	    margin: 4rem auto 1rem auto;
+	    	margin: 4rem auto 1rem auto;
             gap: 1.5rem;
             text-align: center;
         }
 
         .member-card img {
-            width: 150px;
-            height: 200px;
+            width: 140px;
+            height: 180px;
             border-radius: 5%;
 	    border: 2px solid var(--primary-color);
             margin: 0 auto 0.5rem auto;
@@ -426,5 +426,6 @@
                 font-size: 1.25rem;
             }
         }
+
 
 
