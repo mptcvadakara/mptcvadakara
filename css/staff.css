@@ -269,7 +269,7 @@
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1000; /* Sit on top of all other elements */
-    padding-top: 50px; /* Location of the box (from top) */
+    padding-top: 75px; /* MODIFIED: Set to ~2cm from the viewport top (75px) */
     left: 0;
     top: 0;
     width: 100%; 
@@ -282,7 +282,7 @@
 /* --- PROFILE MODAL STYLING --- */
 .profile-modal-content {
     background-color: #fefefe;
-    margin: 10% auto; /* 10% from the top and centered horizontally */
+    margin: 0 auto; /* MODIFIED: Margin set to 0 to let the .modal padding-top control position */
     padding: 20px;
     padding-top: 40px; /* Extra padding to make space for the close button */
     border: 1px solid #888;
@@ -293,7 +293,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     line-height: 1.6;
     color: var(--text-dark);
-    position: relative; /* IMPORTANT: Set context for the absolute close button */
+    position: relative; 
     
     /* Animation effect for the profile box */
     -webkit-animation-name: animatetop;
@@ -499,11 +499,11 @@
             
              /* Adjust profile modal for small screens */
             .profile-modal-content {
-                width: 90%;
-                margin: 20% auto;
+				width: 90%;
+                margin: 0 auto; /* MODIFIED: Also set to 0 on mobile */
                 padding: 15px;
                 padding-top: 35px; /* Adjust padding for close button on mobile */
-                min-height: 20rem; 
+                min-height: 20rem;	
             }
         }
         
@@ -516,3 +516,4 @@
                 font-size: 1.25rem;
             }
         }
+
