@@ -102,6 +102,10 @@ function load_alumniact() {
     document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumniact.html" ></object>';
 }
 
+function load_syllabus() {
+    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="https://sitttrkerala.ac.in/index.php?r=site%2Fdiploma-syllabus&scheme=REV2021" ></object>';
+}
+
 function load_gallery() {
     document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/gallery.html" ></object>';
 }
@@ -261,6 +265,7 @@ showSlides(slideIndex);
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
+
 
 
 
