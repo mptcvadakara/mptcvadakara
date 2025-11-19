@@ -1,3 +1,47 @@
+// *** FACULTY PROFILE DATA ***
+const facultyProfiles = [
+    // HOD Profile (Index 0)
+    { 
+        name: "Rajeevan M", 
+        designation: "Head of the Department, Lecturer in Computer Application", 
+        qualification: "Master of Computer Application",
+        email: "rajeevktk@gmail.com", 
+        expertise: "Database systems, Web development, Python development, System Administration, Networking"
+    },
+    // Lecturer 1 (Index 1)
+    { 
+        name: "Harmya T", 
+        designation: "Lecturer in Computer Engineering", 
+        qualification: "B.Tech in Computer Engineering",
+        email: "harmyat@gmail.com",
+        expertise: "Type here......."
+    },
+    // Lecturer 2 (Index 2)
+    { 
+        name: "Manika", 
+        designation: "Lecturer in Computer Engineering", 
+        qualification: "B.Tech in Computer Engineering",
+        email: "arya@example.com",
+        expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
+    },
+    // Lecturer 3 (Index 3)
+    { 
+        name: "Anjali", 
+        designation: "Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Biomedical Engineering",
+        email: "anjali@example.com",
+        expertise: "Circuit Design, Analog Electronics, Medical Equipment Troubleshooting."
+    },
+    // Demonstrator 1 (Index 4)
+    { 
+        name: "Bindu", 
+        designation: "Demonstrator in Bio Medical Engineering", 
+        qualification: "Diploma in Biomedical Engineering",
+        email: "bindu@example.com",
+        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
+    }
+];
+
 // *** UPDATED ARRAY GENERATION USING A FOR LOOP ***
 const imageFiles = [];
 let totalImages = 15;
@@ -88,3 +132,4 @@ function toggleGallery() {
 
 // Run this function once the page content is loaded to insert the images initially
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
