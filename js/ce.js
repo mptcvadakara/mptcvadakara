@@ -41,12 +41,20 @@ const facultyProfiles = [
         expertise: "Type here..........."
     },
  
-    // Demonstrator 1 (Index 4)
+    // Demonstrator 1 (Index 5)
     { 
-        name: "Bindu", 
-        designation: "Demonstrator in Bio Medical Engineering", 
-        qualification: "Diploma in Biomedical Engineering",
-        email: "bindu@example.com",
+        name: "Risbana", 
+        designation: "Demonstrator in Computer Engineering", 
+        qualification: "MSc Computer Science",
+        email: "risbana@example.com",
+        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
+    },
+    // Demonstrator 2 (Index 6)
+    { 
+        name: "Rakula", 
+        designation: "Computer Programmer", 
+        qualification: "Post Graduate Diploma in Computer Applications",
+        email: "rakula@example.com",
         expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
     }
 ];
