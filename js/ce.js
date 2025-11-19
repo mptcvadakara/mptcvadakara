@@ -2,53 +2,46 @@
 const facultyProfiles = [
     // HOD Profile (Index 0)
     { 
-        name: "Rajeevan M", 
-        designation: "Head of the Department, Lecturer in Computer Application", 
-        qualification: "Master of Compputer Applications",
-        email: "rajeevktk@gmail.com", 
-        expertise: "System Administration, Networking, Web development, Database Administration, Python development"
+        name: "Anoop Kumar N", 
+        designation: "Head of the Department, Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Electronics Engineering",
+        email: "anoop.kumar@example.com", 
+        expertise: "Medical Imaging, Electronic Instrumentation, Diagnostic Equipment Maintenance."
     },
     // Lecturer 1 (Index 1)
     { 
-        name: "Harmya T", 
-        designation: "Lecturer in Computer Engineering", 
-        qualification: "B.Tech in Computer Engineering",
-        email: "harmya@example.com",
-        expertise: "Type here......"
+        name: "Pooja K P", 
+        designation: "Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Biomedical Engineering",
+        email: "pooja.kp@example.com",
+        expertise: "Bio-signals Processing, Therapeutic Devices, Microprocessors."
     },
     // Lecturer 2 (Index 2)
     { 
-        name: "Manika", 
-        designation: "Lecturer in Computer Engineering", 
-        qualification: "B.Tech in Computer Engineering",
-        email: "manika@example.com",
-        expertise: "Type here......"
+        name: "Arya", 
+        designation: "Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Biomedical Engineering",
+        email: "arya@example.com",
+        expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
     },
     // Lecturer 3 (Index 3)
     { 
-        name: "Harishma", 
-        designation: "Lecturer in Computer Engineering", 
-        qualification: "B.Tech in Computer Engineering",
-        email: "harishma@example.com",
-        expertise: "Type here......"
+        name: "Anjali", 
+        designation: "Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Biomedical Engineering",
+        email: "anjali@example.com",
+        expertise: "Circuit Design, Analog Electronics, Medical Equipment Troubleshooting."
     },
     // Demonstrator 1 (Index 4)
     { 
-        name: "Risbana", 
-        designation: "Demonstrator in Computer Engineering", 
-        qualification: "MSc Computer Science",
-        email: "risbana@example.com",
-        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
-    }
-     // Demonstrator 2 (Index 5)
-    { 
-        name: "Rakula", 
-        designation: "Computer Programmer", 
-        qualification: "Post Graduate Diploma in Computer Applications",
-        email: "rakula@example.com",
+        name: "Bindu", 
+        designation: "Demonstrator in Bio Medical Engineering", 
+        qualification: "Diploma in Biomedical Engineering",
+        email: "bindu@example.com",
         expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
     }
 ];
+
 
 // *** GALLERY IMAGE SETUP ***
 const imageFiles = [];
@@ -124,6 +117,7 @@ function openProfileModal(index) {
     modal.style.display = "block";
 }
 
+
 // Function to dynamically load all gallery images
 function loadGalleryImages() {
         const gallerySection = document.getElementById('department-gallery-section');
@@ -163,4 +157,3 @@ function toggleGallery() {
 
  // Run this function once the page content is loaded to insert the images initially
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
-
