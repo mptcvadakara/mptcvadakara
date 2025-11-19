@@ -2,19 +2,19 @@
 const facultyProfiles = [
     // HOD Profile (Index 0)
     { 
-        name: "Anoop Kumar N", 
-        designation: "Head of the Department, Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Electronics Engineering",
-        email: "anoop.kumar@example.com", 
-        expertise: "Medical Imaging, Electronic Instrumentation, Diagnostic Equipment Maintenance."
+        name: "Rajeevan M", 
+        designation: "Head of the Department, Lecturer in Computer Applications", 
+        qualification: "Master of Computer Applications",
+        email: "rajeevktk@gmail.com", 
+        expertise: "Database systems, Web development, Python development, System Administration, Networking"
     },
     // Lecturer 1 (Index 1)
     { 
-        name: "Pooja K P", 
-        designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Biomedical Engineering",
-        email: "pooja.kp@example.com",
-        expertise: "Bio-signals Processing, Therapeutic Devices, Microprocessors."
+        name: "Harmya T", 
+        designation: "Lecturer in Computer Engineering", 
+        qualification: "B.Tech in Computer Engineering",
+        email: "harmyat@gmail.com.com",
+        expertise: "Type here..........."
     },
     // Lecturer 2 (Index 2)
     { 
@@ -157,3 +157,4 @@ function toggleGallery() {
 
  // Run this function once the page content is loaded to insert the images initially
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
