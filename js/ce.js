@@ -2,25 +2,25 @@
 const facultyProfiles = [
     // HOD Profile (Index 0)
     { 
-        name: "Rajeevan M", 
-        designation: "Head of the Department, Lecturer in Computer Application", 
-        qualification: "Master of Computer Application",
-        email: "rajeevktk@gmail.com", 
-        expertise: "Database systems, Web development, Python development, System Administration, Networking"
+        name: "Anoop Kumar N", 
+        designation: "Head of the Department, Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Electronics Engineering",
+        email: "anoop.kumar@example.com", 
+        expertise: "Medical Imaging, Electronic Instrumentation, Diagnostic Equipment Maintenance."
     },
     // Lecturer 1 (Index 1)
     { 
-        name: "Harmya T", 
-        designation: "Lecturer in Computer Engineering", 
-        qualification: "B.Tech in Computer Engineering",
-        email: "harmyat@gmail.com",
-        expertise: "Type here......."
+        name: "Pooja K P", 
+        designation: "Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Biomedical Engineering",
+        email: "pooja.kp@example.com",
+        expertise: "Bio-signals Processing, Therapeutic Devices, Microprocessors."
     },
     // Lecturer 2 (Index 2)
     { 
-        name: "Manika", 
-        designation: "Lecturer in Computer Engineering", 
-        qualification: "B.Tech in Computer Engineering",
+        name: "Arya", 
+        designation: "Lecturer in Bio Medical Engineering", 
+        qualification: "B.Tech in Biomedical Engineering",
         email: "arya@example.com",
         expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
     },
@@ -41,6 +41,7 @@ const facultyProfiles = [
         expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
     }
 ];
+
 
 // *** GALLERY IMAGE SETUP ***
 const imageFiles = [];
