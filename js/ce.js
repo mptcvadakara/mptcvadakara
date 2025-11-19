@@ -18,20 +18,29 @@ const facultyProfiles = [
     },
     // Lecturer 2 (Index 2)
     { 
-        name: "Arya", 
-        designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Biomedical Engineering",
-        email: "arya@example.com",
-        expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
+        name: "Manika", 
+        designation: "Lecturer in Computer Engineering", 
+        qualification: "B.Tech in Computer Engineering",
+        email: "manika@gmail.com.com",
+        expertise: "Type here..........."
     },
     // Lecturer 3 (Index 3)
     { 
-        name: "Anjali", 
-        designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Biomedical Engineering",
-        email: "anjali@example.com",
-        expertise: "Circuit Design, Analog Electronics, Medical Equipment Troubleshooting."
+        name: "Harishma K P", 
+        designation: "Lecturer in Computer Engineering", 
+        qualification: "B.Tech in Computer Engineering",
+        email: "harmyat@gmail.com.com",
+        expertise: "Type here..........."
     },
+    // Lecturer 4 (Index 4)
+    { 
+        name: "Maya", 
+        designation: "Lecturer in Computer Engineering", 
+        qualification: "B.Tech in Computer Engineering",
+        email: "maya@gmail.com.com",
+        expertise: "Type here..........."
+    },
+ 
     // Demonstrator 1 (Index 4)
     { 
         name: "Bindu", 
@@ -157,4 +166,5 @@ function toggleGallery() {
 
  // Run this function once the page content is loaded to insert the images initially
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
 
