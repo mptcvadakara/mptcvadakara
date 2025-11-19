@@ -4,7 +4,7 @@ const facultyProfiles = [
     { 
         name: "Anoop Kumar N", 
         designation: "Head of the Department, Lecturer in Bio Medical Engineering", 
-        qualification: "M.Tech in Biomedical Engineering",
+        qualification: "B.Tech in Electronics Engineering",
         email: "anoop.kumar@example.com", 
         expertise: "Medical Imaging, Electronic Instrumentation, Diagnostic Equipment Maintenance."
     },
@@ -20,7 +20,7 @@ const facultyProfiles = [
     { 
         name: "Arya", 
         designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "M.Sc in Applied Electronics",
+        qualification: "B.Tech in Biomedical Engineering",
         email: "arya@example.com",
         expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
     },
@@ -28,7 +28,7 @@ const facultyProfiles = [
     { 
         name: "Anjali", 
         designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Electronics and Communication",
+        qualification: "B.Tech in Biomedical Engineering",
         email: "anjali@example.com",
         expertise: "Circuit Design, Analog Electronics, Medical Equipment Troubleshooting."
     },
@@ -157,3 +157,4 @@ function toggleGallery() {
 
  // Run this function once the page content is loaded to insert the images initially
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
