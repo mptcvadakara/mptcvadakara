@@ -1,4 +1,3 @@
-
 // *** FACULTY PROFILE DATA ***
 const facultyProfiles = [
     // HOD Profile (Index 0)
@@ -158,4 +157,5 @@ function toggleGallery() {
 
  // Run this function once the page content is loaded to insert the images initially
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
 
