@@ -2,43 +2,67 @@
 const facultyProfiles = [
     // HOD Profile (Index 0)
     { 
-        name: "Anoop Kumar N", 
+        name: "Leji", 
         designation: "Head of the Department, Lecturer in Bio Medical Engineering", 
         qualification: "B.Tech in Electronics Engineering",
-        email: "anoop.kumar@example.com", 
+        email: "leji@example.com", 
         expertise: "Medical Imaging, Electronic Instrumentation, Diagnostic Equipment Maintenance."
     },
     // Lecturer 1 (Index 1)
     { 
-        name: "Pooja K P", 
-        designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Biomedical Engineering",
-        email: "pooja.kp@example.com",
+        name: "Sindhu C S", 
+        designation: "Lecturer in Electronics Engineering", 
+        qualification: "B.Tech in Electronics Engineering, M.Tech in Electronics",
+        email: "sindhu@example.com",
         expertise: "Bio-signals Processing, Therapeutic Devices, Microprocessors."
     },
     // Lecturer 2 (Index 2)
     { 
-        name: "Arya", 
-        designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Biomedical Engineering",
+        name: "Sajitha", 
+        designation: "Lecturer in Electronics Engineering", 
+        qualification: "B.Tech in Electronics Engineering",
         email: "arya@example.com",
         expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
     },
     // Lecturer 3 (Index 3)
     { 
-        name: "Anjali", 
-        designation: "Lecturer in Bio Medical Engineering", 
-        qualification: "B.Tech in Biomedical Engineering",
-        email: "anjali@example.com",
+        name: "Aparna", 
+        designation: "Lecturer in Electronics Engineering", 
+        qualification: "B.Tech in Electronics Engineering",
+        email: "aparna@example.com",
         expertise: "Circuit Design, Analog Electronics, Medical Equipment Troubleshooting."
     },
-    // Demonstrator 1 (Index 4)
+    // Lecturer 4 (Index 4)
     { 
-        name: "Bindu", 
-        designation: "Demonstrator in Bio Medical Engineering", 
-        qualification: "Diploma in Biomedical Engineering",
-        email: "bindu@example.com",
-        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
+        name: "Anusree", 
+        designation: "Lecturer in Electronics Engineering", 
+        qualification: "B.Tech in Electronics Engineering",
+        email: "anusree@example.com",
+        expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
+    }
+    // Lecturer 5 (Index 5)
+    { 
+        name: "Anusree", 
+        designation: "Lecturer in Electronics Engineering", 
+        qualification: "B.Tech in Electronics Engineering",
+        email: "anusree@example.com",
+        expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
+    }
+    // Demonstrator 1 (Index 6)
+    { 
+        name: "Anjana Shaji", 
+        designation: "Demonstrator in Electronics Engineering", 
+        qualification: "Diploma in Bio Medical Engineering, B.Tech in Electronics Engineering",
+        email: "anjana@example.com",
+        expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
+    }
+    // Demonstrator 2 (Index 7)
+    { 
+        name: "Aparna M", 
+        designation: "Demonstrator in Electronics Engineering", 
+        qualification: "Diploma in Electronics Engineering",
+        email: "aparna@example.com",
+        expertise: "Digital Electronics, Communication Systems, Biomedical Optics."
     }
 ];
 
@@ -155,3 +179,4 @@ function toggleGallery() {
 
  // Run this function once the page content is loaded to insert the images initially
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
+
