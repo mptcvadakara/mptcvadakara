@@ -94,7 +94,7 @@ function load_tpcell() {
     document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/tpcell.html" ></object>';
 }
         
-function load_po() {
+function load_tpmembers() {
     document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/po.html" ></object>';
 }
 
