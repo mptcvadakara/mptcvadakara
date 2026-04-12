@@ -54,6 +54,11 @@ body {
     text-indent: 30px;
 }
 
+.text-column p {
+    margin-top: 0;
+    margin-bottom: 10px; /* Adjusts the gap between paragraph blocks */
+}
+
 .objective-column{
     flex: 1 1 55%; /* Grows, can shrink, and starts at 55% width */
     font-size: 16px;
