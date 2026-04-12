@@ -95,7 +95,7 @@ function load_tpcell() {
 }
         
 function load_tpmembers() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/po.html" ></object>';
+    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/tpmembers.html" ></object>';
 }
 
 function load_alumniact() {
