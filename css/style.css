@@ -193,33 +193,26 @@ body {
 /* ---------------------------------------------------- */
 .main-content-layout {
     display: flex;
-    /* Gap between columns */
-    gap: 0.5rem;
-    width: 95%; 
-    /* Max-width remains at 1800px for maximum width */
-    max-width: 1800px; 
+    gap: 1rem; /* Slightly increased gap for better breathing room */
+    width: 98%; /* Increased from 95% to move panels closer to the edges */
+    max-width: 1920px; /* Increased to allow more expansion on ultra-wide screens */
     margin: 0.5rem auto; 
-    /* 📌 FIXED VERTICAL FIT: Changed to stretch to ensure all columns match the content height */
     align-items: stretch;
 }
 
 /* Style for the side panels */
 .side-panel {
-   /* Panel width set to 250px */
-    flex-basis: 320px; 
-    /* Prevent shrinking */
+    flex-basis: 280px; 
     flex-shrink: 0; 
     padding: 1rem;
     border-radius: 8px;
     color: white;
     text-align: justify;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Content font size 1rem (16px) */
     font-size: 1rem; 
     line-height: 1.6; 
-    /* 📌 FIXED VERTICAL FIT: Removed fixed max-height to allow stretching */
     max-height: 600px;
-    overflow: auto; /* Allow scrolling if internal content is too long */
+    overflow: auto;
 }
 
 .side-panel li{
@@ -353,17 +346,13 @@ body {
 
 /* Main Content Area */
 #content {
-    /* Allow content to grow and take up the remaining space */
     flex-grow: 1; 
-    /* 📌 FIXED VERTICAL FIT: Changed min-height to auto to allow content to dictate height */
     min-height: 600px;
-    
     width: 100%;
     box-sizing: border-box; 
-    /* Removed explicit overflow: hidden */
     margin-top: 0;
     margin-bottom: 0; 
-    padding:0.2rem;
+    padding: 0.2rem;
     height: auto;
 }
 
@@ -823,6 +812,12 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     overflow: hidden;
     /* 📌 CRUCIAL: Must be relative for absolute positioning of buttons to work */
     position: relative; 
+}
+
+.slideshow-container-students {
+    max-width: 260px; /* Adjusted down from 300px to fit the new panel width */
+    position: relative;
+    margin: 0 auto;
 }
 
 .responsive-slideshow-img {
