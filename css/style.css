@@ -1,6 +1,5 @@
 /* General Body Styling */
 body {
-    /* Use 'rem' for base font size for better accessibility/scaling */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -12,7 +11,6 @@ body {
 .header-container {
     width: 100%;
     background-color: #b9e4ed;
-    /* Use a relative unit for shadow depth */
     box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1); 
     position: relative; 
 }
@@ -21,13 +19,9 @@ body {
     background-color: #000080; /* Dark Blue */
     color: #ffffff;
     display: flex;
-    /* Use justify-content: space-between on desktop for better spacing */
     justify-content: space-between; 
     align-items: center;
-    /* Use 'rem' for vertical padding */
     padding: 0.5rem 10rem; 
-    /* padding: 0.5rem 2.5rem
-     Use 'rem' for font size */
     font-size: 1.2rem; 
 }
 
@@ -45,28 +39,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Use 'em' or 'rem' for padding */
-    /* padding: .5rem 3rem .5rem 3rem; */
     padding: 0.5rem 12rem 0.5rem 12rem;
 }
 
-/* --- New Rule for Centering and Limiting Width --- */
 #main-wrapper {
-    width: 100%; /* Enforce 60% width */
-    margin: 0 auto; /* Center the wrapper horizontally */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle border effect */
-    background-color: #ffffff; /* Ensure background is white inside the container */
+    width: 100%; 
+    margin: 0 auto; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    background-color: #ffffff; 
 }
 
-/* Use max-width and height: auto for flexible images */
 .left-decoration-img {
-    max-width: 4.25rem; /* 100px / 16 = 6.25rem */
+    max-width: 4.25rem; 
     height: auto;
     object-fit: contain;
 }
 
 .college-logo-img {
-    max-width: 5.25rem; /* 110px / 16 = 6.875rem */
+    max-width: 5.25rem; 
     height: auto;
     object-fit: contain;
 }
@@ -76,19 +66,18 @@ body {
     flex-direction: column;
     text-align: center;
     flex-grow: 1;
-    margin: 0 1.25rem; /* 20px */
+    margin: 0 1.25rem; 
 }
 
 .college-name {
-    /* Large font size, will be reduced in media queries */
-    font-size: 2.0rem; /* 50px / 16 ≈ 3rem */
+    font-size: 2.0rem; 
     font-weight: bold;
     color: #000080;
-    margin-bottom: 0.3125rem; /* 5px */
+    margin-bottom: 0.3125rem; 
 }
 
 .college-management {
-    font-size: 1.875rem; /* 30px / 16 ≈ 1.875rem */
+    font-size: 1.875rem; 
     color: #000080;
     font-weight: normal;
 }
@@ -98,11 +87,10 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #336600; /* Green from the image */
+    background-color: #336600; 
     display: flex;
     justify-content: center;
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
-    /* Ensure no wrapping on desktop */
     flex-wrap: nowrap; 
 }
 
@@ -114,12 +102,11 @@ body {
 
 #nav li a {
     display: block;
-    /* Use 'rem' for padding and font size */
-    padding: 0.625rem 0.9375rem; /* 10px 15px */
+    padding: 0.625rem 0.9375rem; 
     text-decoration: none;
     color: white;
     white-space: nowrap;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.9375rem; 
     transition: background-color 0.3s ease;
 }
 
@@ -128,17 +115,15 @@ body {
     background-color: #4CAF50; 
 }
 
-/* Submenu Styling */
 #nav ul.sub {
     list-style: none;
-    /* Keep hidden off-screen on desktop */
     position: absolute; 
     left: -9999px; 
     top: 100%; 
     background-color: #336600; 
-    padding: 0.3125rem 0; /* 5px 0 */
+    padding: 0.3125rem 0; 
     z-index: 1000;
-    min-width: 12.5rem; /* 200px */
+    min-width: 12.5rem; 
     box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.2);
 }
 
@@ -150,9 +135,9 @@ body {
 }
 
 #nav ul.sub li a {
-    padding: 0.5rem 0.9375rem; /* 8px 15px */
+    padding: 0.5rem 0.9375rem; 
     color: white;
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem; 
 }
 
 #nav ul.sub li a:hover {
@@ -163,13 +148,11 @@ body {
     left: 0; 
 }
 
-/* Marquee Styles */
+/* --- Marquee --- */
 .marquee-container {
     background-color: yellow;
     color: black;
-    /* Use 'rem' for padding and font size */
-    /*padding: 0.3125rem 0; */
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem; 
     white-space: nowrap;
     overflow: hidden;
     font-weight: normal;
@@ -180,64 +163,50 @@ body {
     text-decoration: none;
     font-weight: bold;
 }
-.marquee-container a:hover {
-    text-decoration: underline;
-}
 .marquee-container font { 
     color: black;
-    margin-left: 1.25rem; /* 20px */
+    margin-left: 1.25rem; 
 }
 
 /* ---------------------------------------------------- */
-/* NEW: Three-Column Layout Container */
+/* UPDATED: Three-Column Layout Container */
 /* ---------------------------------------------------- */
 .main-content-layout {
     display: flex;
-    /* Gap between columns */
     gap: 0.5rem;
-    width: 95%; 
-    /* Max-width remains at 1800px for maximum width */
+    width: 98%; /* Increased from 95% to expand the total workspace */
     max-width: 1800px; 
     margin: 0.5rem auto; 
-    /* 📌 FIXED VERTICAL FIT: Changed to stretch to ensure all columns match the content height */
     align-items: stretch;
 }
 
-/* Style for the side panels */
 .side-panel {
-   /* Panel width set to 250px */
-    flex-basis: 320px; 
-    /* Prevent shrinking */
+    flex-basis: 220px; /* Reduced from 320px to make panels narrower */
     flex-shrink: 0; 
     padding: 1rem;
     border-radius: 8px;
     color: white;
     text-align: justify;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Content font size 1rem (16px) */
-    font-size: 1rem; 
-    line-height: 1.6; 
-    /* 📌 FIXED VERTICAL FIT: Removed fixed max-height to allow stretching */
+    font-size: 0.95rem; /* Adjusted for narrower width */
+    line-height: 1.5; 
     max-height: 600px;
-    overflow: auto; /* Allow scrolling if internal content is too long */
+    overflow: auto; 
 }
 
-.side-panel li{
+.side-panel li {
     padding: 0.3rem;
     color: white;
     margin-bottom: 8px;
-    margin-left: 1.3rem;
-    line-height: 1.4;
-    text-align: justify;
+    margin-left: 1.1rem;
+    line-height: 1.3;
 }
 
 .side-panel h2 {
     color: white;
-    /* 📌 INCREASED: Heading font size */
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.15rem;
     margin-top: 0px;
     margin-bottom: 0.5rem;
-    /*border-bottom: 2px solid rgba(255, 255, 255, 0.5);*/
     padding-bottom: 0.5rem;
     text-align: center;
     text-decoration: underline;
@@ -245,11 +214,9 @@ body {
 
 .side-panel h1 {
     color: red;
-    /* 📌 INCREASED: Heading font size */
-    font-size: 1.5rem; /* 20px */
+    font-size: 1.4rem;
     margin-top: 0px;
     margin-bottom: 0rem;
-    /*border-bottom: 2px solid rgba(255, 255, 255, 0.5);*/
     padding-bottom: 0.5rem;
     text-align: center;
     text-decoration: underline;
@@ -257,46 +224,36 @@ body {
 
 .side-panel h3 {
     color: yellow;
-    /* 📌 INCREASED: Heading font size */
-    font-size: 1.2rem; /* 20px */
+    font-size: 1.1rem;
     margin-top: 0px;
     margin-bottom: 0rem;
-    /*border-bottom: 2px solid rgba(255, 255, 255, 0.5);*/
-    padding-bottom: 0rem;
     text-align: center;
 }
 
-
-/* Specific colors for Mission (Left) and Vision (Right) */
 .mission-panel {
-    /* Dark Blue - consistent with primary color */
     background-color: #000080; 
 }
 
 .mission-panel .last-vision-li {
-    margin-bottom: 2rem; /* Creates the desired blank line/space after the vision statement */
+    margin-bottom: 2rem; 
 }
 
 .notice-panel {
-    /* Green - consistent with secondary color */
     background-color: #336600; 
     text-align: center;
 }
 
-/* 📌 NEW STYLES for Placed Students Slideshow 📌 */
-/* Container for the student slideshow */
+/* --- Placed Students Slideshow (Adjusted for narrow panel) --- */
 .slideshow-container-students {
-    max-width: 300px; /* Limit the width of the slideshow */
+    max-width: 180px; /* Reduced to prevent overflow in 220px panel */
     position: relative;
     margin: 0 auto;
 }
 
-/* Individual slide container */
-.mySlides-student { /* ⬅️ Updated class name */
-    display: none; /* Initially hide all slides */
+.mySlides-student {
+    display: none; 
 }
 
-/* Image inside the slide */
 .responsive-placed-img {
     max-width: 95%; 
     height: auto;
@@ -306,522 +263,40 @@ body {
     border: 3px solid rgba(255, 255, 255, 0.5); 
 }
 
-/* Next & previous buttons */
 .prev-student, .next-student {
     cursor: pointer;
     position: absolute;
     top: 50%;
     width: auto;
-    padding: 10px; /* Slightly increased padding */
-    margin-top: -20px; /* Adjusted margin for better centering */
+    padding: 8px;
+    margin-top: -15px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    user-select: none;
+    font-size: 14px;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10; /* Ensure it is above the image */
+    z-index: 10;
 }
 
-/* Position the "previous button" to the left */
-.prev-student {
-    left: 0;
-    border-radius: 0 3px 3px 0; /* Rounded right edge */
-}
+.prev-student { left: 0; border-radius: 0 3px 3px 0; }
+.next-student { right: 0; border-radius: 3px 0 0 3px; }
 
-/* Position the "next button" to the right */
-.next-student {
-    right: 0;
-    border-radius: 3px 0 0 3px; /* Rounded left edge */
-}
-
-/* On hover, add a black background with a little transparency */
-.prev-student:hover, .next-student:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Fade animation */
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
-
-/* Main Content Area */
+/* ---------------------------------------------------- */
+/* Main Content Area (Expands to fill space) */
+/* ---------------------------------------------------- */
 #content {
-    /* Allow content to grow and take up the remaining space */
-    flex-grow: 1; 
-    /* 📌 FIXED VERTICAL FIT: Changed min-height to auto to allow content to dictate height */
+    flex-grow: 1; /* Fills all remaining space */
     min-height: 600px;
-    
     width: 100%;
     box-sizing: border-box; 
-    /* Removed explicit overflow: hidden */
-    margin-top: 0;
-    margin-bottom: 0; 
     padding:0.2rem;
     height: auto;
 }
 
-#content content-img {
-    max-width: 95%; 
-    margin-bottom: 0.5rem; 
-    height: auto; 
-    display: flex; 
-}
-
-#content table {
-    width: 90% !important; /* Use 90% if you want the centered margin */
-    max-width: 100%; /* Safety measure */
-}
-
-content-img {
-    /* Ensures all images never exceed their container width, making them shrink on mobile */
-    max-width: 100%; 
-    height: auto;
-    display: flex;  /* Helps remove stray space below images */
-    border-radius: 10px;
-}
-
-/* Use relative height for embedded objects if possible */
-#content object {
-    width: 100%;
-    min-height: 25rem; /* 400px, set a relative minimum */
-    border: none;
-}
-
-/* --- Footer Section --- */
-.footer-main {
-    background-color: #0066FF; 
-    color: white;
-    /* Reduce vertical padding */
-    padding: 0.1rem 0.1rem; 
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-around;
-    align-items: flex-start; 
-    text-align: center;
-    font-size: 0.875rem; /* 14px */
-}
-
-.footer-column {
-    /* Use flex-basis for explicit control over desktop layout */
-    flex: 1 1 20%; 
-    min-width: 15.625rem; /* 250px, keep it flexible */
-    padding: 0.625rem; /* 10px */
-    box-sizing: border-box;
-    margin-bottom: 0.3125rem; /* 5px */
-}
-
-.footer-column img {
-    max-width: 5rem; /* 80px */
-    height: auto;
-    margin-bottom: 0.625rem; /* 10px */
-}
-
-.footer-column u {
-    display: block;
-    margin-bottom: 0.9375rem; /* 15px */
-    font-size: 1rem; /* 16px */
-}
-
-.footer-column a {
-    color: white;
-    text-decoration: none;
-    display: block; 
-    margin-bottom: 0.3125rem; /* 5px */
-}
-
-.footer-column a:hover {
-    text-decoration: underline;
-}
-
-.footer-column iframe {
-    max-width: 100%; /* Important for flexibility */
-    height: 6.25rem; /* 100px */
-}
-
-.footer-bottom-bar {
-    background-color: #6699FF; 
-    color: black;
-    /* Use 'rem' */
-    padding: 0.35rem .5rem; 
-    text-align: center;
-    font-size: 1rem; /* 18px */
-}
-
-/* ********************************************************************************
-RESPONSIVE ADJUSTMENTS (Media Queries)
-Focus on Mobile-First Refinements
-********************************************************************************
-*/
-
-/* --- Tablet and Medium Screens (Max-Width 1024px) --- */
-@media (max-width: 1024px) {
-    .main-info {
-        padding: 1rem 1.5rem; /* Reduced padding */
-    }
-    .top-bar {
-        font-size: 0.8rem; /* Slightly smaller text */
-        padding: 0.5rem 1rem;
-    }
-    #nav li a {
-        padding: 0.625rem 0.625rem;
-    }
-    .college-name {
-        font-size: 1.75rem; /* 28px */
-    }
-    .college-management {
-        font-size: 0.9375rem; /* 15px */
-    }
-    .footer-column {
-        flex-basis: 45%; /* Two columns per row on medium screens */
-    }
-    .content-img {
-        border-radius: 10px;
-    }
-}
-
-/* --- Mobile Screens (Max-Width 768px) --- */
-@media (max-width: 768px) {
-    .top-bar {
-        /* Switch to column layout for top bar items */
-        flex-direction: column; 
-        align-items: flex-start;
-        padding: 0.5rem 1rem;
-    }
-    .top-bar-item {
-        width: 100%;
-        margin: 0.25rem 0;
-        /* Center text on mobile for better appearance */
-        justify-content: center; 
-    }
-    .main-info {
-        /* Stack logo and text vertically */
-        flex-direction: column; 
-        padding: 1rem 0.5rem;
-        text-align: center;
-    }
-    .left-decoration-img,
-    .college-logo-img {
-        max-width: 3.75rem; /* 60px */
-        margin-bottom: 0.625rem;
-    }
-
-    #main-wrapper {
-        width: 100%;
-        margin: 0;
-        box-shadow: none; 
-    }
-
-    /* Stack columns vertically on mobile */
-    .main-content-layout {
-        flex-direction: column;
-        width: 100%;
-        margin: 0 auto;
-        gap: 1rem;
-    }
-    
-    /* Allow side panels to take full width and stack horizontally */
-    .side-panel {
-        flex-basis: auto; 
-        max-width: 100%;
-        font-size: 1rem;
-        /* Reset max-height when stacked */
-        max-height: none; 
-    }
-    #content {
-        min-height: auto; /* Reset min-height for mobile content flow */
-    }
-
-    #nav li ul.sub {
-        position: static; 
-        width: 100%;
-        box-shadow: none;
-        background-color: #2a5200; 
-        
-        /* CRITICAL: Use max-height for smooth collapse/expand transition */
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out; /* Add transition for animation */
-    }
-
-    /* CRITICAL: New class to open the submenu on click */
-    #nav li.item--open ul.sub {
-        /* Use a value large enough to accommodate all sub-links */
-        max-height: 500px; 
-        transition: max-height 0.5s ease-in; 
-    }
-    
-    /* Ensure the main link is styled for visual feedback */
-    #nav li.item--open > a.top_link {
-        background-color: #4CAF50; /* Highlight the active parent link */
-    }
-    
-    /* Mobile Navigation (Stacked Menu) */
-    #nav {
-        /* Stack nav items vertically */
-        flex-direction: column; 
-        align-items: center;
-    }
-    #nav li {
-        width: 100%;
-        text-align: center;
-    }
-    
-    /* Make dropdowns static/visible on mobile (requires JS to toggle visibility) */
-    #nav li ul.sub {
-        position: static; 
-        width: 100%;
-        left: auto;
-        box-shadow: none;
-        background-color: #2a5200; /* Slightly darker green for sub-menus */
-        /* Initially hide sub-menus to prevent a huge list (JS required to reveal) */
-        /* display: none; */ 
-    }
-    
-    .college-name {
-        font-size: 1.5rem; /* 24px */
-    }
-    .college-management {
-        font-size: 0.875rem; /* 14px */
-    }
-    .marquee-container {
-        font-size: 1rem; /* 16px */
-    }
-    .footer-main {
-        /* Stack all columns vertically */
-        flex-direction: column;
-        padding: 1.25rem 0.625rem;
-    }
-    .footer-column {
-        min-width: 100%; 
-        margin-bottom: 0.9375rem;
-    }
-    .content-img {
-        border-radius: 10px;
-    }
-}
-
-/* --- Smallest Mobile Screens (Max-Width 480px) --- */
-@media (max-width: 480px) {
-    .college-name {
-        font-size: 1.25rem; /* Even smaller font */
-    }
-    .college-management {
-        font-size: 0.75rem; /* Smallest font */
-    }
-    .top-bar {
-        font-size: 0.75rem;
-    }
-    .footer-bottom-bar {
-        font-size: 0.875rem;
-    }
-    .content-img {
-        border-radius: 10px;
-    }
-}
-
-/* --- New CSS for the Toggle Button --- */
-.nav-toggle {
-    display: none; /* Hide by default on desktop */
-    background-color: #336600; 
-    color: white;
-    border: none;
-    padding: 0.8rem 1rem;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.25rem;
-    border-radius: 0;
-    
-    /* ADD FLEXBOX for alignment */
-    display: flex; 
-    /* CRITICAL CHANGE: Align items to the start (left) */
-    justify-content: flex-start; 
-    align-items: center;
-    /* Add space between the icon and the text */
-    gap: 0.6rem;
-}
-
-/* --- Navigation Bar Desktop Styles (No change needed here) --- */
-/* ... existing #nav styles remain for desktop display: flex ... */
-
-
-/* ********************************************************************************
-RESPONSIVE ADJUSTMENTS (Media Queries)
-********************************************************************************
-*/
-@media (max-width: 768px) {
-    
-    /* 1. Show the Mobile Toggle Button */
-   .nav-toggle {
-        display: flex; /* OVERRIDE 'display: none' from general styles */
-    }
-
-    /* Style the text specifically to ensure its size is readable */
-    .nav-toggle .menu-text {
-        font-weight: bold;
-        font-size: 1rem; /* Adjust size relative to icon */
-    }
-    
-    /* Optional: Ensure the icon (bars) is centered vertically */
-    .nav-toggle i.fa-bars {
-        font-size: 1.25rem;
-    }
-
-    /* Optional: Style the text specifically */
-    .nav-toggle span {
-        font-weight: bold;
-        font-size: 1rem; /* Adjust size relative to icon */
-    }
-   
-    /* 2. Hide the Menu by Default and Prepare for Toggle */
-    #nav {
-        flex-direction: column; 
-        align-items: center;
-        /* HIDE THE MENU by default on mobile */
-        display: none; 
-        width: 100%;
-    }
-    
-    /* 3. State when the menu is active (Toggled via JS) */
-    #nav.nav-menu--open {
-        display: flex; /* SHOW the menu */
-    }
-
-    /* 4. Fix list item and dropdown behavior on mobile */
-    #nav li {
-        width: 100%;
-        text-align: left; /* Align links to the left inside the full-width button */
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    #nav li:first-child {
-        border-top: none;
-    }
-    
-    /* 5. Submenu modification for static flow on mobile */
-    #nav li ul.sub {
-        position: static; 
-        width: 100%;
-        box-shadow: none;
-        background-color: #2a5200; 
-        /* Initially hide sub-menus */
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-    
-    /* Optional: If you want to allow submenus to expand on click (via JS) */
-    /* Add a class, e.g., 'sub--open', via JS on click */
-    /*
-    #nav li.item--open ul.sub {
-        max-height: 500px; // Use a large fixed value or calculated height 
-    }
-    */
-    
-    /* ... existing 768px styles for header/footer ... */
-}
-
-/* Hide the icon/text on desktop */
-@media (min-width: 769px) {
-     .nav-toggle {
-        display: none;
-    }
-}
-
-/* ---------------------------------------------------- */
-/* 📌 Responsive Image Styling for the Content Area 📌 */
-/* ---------------------------------------------------- */
-
-.responsive-content-img {
-    /* CRUCIAL for responsiveness: Ensures the image scales down and never exceeds its parent width */
-    max-width: 100%; 
-    /* Maintains the image's original aspect ratio to prevent distortion */
-    height: auto; 
-    /* Ensures the image is treated as a block for correct layout flow */
-    display: block;
-    /* Centers the block-level image within its container */
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
-    /* Forces the table and its cells within #content to behave like full-width blocks */
-    #content table,
-    #content tr, 
-    #content td {
-        display: block; 
-        width: 100% !important; /* Force full width override */
-        padding: 0;
-    }
-    
-    /* Center the image cell on mobile */
-    #content td[align="center"] {
-        text-align: center;
-    }
-}
-
-/* --- Smallest Mobile Screens (Max-Width 480px) --- */
-@media (max-width: 480px) {
-    .college-name {
-        font-size: 1.25rem; /* Even smaller font */
-    }
-    .college-management {
-        font-size: 0.75rem; /* Smallest font */
-    }
-    .top-bar {
-        font-size: 0.75rem;
-    }
-    .footer-bottom-bar {
-        font-size: 0.875rem;
-    }
-}
-
-/* Styling for the slideshow container */
 .slideshow-container {
     width: 100%;
-    max-width: 900px; /* Adjust max-width as needed for your design */
-    margin: 0 auto; /* Center the container in the #content area */
-    overflow: hidden;
-    /* Optional: Add a standard height to prevent content shifting if images have different aspect ratios */
-    /* height: 500px; 
-    border: 1px solid #ccc; */
-}
-
-/* 📌 Responsive Image Styling for the Slideshow 📌 */
-.responsive-slideshow-img {
-    /* CRUCIAL for responsiveness: Ensures the image scales down and never exceeds its parent width */
-    max-width: 100%; 
-    /* Maintains the image's original aspect ratio to prevent distortion */
-    height: auto; 
-    /* Ensures the image is treated as a block for correct layout flow */
-    display: block;
-    width: 100%; /* Ensure it fills the container horizontally */
-    /* Apply a smooth transition effect to the opacity property */
-    transition: opacity .5s ease-in-out; /* 1.5 seconds fade duration */
-    border-radius: 10px;
-}
-
-/* You may need to add or keep media queries to further refine the overall site layout */
-@media screen and (max-width: 768px) {
-    .slideshow-container {
-        max-width: 100%; /* Allow container to take full width on mobile */
-    }
-}
-
-/* ---------------------------------------------------- */
-/* SLIDESHOW STYLING WITH NAVIGATION BUTTONS */
-/* ---------------------------------------------------- */
-
-.slideshow-container {
-    width: 100%;
-    max-width: 900px; 
+    max-width: 1000px; 
     margin: 0 auto; 
     overflow: hidden;
-    /* 📌 CRUCIAL: Must be relative for absolute positioning of buttons to work */
     position: relative; 
 }
 
@@ -831,82 +306,119 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     display: block;
     width: 100%;
     border-radius: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* Style for the navigation buttons */
+#slideshow-img.slide-out {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
 .prev, .next {
     cursor: pointer;
-    /* Absolute positioning relative to .slideshow-container */
     position: absolute; 
     top: 50%;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%); 
     padding: 12px;
     color: white;
     font-weight: bold;
     font-size: 20px;
-    transition: 0.3s;
-    user-select: none;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.5); 
     border: none;
     border-radius: 3px;
-    z-index: 10; /* Ensure buttons are above the image */
+    z-index: 10;
 }
 
-/* Position the "Previous" button on the left */
-.prev {
-    left: 0;
-    border-radius: 0 3px 3px 0;
+.prev { left: 0; border-radius: 0 3px 3px 0; }
+.next { right: 0; border-radius: 3px 0 0 3px; }
+
+/* --- Footer --- */
+.footer-main {
+    background-color: #0066FF; 
+    color: white;
+    padding: 0.1rem 0.1rem; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    align-items: flex-start; 
+    text-align: center;
+    font-size: 0.875rem; 
 }
 
-/* Position the "Next" button on the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+.footer-column {
+    flex: 1 1 20%; 
+    min-width: 15.625rem; 
+    padding: 0.625rem; 
+    box-sizing: border-box;
 }
 
-/* On hover, add a darker background color */
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Media Query for Mobile/Smaller Screens */
-@media screen and (max-width: 768px) {
-    .slideshow-container {
-        max-width: 100%;
-    }
-    
-    /* Make buttons smaller on small screens */
-    .prev, .next {
-        font-size: 16px;
-        padding: 8px;
-    }
-}
-
-/* CSS for the Slideshow Image Transition */
-
-#slideshow-img {
-    /* 1. Set the transition property for smooth movement and opacity change */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    /* 2. Ensure the image starts in its correct, visible state */
-    transform: translateX(0);
-    opacity: 1;
-    /* Set display/width/height as needed for your layout */
-    display: block;
-    width: 100%;
+.footer-column img {
+    max-width: 5rem; 
     height: auto;
+    margin-bottom: 0.625rem; 
 }
 
-#slideshow-img.slide-out {
-    /* State when the image is hidden/off-screen (before changing the source) */
-    /* Move it far to the left */
-    transform: translateX(-100%);
-    /* Make it invisible */
-    opacity: 0;
+.footer-column u {
+    display: block;
+    margin-bottom: 0.9375rem; 
+    font-size: 1rem; 
 }
-/*
-When the 'slide-out' class is removed by the JavaScript (after the image source changes), 
-the image smoothly transitions from transform: translateX(-100%) back to transform: translateX(0), 
-creating the 'fly from left' effect.
-*/
 
+.footer-column a {
+    color: white;
+    text-decoration: none;
+    display: block; 
+    margin-bottom: 0.3125rem; 
+}
 
+.footer-column iframe {
+    max-width: 100%; 
+    height: 6.25rem; 
+}
+
+.footer-bottom-bar {
+    background-color: #6699FF; 
+    color: black;
+    padding: 0.35rem .5rem; 
+    text-align: center;
+    font-size: 1rem; 
+}
+
+/* --- Mobile Toggle --- */
+.nav-toggle {
+    display: none; 
+    background-color: #336600; 
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+    .main-info { padding: 1rem 1.5rem; }
+    .top-bar { font-size: 0.8rem; padding: 0.5rem 1rem; }
+    .college-name { font-size: 1.75rem; }
+}
+
+@media (max-width: 768px) {
+    .main-content-layout {
+        flex-direction: column;
+        width: 100%;
+    }
+    .side-panel {
+        flex-basis: auto; 
+        max-width: 100%;
+        max-height: none; 
+    }
+    .nav-toggle { display: flex; }
+    #nav { display: none; flex-direction: column; width: 100%; }
+    #nav.nav-menu--open { display: flex; }
+    
+    #nav li { width: 100%; text-align: left; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+    #nav li ul.sub { position: static; width: 100%; max-height: 0; overflow: hidden; }
+}
