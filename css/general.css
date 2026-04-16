@@ -2,7 +2,7 @@
     body {
         font-family: Arial, sans-serif;
         margin: 0;
-        padding: 10px;
+        padding: 0px;
         background-color: #f0f2f5; /* Light background */
         display: flex;
         justify-content: center; /* Center the content container */
@@ -12,7 +12,7 @@
     .general-container {
         width: 100%;
         max-width: 950px; /* Max width to prevent content from stretching too wide on large screens */
-        margin: 5px 0px;
+        margin: 0px 0px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         overflow: hidden; /* Clear floats/contain elements */
