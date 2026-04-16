@@ -10,13 +10,13 @@ body {
 .page-title-container {
     background-color: #004d40; /* Dark teal background for the header */
     color: #ffffff;
-    padding: 20px 10px;
+    padding: 15px 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     /* *** MODIFICATIONS START HERE *** */
     width: 95%; /* Reduces the container width to 90% */
     max-width: 1200px; /* Ensures it doesn't get too wide on huge screens */
-    margin: 20px auto 0 auto; /* Centers the container and adds margin above */
+    margin: 0px auto 0 auto; /* Centers the container and adds margin above */
     border-radius: 10px; /* Applies rounded corners */
     /* *** MODIFICATIONS END HERE *** */
 }
