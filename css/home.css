@@ -37,7 +37,7 @@ body {
 }
 
 .college-logo {
-    max-width: 750px; 
+    max-width: 950px; 
     width: 100%; 
     height: auto;
     display: block; 
@@ -50,7 +50,7 @@ body {
     display: flex;
     /* Forces vertical stacking on ALL screen sizes for a simpler layout */
     flex-direction: column; 
-    width: 90%;
+    width: 100%;
     max-width: 1200px; 
     margin: 3px auto;
     gap: 20px; 
