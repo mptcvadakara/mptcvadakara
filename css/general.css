@@ -70,8 +70,11 @@
         margin-top: 0;
         margin-bottom: 1em; /* Space between paragraphs */
         text-indent: 30px; /* Indents the first line of the paragraph */
-        text-align: justify;
         padding: 5px 20px;
+        text-align: justify;
+        text-indent: 40px;
+        line-height: 1.6;
+        margin-bottom: 15px;  
     }
 
 /* List Styling (Objectives and Members) */
@@ -83,7 +86,7 @@
     .general-section li {
         margin-bottom: 8px;
         line-height: 1.4;
-        text-align: justify;
+        text-align: justify; 
     }
 
 .ragging-info {
