@@ -14,7 +14,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     /* *** MODIFICATIONS START HERE *** */
-    width: 90%; /* Reduces the container width to 90% */
+    width: 100%; /* Reduces the container width to 90% */
     max-width: 1200px; /* Ensures it doesn't get too wide on huge screens */
     margin: 20px auto 0 auto; /* Centers the container and adds margin above */
     border-radius: 10px; /* Applies rounded corners */
