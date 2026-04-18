@@ -124,7 +124,7 @@ function loadGalleryImages() {
         let galleryHTML = '';
 
         // 1. Populate the imagePaths array
-        imagePaths = imageFiles.map(fileName => `../Slides/${fileName}`);
+        imagePaths = imageFiles.map(fileName => `../gallery/bme/${fileName}`);
 
         // 2. Generate gallery HTML using the index
         imagePaths.forEach((path, index) => {
