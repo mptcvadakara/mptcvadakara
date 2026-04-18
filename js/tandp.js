@@ -1,7 +1,7 @@
 // =================================================================
 // Placed Students Slideshow Logic (using class .mySlides-student)
 // =================================================================
-const TOTAL_STUDENT_SLIDES = 15; // Set the total number of images (1.jpg to 15.jpg)
+const TOTAL_STUDENT_SLIDES = 5; // Set the total number of images (1.jpg to 15.jpg)
 var slideIndexStudent = 0; // Start at 0 for initial auto-run logic
 
 // Function to dynamically generate the slideshow HTML
@@ -18,7 +18,7 @@ function createStudentSlides() {
     for (let i = 1; i <= TOTAL_STUDENT_SLIDES; i++) {
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="placed/${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
+                <img src="placed/2026/${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
             </div>
         `;
     }
