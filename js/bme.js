@@ -45,7 +45,7 @@ const facultyProfiles = [
 
 // *** GALLERY IMAGE SETUP ***
 const imageFiles = [];
-let totalImages = 15;
+let totalImages = 6;
 // Start at 1, go up to and include 15.
 for (let i = 1; i <= totalImages; i++) {
     imageFiles.push(`${i}.jpg`);
