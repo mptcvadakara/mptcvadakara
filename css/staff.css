@@ -28,7 +28,7 @@
 		.paragraph-indent {
     		text-indent: 40px; 
     		margin-top: 0;
-    		line-height: 1.5;
+    		line-height: 2.0;
     		text-align: justify; /* Improves readability of large blocks of text */
 			margin-bottom: 5px;  
 		}   
