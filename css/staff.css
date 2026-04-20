@@ -28,9 +28,9 @@
 		.paragraph-indent {
     		text-indent: 40px; 
     		margin-top: 0;
-    		margin-bottom: 0;
     		line-height: 1.5;
     		text-align: justify; /* Improves readability of large blocks of text */
+			margin-bottom: 5px;  
 		}   
 
 /* GENERAL IMAGE STYLING */
@@ -121,7 +121,7 @@
         .dept-intro {
             display: flex;
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             align-items: flex-start;
         }
 
