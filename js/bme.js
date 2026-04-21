@@ -107,7 +107,7 @@ function openProfileModal(index) {
     const profile = facultyProfiles[index];
 
     profileContent.innerHTML = `
-        <h3>${profile.name}, ${profile.designation} </h3>
+        <h3>${profile.name},</h3> <h4>${profile.designation} </h4>
         <p><strong>Designation:</strong> ${profile.designation}</p>
         <p><strong>Qualification:</strong> ${profile.qualification}</p>
         <p><strong>Email:</strong> <a href="mailto:${profile.email}">${profile.email}</a></p>
