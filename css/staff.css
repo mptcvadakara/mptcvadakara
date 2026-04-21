@@ -251,7 +251,7 @@
             width: 140px;
             height: 180px;
             border-radius: 5%;
-	    border: 2px solid var(--primary-color);
+	    	border: 2px solid var(--primary-color);
             margin: 0 auto 0.5rem auto;
             object-fit: cover;
         }
@@ -369,7 +369,7 @@
     position: absolute; 
     top: 5px; 
     right: 15px; 
-    color: var(--text-dark); /* Dark color on white background for visibility */
+    color: #f90303;
     z-index: 100;
 }
 
