@@ -727,11 +727,12 @@
 }
 
 /* --- VISION & MISSION TABLE STYLES --- */
+/* --- UPDATED VISION & MISSION TABLE STYLES --- */
 :root {
-    --vision-primary: #1a237e; /* Deep Indigo */
-    --vision-bg: #f0f2ff;
-    --mission-primary: #004d40; /* Deep Teal */
-    --mission-bg: #f0f7f4;
+    --vision-primary: #1a237e; 
+    --vision-bg: #f4f4f9; /* Light Grey-Blue Shade */
+    --mission-primary: #004d40; 
+    --mission-bg: #fafafa; /* Soft Off-White Shade */
 }
 
 .dept-vm-container {
@@ -768,31 +769,27 @@
     background: linear-gradient(135deg, var(--mission-primary), #00796b);
 }
 
-.vm-table th i {
-    margin-right: 12px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-}
-
 /* Cell Styling */
 .vm-table td {
     padding: 2.5rem;
     vertical-align: top;
     line-height: 1.9;
     font-size: 1.15rem;
+    border-bottom: 1px solid #eee;
 }
 
 .cell-vision {
     background-color: var(--vision-bg);
-    color: #283593;
+    color: #333; /* Darker text for better contrast on grey */
     font-style: italic;
-    border-right: 1px solid #d1d9ff;
-    text-align: left; /* UPDATED: Changed from center to left alignment */
+    border-right: 1px solid #e0e0e0;
+    text-align: left;
     font-weight: 500;
 }
 
 .cell-mission {
     background-color: var(--mission-bg);
-    color: #00242c;
+    color: #333;
 }
 
 /* List Styling within Mission */
@@ -806,7 +803,7 @@
     margin-bottom: 1.2rem;
     position: relative;
     padding-left: 30px;
-    border-bottom: 1px dashed #c8e6c9;
+    border-bottom: 1px dashed #ddd;
     padding-bottom: 8px;
 }
 
@@ -829,8 +826,5 @@
         display: block;
         width: 100%;
         border-right: none;
-    }
-    .cell-vision {
-        border-bottom: 5px solid #fff;
     }
 }
