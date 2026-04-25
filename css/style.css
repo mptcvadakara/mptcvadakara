@@ -443,6 +443,111 @@ content-img {
     font-size: 1rem; /* 18px */
 }
 
+/* --- Unified Navigation Bar --- */
+#nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #336600; /* Dark Green Base */
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+    flex-wrap: nowrap; 
+}
+
+#nav li {
+    position: relative;
+}
+
+#nav li a {
+    display: block;
+    padding: 0.625rem 0.9375rem;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for top-level links */
+#nav li a:hover, #nav li.top:hover > a { 
+    background-color: #4CAF50; /* Lighter Green */
+}
+
+/* --- Shared Submenu Styling --- */
+#nav ul.sub, #nav ul.fly-out {
+    list-style: none;
+    position: absolute;
+    background-color: #336600; /* Matching Green */
+    padding: 0;
+    z-index: 2000;
+    min-width: 12.5rem;
+    box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.2);
+}
+
+/* Dropdown Position */
+#nav ul.sub {
+    top: 100%;
+    left: -9999px; 
+}
+
+/* Year Fly-out Position */
+#nav ul.fly-out {
+    top: 0;
+    left: 100%; 
+    display: none;
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Toggle Visibility */
+#nav li:hover > ul.sub,
+#nav li.has-flyout:hover > ul.fly-out {
+    left: 0;
+    display: block;
+}
+
+#nav li.has-flyout:hover > ul.fly-out {
+    left: 100%;
+}
+
+/* Menu Item Internal Styles */
+#nav ul.sub li, #nav ul.fly-out li {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#nav ul.sub li a, #nav ul.fly-out li a {
+    padding: 0.625rem 0.9375rem;
+    color: white;
+    font-size: 0.875rem;
+    background-color: #336600; 
+}
+
+/* Unified Hover Effect */
+#nav ul.sub li a:hover, #nav ul.fly-out li a:hover {
+    background-color: #4CAF50; 
+    padding-left: 1.25rem; 
+}
+
+/* Updated Large Right Triangle Indicator */
+.has-flyout > a::after {
+    content: ' \25B6'; /* Large solid right triangle */
+    float: right;
+    font-size: 0.8rem; /* Slightly larger scale */
+    opacity: 0.9;     /* More visible */
+    margin-left: 10px;
+}
+
+/* Footer Update */
+.footer-bottom-bar {
+    background-color: #6699FF; 
+    color: black;
+    padding: 0.35rem .5rem; 
+    text-align: center;
+    font-size: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
 /* ********************************************************************************
 RESPONSIVE ADJUSTMENTS (Media Queries)
 Focus on Mobile-First Refinements
