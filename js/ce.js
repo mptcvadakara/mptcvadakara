@@ -130,13 +130,18 @@ function openProfileModal(index) {
     const profile = facultyProfiles[index];
 
     profileContent.innerHTML = `
-        <h3>${profile.name}</h3>
-        <p><strong>Designation:</strong> ${profile.designation}</p>
+        <div class="profile-header">
+            <img src="${profile.image}" alt="${profile.name}" class="profile-modal-img">
+            <div>
+                <h3>${profile.name}</h3>
+                <h4>${profile.designation}</h4>
+            </div>
+        </div>
+        <hr>
         <p><strong>Qualification:</strong> ${profile.qualification}</p>
         <p><strong>Email:</strong> <a href="mailto:${profile.email}">${profile.email}</a></p>
         <p><strong>Expertise:</strong> ${profile.expertise}</p>
     `;
-
     modal.style.display = "block";
 }
 
