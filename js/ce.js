@@ -7,7 +7,7 @@ const facultyProfiles = [
         qualification: "Master of Computer Applications",
         email: "rajeevktk@gmail.com", 
         expertise: "Database systems, Web development, Python development, System Administration, Networking",
-        image: "../staff/rajeev.jpg"
+        image: "../staff/rajeevan.jpg"
     },
     // Lecturer 1 (Index 1)
     { 
