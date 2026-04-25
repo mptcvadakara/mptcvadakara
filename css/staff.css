@@ -726,7 +726,7 @@
     }
 }
 
-/* --- UPDATED VISION & MISSION TABLE STYLES --- */
+/* --- VISION & MISSION TABLE STYLES --- */
 :root {
     --vision-primary: #1a237e; /* Deep Indigo */
     --vision-bg: #f0f2ff;
@@ -741,7 +741,7 @@
 
 .vm-table {
     width: 100%;
-    border-collapse: separate; /* Allow for rounded corners on inner cells */
+    border-collapse: separate; 
     border-spacing: 0;
     background-color: #fff;
     border-radius: 12px;
@@ -786,7 +786,7 @@
     color: #283593;
     font-style: italic;
     border-right: 1px solid #d1d9ff;
-    text-align: center;
+    text-align: left; /* UPDATED: Changed from center to left alignment */
     font-weight: 500;
 }
 
@@ -815,7 +815,7 @@
 }
 
 .vm-list li::before {
-    content: "\f0a4"; /* FontAwesome Finger Point Icon */
+    content: "\f0a4"; 
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: absolute;
