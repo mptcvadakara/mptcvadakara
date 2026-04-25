@@ -725,3 +725,112 @@
         width: fit-content;
     }
 }
+
+/* --- UPDATED VISION & MISSION TABLE STYLES --- */
+:root {
+    --vision-primary: #1a237e; /* Deep Indigo */
+    --vision-bg: #f0f2ff;
+    --mission-primary: #004d40; /* Deep Teal */
+    --mission-bg: #f0f7f4;
+}
+
+.dept-vm-container {
+    margin: 2.5rem 0;
+    padding: 0 1rem;
+}
+
+.vm-table {
+    width: 100%;
+    border-collapse: separate; /* Allow for rounded corners on inner cells */
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Header Styling */
+.vm-table th {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+.header-vision {
+    background: linear-gradient(135deg, var(--vision-primary), #3949ab);
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-mission {
+    background: linear-gradient(135deg, var(--mission-primary), #00796b);
+}
+
+.vm-table th i {
+    margin-right: 12px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Cell Styling */
+.vm-table td {
+    padding: 2.5rem;
+    vertical-align: top;
+    line-height: 1.9;
+    font-size: 1.15rem;
+}
+
+.cell-vision {
+    background-color: var(--vision-bg);
+    color: #283593;
+    font-style: italic;
+    border-right: 1px solid #d1d9ff;
+    text-align: center;
+    font-weight: 500;
+}
+
+.cell-mission {
+    background-color: var(--mission-bg);
+    color: #00242c;
+}
+
+/* List Styling within Mission */
+.vm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vm-list li {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 30px;
+    border-bottom: 1px dashed #c8e6c9;
+    padding-bottom: 8px;
+}
+
+.vm-list li:last-child {
+    border-bottom: none;
+}
+
+.vm-list li::before {
+    content: "\f0a4"; /* FontAwesome Finger Point Icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--mission-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vm-table td {
+        display: block;
+        width: 100%;
+        border-right: none;
+    }
+    .cell-vision {
+        border-bottom: 5px solid #fff;
+    }
+}
