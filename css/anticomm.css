@@ -96,7 +96,6 @@ body {
 /* --- Media Query (For Tablets and Desktops) --- */
 /* This style applies when the screen is wider than 768px */
 @media (min-width: 768px) {
-    
     .ragging-info {
         /* Changes to a side-by-side layout */
         flex-direction: row; 
