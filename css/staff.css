@@ -545,3 +545,141 @@
                 font-size: 1.25rem;
             }
         }
+
+
+/* --- ATTRACTIVE VISION & MISSION TABLE STYLES --- */
+:root {
+    --vision-primary: #000080; 
+    --vision-bg: #cbd5e1; /* Deep Blue-Grey Shade */
+    --mission-primary: #336600; 
+    --mission-bg: #d9e3d0; /* Deep Green-Grey Shade */
+}
+
+.dept-vm-container {
+    margin: 3rem 0;
+    padding: 0 20px;
+}
+
+.vm-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    table-layout: fixed; /* Ensures exactly 50% width for both columns */
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border: 1px solid #999;
+}
+
+/* Header Styling */
+.vm-table th {
+    width: 50%;
+    padding: 1.8rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.header-vision {
+    background: linear-gradient(135deg, var(--vision-primary), #1a1a8e);
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.header-mission {
+    background: linear-gradient(135deg, var(--mission-primary), #447a00);
+}
+
+/* Data Cell Styling */
+.vm-table td {
+    width: 50%;
+    padding: 2.5rem;
+    vertical-align: top;
+    line-height: 2.0;
+    font-size: 1.15rem;
+    color: #000; /* High contrast text */
+}
+
+.cell-vision {
+    background-color: var(--vision-bg);
+    border-right: 1px solid #adb5bd;
+    text-align: left;
+    font-weight: 500;
+}
+
+.cell-mission {
+    background-color: var(--mission-bg);
+}
+
+/* Mission List Styling */
+.vm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vm-list li {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 35px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 8px;
+}
+
+.vm-list li:last-child { 
+    border-bottom: none; 
+}
+
+.vm-list li::before {
+    content: "\f0a4"; /* FontAwesome hand icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--mission-primary);
+    font-size: 1.1rem;
+}
+
+/* MOBILE COMPATIBILITY (SMARTPHONES) */
+@media screen and (max-width: 768px) {
+    .vm-table { table-layout: auto; border: none; }
+    .vm-table thead { display: none; } 
+    
+    .vm-table tbody, .vm-table tr, .vm-table td {
+        display: block;
+        width: 100% !important;
+    }
+
+    .vm-table td {
+        position: relative;
+        padding: 5rem 1.5rem 2rem 1.5rem !important; 
+        border: none !important;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+
+    .vm-table td::before {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        padding: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .cell-vision::before {
+        content: "Department Vision";
+        background: linear-gradient(to right, var(--vision-primary), #1a1a8e);
+    }
+
+    .cell-mission::before {
+        content: "Department Mission";
+        background: linear-gradient(to right, var(--mission-primary), #447a00);
+    }
+}
