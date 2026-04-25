@@ -6,7 +6,7 @@ const facultyProfiles = [
         designation: "Head of the Department, Lecturer in Computer Applications", 
         qualification: "Master of Computer Applications",
         email: "rajeevktk@gmail.com", 
-        expertise: "Database systems, Web development, Python development, System Administration, Networking"
+        expertise: "Database systems, Web development, Python development, System Administration, Networking",
         image: "../staff/rajeev.jpg"
     },
     // Lecturer 1 (Index 1)
@@ -15,7 +15,7 @@ const facultyProfiles = [
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
         email: "harmyat@gmail.com",
-        expertise: "Type here..........."
+        expertise: "Type here...........",
         image: "../staff/harmya.jpg"
     },
     // Lecturer 2 (Index 2)
@@ -24,7 +24,7 @@ const facultyProfiles = [
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
         email: "manika@gmail.com",
-        expertise: "Type here..........."
+        expertise: "Type here...........",
         image: "../staff/manika.jpg"
     },
     // Lecturer 3 (Index 3)
@@ -33,7 +33,7 @@ const facultyProfiles = [
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
         email: "harmyat@gmail.com",
-        expertise: "Type here..........."
+        expertise: "Type here...........",
         image: "../staff/harishma.jpg"
     },
     // Lecturer 4 (Index 4)
@@ -42,7 +42,7 @@ const facultyProfiles = [
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
         email: "maya@gmail.com",
-        expertise: "Type here..........."
+        expertise: "Type here...........",
         image: "../staff/maya.jpg"
     },
  
@@ -52,7 +52,7 @@ const facultyProfiles = [
         designation: "Demonstrator in Computer Engineering", 
         qualification: "MSc Computer Science",
         email: "risbana@example.com",
-        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
+        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation.",
         image: "../staff/risbana.jpg"
     },
     // Demonstrator 2 (Index 6)
@@ -61,7 +61,7 @@ const facultyProfiles = [
         designation: "Computer Programmer", 
         qualification: "Post Graduate Diploma in Computer Applications",
         email: "rakula@example.com",
-        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation."
+        expertise: "Lab Maintenance, Workshop Practice, Basic Equipment Operation.",
         image: "../staff/rakula.jpg"
     }
 ];
