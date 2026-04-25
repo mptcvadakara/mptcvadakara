@@ -726,13 +726,12 @@
     }
 }
 
-/* --- VISION & MISSION TABLE STYLES --- */
 /* --- RESPONSIVE VISION & MISSION TABLE STYLES --- */
 :root {
     --vision-primary: #000080; 
-    --vision-bg: #e1e4ed; /* Darker Blue-Grey Shade */
+    --vision-bg: #cbd5e1; /* Deeper Blue-Grey Shade */
     --mission-primary: #336600; 
-    --mission-bg: #e8ede1; /* Darker Green-Grey Shade */
+    --mission-bg: #d9e3d0; /* Deeper Green-Grey Shade */
 }
 
 .dept-vm-container {
@@ -747,11 +746,11 @@
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #999;
 }
 
-/* Header Styling */
+/* Desktop Header Styling */
 .vm-table th {
     padding: 1.5rem;
     font-size: 1.3rem;
@@ -769,28 +768,27 @@
     background: linear-gradient(135deg, var(--mission-primary), #447a00);
 }
 
-/* Cell Styling */
+/* Data Cell Styling */
 .vm-table td {
-    padding: 2rem;
+    padding: 2.5rem;
     vertical-align: top;
-    line-height: 1.9;
+    line-height: 2.0;
     font-size: 1.15rem;
+    color: #111; /* Darker text for readability */
 }
 
 .cell-vision {
     background-color: var(--vision-bg);
-    color: #1a1a1a;
-    border-right: 1px solid #bcc2d1;
+    border-right: 1px solid #adb5bd;
     text-align: left;
     font-weight: 500;
 }
 
 .cell-mission {
     background-color: var(--mission-bg);
-    color: #1a1a1a;
 }
 
-/* List Styling within Mission */
+/* Mission List Styling */
 .vm-list {
     list-style: none;
     padding: 0;
@@ -798,10 +796,10 @@
 }
 
 .vm-list li {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     position: relative;
     padding-left: 30px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
     padding-bottom: 8px;
 }
 
@@ -816,45 +814,52 @@
 
 /* MOBILE COMPATIBILITY (SMARTPHONES) */
 @media screen and (max-width: 768px) {
-    .vm-table, .vm-table thead, .vm-table tbody, .vm-table th, .vm-table td, .vm-table tr {
-        display: block; /* Force elements to stack vertically */
+    /* Stack everything vertically */
+    .vm-table, .vm-table thead, .vm-table tbody, .vm-table tr, .vm-table td {
+        display: block;
         width: 100%;
     }
 
-    .vm-table thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
+    /* Hide desktop headers */
+    .vm-table thead {
+        display: none;
     }
 
     .vm-table td {
-        border: none;
         position: relative;
-        padding-top: 3.5rem; /* Space for the label */
+        padding: 4.5rem 1.5rem 2rem 1.5rem; /* Large top padding for the label */
+        border: none;
         box-sizing: border-box;
     }
 
-    /* Create clear labels for the mobile view */
+    /* Create visible headings for mobile */
     .vm-table td::before {
         position: absolute;
-        top: 15px;
-        left: 20px;
-        width: calc(100% - 40px);
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
         font-weight: bold;
+        text-align: center;
         text-transform: uppercase;
         font-size: 1.1rem;
-        border-bottom: 2px solid;
+        color: #fff;
+        letter-spacing: 1px;
     }
 
+    /* Target Vision label */
     .cell-vision::before {
         content: "Department Vision";
-        color: var(--vision-primary);
-        border-color: var(--vision-primary);
+        background-color: var(--vision-primary);
     }
 
+    /* Target Mission label */
     .cell-mission::before {
         content: "Department Mission";
-        color: var(--mission-primary);
-        border-color: var(--mission-primary);
+        background-color: var(--mission-primary);
+    }
+    
+    .cell-vision {
+        border-bottom: 8px solid #fff; /* Separation on mobile */
     }
 }
