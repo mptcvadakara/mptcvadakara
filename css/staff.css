@@ -1,12 +1,4 @@
 /* BASE STYLES */
-	:root {
-            --primary-color: #000080; /* Dark Blue */
-            --secondary-color: #336600; /* Green */
-            --bg-light: #f9f9f9;
-            --text-dark: #333;
-            font-size: 14px;
-        }
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
