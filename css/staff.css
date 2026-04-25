@@ -1,247 +1,547 @@
-/* --- 1. BASE STYLES & VARIABLES --- */
-:root {
-    --primary-color: #000080; /* Dark Blue */
-    --secondary-color: #336600; /* Green */
-    --bg-light: #f9f9f9;
-    --text-dark: #333;
-    
-    /* Vision & Mission Attractive Colors */
-    --vision-primary: #000080; 
-    --vision-bg: #cbd5e1; /* Deep Blue-Grey Shade */
-    --mission-primary: #336600; 
-    --mission-bg: #d9e3d0; /* Deep Green-Grey Shade */
-    
-    font-size: 14px;
-}
+/* BASE STYLES */
+	:root {
+            --primary-color: #000080; /* Dark Blue */
+            --secondary-color: #336600; /* Green */
+            --bg-light: #f9f9f9;
+            --text-dark: #333;
+            font-size: 14px;
+        }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
 
-.dept-section {
-    width: 98%;
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
+        .dept-section {
+            width: 98%;
+            max-width: 1200px;
+            margin: auto auto;
+            padding: 0rem;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
 
-.paragraph-indent {
-    text-indent: 40px; 
-    line-height: 2.0;
-    text-align: justify;
-    padding: 0 20px;
-}
+		.paragraph-indent {
+    		text-indent: 40px; 
+    		margin-top: 0;
+    		line-height: 2.0;
+    		text-align: justify; /* Improves readability of large blocks of text */
+			margin-bottom: 0px;  
+		}   
 
-/* --- 2. HEADER & INTRO --- */
-.dept-header img {
-    width: 100%;
-    height: 350px; 
-    object-fit: cover;
-}
+/* GENERAL IMAGE STYLING */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
 
-.dept-intro {
-    padding: 20px 0;
-}
+/* --- 0. NEW GALLERY LINK STYLING --- */
+        .gallery-link {
+            display: block;
+            width: 90%;
+            max-width: 1200px;
+            /* Adjust margin to sit below the main content section */
+            margin: 1.5rem auto 2.5rem auto; 
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--secondary-color); /* Green background */
+            color: white;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-/* --- 3. VISION & MISSION TABLE (EQUAL WIDTH & ATTRACTIVE) --- */
-.dept-vm-container {
-    margin: 3rem 0;
-    padding: 0 20px;
-}
+        .gallery-link:hover {
+            background-color: #2e5c00; /* Darker green on hover */
+            transform: translateY(-2px);
+        }
+        
+        .gallery-link i {
+            margin-right: 0.75rem;
+        }
 
-.vm-table {
-    width: 100%;
-    border-collapse: separate; 
-    border-spacing: 0;
-    table-layout: fixed; /* CRITICAL: Ensures exactly 50% width for both columns */
-    background-color: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-    border: 1px solid #999;
-}
+/* --- 0.5. NEW EXTENDED GALLERY SECTION STYLING --- */
+        .dept-gallery-ext {
+            display: none; /* Initially hidden, controlled by JavaScript */
+            width: 90%;
+            max-width: 1200px;
+            margin: 1rem auto 3rem auto;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
 
-/* Header Styling */
-.vm-table th {
-    width: 50%;
-    padding: 1.8rem;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
+            /* Grid Layout for new images - UPDATED for 5 columns */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 1.5rem;
+        }
 
-.header-vision {
-    background: linear-gradient(135deg, var(--vision-primary), #1a1a8e);
-    border-right: 1px solid rgba(255,255,255,0.2);
-}
+        .gallery-item-ext {
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            cursor: pointer; /* Indicate that the image is clickable */
+        }
+        
+        /* UPDATED HEIGHT for extended gallery images */
+        .gallery-item-ext img {
+            width: 100%;
+            height: 120px; /* Reduced to 150px */
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item-ext img:hover {
+            opacity: 0.8;
+        }
 
-.header-mission {
-    background: linear-gradient(135deg, var(--mission-primary), #447a00);
-}
 
-/* Data Cell Styling */
-.vm-table td {
-    width: 50%;
-    padding: 2.5rem;
-    vertical-align: top;
-    line-height: 2.0;
-    font-size: 1.15rem;
-    color: #000; /* High contrast text */
-}
+ /* --- 1. BANNER --- */
+        .dept-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .dept-header img {
+            width: 100%;
+            /* Fixed height for the banner, but uses object-fit to prevent stretching */
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px;
+        }
 
-.cell-vision {
-    background-color: var(--vision-bg);
-    border-right: 1px solid #adb5bd;
-    text-align: left; /* Left alignment for vision text */
-    font-weight: 500;
-}
+/* --- 2. INTRO SECTION --- */
+        .dept-intro {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
 
-.cell-mission {
-    background-color: var(--mission-bg);
-}
+        .intro-text {
+            flex: 3; /* Takes 65% space on desktop */
+            line-height: 1.8;
+            font-size: 1.125rem; /* 18px */
+            text-align: justify;
+        }
 
-/* Mission List Styling */
-.vm-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .intro-image {
+            flex: 1; /* Takes 35% space on desktop */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 8px;
+        }
 
-.vm-list li {
-    margin-bottom: 1.2rem;
-    position: relative;
-    padding-left: 35px;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding-bottom: 8px;
-}
+/* --- 3. GALLERY (Existing Section) --- */
+        .dept-gallery {
+            display: grid;
+            /* MODIFIED: Set to 2 columns and center the container */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 1rem;
+            margin-bottom: 2rem;
+            
+            /* Add max-width and center for centralization */
+            max-width: 800px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .gallery-item {
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+        }
+        /* UPDATED HEIGHT for main gallery images (from previous request) */
+        .gallery-item img {
+            width: 100%;
+            height: 120px; /* Reduced from 200px to 150px */
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+        
+/* --- 4. OBJECTIVES --- */
+        .dept-objectives h2 {
+            font-size: 1.375rem; /* 22px */
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+			line-height: 1.5;
+        }
 
-.vm-list li:last-child { border-bottom: none; }
+        .dept-objectives ul {
+            list-style: none;
+            padding: 0;
+        }
 
-.vm-list li::before {
-    content: "\f0a4"; /* FontAwesome hand icon */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    color: var(--mission-primary);
-    font-size: 1.1rem;
-}
+        .dept-objectives li {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+			line-height: 2;
+        }
 
-/* --- 4. OBJECTIVES & GALLERY --- */
-.dept-objectives { padding: 20px; }
-.dept-objectives h2 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; }
-.dept-objectives ul li { margin-bottom: 15px; line-height: 1.8; }
+        .dept-objectives li::before {
+            content: "\2731"; /* A decorative star bullet point */
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+            margin-top: -0.2rem;
+        }
 
-.dept-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 15px;
-    padding: 20px;
-}
+ /* --- 5. FACULTY --- */
+        .faculty-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 2.5rem 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .faculty-hod {
+            text-align: center;
+            margin-bottom: 2rem;
+            cursor: pointer;
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+        .faculty-hod img {
+            width: 180px; 
+            height: 225px;
+            border-radius: 5%; /* Circular image */
+            margin: 0 auto 1rem auto;
+            border: 2px solid var(--primary-color);
+            object-fit: cover;
+        }
+        .faculty-hod p {
+            font-size: 1.125rem;
+            margin: 0.2rem 0;
+            font-weight: bold;
+        }
+        .faculty-hod small {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
 
-/* --- 5. FACULTY MEMBERS --- */
-.faculty-title {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin: 40px 0;
-    text-transform: uppercase;
-}
+        .lectures, .sup_staff {
+            display: grid;
+            /* 3 equal columns for faculty */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	    	margin: 4rem auto 1rem auto;
+            gap: 0.5rem;
+            text-align: center;
+        }
 
-.faculty-hod { text-align: center; margin-bottom: 40px; cursor: pointer; }
-.faculty-hod img { width: 200px; height: 250px; border-radius: 10px; border: 3px solid var(--primary-color); margin: auto; object-fit: cover; }
-
-.lectures, .sup_staff {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
-.member-card img { width: 160px; height: 200px; border-radius: 8px; border: 2px solid var(--primary-color); object-fit: cover; margin-bottom: 10px; }
-
-/* --- 6. MODALS --- */
+        .member-card {
+             cursor: pointer;
+        }
+        
+        .member-card img {
+            width: 140px;
+            height: 180px;
+            border-radius: 5%;
+	    	border: 2px solid var(--primary-color);
+            margin: 0 auto 0.5rem auto;
+            object-fit: cover;
+        }
+        .member-card p {
+            margin: 0.2rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .member-card small {
+             color: var(--text-dark);
+             font-size: 0.85rem;
+        }
+        
+/* --- 6. MODAL STYLING --- */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    padding-top: 50px;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top of all other elements */
+    padding-top: 75px; /* MODIFIED: Set to ~2cm from the viewport top (75px) */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
+/* --- PROFILE MODAL STYLING --- */
 .profile-modal-content {
-    background-color: #fff;
+    background-color: #fefefe;
+    margin: 0 auto; /* MODIFIED: Margin set to 0 to let the .modal padding-top control position */
+    padding: 20px;
+    padding-top: 40px; /* Extra padding to make space for the close button */
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 800px;
+    min-height: 25rem; /* ~10cm height */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+    color: var(--text-dark);
+    position: relative; 
+    
+    /* Animation effect for the profile box */
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+.profile-modal-content h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.profile-modal-content p {
+    margin: 0.5rem 0;
+}
+
+/* Add an animation for the profile box (slide down from top) */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+/* --- END PROFILE MODAL STYLING --- */
+
+
+.modal-content {
     margin: auto;
-    padding: 30px;
+    display: block;
     width: 90%;
-    max-width: 700px;
-    border-radius: 12px;
-    position: relative;
+    max-width: 900px;
+    max-height: 90vh; 
+    object-fit: contain; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    
+    /* Add a simple animation effect for the image */
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
 }
 
-.close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; color: red; cursor: pointer; }
+/* The Close Button (General Styles) */
+.close-btn {
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    line-height: 1;
+}
 
-/* --- 7. SMARTPHONE COMPATIBILITY (RESPONSIVE) --- */
-@media screen and (max-width: 768px) {
-    /* Reset table to stack */
-    .vm-table { table-layout: auto; border: none; }
-    .vm-table thead { display: none; } /* Hide Desktop Headers */
-    
-    .vm-table tbody, .vm-table tr, .vm-table td {
-        display: block;
-        width: 100% !important;
-    }
+/* Style for the close button in the Image Modal (White on dark background, positioned relative to viewport) */
+#image-modal .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    z-index: 1001; 
+}
 
-    .vm-table td {
-        position: relative;
-        padding: 5rem 1.5rem 2rem 1.5rem !important; /* Extra top padding for mobile header */
-        border: none !important;
-        box-sizing: border-box;
-        margin-bottom: 10px;
-        border-radius: 12px;
-    }
+/* Style for the close button in the Profile Modal (Dark on white background, positioned relative to content box) */
+#profile-modal .profile-modal-content .close-btn {
+    position: absolute; 
+    top: 5px; 
+    right: 15px; 
+    color: #f90303;
+    z-index: 100;
+}
 
-    /* Auto-generate Mobile Headers */
-    .vm-table td::before {
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        padding: 1.2rem;
-        font-weight: bold;
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Previous and Next buttons */
+.prev, .next {
+/* ... (Rest of existing CSS for prev/next and keyframes) ... */
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a darker background color */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* --- RESPONSIVENESS (MOBILE) --- */
+        @media (max-width: 768px) {
+            .dept-section {
+                width: 95%;
+                padding: 0.5rem;
+            }
+            
+            /* Stack intro text and image vertically */
+            .dept-intro {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .intro-text {
+                order: 2; /* Text below image */
+                font-size: 1rem;
+            }
+            .intro-image {
+                order: 1;
+                width: 100%;
+                margin: 0 auto;
+            }
+            
+		/* 2 columns on mobile */
+            .dept-gallery {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            /* UPDATED MOBILE HEIGHT for main gallery images */
+            .gallery-item img {
+                height: 120px; 
+            }
+            
+            .dept-gallery-ext {
+                 grid-template-columns: 1fr; /* Single column on mobile */
+                 padding: 0.5rem;
+            }
+            
+            /* UPDATED MOBILE HEIGHT for extended gallery images */
+            .gallery-item-ext img {
+                height: 150px; /* Maintained at 150px */
+            }
+            
+		/* Single column for faculty and adjust spacing */
+            .faculty-members {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-link {
+                font-size: 1.1rem;
+                padding: 0.75rem;
+            }
+            
+            /* Adjust modal size for small screens */
+            .modal-content {
+                width: 100%;
+                margin-top: 20%;
+            }
+            
+            /* Reduce button size on mobile */
+            .prev, .next {
+                font-size: 16px;
+                padding: 10px;
+                margin-top: -16px;
+            }
+
+            #image-modal .close-btn {
+                font-size: 30px;
+                top: 5px;
+                right: 20px;
+            }
+
+            #profile-modal .profile-modal-content .close-btn {
+                font-size: 30px;
+                top: 5px;
+                right: 10px;
+            }
+            
+             /* Adjust profile modal for small screens */
+            .profile-modal-content {
+				width: 90%;
+                margin: 0 auto; /* MODIFIED: Also set to 0 on mobile */
+                padding: 15px;
+                padding-top: 35px; /* Adjust padding for close button on mobile */
+                min-height: 20rem;	
+            }
+        }
+        
+        .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.profile-modal-img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+}
+
+.profile-modal-content hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+@media (max-width: 600px) {
+    .profile-header {
+        flex-direction: column;
         text-align: center;
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
     }
-
-    .cell-vision::before {
-        content: "Department Vision";
-        background: linear-gradient(to right, var(--vision-primary), #1a1a8e);
-    }
-
-    .cell-mission::before {
-        content: "Department Mission";
-        background: linear-gradient(to right, var(--mission-primary), #447a00);
-    }
-    
-    .dept-gallery { grid-template-columns: 1fr; }
 }
+        @media (max-width: 480px) {
+            /* Single column for gallery on very small screens */
+            .dept-gallery {
+                grid-template-columns: 1fr; 
+            }
+            .dept-title {
+                font-size: 1.25rem;
+            }
+        }
