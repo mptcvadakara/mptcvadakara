@@ -1,17 +1,9 @@
 /* --- 1. BASE STYLES & VARIABLES --- */
 :root {
-    --primary-color: #000080; /* Dark Blue */
-    --secondary-color: #336600; /* Green */
-    --bg-light: #f9f9f9;
-    --text-dark: #333;
-    
-    /* Vision & Mission Table Colors */
     --vision-primary: #000080; 
-    --vision-bg: #cbd5e1; /* Deeper Blue-Grey Shade */
+    --vision-bg: #cbd5e1; 
     --mission-primary: #336600; 
-    --mission-bg: #d9e3d0; /* Deeper Green-Grey Shade */
-    
-    font-size: 14px;
+    --mission-bg: #d9e3d0; 
 }
 
 body {
@@ -162,7 +154,6 @@ img {
     margin-right: 0.75rem;
 }
 
-/* --- 5. VISION & MISSION TABLE --- */
 .dept-vm-container {
     margin: 2.5rem 0;
     padding: 0 1rem;
@@ -172,6 +163,7 @@ img {
     width: 100%;
     border-collapse: separate; 
     border-spacing: 0;
+    table-layout: fixed; /* CRITICAL: Forces equal column widths */
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
@@ -179,7 +171,9 @@ img {
     border: 1px solid #999;
 }
 
+/* Header Styling */
 .vm-table th {
+    width: 50%; /* Ensures 50/50 split */
     padding: 1.5rem;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -196,7 +190,9 @@ img {
     background: linear-gradient(135deg, var(--mission-primary), #447a00);
 }
 
+/* Data Cell Styling */
 .vm-table td {
+    width: 50%; /* Ensures 50/50 split */
     padding: 2.5rem;
     vertical-align: top;
     line-height: 2.0;
@@ -215,6 +211,7 @@ img {
     background-color: var(--mission-bg);
 }
 
+/* Mission List Styling */
 .vm-list {
     list-style: none;
     padding: 0;
@@ -229,6 +226,10 @@ img {
     padding-bottom: 8px;
 }
 
+.vm-list li:last-child {
+    border-bottom: none;
+}
+
 .vm-list li::before {
     content: "\f0a4"; 
     font-family: "Font Awesome 6 Free";
@@ -238,6 +239,55 @@ img {
     color: var(--mission-primary);
 }
 
+/* SMARTPHONE COMPATIBILITY */
+@media screen and (max-width: 768px) {
+    .vm-table {
+        table-layout: auto; /* Reset fixed layout for stacking */
+    }
+
+    .vm-table, .vm-table thead, .vm-table tbody, .vm-table tr, .vm-table td {
+        display: block;
+        width: 100% !important; /* Force full width on mobile */
+    }
+
+    .vm-table thead {
+        display: none; /* Hide desktop headers */
+    }
+
+    .vm-table td {
+        position: relative;
+        padding: 4.5rem 1.5rem 2rem 1.5rem;
+        border: none;
+        box-sizing: border-box;
+    }
+
+    .vm-table td::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        color: #fff;
+    }
+
+    .cell-vision::before {
+        content: "Department Vision";
+        background-color: var(--vision-primary);
+    }
+
+    .cell-mission::before {
+        content: "Department Mission";
+        background-color: var(--mission-primary);
+    }
+    
+    .cell-vision {
+        border-bottom: 8px solid #fff;
+    }
+}
 /* --- 6. FACULTY MEMBERS --- */
 .faculty-title {
     text-align: center;
