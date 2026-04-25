@@ -14,7 +14,7 @@ const facultyProfiles = [
         name: "Harmya T", 
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
-        email: "harmyat@gmail.com.com",
+        email: "harmyat@gmail.com",
         expertise: "Type here..........."
         image: "../staff/harmya.jpg"
     },
@@ -23,7 +23,7 @@ const facultyProfiles = [
         name: "Manika", 
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
-        email: "manika@gmail.com.com",
+        email: "manika@gmail.com",
         expertise: "Type here..........."
         image: "../staff/manika.jpg"
     },
@@ -32,7 +32,7 @@ const facultyProfiles = [
         name: "Harishma K P", 
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
-        email: "harmyat@gmail.com.com",
+        email: "harmyat@gmail.com",
         expertise: "Type here..........."
         image: "../staff/harishma.jpg"
     },
@@ -41,7 +41,7 @@ const facultyProfiles = [
         name: "Maya", 
         designation: "Lecturer in Computer Engineering", 
         qualification: "B.Tech in Computer Engineering",
-        email: "maya@gmail.com.com",
+        email: "maya@gmail.com",
         expertise: "Type here..........."
         image: "../staff/maya.jpg"
     },
