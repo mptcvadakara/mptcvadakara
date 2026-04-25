@@ -1,333 +1,276 @@
-/* BASE STYLES */
-	:root {
-            --primary-color: #000080; /* Dark Blue */
-            --secondary-color: #336600; /* Green */
-            --bg-light: #f9f9f9;
-            --text-dark: #333;
-            font-size: 14px;
-        }
+/* --- 1. BASE STYLES & VARIABLES --- */
+:root {
+    --primary-color: #000080; /* Dark Blue */
+    --secondary-color: #336600; /* Green */
+    --bg-light: #f9f9f9;
+    --text-dark: #333;
+    
+    /* Vision & Mission Colors */
+    --vision-primary: #000080; 
+    --vision-bg: #cbd5e1; /* Deeper Blue-Grey Shade */
+    --mission-primary: #336600; 
+    --mission-bg: #d9e3d0; /* Deeper Green-Grey Shade */
+    
+    font-size: 14px;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
 
-        .dept-section {
-            width: 98%;
-            max-width: 1200px;
-            margin: auto auto;
-            padding: 0rem;
-            background-color: #fff;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-        }
+.dept-section {
+    width: 98%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-		.paragraph-indent {
-    		text-indent: 40px; 
-    		margin-top: 0;
-    		line-height: 2.0;
-    		text-align: justify; /* Improves readability of large blocks of text */
-			margin-bottom: 0px;  
-		}   
+.paragraph-indent {
+    text-indent: 40px; 
+    line-height: 2.0;
+    text-align: justify;
+    margin-bottom: 0px;  
+}
 
-/* GENERAL IMAGE STYLING */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 4px;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
 
-/* --- 0. NEW GALLERY LINK STYLING --- */
-        .gallery-link {
-            display: block;
-            width: 90%;
-            max-width: 1200px;
-            margin: 1.5rem auto 2.5rem auto; 
-            text-align: center;
-            padding: 1rem;
-            background-color: var(--secondary-color); /* Green background */
-            color: white;
-            text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.2s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+/* --- 2. BANNER & INTRO --- */
+.dept-header img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+}
 
-        .gallery-link:hover {
-            background-color: #2e5c00; /* Darker green on hover */
-            transform: translateY(-2px);
-        }
-        
-        .gallery-link i {
-            margin-right: 0.75rem;
-        }
+.dept-intro {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    align-items: flex-start;
+}
 
-/* --- 0.5. NEW EXTENDED GALLERY SECTION STYLING --- */
-        .dept-gallery-ext {
-            display: none; 
-            width: 90%;
-            max-width: 1200px;
-            margin: 1rem auto 3rem auto;
-            padding: 1rem;
-            background-color: #fff;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-            gap: 1.5rem;
-        }
+.intro-text {
+    flex: 3;
+    line-height: 1.8;
+    font-size: 1.125rem;
+}
 
-        .gallery-item-ext {
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        
-        .gallery-item-ext img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item-ext img:hover {
-            opacity: 0.8;
-        }
+/* --- 3. VISION & MISSION TABLE (ATTRACTIVE & EQUAL WIDTH) --- */
+.dept-vm-container {
+    margin: 2.5rem 0;
+    padding: 0 1rem;
+}
 
+.vm-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    table-layout: fixed; /* Ensures exact 50/50 width */
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #999;
+}
 
- /* --- 1. BANNER --- */
-        .dept-header {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        .dept-header img {
-            width: 100%;
-            height: 300px; 
-            object-fit: cover;
-            border-radius: 8px;
-        }
+/* Header Styling */
+.vm-table th {
+    width: 50%;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
 
-/* --- 2. INTRO SECTION --- */
-        .dept-intro {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            align-items: flex-start;
-        }
+.header-vision {
+    background: linear-gradient(135deg, var(--vision-primary), #1a1a8e);
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
 
-        .intro-text {
-            flex: 3;
-            line-height: 1.8;
-            font-size: 1.125rem;
-            text-align: justify;
-        }
+.header-mission {
+    background: linear-gradient(135deg, var(--mission-primary), #447a00);
+}
 
-/* --- 3. GALLERY (Existing Section) --- */
-        .dept-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 1rem;
-            margin-bottom: 2rem;
-            max-width: 800px; 
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .gallery-item {
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 6px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item img:hover {
-            transform: scale(1.05);
-        }
-        
-/* --- 4. OBJECTIVES (Used for Vision/Mission too) --- */
-        .dept-objectives h2 {
-            font-size: 1.375rem; 
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-			line-height: 1.5;
-        }
+/* Data Cell Styling */
+.vm-table td {
+    width: 50%;
+    padding: 2.5rem;
+    vertical-align: top;
+    line-height: 2.0;
+    font-size: 1.15rem;
+    color: #111; /* Dark text for contrast */
+}
 
-        .dept-objectives ul {
-            list-style: none;
-            padding: 0;
-        }
+.cell-vision {
+    background-color: var(--vision-bg);
+    border-right: 1px solid #adb5bd;
+    text-align: left;
+    font-weight: 500;
+}
 
-        .dept-objectives li {
-            font-size: 1.125rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-			line-height: 2;
-        }
+.cell-mission {
+    background-color: var(--mission-bg);
+}
 
-        .dept-objectives li::before {
-            content: "\2731"; 
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 1.25rem;
-            margin-right: 0.75rem;
-            margin-top: -0.2rem;
-        }
+/* Mission List Styling */
+.vm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
- /* --- 5. FACULTY --- */
-        .faculty-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin: 2.5rem 0 1.5rem 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .faculty-hod {
-            text-align: center;
-            margin-bottom: 2rem;
-            cursor: pointer;
-        }
+.vm-list li {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 30px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 8px;
+}
 
-        .faculty-hod img {
-            width: 180px; 
-            height: 225px;
-            border-radius: 5%;
-            margin: 0 auto 1rem auto;
-            border: 2px solid var(--primary-color);
-            object-fit: cover;
-        }
-        .faculty-hod p {
-            font-size: 1.125rem;
-            margin: 0.2rem 0;
-            font-weight: bold;
-        }
-        .faculty-hod small {
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-        }
+.vm-list li:last-child { border-bottom: none; }
 
-        .lectures, .sup_staff {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	    	margin: 4rem auto 1rem auto;
-            gap: 0.5rem;
-            text-align: center;
-        }
+.vm-list li::before {
+    content: "\f0a4"; /* FontAwesome hand icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--mission-primary);
+}
 
-        .member-card {
-             cursor: pointer;
-        }
-        
-        .member-card img {
-            width: 140px;
-            height: 180px;
-            border-radius: 5%;
-	    	border: 2px solid var(--primary-color);
-            margin: 0 auto 0.5rem auto;
-            object-fit: cover;
-        }
-        .member-card p {
-            margin: 0.2rem 0;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        .member-card small {
-             color: var(--text-dark);
-             font-size: 0.85rem;
-        }
-        
+/* --- 4. GALLERY STYLES --- */
+.dept-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem;
+    max-width: 800px; 
+    margin: 2rem auto;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover { transform: scale(1.05); }
+
+/* --- 5. FACULTY STYLES --- */
+.faculty-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 2.5rem 0;
+    text-transform: uppercase;
+}
+
+.faculty-hod { text-align: center; margin-bottom: 2rem; cursor: pointer; }
+
+.faculty-hod img {
+    width: 180px; height: 225px;
+    border-radius: 5%;
+    border: 2px solid var(--primary-color);
+    margin: 0 auto 1rem auto;
+    object-fit: cover;
+}
+
+.lectures, .sup_staff {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.member-card img {
+    width: 140px; height: 180px;
+    border-radius: 5%;
+    border: 2px solid var(--primary-color);
+    margin: 0 auto 0.5rem auto;
+    object-fit: cover;
+}
+
 /* --- 6. MODAL STYLING --- */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    padding-top: 75px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.9); 
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 75px;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
 }
 
 .profile-modal-content {
-    background-color: #fefefe;
-    margin: 0 auto; 
-    padding: 20px;
-    padding-top: 40px; 
-    border: 1px solid #888;
-    width: 80%; 
+    background-color: #fff;
+    margin: auto;
+    padding: 40px 20px 20px;
+    width: 80%;
     max-width: 800px;
-    min-height: 25rem; 
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    line-height: 1.6;
-    color: var(--text-dark);
-    position: relative; 
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-}
-
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
+    position: relative;
+    animation: animatetop 0.4s;
 }
 
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 90%;
-    max-width: 900px;
-    max-height: 90vh; 
-    object-fit: contain; 
-    border-radius: 8px;
-    animation-name: zoom;
-    animation-duration: 0.6s;
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }
 
 .close-btn {
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    line-height: 1;
-}
-
-#image-modal .close-btn {
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-}
-
-#profile-modal .profile-modal-content .close-btn {
-    position: absolute; 
-    top: 5px; 
-    right: 15px; 
+    top: 5px; right: 15px;
+    font-size: 40px;
     color: #f90303;
+    cursor: pointer;
 }
 
-/* RESPONSIVENESS */
-@media (max-width: 768px) {
+/* --- 7. MOBILE COMPATIBILITY --- */
+@media screen and (max-width: 768px) {
     .dept-intro { flex-direction: column; }
-    .faculty-members { grid-template-columns: 1fr; }
-    .profile-modal-content { width: 90%; min-height: 20rem; }
+    
+    /* Table Responsive Reset */
+    .vm-table { table-layout: auto; }
+    .vm-table, .vm-table thead, .vm-table tbody, .vm-table tr, .vm-table td {
+        display: block;
+        width: 100% !important;
+    }
+    .vm-table thead { display: none; } /* Hide headers */
+
+    .vm-table td {
+        position: relative;
+        padding: 4.5rem 1.5rem 2rem 1.5rem;
+        border: none;
+        box-sizing: border-box;
+    }
+
+    /* Mobile Headers */
+    .vm-table td::before {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        padding: 1rem;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    .cell-vision::before { content: "Department Vision"; background-color: var(--vision-primary); }
+    .cell-mission::before { content: "Department Mission"; background-color: var(--mission-primary); }
+    
+    .cell-vision { border-bottom: 8px solid #fff; }
+    .lectures, .sup_staff { grid-template-columns: 1fr; }
 }
