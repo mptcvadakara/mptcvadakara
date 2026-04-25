@@ -509,6 +509,33 @@
             }
         }
         
+        .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.profile-modal-img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+}
+
+.profile-modal-content hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+@media (max-width: 600px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
         @media (max-width: 480px) {
             /* Single column for gallery on very small screens */
             .dept-gallery {
