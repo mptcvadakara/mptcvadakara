@@ -11,7 +11,9 @@
     --mission-card-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
     --vision-card-gradient: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
 
-	--vision-header-bg: #1e3a8a; /* Deep Blue */
+	--vision-header: #003366; /* Professional Dark Blue */
+    --vision-bg-gradient: linear-gradient(to right, #4a709d, #6b8fb9);
+	
     --mission-header-bg: #064e3b; /* Deep Emerald */
 	--vision-card-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); /* Bright to Deep Blue */
     --mission-card-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%); /* Bright to Deep Green */
@@ -82,8 +84,11 @@
 }
 
 /* Color Themes */
-.vision-header { background-color: var(--vision-header-bg); }
-.vision-content { background: var(--vision-card-gradient); }
+.vision-header { background-color: var(--vision-header) !important; }
+.vision-content {
+	background: var(--vision-bg-gradient);
+    color: var(--text-color); 
+}
 
 .mission-header { background-color: var(--mission-header-bg); }
 .mission-content { background: var(--mission-card-gradient); }
