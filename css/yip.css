@@ -96,6 +96,7 @@ body {
 .styled-list li {
     line-height: 2.0;
     margin-bottom: 8px;
+    text-align:justified;
 }
 
 /* --- Video Styling (Responsive Aspect Ratio) --- */
