@@ -13,7 +13,8 @@
 
 	--vision-header: #003366; /* Professional Dark Blue */
     --vision-bg-gradient: linear-gradient(to right, #4a709d, #6b8fb9);
-	
+
+	--mission-header: #003366; /* Professional Dark Blue */
     --mission-header-bg: #064e3b; /* Deep Emerald */
 	--vision-card-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); /* Bright to Deep Blue */
     --mission-card-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%); /* Bright to Deep Green */
