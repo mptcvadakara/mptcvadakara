@@ -10,7 +10,13 @@
     --mission-header-bg: #0a1f0a;
     --vision-card-gradient: linear-gradient(135deg, #6e7d8d 0%, #8d9bad 100%);
     --mission-card-gradient: linear-gradient(135deg, #9bb068 0%, #b6c68a 100%);
+
+	--vision-header-bg: #1e3a8a; /* Deep Blue */
+    --mission-header-bg: #064e3b; /* Deep Emerald */
+	--vision-card-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); /* Bright to Deep Blue */
+    --mission-card-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%); /* Bright to Deep Green */
     
+    --vm-text-light: #ffffff;
     font-size: 14px;
 }
 
@@ -47,10 +53,10 @@
     width: 95%;
     max-width: 1100px;
     margin: 3rem auto;
-    border-radius: 12px;
+    border-radius: 15px; /* Softer corners */
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border: none;
 }
 
 .vm-column {
@@ -80,11 +86,14 @@
 .vision-header { background-color: var(--vision-header-bg); }
 .vision-content { 
     background: var(--vision-card-gradient); 
-    border-right: 1px solid rgba(255,255,255,0.2);
+    color: var(--vm-text-light);
 }
 
 .mission-header { background-color: var(--mission-header-bg); }
-.mission-content { background: var(--mission-card-gradient); }
+.mission-content { 
+    background: var(--mission-card-gradient); 
+    color: var(--vm-text-light);
+}
 
 /* List Styling */
 .vm-content ul {
@@ -101,6 +110,10 @@
     font-weight: 500;
     font-size: 1.1rem;
     color: #1a1a1a;
+
+	color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-weight: 400;
 }
 
 /* Pointing Hand Icon */
@@ -110,6 +123,7 @@
     left: 0;
     top: -2px;
     font-size: 1.4rem;
+	filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
 }
 
 /* ==========================================================================
