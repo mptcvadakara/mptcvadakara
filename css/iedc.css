@@ -85,20 +85,26 @@ body {
     border: none;
 }
 
-/* --- List Styling --- */
+/* --- List Styling (UPDATED for increased spacing) --- */
 .objectives-list, .committee-list {
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .objectives-list ul, .committee-list ol {
     padding-left: 25px;
 }
 
-.committee-list p {
-    font-weight: bold;
-    margin-bottom: 5px;
+/* Specific spacing for the list items */
+.objectives-list li, .committee-list li {
+    line-height: 2.0; /* Increased line spacing */
+    margin-bottom: 8px; /* Extra vertical gap between items */
 }
 
+.committee-list p, .objectives-list p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 /* --- Media Query (For Tablets and Desktops) --- */
 @media (min-width: 768px) {
