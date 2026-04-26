@@ -6,10 +6,10 @@
     --text-dark: #333;
     
     /* Vision & Mission Colors */
-    --vision-header-bg: #0a0e2a;
-    --mission-header-bg: #0a1f0a;
-    --vision-card-gradient: linear-gradient(135deg, #6e7d8d 0%, #8d9bad 100%);
-    --mission-card-gradient: linear-gradient(135deg, #9bb068 0%, #b6c68a 100%);
+	--vision-header-bg: #312e81;
+    --mission-header-bg: #064e3b; /* Deep Emerald */
+    --mission-card-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --vision-card-gradient: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
 
 	--vision-header-bg: #1e3a8a; /* Deep Blue */
     --mission-header-bg: #064e3b; /* Deep Emerald */
@@ -49,14 +49,13 @@
    2. ATTRACTIVE VISION & MISSION SECTION
    ========================================================================== */
 .vm-container {
-    display: flex;
+	display: flex;
     width: 95%;
     max-width: 1100px;
     margin: 3rem auto;
-    border-radius: 15px; /* Softer corners */
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    border: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .vm-column {
@@ -66,34 +65,28 @@
 }
 
 .vm-header {
-    padding: 22px;
+	padding: 22px;
     text-align: center;
-    color: #ffffff;
+    color: var(--vm-text-light);
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 1.25rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .vm-content {
-    padding: 35px;
+	padding: 35px;
     height: 100%;
     min-height: 320px;
+    color: var(--vm-text-light);
 }
 
 /* Color Themes */
 .vision-header { background-color: var(--vision-header-bg); }
-.vision-content { 
-    background: var(--vision-card-gradient); 
-    color: var(--vm-text-light);
-}
+.vision-content { background: var(--vision-card-gradient); }
 
 .mission-header { background-color: var(--mission-header-bg); }
-.mission-content { 
-    background: var(--mission-card-gradient); 
-    color: var(--vm-text-light);
-}
+.mission-content { background: var(--mission-card-gradient); }
 
 /* List Styling */
 .vm-content ul {
