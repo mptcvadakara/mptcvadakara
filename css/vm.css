@@ -1,91 +1,285 @@
+/* ==========================================================================
+   1. BASE STYLES & VARIABLES
+   ========================================================================== */
 :root {
-            --vision-bg: #4a5568;
-            --mission-bg: #8c9c4c;
-            --vision-header: #0a0e2a;
-            --mission-header: #0a1f0a;
-            --text-color: #1a202c;
-        }
+    /* Main Theme Colors */
+    --primary-color: #000080; /* Dark Blue */
+    --secondary-color: #336600; /* Green */
+    --bg-light: #f9f9f9;
+    --text-dark: #333;
+    
+    /* Vision & Mission Colors */
+    --vision-bg: #4a5568;
+    --mission-bg: #8c9c4c;
+    --vision-header: #0a0e2a;
+    --mission-header: #0a1f0a;
+    --vm-text: #1a202c;
+    
+    font-size: 14px;
+}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            width: 90%;
-            max-width: 1000px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #ccc;
-        }
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
 
-        .column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
+.dept-section {
+    width: 98%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0rem;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
 
-        .header {
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 1.2rem;
-        }
+.paragraph-indent {
+    text-indent: 40px; 
+    margin-top: 0;
+    line-height: 2.0;
+    text-align: justify;
+    margin-bottom: 0px;  
+}   
 
-        .content {
-            padding: 30px;
-            height: 100%;
-            min-height: 350px;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
 
-        /* Vision Styles */
-        .vision-header { background-color: var(--vision-header); }
-        .vision-content { 
-            background: linear-gradient(to right, #6e7d8d, #8d9bad);
-            color: var(--text-color);
-        }
+/* ==========================================================================
+   2. VISION & MISSION CARD (Merged & Scoped)
+   ========================================================================== */
+.vm-container {
+    display: flex;
+    width: 95%;
+    max-width: 1000px;
+    margin: 2rem auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
 
-        /* Mission Styles */
-        .mission-header { background-color: var(--mission-header); }
-        .mission-content { 
-            background: linear-gradient(to right, #9bb068, #b6c68a);
-            color: var(--text-color);
-        }
+.vm-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.vm-header {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
 
-        li {
-            position: relative;
-            padding-left: 40px;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            font-weight: 500;
-            font-size: 1.05rem;
-        }
+.vm-content {
+    padding: 30px;
+    height: 100%;
+    min-height: 350px;
+}
 
-        /* Custom Hand/Pointer Icon */
-        li::before {
-            content: '👉'; /* You can also use an SVG or FontAwesome icon here */
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1.2rem;
-        }
+/* Vision Specifics */
+.vision-header { background-color: var(--vision-header); }
+.vision-content { 
+    background: linear-gradient(to right, #6e7d8d, #8d9bad);
+    color: var(--vm-text);
+}
 
-        @media (max-width: 768px) {
-            .container { flex-direction: column; }
-            .content { min-height: auto; }
-        }
+/* Mission Specifics */
+.mission-header { background-color: var(--mission-header); }
+.mission-content { 
+    background: linear-gradient(to right, #9bb068, #b6c68a);
+    color: var(--vm-text);
+}
+
+/* List Styling scoped to VM Card */
+.vm-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vm-content li {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.vm-content li::before {
+    content: '👉';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   3. GALLERY & INTRO SECTIONS
+   ========================================================================== */
+.dept-header img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.dept-intro {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.intro-text {
+    flex: 3;
+    line-height: 1.8;
+    font-size: 1.125rem;
+    text-align: justify;
+}
+
+.intro-image {
+    flex: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.dept-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem;
+    max-width: 800px; 
+    margin: 0 auto 2rem auto;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover { transform: scale(1.05); }
+
+/* ==========================================================================
+   4. FACULTY & STAFF
+   ========================================================================== */
+.faculty-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 2.5rem 0 1.5rem 0;
+    text-transform: uppercase;
+}
+
+.faculty-hod {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.faculty-hod img {
+    width: 180px; 
+    height: 225px;
+    border-radius: 5%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.lectures, .sup_staff {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 4rem auto 1rem auto;
+    gap: 1rem;
+    text-align: center;
+}
+
+.member-card img {
+    width: 140px;
+    height: 180px;
+    border-radius: 5%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   5. MODAL SYSTEM
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 75px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.profile-modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px 20px 40px 20px;
+    width: 80%; 
+    max-width: 800px;
+    min-height: 25rem;
+    border-radius: 8px;
+    position: relative;
+    animation: animatetop 0.4s;
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.close-btn {
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#profile-modal .close-btn {
+    position: absolute; 
+    top: 5px; 
+    right: 15px; 
+    color: #f90303;
+}
+
+/* ==========================================================================
+   6. RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Stack Vision/Mission */
+    .vm-container { flex-direction: column; }
+    .vm-content { min-height: auto; }
+
+    .dept-intro { flex-direction: column; }
+    
+    .intro-text { order: 2; font-size: 1rem; }
+    .intro-image { order: 1; width: 100%; }
+
+    .lectures, .sup_staff {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
