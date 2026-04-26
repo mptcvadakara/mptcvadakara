@@ -1,0 +1,97 @@
+/* Base Styles and Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+}
+
+/* Container control */
+.general-container {
+    width: 100%;
+    max-width: 950px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+/* Hero Image Styling */
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Blank line effect before header */
+.header-spacer {
+    height: 25px; 
+}
+
+/* Updated Header: Reduced width and rounded corners */
+.general-header {
+    background-color: rgb(7, 106, 187);
+    color: #ffffff;
+    padding: 12px 25px;
+    margin: 0 auto 15px auto; /* Centers the header */
+    width: 93%; /* Slightly reduced width */
+    border-radius: 10px; /* Rounded corners */
+    box-sizing: border-box;
+}
+
+.general-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Content Sections */
+.general-content, .general-section {
+    padding: 5px 30px;
+}
+
+/* Paragraph Styling: Indent and tight spacing */
+p {
+    text-indent: 40px; 
+    margin-bottom: 10px; /* Tight vertical gap */
+    text-align: justify;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* List Styling */
+.general-section h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(7, 106, 187);
+    padding-left: 5px;
+}
+
+ul {
+    padding-left: 45px;
+    margin-top: 5px;
+}
+
+li {
+    margin-bottom: 8px;
+    text-align: justify;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Responsive Fixes */
+@media (max-width: 600px) {
+    .general-container {
+        border-radius: 0;
+    }
+    .general-header {
+        width: 95%;
+    }
+    .general-content, .general-section {
+        padding: 15px;
+    }
+}
