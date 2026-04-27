@@ -42,19 +42,18 @@ const facultyProfiles = [
     }
 ];
 
-// --- 2. GLOBAL VARIABLES & IMAGE LIST GENERATION ---
+// --- 2. GLOBAL VARIABLES & IMAGE LIST ---
 const imageFiles = [];
-let totalImages = 6;
+let totalImages = 6; //
 
-// Generate numbered file list
 for (let i = 1; i < totalImages; i++) { 
     imageFiles.push(`${i}.jpg`); 
 }
-// Add the specific department cover image to the start
-imageFiles.unshift("mptc.jpg");
+imageFiles.unshift("mptc.jpg"); //
 
 let imagePaths = [];
 let currentImageIndex = 0;
+let slideshowTimer; // Variable to handle automatic transitions
 
 // --- 3. FACULTY MODAL FUNCTIONS ---
 function openProfileModal(index) {
@@ -79,47 +78,63 @@ function openProfileModal(index) {
     modal.style.display = "block";
 }
 
-// --- 4. GALLERY MODAL & NAVIGATION FUNCTIONS ---
+// --- 4. GALLERY MODAL & AUTO-TRANSITION LOGIC ---
+
 function displayImage(index) {
     const modalImg = document.getElementById("full-image");
     currentImageIndex = index;
     modalImg.src = imagePaths[currentImageIndex];
 }
 
+// Starts the 4-second timer for the next image
+function startAutoTransition() {
+    stopAutoTransition(); // Clear existing timer to prevent overlaps
+    slideshowTimer = setTimeout(() => {
+        showNextImage();
+    }, 4000); 
+}
+
+// Stops the timer
+function stopAutoTransition() {
+    clearTimeout(slideshowTimer);
+}
+
 function openModal(index) {
     document.getElementById("image-modal").style.display = "block";
     displayImage(index);
+    startAutoTransition(); // Start slideshow when opened
 }
 
 function closeModal() {
     document.getElementById("image-modal").style.display = "none";
     document.getElementById("profile-modal").style.display = "none";
+    stopAutoTransition(); // Stop slideshow when closed
 }
         
 function showPrevImage() {
     currentImageIndex = (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
     displayImage(currentImageIndex);
+    startAutoTransition(); // Reset timer on manual navigation
 }
 
 function showNextImage() {
     currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
     displayImage(currentImageIndex);
+    startAutoTransition(); // Reset timer on manual navigation
 }
 
 // --- 5. DYNAMIC GALLERY GENERATION ---
 function loadGalleryImages() {
     const gallerySection = document.getElementById('department-gallery-section');
-    // Map files to the specific BME gallery folder
-    imagePaths = imageFiles.map(fileName => `../gallery/bme/${fileName}`);
+    imagePaths = imageFiles.map(fileName => `../gallery/bme/${fileName}`); //
     
     gallerySection.innerHTML = imagePaths.map((path, index) => `
         <div class="gallery-item-ext">
-            <img src="${path}" onclick="openModal(${index})" alt="BME Gallery Image ${index + 1}">
+            <img src="${path}" onclick="openModal(${index})" alt="BME Gallery Image">
         </div>
     `).join('');
 }
 
-// Function to Show/Hide the gallery section
 function toggleGallery() {
     const gallery = document.getElementById('department-gallery-section');
     const link = document.getElementById('gallery-toggle-link');
@@ -133,5 +148,4 @@ function toggleGallery() {
     return false;
 }
 
-// Initialize gallery on load
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
