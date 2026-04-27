@@ -68,7 +68,7 @@ body {
 }
 
 .vm-header {
-	padding: 22px;
+	padding: 12px;
     text-align: center;
     color: var(--vm-text-light);
     font-weight: 700;
@@ -78,9 +78,9 @@ body {
 }
 
 .vm-content {
-	padding: 35px;
+	padding: 20px;
     height: 100%;
-    min-height: 320px;
+    min-height: 200px;
     color: var(--vm-text-light);
 }
 
@@ -106,8 +106,8 @@ body {
 
 .vm-content li {
     position: relative;
-    padding-left: 45px;
-    margin-bottom: 22px;
+    padding-left: 40px;
+    margin-bottom: 10px;
     line-height: 1.5;
     font-weight: 500;
     font-size: 1.1rem;
