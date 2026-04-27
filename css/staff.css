@@ -80,7 +80,7 @@ body {
 .vm-content {
 	padding: 20px;
     height: 100%;
-    min-height: 200px;
+    min-height: auto;
     color: var(--vm-text-light);
 }
 
