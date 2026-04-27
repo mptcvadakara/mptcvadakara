@@ -44,16 +44,16 @@ const facultyProfiles = [
 
 // --- 2. GLOBAL VARIABLES & IMAGE LIST ---
 const imageFiles = [];
-let totalImages = 6; //
+let totalImages = 6; 
 
 for (let i = 1; i < totalImages; i++) { 
     imageFiles.push(`${i}.jpg`); 
 }
-imageFiles.unshift("mptc.jpg"); //
+imageFiles.unshift("mptc.jpg"); 
 
 let imagePaths = [];
 let currentImageIndex = 0;
-let slideshowTimer; // Variable to handle automatic transitions
+let slideshowTimer; 
 
 // --- 3. FACULTY MODAL FUNCTIONS ---
 function openProfileModal(index) {
@@ -78,23 +78,45 @@ function openProfileModal(index) {
     modal.style.display = "block";
 }
 
-// --- 4. GALLERY MODAL & AUTO-TRANSITION LOGIC ---
+// --- 4. FLY-IN ANIMATION LOGIC ---
+
+function triggerFlyIn() {
+    const modalImg = document.getElementById("full-image");
+    
+    // Generate random start positions (between -500px and 500px)
+    const randomX = Math.floor(Math.random() * 1000) - 500;
+    const randomY = Math.floor(Math.random() * 1000) - 500;
+
+    // Remove transition temporarily to snap to the random start position
+    modalImg.style.transition = 'none';
+    modalImg.style.opacity = '0';
+    modalImg.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.5)`;
+
+    // Force a reflow so the browser registers the starting state
+    modalImg.offsetHeight;
+
+    // Apply the fly-in transition
+    modalImg.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    modalImg.style.opacity = '1';
+    modalImg.style.transform = 'translate(0, 0) scale(1)';
+}
+
+// --- 5. GALLERY MODAL & NAVIGATION ---
 
 function displayImage(index) {
     const modalImg = document.getElementById("full-image");
     currentImageIndex = index;
     modalImg.src = imagePaths[currentImageIndex];
+    triggerFlyIn(); // Trigger the animation every time the source changes
 }
 
-// Starts the 4-second timer for the next image
 function startAutoTransition() {
-    stopAutoTransition(); // Clear existing timer to prevent overlaps
+    stopAutoTransition();
     slideshowTimer = setTimeout(() => {
         showNextImage();
     }, 4000); 
 }
 
-// Stops the timer
 function stopAutoTransition() {
     clearTimeout(slideshowTimer);
 }
@@ -102,31 +124,31 @@ function stopAutoTransition() {
 function openModal(index) {
     document.getElementById("image-modal").style.display = "block";
     displayImage(index);
-    startAutoTransition(); // Start slideshow when opened
+    startAutoTransition();
 }
 
 function closeModal() {
     document.getElementById("image-modal").style.display = "none";
     document.getElementById("profile-modal").style.display = "none";
-    stopAutoTransition(); // Stop slideshow when closed
+    stopAutoTransition();
 }
         
 function showPrevImage() {
     currentImageIndex = (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
     displayImage(currentImageIndex);
-    startAutoTransition(); // Reset timer on manual navigation
+    startAutoTransition();
 }
 
 function showNextImage() {
     currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
     displayImage(currentImageIndex);
-    startAutoTransition(); // Reset timer on manual navigation
+    startAutoTransition();
 }
 
-// --- 5. DYNAMIC GALLERY GENERATION ---
+// --- 6. DYNAMIC GALLERY GENERATION ---
 function loadGalleryImages() {
     const gallerySection = document.getElementById('department-gallery-section');
-    imagePaths = imageFiles.map(fileName => `../gallery/bme/${fileName}`); //
+    imagePaths = imageFiles.map(fileName => `../gallery/bme/${fileName}`);
     
     gallerySection.innerHTML = imagePaths.map((path, index) => `
         <div class="gallery-item-ext">
