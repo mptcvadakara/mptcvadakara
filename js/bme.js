@@ -1,4 +1,4 @@
-// *** FACULTY PROFILE DATA ***
+// --- 1. FACULTY PROFILE DATA ---
 const facultyProfiles = [
     { 
         name: "Anoop Kumar N", 
@@ -6,7 +6,7 @@ const facultyProfiles = [
         qualification: "B.Tech in Electronics Engineering",
         email: "anoop.kumar@example.com", 
         expertise: "Medical Imaging, Electronic Instrumentation, Diagnostic Equipment Maintenance.",
-        image: "../staff/anoop.jpg" // Added Image Path
+        image: "../staff/anoop.jpg" 
     },
     { 
         name: "Pooja K P", 
@@ -42,7 +42,21 @@ const facultyProfiles = [
     }
 ];
 
-// --- MODIFIED PROFILE MODAL FUNCTION ---
+// --- 2. GLOBAL VARIABLES & IMAGE LIST GENERATION ---
+const imageFiles = [];
+let totalImages = 6;
+
+// Generate numbered file list
+for (let i = 1; i < totalImages; i++) { 
+    imageFiles.push(`${i}.jpg`); 
+}
+// Add the specific department cover image to the start
+imageFiles.unshift("mptc.jpg");
+
+let imagePaths = [];
+let currentImageIndex = 0;
+
+// --- 3. FACULTY MODAL FUNCTIONS ---
 function openProfileModal(index) {
     const modal = document.getElementById("profile-modal");
     const profileContent = document.getElementById("profile-content");
@@ -65,15 +79,7 @@ function openProfileModal(index) {
     modal.style.display = "block";
 }
 
-// *** REST OF THE GALLERY LOGIC REMAINS THE SAME ***
-const imageFiles = [];
-let totalImages = 6;
-for (let i = 1; i < totalImages; i++) { imageFiles.push(`${i}.jpg`); }
-imageFiles.unshift("mptc.jpg");
-
-let imagePaths = [];
-let currentImageIndex = 0;
-
+// --- 4. GALLERY MODAL & NAVIGATION FUNCTIONS ---
 function displayImage(index) {
     const modalImg = document.getElementById("full-image");
     currentImageIndex = index;
@@ -100,23 +106,32 @@ function showNextImage() {
     displayImage(currentImageIndex);
 }
 
+// --- 5. DYNAMIC GALLERY GENERATION ---
 function loadGalleryImages() {
     const gallerySection = document.getElementById('department-gallery-section');
+    // Map files to the specific BME gallery folder
     imagePaths = imageFiles.map(fileName => `../gallery/bme/${fileName}`);
+    
     gallerySection.innerHTML = imagePaths.map((path, index) => `
         <div class="gallery-item-ext">
-            <img src="${path}" onclick="openModal(${index})">
+            <img src="${path}" onclick="openModal(${index})" alt="BME Gallery Image ${index + 1}">
         </div>
     `).join('');
 }
 
+// Function to Show/Hide the gallery section
 function toggleGallery() {
     const gallery = document.getElementById('department-gallery-section');
     const link = document.getElementById('gallery-toggle-link');
     const isHidden = gallery.style.display === 'none' || gallery.style.display === '';
+    
     gallery.style.display = isHidden ? 'grid' : 'none';
-    link.innerHTML = isHidden ? '<i class="fas fa-eye-slash"></i> HIDE DEPARTMENT GALLERY' : '<i class="fas fa-camera"></i> VIEW DEPARTMENT GALLERY';
+    link.innerHTML = isHidden 
+        ? '<i class="fas fa-eye-slash"></i> HIDE DEPARTMENT GALLERY' 
+        : '<i class="fas fa-camera"></i> VIEW DEPARTMENT GALLERY';
+    
     return false;
 }
 
+// Initialize gallery on load
 document.addEventListener('DOMContentLoaded', loadGalleryImages);
