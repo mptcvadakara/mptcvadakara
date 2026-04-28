@@ -122,6 +122,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
 
+    const menuItems = document.querySelectorAll('#nav li.top, #nav li.has-flyout');
+
+    // Toggle main menu visibility
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('nav-menu--open');
+        });
+    }
+
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        
+        link.addEventListener('click', function(e) {
+            // Only trigger accordion on mobile (width < 768px)
+            if (window.innerWidth <= 768) {
+                const subMenu = item.querySelector('ul.sub, ul.fly-out');
+                
+                if (subMenu) {
+                    e.preventDefault(); // Stop page jump
+                    e.stopPropagation(); // Prevent closing parent when clicking child
+                    
+                    // Toggle the open class
+                    item.classList.toggle('item--open');
+                }
+            }
+        });
+    });
+    
     if (navToggle && navMenu) {
         const collapseMainMenu = () => {
             if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
