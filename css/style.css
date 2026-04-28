@@ -921,6 +921,10 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
+/* ---------------------------------------------------- */
+/* SLIDESHOW STYLING WITH NAVIGATION BUTTONS */
+/* ---------------------------------------------------- */
+
 .slideshow-container {
     width: 100%;
     max-width: 900px; 
@@ -993,6 +997,8 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
+/* CSS for the Slideshow Image Transition */
+
 #slideshow-img {
     /* 1. Set the transition property for smooth movement and opacity change */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -1012,88 +1018,8 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     /* Make it invisible */
     opacity: 0;
 }
-
-/* --- General Reset & Desktop Layout --- */
-#nav li { position: relative; }
-
-#nav li a {
-    display: block; padding: 12px 18px;
-    text-decoration: none; color: white; font-size: 15px;
-}
-
-#nav li:hover > a { background-color: #4CAF50; }
-
-/* Hide submenus by default on desktop */
-#nav ul.sub, #nav ul.fly-out {
-    list-style: none; position: absolute;
-    background-color: #336600; padding: 0;
-    min-width: 220px; display: none; z-index: 2000;
-}
-
-/* --- Mobile Toggle Button --- */
-.nav-toggle {
-    display: none; width: 100%; background: #336600; color: white;
-    border: none; padding: 15px; font-size: 1.2rem; cursor: pointer;
-    text-align: left; align-items: center; gap: 10px;
-}
-
-/* ********************************************************************************
-   IPHONE 11 & MOBILE STYLES (Max-Width 768px)
-******************************************************************************** */
-@media (max-width: 768px) {
-    .nav-toggle { display: flex; }
-    
-    .top-bar { padding: 10px; flex-direction: column; font-size: 0.9rem; text-align: center; }
-    .main-info { padding: 1rem; flex-direction: column; gap: 10px; }
-    .college-name { font-size: 1.4rem; }
-    .college-management { font-size: 1rem; }
-
-    #nav {
-        display: none;
-        flex-direction: column; width: 100%;
-    }
-
-    #nav.nav-menu--open { display: flex; }
-
-    /* Make submenus stack vertically instead of floating */
-    #nav ul.sub, #nav ul.fly-out {
-        position: static; 
-        display: block; 
-        width: 100%;
-        max-height: 0; /* Hidden state */
-        overflow: hidden;
-        background-color: #264d00; /* Slightly darker */
-        transition: max-height 0.35s ease-in-out;
-        box-shadow: none;
-    }
-
-    /* Expand submenu when parent has .item--open class */
-    #nav li.item--open > ul.sub,
-    #nav li.item--open > ul.fly-out {
-        max-height: 1000px; 
-    }
-
-    #nav li a {
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding: 15px 25px;
-    }
-
-    /* Indentation to show hierarchy */
-    #nav ul.sub li a { padding-left: 45px; }
-    #nav ul.fly-out li a { padding-left: 65px; background-color: #1a3300; }
-
-    /* Change indicator arrows for mobile */
-    .has-flyout > a::after, .top > a.down::after {
-        content: ' \25BC'; 
-        float: right;
-        transition: transform 0.3s;
-    }
-
-    #nav li.item--open > a::after {
-        transform: rotate(180deg);
-    }
-
-    /* Stack main layout */
-    .main-content-layout { flex-direction: column; }
-    .side-panel { width: 100%; flex: none; }
-}
+/*
+When the 'slide-out' class is removed by the JavaScript (after the image source changes), 
+the image smoothly transitions from transform: translateX(-100%) back to transform: translateX(0), 
+creating the 'fly from left' effect.
+*/
