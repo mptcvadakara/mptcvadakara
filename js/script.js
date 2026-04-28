@@ -178,7 +178,7 @@ images.push('mptc.jpg');
 const imagePathPrefix = 'Slides/'; 
 let slideIndex = 0; 
 let slideshowInterval;
-const delay = 3000; // Updated to 3 seconds
+const delay = 4000; // Updated to 3 seconds
 
 const showImage = (n) => {
     const slideshowElement = document.getElementById('slideshow-img');
