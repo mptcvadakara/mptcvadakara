@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function() {
         card.className = 'image-card';
 
         const img = document.createElement('img');
-        img.src = `${i}.jpg`; 
+        img.src = `../placed/2026/${i}.jpg`; 
         img.alt = `Placement Record Page ${i}`;
         
         img.loading = 'lazy';
