@@ -612,6 +612,60 @@ content-img {
         margin: 0 auto;
         gap: 1rem;
     }
+
+    #nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #nav.nav-menu--open {
+        display: flex;
+    }
+
+    #nav li {
+        width: 100%;
+        text-align: left;
+    }
+
+    /* LEVEL 1 submenu */
+    #nav ul.sub {
+        position: static;
+        width: 100%;
+        background-color: #2a5200;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    #nav li.item--open > ul.sub {
+        max-height: 500px;
+    }
+
+    /* LEVEL 2 flyout submenu */
+    #nav ul.fly-out {
+        position: static;
+        width: 100%;
+        background-color: #244d00;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    #nav li.flyout-open > ul.fly-out {
+        max-height: 300px;
+    }
+
+    /* indentation */
+    #nav ul.sub li a {
+        padding-left: 1.5rem;
+    }
+
+    #nav ul.fly-out li a {
+        padding-left: 2.5rem;
+    }
     
     /* Allow side panels to take full width and stack horizontally */
     .side-panel {
