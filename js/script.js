@@ -187,31 +187,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// 4. FIX: Handle fly-out submenu (Placed Students) on mobile
-const flyoutParents = navMenu.querySelectorAll('li.has-flyout');
+// --- UPDATED SLIDESHOW LOGIC ---
 
-flyoutParents.forEach(parentLi => {
-    const link = parentLi.querySelector('a.fly');
-
-    if (link) {
-        link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-
-                // Toggle flyout submenu
-                parentLi.classList.toggle('flyout-open');
-
-                // Close other open flyouts
-                flyoutParents.forEach(other => {
-                    if (other !== parentLi) {
-                        other.classList.remove('flyout-open');
-                    }
-                });
-            }
-        });
-    }
-});
-
+// Dynamically generate the image file paths (1.jpg, 2.jpg, ... up to 15.jpg)
 const images = [];
 const numImages = 15; // Assuming files are 1.jpg up to 15.jpg
 for (let i = 1; i <= numImages; i++) {
@@ -312,4 +290,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
-
