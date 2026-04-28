@@ -205,24 +205,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-
-    // --- STUDENT GALLERY LOGIC ---
-    const gallery = document.getElementById('gallery');
-    if (gallery) {
-        const startNumber = 1001;
-        const endNumber = 1016;
-
-        for (let i = startNumber; i <= endNumber; i++) {
-            const card = document.createElement('div');
-            card.className = 'image-card';
-            const img = document.createElement('img');
-            img.src = `${i}.jpg`; 
-            img.alt = `Placement Record Page ${i}`;
-            img.loading = 'lazy';
-            card.appendChild(img);
-            gallery.appendChild(card);
-        }
-    }
 });
 
 // --- UPDATED SLIDESHOW LOGIC WITH FADE TRANSITION ---
