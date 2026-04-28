@@ -921,10 +921,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
-/* ---------------------------------------------------- */
-/* SLIDESHOW STYLING WITH NAVIGATION BUTTONS */
-/* ---------------------------------------------------- */
-
 .slideshow-container {
     width: 100%;
     max-width: 900px; 
@@ -997,8 +993,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     }
 }
 
-/* CSS for the Slideshow Image Transition */
-
 #slideshow-img {
     /* 1. Set the transition property for smooth movement and opacity change */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -1035,19 +1029,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     background-color: #336600; padding: 0;
     min-width: 220px; display: none; z-index: 2000;
 }
-
-#nav ul.sub { top: 100%; left: 0; }
-#nav ul.fly-out { top: 0; left: 100%; }
-
-#nav li:hover > ul.sub, 
-#nav li.has-flyout:hover > ul.fly-out { display: block; }
-
-/* --- Layout --- */
-.main-content-layout { display: flex; gap: 1rem; width: 98%; margin: 0.5rem auto; }
-.side-panel { flex: 0 0 280px; padding: 1rem; border-radius: 8px; color: white; }
-.mission-panel { background-color: #000080; }
-.notice-panel { background-color: #336600; }
-#content { flex-grow: 1; padding: 0.2rem; }
 
 /* --- Mobile Toggle Button --- */
 .nav-toggle {
