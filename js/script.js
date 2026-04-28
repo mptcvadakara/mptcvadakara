@@ -114,6 +114,10 @@ function load_alumnireg() {
     document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumnireg.html" ></object>';
 }
 
+function load_placed26() {
+    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/placed26.html" ></object>';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
@@ -215,4 +219,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
         slideshowElement.style.opacity = 1; // Ensure first image is visible
     }
     slideshowInterval = setInterval(autoSlideshow, delay);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const gallery = document.getElementById('gallery');
+    
+    const startNumber = 1001;
+    const endNumber = 1016;
+
+    for (let i = startNumber; i <= endNumber; i++) {
+        const card = document.createElement('div');
+        card.className = 'image-card';
+
+        const img = document.createElement('img');
+        img.src = `${i}.jpg`; 
+        img.alt = `Placement Record Page ${i}`;
+        
+        img.loading = 'lazy';
+
+        const info = document.createElement('div');
+        info.className = 'image-info';
+        //info.innerText = `Record Page: ${i}`;
+
+        card.appendChild(img);
+        card.appendChild(info);
+        gallery.appendChild(card);
+    }
 });
