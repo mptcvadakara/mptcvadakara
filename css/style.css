@@ -1020,40 +1020,6 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
 }
 
 /* --- General Reset & Desktop Layout --- */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-    background-color: #f0f0f0; color: #333;
-}
-
-#main-wrapper {
-    width: 100%; margin: 0 auto;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.header-container { width: 100%; background-color: #b9e4ed; position: relative; }
-
-.top-bar {
-    background-color: #000080; color: #ffffff;
-    display: flex; justify-content: space-between;
-    padding: 0.5rem 10rem; font-size: 1.1rem;
-}
-
-.main-info {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0.5rem 12rem;
-}
-
-.college-name { font-size: 2rem; font-weight: bold; color: #000080; text-align: center; }
-.college-management { font-size: 1.5rem; color: #000080; text-align: center; }
-
-/* --- Navigation (Desktop) --- */
-#nav {
-    list-style: none; margin: 0; padding: 0;
-    background-color: #336600; display: flex; justify-content: center;
-}
-
 #nav li { position: relative; }
 
 #nav li a {
