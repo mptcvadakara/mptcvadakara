@@ -1,322 +1,162 @@
-function load_home() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/home.html" ></object>';
-}
+/* ===============================
+   CONTENT LOADING FUNCTIONS
+=============================== */
+function load_home(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/home.html"></object>'; }
+function load_principal(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/principal.html"></object>'; }
+function load_orgchart(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/orgchart.html"></object>'; }
+function load_pta(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/pta.html"></object>'; }
+function load_staffclub(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/staffclub.html"></object>'; }
+function load_ihrd(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/ihrd.html"></object>'; }
 
-function load_principal() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/principal.html" ></object>';
-}
+function load_bme(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/bme.html"></object>'; }
+function load_ce(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/ce.html"></object>'; }
+function load_che(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/che.html"></object>'; }
+function load_ec(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/ec.html"></object>'; }
+function load_eee(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/eee.html"></object>'; }
+function load_gen(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/gen.html"></object>'; }
+function load_office(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/office.html"></object>'; }
 
-function load_orgchart() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/orgchart.html" ></object>';
-}
+function load_acccomm(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/acccomm.html"></object>'; }
+function load_antcomm(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/antcomm.html"></object>'; }
 
-function load_pta() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/pta.html" ></object>';
-}
+function load_nss(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/nss.html"></object>'; }
+function load_vimukthi(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/vimukthi.html"></object>'; }
+function load_iedc(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/iedc.html"></object>'; }
+function load_yip(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/yip.html"></object>'; }
+function load_council(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/council.html"></object>'; }
 
-function load_staffclub() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/staffclub.html" ></object>';
-}
+function load_library(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/library.html"></object>'; }
 
-function load_ihrd() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/ihrd.html" ></object>';
-}
+function load_tpmembers(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/tpmembers.html"></object>'; }
 
-function load_bme() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/bme.html" ></object>';
-}
+function load_alumniact(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/alumniact.html"></object>'; }
+function load_alumnireg(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/alumnireg.html"></object>'; }
 
-function load_che() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/che.html" ></object>';
-}
+function load_syllabus(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="https://sitttrkerala.ac.in/index.php?r=site%2Fdiploma-syllabus&scheme=REV2021"></object>'; }
 
-function load_ec() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/ec.html" ></object>';
-}
+function load_gallery(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/gallery.html"></object>'; }
 
-function load_eee() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/eee.html" ></object>';
-}
+function load_placed26(){document.getElementById("content").innerHTML='<object width="100%" height="100%" data="source/placed26.html"></object>'; }
 
-function load_ce() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/ce.html" ></object>';
-}
 
-function load_gen() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/gen.html" ></object>';
-}
+/* ===============================
+   MOBILE MENU + SUBMENU LOGIC
+=============================== */
+document.addEventListener('DOMContentLoaded', function () {
 
-function load_office() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/office.html" ></object>';
-}
-
-function load_acccomm() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/acccomm.html" ></object>';
-}
-
-function load_antcomm() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/antcomm.html" ></object>';
-}
-
-function load_nss() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/nss.html" ></object>';
-}
-
-function load_vimukthi() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/vimukthi.html" ></object>';
-}
-
-function load_iedc() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/iedc.html" ></object>';
-}
-
-function load_arts() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/arts.html" ></object>';
-}
-
-function load_yip() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/yip.html" ></object>';
-}
-
-function load_staff() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/staff.html" ></object>';
-}
-
-function load_council() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/council.html" ></object>';
-}
-
-function load_library() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/library.html" ></object>';
-}
-
-function load_tpcell() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/tpcell.html" ></object>';
-}
-        
-function load_tpmembers() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/tpmembers.html" ></object>';
-}
-
-function load_alumniact() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumniact.html" ></object>';
-}
-
-function load_syllabus() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="https://sitttrkerala.ac.in/index.php?r=site%2Fdiploma-syllabus&scheme=REV2021" ></object>';
-}
-
-function load_gallery() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/gallery.html" ></object>';
-}
-
-function load_alumnireg() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/alumnireg.html" ></object>';
-}
-
-function load_placed26() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/placed26.html" ></object>';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
 
-    if (navToggle && navMenu) {
-        const collapseMainMenu = () => {
-            if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
-                navMenu.classList.remove('nav-menu--open');
-                navToggle.setAttribute('aria-expanded', false);
-                document.querySelectorAll('#nav li.item--open').forEach(li => {
-                    li.classList.remove('item--open');
-                });
-            }
-        };
+    // Toggle main menu
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('nav-menu--open');
+    });
 
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('nav-menu--open');
-            const isExpanded = navMenu.classList.contains('nav-menu--open');
-            navToggle.setAttribute('aria-expanded', isExpanded);
-        });
+    // -------- LEVEL 1 (sub menu) --------
+    const parents = document.querySelectorAll('#nav li.top');
 
-        const parentMenuItems = navMenu.querySelectorAll('li.top:has(ul.sub)');
+    parents.forEach(li => {
+        const link = li.querySelector('a.top_link');
 
-        parentMenuItems.forEach(parentLi => {
-            const mainLink = parentLi.querySelector('a.top_link');
-            if (mainLink) {
-                mainLink.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault(); 
-                        parentLi.classList.toggle('item--open');
-                        parentMenuItems.forEach(otherLi => {
-                            if (otherLi !== parentLi && otherLi.classList.contains('item--open')) {
-                                otherLi.classList.remove('item--open');
-                            }
-                        });
-                    }
-                });
-            }
-        });
-
-        const navigationalLinks = navMenu.querySelectorAll('li:not(:has(ul.sub)) > a, ul.sub a');
-        navigationalLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                setTimeout(collapseMainMenu, 50); 
-            });
-        });
-    }
-});
-
-// --- UPDATED SLIDESHOW LOGIC WITH FADE TRANSITION ---
-const images = [];
-const numImages = 15; 
-for (let i = 1; i <= numImages; i++) {
-    images.push(`${i}.jpg`);
-}
-images.push('mptc.jpg'); 
-
-const imagePathPrefix = 'Slides/'; 
-let slideIndex = 0; 
-let slideshowInterval;
-const delay = 4000; // Updated to 3 seconds
-
-const showImage = (n) => {
-    const slideshowElement = document.getElementById('slideshow-img');
-    if (!slideshowElement) return;
-
-    slideIndex = (n + images.length) % images.length;
-
-    // Fade out effect
-    slideshowElement.style.transition = "opacity 0.5s ease-in-out";
-    slideshowElement.style.opacity = 0;
-
-    // Wait for fade out to finish before changing source
-    setTimeout(() => {
-        slideshowElement.src = imagePathPrefix + images[slideIndex]; 
-        
-        // Fade in effect after image loads
-        slideshowElement.onload = () => {
-            slideshowElement.style.opacity = 1;
-        };
-    }, 500); 
-};
-
-const autoSlideshow = () => {
-    showImage(slideIndex + 1);
-};
-
-window.plusSlides = (n) => {
-    clearInterval(slideshowInterval); 
-    showImage(slideIndex + n);
-    slideshowInterval = setInterval(autoSlideshow, delay);
-};
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    const slideshowElement = document.getElementById('slideshow-img');
-    if(slideshowElement && images.length > 0) {
-        slideshowElement.src = imagePathPrefix + images[0];
-        slideshowElement.style.opacity = 1; // Ensure first image is visible
-    }
-    slideshowInterval = setInterval(autoSlideshow, delay);
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const gallery = document.getElementById('gallery');    
-    const startNumber = 1001;
-    const endNumber = 1016;
-
-    for (let i = startNumber; i <= endNumber; i++) {
-        const card = document.createElement('div');
-        card.className = 'image-card';
-
-        const img = document.createElement('img');
-        img.src = `../placed/2026/${i}.jpg`; 
-        img.alt = `Placement Record Page ${i}`;
-        
-        img.loading = 'lazy';
-
-        const info = document.createElement('div');
-        info.className = 'image-info';
-        //info.innerText = `Record Page: ${i}`;
-
-        card.appendChild(img);
-        card.appendChild(info);
-        gallery.appendChild(card);
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.getElementById('nav');
-
-    if (navToggle && navMenu) {
-
-        // Toggle main menu
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('nav-menu--open');
-        });
-
-        // -------- LEVEL 1 SUBMENU (ul.sub) --------
-        const parentMenuItems = navMenu.querySelectorAll('li.top');
-
-        parentMenuItems.forEach(parentLi => {
-            const mainLink = parentLi.querySelector('a.top_link');
-
-            if (mainLink && parentLi.querySelector('ul.sub')) {
-                mainLink.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-
-                        parentLi.classList.toggle('item--open');
-
-                        // Close others
-                        parentMenuItems.forEach(otherLi => {
-                            if (otherLi !== parentLi) {
-                                otherLi.classList.remove('item--open');
-                            }
-                        });
-                    }
-                });
-            }
-        });
-
-        // -------- LEVEL 2 FLYOUT (ul.fly-out) --------
-        const flyoutParents = navMenu.querySelectorAll('.has-flyout > a');
-
-        flyoutParents.forEach(link => {
-            link.addEventListener('click', function(e) {
+        if (li.querySelector('ul.sub')) {
+            link.addEventListener('click', function (e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
 
-                    const parentLi = link.parentElement;
+                    li.classList.toggle('item--open');
 
-                    parentLi.classList.toggle('flyout-open');
-
-                    // Close other flyouts
-                    document.querySelectorAll('.has-flyout').forEach(other => {
-                        if (other !== parentLi) {
-                            other.classList.remove('flyout-open');
+                    // close others
+                    parents.forEach(other => {
+                        if (other !== li) {
+                            other.classList.remove('item--open');
                         }
                     });
                 }
             });
-        });
+        }
+    });
 
-        // Collapse menu after clicking leaf links
-        const allLinks = navMenu.querySelectorAll('a');
-        allLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (!link.closest('.has-flyout') && window.innerWidth <= 768) {
-                    setTimeout(() => {
-                        navMenu.classList.remove('nav-menu--open');
-                        document.querySelectorAll('.item--open, .flyout-open')
-                            .forEach(el => el.classList.remove('item--open','flyout-open'));
-                    }, 200);
-                }
-            });
+    // -------- LEVEL 2 (flyout submenu) --------
+    const flyLinks = document.querySelectorAll('.has-flyout > a');
+
+    flyLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+
+                const parent = link.parentElement;
+                parent.classList.toggle('flyout-open');
+
+                // close other flyouts
+                document.querySelectorAll('.has-flyout').forEach(other => {
+                    if (other !== parent) {
+                        other.classList.remove('flyout-open');
+                    }
+                });
+            }
         });
-    }
+    });
+
+    // Close menu after clicking final links
+    const allLinks = document.querySelectorAll('#nav a');
+
+    allLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            if (!link.closest('.has-flyout') && window.innerWidth <= 768) {
+                setTimeout(() => {
+                    navMenu.classList.remove('nav-menu--open');
+                    document.querySelectorAll('.item--open, .flyout-open')
+                        .forEach(el => el.classList.remove('item--open','flyout-open'));
+                }, 200);
+            }
+        });
+    });
+
 });
 
-// Initialize the slideshow when the page loads
-showSlides(slideIndex);
+
+/* ===============================
+   SLIDESHOW
+=============================== */
+const images = [];
+for (let i = 1; i <= 15; i++) {
+    images.push(`${i}.jpg`);
+}
+images.push('mptc.jpg');
+
+const imagePath = 'Slides/';
+let slideIndex = 0;
+let interval;
+
+function showImage(n){
+    const img = document.getElementById('slideshow-img');
+    if(!img) return;
+
+    slideIndex = (n + images.length) % images.length;
+
+    img.style.opacity = 0;
+
+    setTimeout(()=>{
+        img.src = imagePath + images[slideIndex];
+        img.onload = () => img.style.opacity = 1;
+    },300);
+}
+
+function autoSlide(){
+    showImage(slideIndex + 1);
+}
+
+window.plusSlides = function(n){
+    clearInterval(interval);
+    showImage(slideIndex + n);
+    interval = setInterval(autoSlide,4000);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+    const img = document.getElementById('slideshow-img');
+    if(img){
+        img.src = imagePath + images[0];
+        img.style.opacity = 1;
+    }
+    interval = setInterval(autoSlide,4000);
+});
