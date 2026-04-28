@@ -232,14 +232,13 @@ document.addEventListener("DOMContentLoaded", function() {
         card.className = 'image-card';
 
         const img = document.createElement('img');
-        img.src = `${i}.jpg`; 
+        img.src = `../placed/placed26/${i}.jpg`; 
         img.alt = `Placement Record Page ${i}`;
         
         img.loading = 'lazy';
 
         const info = document.createElement('div');
         info.className = 'image-info';
-        //info.innerText = `Record Page: ${i}`;
 
         card.appendChild(img);
         card.appendChild(info);
