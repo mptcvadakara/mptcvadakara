@@ -259,7 +259,6 @@ body {
     text-align: center;
 }
 
-
 /* Specific colors for Mission (Left) and Vision (Right) */
 .mission-panel {
     /* Dark Blue - consistent with primary color */
@@ -548,12 +547,6 @@ content-img {
     z-index: 10;
 }
 
-/* ********************************************************************************
-RESPONSIVE ADJUSTMENTS (Media Queries)
-Focus on Mobile-First Refinements
-********************************************************************************
-*/
-
 /* --- Tablet and Medium Screens (Max-Width 1024px) --- */
 @media (max-width: 1024px) {
     .main-info {
@@ -699,6 +692,28 @@ Focus on Mobile-First Refinements
     .content-img {
         border-radius: 10px;
     }
+
+    /* 📌 Fix fly-out submenu for mobile */
+#nav ul.fly-out {
+    position: static;
+    width: 100%;
+    background-color: #244d00;
+    
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* Show flyout when active */
+#nav li.flyout-open > ul.fly-out {
+    max-height: 300px;
+    transition: max-height 0.4s ease-in;
+}
+
+/* Optional: indent for hierarchy */
+#nav ul.fly-out li a {
+    padding-left: 2rem;
+}
 }
 
 /* --- Smallest Mobile Screens (Max-Width 480px) --- */
