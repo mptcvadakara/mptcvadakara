@@ -265,17 +265,3 @@ showSlides(slideIndex);
 
 // Initialize the slideshow when the page loads
 showSlides(slideIndex);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
