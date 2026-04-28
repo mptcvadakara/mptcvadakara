@@ -119,46 +119,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
-        
-        // Function to collapse the entire mobile menu (HIDES the main UL)
         const collapseMainMenu = () => {
-            // Ensure we are on a small screen and the menu is currently open
             if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
                 navMenu.classList.remove('nav-menu--open');
                 navToggle.setAttribute('aria-expanded', false);
-                
-                // Also close any currently open submenus (optional, but cleaner)
                 document.querySelectorAll('#nav li.item--open').forEach(li => {
                     li.classList.remove('item--open');
                 });
             }
         };
 
-        // 1. Main Navigation Toggle Logic (Hamburger Icon)
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu--open');
             const isExpanded = navMenu.classList.contains('nav-menu--open');
             navToggle.setAttribute('aria-expanded', isExpanded);
         });
 
-        // 2. Submenu Toggle Logic for Mobile (Parent Links)
         const parentMenuItems = navMenu.querySelectorAll('li.top:has(ul.sub)');
 
         parentMenuItems.forEach(parentLi => {
             const mainLink = parentLi.querySelector('a.top_link');
-            
             if (mainLink) {
                 mainLink.addEventListener('click', function(e) {
                     if (window.innerWidth <= 768) {
-                        
-                        // Prevent default navigation for all parent links
-                        // as their primary role on mobile is to toggle the submenu.
                         e.preventDefault(); 
-                        
-                        // Toggle the submenu state
                         parentLi.classList.toggle('item--open');
-
-                        // Collapse other open submenus
                         parentMenuItems.forEach(otherLi => {
                             if (otherLi !== parentLi && otherLi.classList.contains('item--open')) {
                                 otherLi.classList.remove('item--open');
@@ -169,99 +154,65 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // 3. CRITICAL FIX: Collapse Menu When Any Navigational Link is Clicked
-        //    This targets: 
-        //    a) Top-level links without submenus (e.g., Home, About Us)
-        //    b) All links inside submenus (leaf links)
         const navigationalLinks = navMenu.querySelectorAll('li:not(:has(ul.sub)) > a, ul.sub a');
-
         navigationalLinks.forEach(link => {
             link.addEventListener('click', function() {
-                // Wait a moment to ensure the content loading/navigation begins before hiding the menu
                 setTimeout(collapseMainMenu, 50); 
             });
         });
     }
 });
 
-// --- UPDATED SLIDESHOW LOGIC ---
+// --- UPDATED SLIDESHOW LOGIC WITH FADE TRANSITION ---
 
-// Dynamically generate the image file paths (1.jpg, 2.jpg, ... up to 15.jpg)
 const images = [];
-const numImages = 15; // Assuming files are 1.jpg up to 15.jpg
+const numImages = 15; 
 for (let i = 1; i <= numImages; i++) {
     images.push(`${i}.jpg`);
 }
-// Add the remaining static images if needed, based on the original list
-images.push('mptc.jpg'); // Add mptc.jpg and 1.jpg again if they were special
+images.push('mptc.jpg'); 
 
 const imagePathPrefix = 'Slides/'; 
-let slideIndex = 0; // Use 0-based index for array
+let slideIndex = 0; 
 let slideshowInterval;
-const delay = 4000; // 4000 milliseconds = 4 seconds
+const delay = 3000; // Updated to 3 seconds
 
-// 1. Function to display a specific slide
 const showImage = (n) => {
     const slideshowElement = document.getElementById('slideshow-img');
     if (!slideshowElement) return;
 
-    // 1. Calculate the new index, ensuring wrap-around (0 to max)
     slideIndex = (n + images.length) % images.length;
 
-    // 2. Add the 'slide-out' class to start the transition (hides and moves left)
-    // We'll use a class named 'slide-out' for the initial effect.
-    slideshowElement.classList.add("slide-out");
+    // Fade out effect
+    slideshowElement.style.transition = "opacity 0.5s ease-in-out";
+    slideshowElement.style.opacity = 0;
 
-    // 3. Set a timeout to change the image source after the slide-out completes
-    // The delay should match or slightly exceed the CSS transition time (e.g., 300ms)
-    const transitionTime = 300; 
-
+    // Wait for fade out to finish before changing source
     setTimeout(() => {
-        // Change the image source while it's hidden/moved off-screen
         slideshowElement.src = imagePathPrefix + images[slideIndex]; 
         
-        // 4. Remove the 'slide-out' class to trigger the 'fly from left' (slide-in) effect
-        // The default styles (or an 'slide-in' class combined with CSS transition) 
-        // will handle the smooth move back to position.
-        slideshowElement.classList.remove("slide-out");
-
-    }, transitionTime); 
+        // Fade in effect after image loads
+        slideshowElement.onload = () => {
+            slideshowElement.style.opacity = 1;
+        };
+    }, 500); 
 };
 
-// 2. Function for the automatic slideshow logic
 const autoSlideshow = () => {
-    // Moves to the next slide
     showImage(slideIndex + 1);
 };
 
-
-// 3. Function to handle manual button clicks (called via onclick in HTML)
 window.plusSlides = (n) => {
-    // A. Clear the existing automatic interval
     clearInterval(slideshowInterval); 
-    
-    // B. Manually move to the requested slide (current index + direction: +1 or -1)
-    // We pass the new desired index, which 'showImage' will normalize.
     showImage(slideIndex + n);
-    
-    // C. Restart the automatic interval
     slideshowInterval = setInterval(autoSlideshow, delay);
 };
 
-
-// 4. Initialization: Run the slideshow logic when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Initial display of the first image (slideIndex = 0)
     const slideshowElement = document.getElementById('slideshow-img');
     if(slideshowElement && images.length > 0) {
         slideshowElement.src = imagePathPrefix + images[0];
+        slideshowElement.style.opacity = 1; // Ensure first image is visible
     }
-    
-    // Start the automatic slideshow
     slideshowInterval = setInterval(autoSlideshow, delay);
 });
-// Initialize the slideshow when the page loads
-showSlides(slideIndex);
-
-// Initialize the slideshow when the page loads
-showSlides(slideIndex);
