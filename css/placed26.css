@@ -28,12 +28,12 @@ header {
 }
 
 .gallery-container {
-    max-width: 900px; /* Ensures images don't get too wide on desktops */
-    margin: 30px auto;
-    padding: 0 15px;
+    max-width: 950px; /* Ensures images don't get too wide on desktops */
+    margin: 0px auto;
+    padding: 0 0px;
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Space between each image row */
+    gap: 10px; /* Space between each image row */
 }
 
 .image-card {
