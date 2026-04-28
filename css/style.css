@@ -12,7 +12,6 @@ body {
 .header-container {
     width: 100%;
     background-color: #b9e4ed;
-    /* Use a relative unit for shadow depth */
     box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1); 
     position: relative; 
 }
@@ -47,7 +46,11 @@ body {
     align-items: center;
     /* Use 'em' or 'rem' for padding */
     /* padding: .5rem 3rem .5rem 3rem; */
-    padding: 0.5rem 12rem 0.5rem 12rem;
+    /* padding: 0.5rem 12rem 0.5rem 12rem; */
+
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
 }
 
 /* --- New Rule for Centering and Limiting Width --- */
@@ -81,14 +84,14 @@ body {
 
 .college-name {
     /* Large font size, will be reduced in media queries */
-    font-size: 2.0rem; /* 50px / 16 ≈ 3rem */
+    font-size: 1.4rem; /* 50px / 16 ≈ 3rem */
     font-weight: bold;
     color: #000080;
     margin-bottom: 0.3125rem; /* 5px */
 }
 
 .college-management {
-    font-size: 1.875rem; /* 30px / 16 ≈ 1.875rem */
+    font-size: 1.0rem; /* 30px / 16 ≈ 1.875rem */
     color: #000080;
     font-weight: normal;
 }
@@ -108,18 +111,15 @@ body {
 
 #nav li {
     position: relative;
-    margin: 0;
-    padding: 0;
 }
 
 #nav li a {
     display: block;
-    /* Use 'rem' for padding and font size */
-    padding: 0.625rem 0.9375rem; /* 10px 15px */
+    padding: 0.625rem 0.9375rem; 
     text-decoration: none;
     color: white;
     white-space: nowrap;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.9375rem; 
     transition: background-color 0.3s ease;
 }
 
@@ -129,38 +129,46 @@ body {
 }
 
 /* Submenu Styling */
-#nav ul.sub {
+#nav ul.sub, #nav ul.fly-out {
     list-style: none;
-    /* Keep hidden off-screen on desktop */
     position: absolute; 
-    left: -9999px; 
-    top: 100%; 
     background-color: #336600; 
-    padding: 0.3125rem 0; /* 5px 0 */
-    z-index: 1000;
-    min-width: 12.5rem; /* 200px */
+    padding: 0;
+    z-index: 2000;
+    min-width: 12.5rem; 
     box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.2);
 }
 
-#nav ul.sub li {
-    border-bottom: 1px solid rgba(255,255,255,0.1); 
-}
-#nav ul.sub li:last-child {
-    border-bottom: none;
+#nav ul.sub {
+    top: 100%;
+    left: -9999px; 
 }
 
-#nav ul.sub li a {
-    padding: 0.5rem 0.9375rem; /* 8px 15px */
-    color: white;
-    font-size: 0.875rem; /* 14px */
+#nav ul.fly-out {
+    top: 0;
+    left: 100%; 
+    display: none;
 }
 
-#nav ul.sub li a:hover {
-    background-color: #4CAF50;
+#nav li:hover > ul.sub,
+#nav li.has-flyout:hover > ul.fly-out {
+    left: 0;
+    display: block;
 }
 
-#nav li:hover ul.sub {
-    left: 0; 
+#nav li.has-flyout:hover > ul.fly-out {
+    left: 100%;
+}
+
+#nav ul.sub li a, #nav ul.fly-out li a {
+    font-size: 0.875rem;
+}
+
+.has-flyout > a::after {
+    content: ' \25B6'; 
+    float: right;
+    font-size: 0.8rem;
+    margin-left: 10px;
 }
 
 /* Marquee Styles */
@@ -175,14 +183,17 @@ body {
     font-weight: normal;
     margin-bottom: 0.5rem;
 }
+
 .marquee-container a {
     color: #000080; 
     text-decoration: none;
     font-weight: bold;
 }
+
 .marquee-container a:hover {
     text-decoration: underline;
 }
+
 .marquee-container font { 
     color: black;
     margin-left: 1.25rem; /* 20px */
@@ -193,26 +204,30 @@ body {
 /* ---------------------------------------------------- */
 .main-content-layout {
     display: flex;
-    gap: 1rem; /* Slightly increased gap for better breathing room */
-    width: 98%; /* Increased from 95% to move panels closer to the edges */
-    max-width: 1920px; /* Increased to allow more expansion on ultra-wide screens */
+    gap: 1rem; 
+    width: 98%; 
+    max-width: 1920px; 
     margin: 0.5rem auto; 
     align-items: stretch;
+    flex-direction: column;
+    width: 100%;
 }
+
+
 
 /* Style for the side panels */
 .side-panel {
+    text-align: justify;
+    font-size: 1rem; 
+    line-height: 1.6; 
+    max-height: 600px;
+    overflow: auto;
     flex-basis: 280px; 
     flex-shrink: 0; 
     padding: 1rem;
     border-radius: 8px;
     color: white;
-    text-align: justify;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 1rem; 
-    line-height: 1.6; 
-    max-height: 600px;
-    overflow: auto;
 }
 
 .side-panel li{
@@ -258,7 +273,6 @@ body {
     padding-bottom: 0rem;
     text-align: center;
 }
-
 
 /* Specific colors for Mission (Left) and Vision (Right) */
 .mission-panel {
@@ -387,7 +401,6 @@ content-img {
 .footer-main {
     background-color: #0066FF; 
     color: white;
-    /* Reduce vertical padding */
     padding: 0.1rem 0.1rem; 
     display: flex;
     flex-wrap: wrap; 
@@ -395,6 +408,7 @@ content-img {
     align-items: flex-start; 
     text-align: center;
     font-size: 0.875rem; /* 14px */
+    padding: 1rem; 
 }
 
 .footer-column {
@@ -437,10 +451,9 @@ content-img {
 .footer-bottom-bar {
     background-color: #6699FF; 
     color: black;
-    /* Use 'rem' */
-    padding: 0.35rem .5rem; 
     text-align: center;
     font-size: 1rem; /* 18px */
+    padding: 0.5rem; 
 }
 
 /* --- Unified Navigation Bar --- */
@@ -453,6 +466,44 @@ content-img {
     justify-content: center;
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
     flex-wrap: nowrap; 
+}
+
+#nav li ul.sub, #nav li ul.fly-out {
+    position: static; 
+    width: 100%;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: none;
+    background-color: #2a5200; 
+    transition: max-height 0.3s ease-out;
+}
+
+/* Sub-menu opens when parent is clicked (item--open class) */
+#nav li.item--open > ul.sub,
+#nav li.has-flyout.item--open > ul.fly-out {
+    max-height: 800px; /* High enough to contain all items */
+}
+
+#nav ul.fly-out {
+    background-color: #1e3b00; /* Darker for visual nesting */
+}
+
+#nav ul.fly-out li a {
+    padding-left: 2.5rem; /* Further indent years (2025-26) */
+}
+
+.has-flyout > a::after {
+    content: ' \25BC'; /* Change to Down Arrow on Mobile */
+    transition: transform 0.3s;
+}
+
+#nav li.item--open > a::after {
+    transform: rotate(180deg);
+}
+
+.footer-main { flex-direction: column; }
+    .footer-column { width: 100%; }
 }
 
 #nav li {
@@ -731,32 +782,17 @@ Focus on Mobile-First Refinements
     width: 100%;
     font-size: 1.25rem;
     border-radius: 0;
-    
-    /* ADD FLEXBOX for alignment */
     display: flex; 
-    /* CRITICAL CHANGE: Align items to the start (left) */
     justify-content: flex-start; 
     align-items: center;
-    /* Add space between the icon and the text */
     gap: 0.6rem;
 }
 
-/* --- Navigation Bar Desktop Styles (No change needed here) --- */
-/* ... existing #nav styles remain for desktop display: flex ... */
-
-
-/* ********************************************************************************
-RESPONSIVE ADJUSTMENTS (Media Queries)
-********************************************************************************
-*/
-@media (max-width: 768px) {
-    
-    /* 1. Show the Mobile Toggle Button */
+@media (max-width: 768px) { 
    .nav-toggle {
-        display: flex; /* OVERRIDE 'display: none' from general styles */
+        display: flex; 
     }
 
-    /* Style the text specifically to ensure its size is readable */
     .nav-toggle .menu-text {
         font-weight: bold;
         font-size: 1rem; /* Adjust size relative to icon */
@@ -777,14 +813,12 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     #nav {
         flex-direction: column; 
         align-items: center;
-        /* HIDE THE MENU by default on mobile */
         display: none; 
         width: 100%;
     }
-    
-    /* 3. State when the menu is active (Toggled via JS) */
+ 
     #nav.nav-menu--open {
-        display: flex; /* SHOW the menu */
+        display: flex;
     }
 
     /* 4. Fix list item and dropdown behavior on mobile */
@@ -811,13 +845,9 @@ RESPONSIVE ADJUSTMENTS (Media Queries)
     
     /* Optional: If you want to allow submenus to expand on click (via JS) */
     /* Add a class, e.g., 'sub--open', via JS on click */
-    /*
     #nav li.item--open ul.sub {
         max-height: 500px; // Use a large fixed value or calculated height 
     }
-    */
-    
-    /* ... existing 768px styles for header/footer ... */
 }
 
 /* Hide the icon/text on desktop */
