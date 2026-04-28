@@ -259,7 +259,6 @@ body {
     text-align: center;
 }
 
-
 /* Specific colors for Mission (Left) and Vision (Right) */
 .mission-panel {
     /* Dark Blue - consistent with primary color */
@@ -548,12 +547,6 @@ content-img {
     z-index: 10;
 }
 
-/* ********************************************************************************
-RESPONSIVE ADJUSTMENTS (Media Queries)
-Focus on Mobile-First Refinements
-********************************************************************************
-*/
-
 /* --- Tablet and Medium Screens (Max-Width 1024px) --- */
 @media (max-width: 1024px) {
     .main-info {
@@ -649,6 +642,36 @@ Focus on Mobile-First Refinements
         /* Use a value large enough to accommodate all sub-links */
         max-height: 500px; 
         transition: max-height 0.5s ease-in; 
+    }
+
+    #nav ul.fly-out {
+        position: static; 
+        width: 100%;
+        display: block; /* Change from display: none to block */
+        max-height: 0;   /* Hide initially for toggle */
+        overflow: hidden;
+        border-left: none;
+        background-color: #244600; /* Slightly darker than the main sub-menu */
+        box-shadow: none;
+        transition: max-height 0.3s ease-out;
+    }
+
+    #nav li.has-flyout.item--open > ul.fly-out {
+        max-height: 200px; 
+    }
+
+    #nav ul.fly-out li a {
+        padding-left: 2rem; /* Indent the years further than the parent */
+    }
+
+    .has-flyout > a::after {
+        content: ' \25BC'; /* Change right arrow to down arrow on mobile */
+        float: right;
+        transition: transform 0.3s;
+    }
+
+    #nav li.has-flyout.item--open > a::after {
+        transform: rotate(180deg);
     }
     
     /* Ensure the main link is styled for visual feedback */
