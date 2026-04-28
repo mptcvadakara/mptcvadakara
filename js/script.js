@@ -167,46 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // --- MOBILE MENU LOGIC ---
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.getElementById('nav');
-    const parentItems = document.querySelectorAll('#nav li.top, #nav li.has-flyout');
-
-    // Toggle main navigation visibility
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('nav-menu--open');
-        });
-    }
-
-    // Handle nested menu clicks on mobile
-    parentItems.forEach(item => {
-        const link = item.querySelector('a');
-        
-        link.addEventListener('click', function(e) {
-            // Only apply this logic on screens smaller than 768px
-            if (window.innerWidth <= 768) {
-                const subMenu = item.querySelector('ul.sub, ul.fly-out');
-                
-                if (subMenu) {
-                    // If the menu isn't open yet, prevent navigation and open it
-                    if (!item.classList.contains('item--open')) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        // Close other open siblings at the same level
-                        const siblings = item.parentElement.querySelectorAll('.item--open');
-                        siblings.forEach(sib => sib.classList.remove('item--open'));
-                        
-                        item.classList.add('item--open');
-                    }
-                }
-            }
-        });
-    });
-});
-
 // --- UPDATED SLIDESHOW LOGIC WITH FADE TRANSITION ---
 const images = [];
 const numImages = 15; 
