@@ -139,24 +139,32 @@ document.addEventListener('DOMContentLoaded', function() {
             navToggle.setAttribute('aria-expanded', isExpanded);
         });
 
-        const parentMenuItems = navMenu.querySelectorAll('li.top:has(ul.sub)');
+        const parentMenuItems = navMenu.querySelectorAll('li:has(ul)');
 
         parentMenuItems.forEach(parentLi => {
-            const mainLink = parentLi.querySelector('a.top_link');
+            const mainLink = parentLi.querySelector(':scope > a'); // Selects the direct link child
             if (mainLink) {
-                mainLink.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault(); 
-                        parentLi.classList.toggle('item--open');
-                        parentMenuItems.forEach(otherLi => {
-                            if (otherLi !== parentLi && otherLi.classList.contains('item--open')) {
-                                otherLi.classList.remove('item--open');
-                            }
-                        });
-                    }
-                });
+        mainLink.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                // Check if this specific link has a submenu sibling
+                const submenu = parentLi.querySelector(':scope > ul');
+                if (submenu) {
+                    e.preventDefault(); 
+                    e.stopPropagation(); // Prevents the click from closing the main menu
+                    
+                    // Toggle the open class on the clicked item
+                    parentLi.classList.toggle('item--open');
+                    
+                    // Optional: Close other submenus at the same level
+                    const siblings = parentLi.parentElement.querySelectorAll(':scope > li');
+                    siblings.forEach(sib => {
+                        if (sib !== parentLi) sib.classList.remove('item--open');
+                    });
+                }
             }
         });
+    }
+});
 
         const navigationalLinks = navMenu.querySelectorAll('li:not(:has(ul.sub)) > a, ul.sub a');
         navigationalLinks.forEach(link => {
