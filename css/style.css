@@ -291,8 +291,8 @@ body {
 /* Image inside the slide */
 .responsive-placed-img {
     /*max-width: 95%; */
-    width: 180px;
-    height: 225px;
+    width: 200px;
+    height: 250px;
     /*height: auto;*/
     display: block; 
     margin: 0 auto;
