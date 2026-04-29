@@ -118,6 +118,10 @@ function load_placed26() {
     document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="source/placed26.html" ></object>';
 }
 
+function load_tpdetails() {
+    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="placed/2026/Placement - 2026.pdf" ></object>';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav');
