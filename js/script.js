@@ -155,8 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
-
         const navigationalLinks = navMenu.querySelectorAll('li:not(:has(ul.sub)) > a, ul.sub a');
         navigationalLinks.forEach(link => {
             link.addEventListener('click', function() {
