@@ -123,44 +123,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
-        const collapseMainMenu = () => {
-            if (window.innerWidth <= 768 && navMenu.classList.contains('nav-menu--open')) {
-                navMenu.classList.remove('nav-menu--open');
-                navToggle.setAttribute('aria-expanded', false);
-                document.querySelectorAll('#nav li.item--open').forEach(li => {
-                    li.classList.remove('item--open');
-                });
-            }
-        };
-
+        // Main Mobile Menu Toggle
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu--open');
-            const isExpanded = navMenu.classList.contains('nav-menu--open');
-            navToggle.setAttribute('aria-expanded', isExpanded);
         });
 
-        const parentMenuItems = navMenu.querySelectorAll('li:has(ul)');
+        // Handle all links that have a submenu (including nested ones)
+        navMenu.querySelectorAll('li').forEach(li => {
+            const subMenu = li.querySelector('ul');
+            if (subMenu) {
+                const link = li.querySelector(':scope > a');
+                
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
 
-        parentMenuItems.forEach(parentLi => {
-            const mainLink = parentLi.querySelector(':scope > a'); // Selects the direct link child
-            if (mainLink) {
-        mainLink.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                // Check if this specific link has a submenu sibling
-                const submenu = parentLi.querySelector(':scope > ul');
-                if (submenu) {
-                    e.preventDefault(); 
-                    e.stopPropagation(); // Prevents the click from closing the main menu
-                    
-                    // Toggle the open class on the clicked item
-                    parentLi.classList.toggle('item--open');
-                    
-                    // Optional: Close other submenus at the same level
-                    const siblings = parentLi.parentElement.querySelectorAll(':scope > li');
-                    siblings.forEach(sib => {
-                        if (sib !== parentLi) sib.classList.remove('item--open');
-                    });
-                }
+                        // Toggle the current item
+                        const isOpen = li.classList.contains('item--open');
+                        
+                        // Optional: Close siblings at the same level
+                        li.parentElement.querySelectorAll(':scope > li').forEach(sib => {
+                            sib.classList.remove('item--open');
+                        });
+
+                        if (!isOpen) {
+                            li.classList.add('item--open');
+                        }
+                    }
+                });
             }
         });
     }
