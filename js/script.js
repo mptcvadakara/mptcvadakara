@@ -123,29 +123,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
-        // Main Mobile Menu Toggle
+        // 1. Toggle the main menu
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu--open');
         });
 
-        // Handle all links that have a submenu (including nested ones)
-        navMenu.querySelectorAll('li').forEach(li => {
+        // 2. Handle ALL levels of submenus
+        // We look for any LI that contains a UL (sub or fly-out)
+        const allParentItems = navMenu.querySelectorAll('li');
+        
+        allParentItems.forEach(li => {
             const subMenu = li.querySelector('ul');
             if (subMenu) {
                 const link = li.querySelector(':scope > a');
                 
                 link.addEventListener('click', function(e) {
                     if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        e.stopPropagation();
+                        e.preventDefault(); // Stop navigation
+                        e.stopPropagation(); // Stop parent menus from closing
 
-                        // Toggle the current item
+                        // Toggle the 'item--open' class on the clicked LI
                         const isOpen = li.classList.contains('item--open');
                         
-                        // Optional: Close siblings at the same level
-                        li.parentElement.querySelectorAll(':scope > li').forEach(sib => {
-                            sib.classList.remove('item--open');
-                        });
+                        // Optional: Close other open menus at the same level
+                        const siblings = li.parentElement.querySelectorAll(':scope > li');
+                        siblings.forEach(sib => sib.classList.remove('item--open'));
 
                         if (!isOpen) {
                             li.classList.add('item--open');
@@ -154,11 +156,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-    }
-        const navigationalLinks = navMenu.querySelectorAll('li:not(:has(ul.sub)) > a, ul.sub a');
-        navigationalLinks.forEach(link => {
+
+        // 3. Close menu when clicking a final link (one without a submenu)
+        const leafLinks = navMenu.querySelectorAll('a:not(:only-child)');
+        leafLinks.forEach(link => {
             link.addEventListener('click', function() {
-                setTimeout(collapseMainMenu, 50); 
+                if (!this.parentElement.querySelector('ul') && window.innerWidth <= 768) {
+                    navMenu.classList.remove('nav-menu--open');
+                }
             });
         });
     }
