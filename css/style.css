@@ -728,6 +728,46 @@ content-img {
     #nav ul.sub ul.fly-out li a {
         padding-left: 2.5rem; 
     }
+
+    #nav ul.sub, 
+    #nav ul.fly-out {
+        display: block !important; /* Switch from display:none to block for height animation */
+        position: static !important;
+        max-height: 0;
+        overflow: hidden;
+        width: 100% !important;
+        left: 0 !important;
+        background-color: rgba(0, 0, 0, 0.1); /* Darken to show depth */
+        box-shadow: none !important;
+        transition: max-height 0.3s ease-out;
+    }
+
+    /* Open the submenu when the parent li is clicked */
+    #nav li.item--open > ul.sub,
+    #nav li.item--open > ul.fly-out {
+        max-height: 1500px; /* High value to allow nested children to show */
+        padding: 5px 0;
+    }
+
+    /* Indent nested levels to show hierarchy */
+    #nav ul.sub li a {
+        padding-left: 2rem !important;
+    }
+    
+    #nav ul.fly-out li a {
+        padding-left: 3.5rem !important; /* Deeper indent for the years */
+    }
+
+    /* Fix the "Placed Students" indicator arrow for mobile */
+    .has-flyout > a::after {
+        content: ' \25BC' !important; /* Change to down arrow on mobile */
+        transform: rotate(0deg);
+        transition: transform 0.3s;
+    }
+
+    #nav li.item--open > a::after {
+        transform: rotate(180deg) !important;
+    }
 }
 
 /* --- Smallest Mobile Screens (Max-Width 480px) --- */
