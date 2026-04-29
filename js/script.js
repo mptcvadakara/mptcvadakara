@@ -119,7 +119,8 @@ function load_placed26() {
 }
 
 function load_tpdetails() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="placed/2026/Placement - 2026.pdf" ></object>';
+    //document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="placed/2026/Placement - 2026.pdf" ></object>';
+    window.open("placed/2026/Placement - 2026.pdf", "_blank");
 }
 
 document.addEventListener('DOMContentLoaded', function() {
