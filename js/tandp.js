@@ -11,7 +11,6 @@ function createStudentSlides() {
     }
 
     let slidesHTML = '';
-    // Loop from 1 to 15, generating the image path: placed/1.jpg, placed/2.jpg, etc.
     for (let i = 1; i <= TOTAL_STUDENT_SLIDES; i++) {
         slidesHTML += `
             <div class="mySlides-student fade">
@@ -22,7 +21,6 @@ function createStudentSlides() {
     container.innerHTML = slidesHTML;
 }
 
-// Manual Next/Previous controls
 function plusSlidesStudent(n) {
   slideIndexStudent += n;
   showSlidesStudent(slideIndexStudent);
@@ -32,7 +30,6 @@ function plusSlidesStudent(n) {
 function showSlidesStudent(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides-student"); 
-
   if (slides.length === 0) return; 
 
   // Wrap around logic
