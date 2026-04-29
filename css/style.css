@@ -638,9 +638,11 @@ content-img {
     }
 
     /* CRITICAL: New class to open the submenu on click */
-    #nav li.item--open ul.sub {
-        /* Use a value large enough to accommodate all sub-links */
-        max-height: 500px; 
+    #nav li.item--open ul.sub.
+    #nav li.item--open > ul.fly-out {
+        max-height: 1000px; /* Large enough to fit nested content */
+        display: block;
+        overflow: visible;
         transition: max-height 0.5s ease-in; 
     }
     
@@ -694,26 +696,38 @@ content-img {
     }
 
     /* 📌 Fix fly-out submenu for mobile */
-#nav ul.fly-out {
-    position: static;
-    width: 100%;
-    background-color: #244d00;
-    
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
+    #nav ul.fly-out {
+        position: static;
+        width: 100%;
+        background-color: #244d00;
+        
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
 
-/* Show flyout when active */
-#nav li.flyout-open > ul.fly-out {
-    max-height: 300px;
-    transition: max-height 0.4s ease-in;
-}
+        position: static; 
+        width: 100%;
+        background-color: #244d00; /* Slightly darker to show hierarchy */
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: none;
+        display: block; /* Overriding desktop display: none */
+    }
 
-/* Optional: indent for hierarchy */
-#nav ul.fly-out li a {
-    padding-left: 2rem;
-}
+    /* Show flyout when active */
+    #nav li.flyout-open > ul.fly-out {
+        max-height: 300px;
+        transition: max-height 0.4s ease-in;
+    }
+
+    /* Optional: indent for hierarchy */
+    #nav ul.fly-out li a {
+        padding-left: 2rem;
+    }
+
+    #nav ul.sub ul.fly-out li a {
+        padding-left: 2.5rem; 
+    }
 }
 
 /* --- Smallest Mobile Screens (Max-Width 480px) --- */
