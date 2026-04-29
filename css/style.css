@@ -768,6 +768,46 @@ content-img {
     #nav li.item--open > a::after {
         transform: rotate(180deg) !important;
     }
+
+    /* Reset all submenus for mobile vertical stacking */
+    #nav ul.sub, 
+    #nav ul.fly-out {
+        position: static !important; /* Forces vertical stack instead of floating */
+        display: block !important;
+        left: 0 !important;
+        max-height: 0;
+        overflow: hidden;
+        width: 100% !important;
+        background-color: rgba(0, 0, 0, 0.15) !important; /* Slightly darker to show depth */
+        box-shadow: none !important;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    /* Open logic for both levels */
+    #nav li.item--open > ul.sub,
+    #nav li.item--open > ul.fly-out {
+        max-height: 1000px; /* Large enough to hold all children */
+        padding: 5px 0;
+    }
+
+    /* Visual hierarchy: Indent the second-level menu (the years) */
+    #nav ul.sub li a {
+        padding-left: 2rem !important;
+    }
+    
+    #nav ul.fly-out li a {
+        padding-left: 3.5rem !important; /* Deeper indent for 2025-2026 etc */
+    }
+
+    /* Change the indicator arrow to down on mobile */
+    .has-flyout > a::after {
+        content: ' \25BC' !important; /* Down triangle */
+        transition: transform 0.3s;
+    }
+
+    #nav li.item--open > a::after {
+        transform: rotate(180deg);
+    }
 }
 
 /* --- Smallest Mobile Screens (Max-Width 480px) --- */
