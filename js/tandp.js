@@ -1,7 +1,4 @@
-// =================================================================
-// Placed Students Slideshow Logic (using class .mySlides-student)
-// =================================================================
-const TOTAL_STUDENT_SLIDES = 5; // Set the total number of images (1.jpg to 15.jpg)
+const TOTAL_STUDENT_SLIDES = 48; // Set the total number of images (1.jpg to 15.jpg)
 var slideIndexStudent = 0; // Start at 0 for initial auto-run logic
 
 // Function to dynamically generate the slideshow HTML
