@@ -123,10 +123,20 @@ function load_tpdetails() {
     //window.open("placed/2026/Placement - 2026.pdf", "_blank");
     const pdfUrl = "placed/2026/Placement - 2026.pdf";
     // We encode the URL and wrap it in the Google Viewer URL
-    const googleViewerUrl = "https://docs.google.com/viewer?url=" + encodeURIComponent(window.location.origin + "/" + pdfUrl) + "&embedded=true";
+    //const googleViewerUrl = "https://docs.google.com/viewer?url=" + encodeURIComponent(window.location.origin + "/" + pdfUrl) + "&embedded=true";
     
-    document.getElementById("content").innerHTML = 
-        '<iframe src="' + googleViewerUrl + '" width="100%" height="100%" style="border: none;"></iframe>';
+    //document.getElementById("content").innerHTML = 
+     //   '<iframe src="' + googleViewerUrl + '" width="100%" height="100%" style="border: none;"></iframe>';
+
+    const filePath = "placed/2026/Placement - 2026.pdf";
+    document.getElementById("content").innerHTML = `
+        <div style="text-align:center; padding: 20px;">
+            <p>If the PDF does not load fully below, click the button:</p>
+            <a href="${filePath}" target="_blank" style="padding:10px 20px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">Open Full Placement Report</a>
+        </div>
+        <object width="100%" height="90%" type="application/pdf" data="${filePath}">
+            <p>Your browser does not support PDFs. <a href="${filePath}">Download PDF</a></p>
+        </object>`;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
