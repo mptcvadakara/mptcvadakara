@@ -119,8 +119,14 @@ function load_placed26() {
 }
 
 function load_tpdetails() {
-    document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="placed/2026/Placement - 2026.pdf" ></object>';
+    //document.getElementById("content").innerHTML='<object width="100%" height="100%" type="text/html" data="placed/2026/Placement - 2026.pdf" ></object>';
     //window.open("placed/2026/Placement - 2026.pdf", "_blank");
+    const pdfUrl = "placed/2026/Placement - 2026.pdf";
+    // We encode the URL and wrap it in the Google Viewer URL
+    const googleViewerUrl = "https://docs.google.com/viewer?url=" + encodeURIComponent(window.location.origin + "/" + pdfUrl) + "&embedded=true";
+    
+    document.getElementById("content").innerHTML = 
+        '<iframe src="' + googleViewerUrl + '" width="100%" height="100%" style="border: none;"></iframe>';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
