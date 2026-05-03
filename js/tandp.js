@@ -4,63 +4,76 @@ let studentNames = {};
 
 async function loadStudentDataAndCreateSlides() {
     try {
-        // Adding a timestamp (?t=...) ensures the browser fetches the latest file[cite: 4]
-        const response = await fetch('../placed/2026/placed26.dat?t=' + new Date().getTime());
+        // Fetch the file with a cache-buster
+        const response = await fetch('placed26.dat?v=' + Date.now());
         
-        if (!response.ok) {
-            throw new Error("Could not find placed26.dat");
-        }
+        if (!response.ok) throw new Error("File not found");
 
         const data = await response.text();
-        const lines = data.split('\n');
+        // Split by lines and filter out empty lines
+        const lines = data.split(/\r?\n/).filter(line => line.trim() !== "");
         
         lines.forEach(line => {
-            const trimLine = line.trim();
-            if (trimLine) {
-                // Split by the first space to separate Roll No (1, 2, 3...) from Name[cite: 5]
-                const firstSpaceIndex = trimLine.indexOf(' ');
-                if (firstSpaceIndex !== -1) {
-                    const rollNo = trimLine.substring(0, firstSpaceIndex).trim();
-                    const name = trimLine.substring(firstSpaceIndex + 1).trim();
-                    studentNames[rollNo] = name;
-                }
+            // Regex to match: [Number][Space][Name]
+            // This captures the number and then everything after the first space
+            const match = line.match(/^\s*(\d+)\s+(.+)$/);
+            if (match) {
+                const rollNo = match[1];
+                const name = match[2].trim();
+                studentNames[rollNo] = name;
             }
         });
 
-        // Only create slides AFTER data is loaded
-        createStudentSlides();
-        
-        // Start the rotation
-        showSlidesStudent(0); 
-        setTimeout(autoShowSlidesStudent, 4000); 
-
+        renderSlides();
     } catch (error) {
-        console.error("Data Load Error:", error);
-        // Fallback: load images even if names fail
-        createStudentSlides();
-        showSlidesStudent(0);
-        setTimeout(autoShowSlidesStudent, 4000);
+        console.error("Could not load names, using default labels:", error);
+        renderSlides(); 
     }
 }
 
-function createStudentSlides() {
+function renderSlides() {
     const container = document.getElementById("studentSlidesPlaceholder");
     if (!container) return; 
 
     let slidesHTML = '';
     for (let i = 1; i <= TOTAL_STUDENT_SLIDES; i++) {
-        const name = studentNames[i] || "Student " + i; 
+        // If studentNames[i] exists, use it; otherwise, this is where "Student i" comes from[cite: 5]
+        const displayName = studentNames[i] || "Student " + i; 
+        
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="placed/2026/${i}.jpg" alt="Student ${i}" class="responsive-placed-img">
+                <img src="${i}.jpg" alt="Student ${i}" class="responsive-placed-img">
                 <div class="dynamic-name-tag">
-                    Congratulations <br> <strong>${name}</strong>
+                    Congratulations <br> <strong>${displayName}</strong>
                 </div>
             </div>
         `;
     }
     container.innerHTML = slidesHTML;
+    showSlidesStudent(0);
+    startAutoSlide();
 }
+
+function showSlidesStudent(n) {
+    let slides = document.getElementsByClassName("mySlides-student");
+    if (slides.length === 0) return;
+    if (n >= slides.length) slideIndexStudent = 0;
+    if (n < 0) slideIndexStudent = slides.length - 1;
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndexStudent].style.display = "block";
+}
+
+function startAutoSlide() {
+    setInterval(() => {
+        slideIndexStudent++;
+        showSlidesStudent(slideIndexStudent);
+    }, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', loadStudentDataAndCreateSlides);
 
 function plusSlidesStudent(n) {
     slideIndexStudent += n;
