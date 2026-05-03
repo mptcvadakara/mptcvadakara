@@ -6,7 +6,6 @@ const IMAGE_FOLDER_PATH = "placed/2026/";
 // 2. Global State
 var slideIndexStudent = 0; 
 let studentNames = {}; 
-let studentRollNos = [];   // ✅ NEW: to maintain order
 var studentTimer; 
 
 // 3. Data Loading Function
@@ -31,15 +30,16 @@ function loadStudentDataAndCreateSlides() {
 function parseStudentData(data) {
     const lines = data.split(/\r?\n/).filter(line => line.trim() !== "");
     
-    studentRollNos = []; // reset
+    studentNames = {}; // reset
 
     lines.forEach(line => {
-        const match = line.match(/^\s*(\d+)\s+(.+)$/);
-        if (match) {
-            const rollNo = match[1];
-            const name = match[2].trim();
+        // Handles: 1 NAME, multiple spaces, tabs
+        const parts = line.trim().split(/\s+/);
+        const rollNo = parts.shift(); // first item
+        const name = parts.join(" "); // rest is name
+
+        if (rollNo && name) {
             studentNames[rollNo] = name;
-            studentRollNos.push(rollNo); // ✅ store order
         }
     });
 
@@ -53,17 +53,13 @@ function renderSlides() {
 
     let slidesHTML = '';
 
-    for (let i = 0; i < TOTAL_STUDENT_SLIDES; i++) {
-
-        // ✅ use roll number from file
-        const rollNo = studentRollNos[i] || (i + 1);
-
-        const displayName = studentNames[rollNo] || ("Student " + rollNo);
+    for (let i = 1; i <= TOTAL_STUDENT_SLIDES; i++) {
+        const displayName = studentNames[i] || ("Student " + i);
 
         slidesHTML += `
             <div class="mySlides-student fade" style="display: none;">
-                <img src="${IMAGE_FOLDER_PATH}${rollNo}.jpg" 
-                     alt="Student ${rollNo}" 
+                <img src="${IMAGE_FOLDER_PATH}${i}.jpg" 
+                     alt="Student ${i}" 
                      class="responsive-placed-img" 
                      onerror="this.src='placeholder.jpg';">
                 <div class="dynamic-name-tag">
