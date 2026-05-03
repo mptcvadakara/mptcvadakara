@@ -9,7 +9,7 @@ let studentNames = {};
 function loadStudentDataAndCreateSlides() {
     const xhr = new XMLHttpRequest();
     // Cache-busting query string to ensure fresh data[cite: 4]
-    xhr.open("GET", "placed26.dat?v=" + Math.random(), true);
+    xhr.open("GET", "placed/2026/placed26.dat?v=" + Math.random(), true);
     
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
@@ -54,7 +54,7 @@ function renderSlides() {
         
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="${i}.jpg" alt="Student ${i}" class="responsive-placed-img" 
+                <img src="placed/2026/${i}.jpg" alt="Student ${i}" class="responsive-placed-img" 
                      onerror="this.src='placeholder.jpg';">
                 <div class="dynamic-name-tag">
                     Congratulations <br> <strong>${displayName}</strong>
