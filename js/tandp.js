@@ -5,7 +5,7 @@ let studentNames = {};
 async function loadStudentDataAndCreateSlides() {
     try {
         // Fetch the data file
-        const response = await fetch('placed/2026/placed26.dat');
+        const response = await fetch('../placed/2026/placed26.dat');
         if (!response.ok) throw new Error("File not found");
 
         const data = await response.text();
