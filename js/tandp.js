@@ -42,7 +42,7 @@ function parseStudentData(data) {
             studentNames[rollNo] = name;
         }
     });
-
+console.log(studentNames);
     renderSlides();
 }
 
