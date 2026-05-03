@@ -52,7 +52,7 @@ function createStudentSlides() {
         const name = studentNames[i] || "Student " + i; 
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="${i}.jpg" alt="Student ${i}" class="responsive-placed-img">
+                <img src="../placed/2026/${i}.jpg" alt="Student ${i}" class="responsive-placed-img">
                 <div class="dynamic-name-tag">
                     Congratulations <br> <strong>${name}</strong>
                 </div>
