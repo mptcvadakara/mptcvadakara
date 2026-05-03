@@ -1,12 +1,15 @@
-const TOTAL_STUDENT_SLIDES = 5; // Matches the 5 students in your .dat file
+const TOTAL_STUDENT_SLIDES = 5; // Updated to match your .dat file count[cite: 5]
 var slideIndexStudent = 0; 
 let studentNames = {}; 
 
 async function loadStudentDataAndCreateSlides() {
     try {
-        // Fetch the data file
-        const response = await fetch('../placed/2026/placed26.dat');
-        if (!response.ok) throw new Error("File not found");
+        // Adding a timestamp (?t=...) ensures the browser fetches the latest file[cite: 4]
+        const response = await fetch('../placed/2026/placed26.dat?t=' + new Date().getTime());
+        
+        if (!response.ok) {
+            throw new Error("Could not find placed26.dat");
+        }
 
         const data = await response.text();
         const lines = data.split('\n');
@@ -14,7 +17,7 @@ async function loadStudentDataAndCreateSlides() {
         lines.forEach(line => {
             const trimLine = line.trim();
             if (trimLine) {
-                // Split by first space to get Roll No and Name[cite: 5, 7]
+                // Split by the first space to separate Roll No (1, 2, 3...) from Name[cite: 5]
                 const firstSpaceIndex = trimLine.indexOf(' ');
                 if (firstSpaceIndex !== -1) {
                     const rollNo = trimLine.substring(0, firstSpaceIndex).trim();
@@ -24,11 +27,19 @@ async function loadStudentDataAndCreateSlides() {
             }
         });
 
+        // Only create slides AFTER data is loaded
         createStudentSlides();
-        setTimeout(autoShowSlidesStudent, 100); 
+        
+        // Start the rotation
+        showSlidesStudent(0); 
+        setTimeout(autoShowSlidesStudent, 4000); 
+
     } catch (error) {
-        console.error("Error loading student data:", error);
-        createStudentSlides(); // Fallback to show images only
+        console.error("Data Load Error:", error);
+        // Fallback: load images even if names fail
+        createStudentSlides();
+        showSlidesStudent(0);
+        setTimeout(autoShowSlidesStudent, 4000);
     }
 }
 
@@ -38,10 +49,10 @@ function createStudentSlides() {
 
     let slidesHTML = '';
     for (let i = 1; i <= TOTAL_STUDENT_SLIDES; i++) {
-        const name = studentNames[i] || "Student"; 
+        const name = studentNames[i] || "Student " + i; 
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="placed/2026/${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
+                <img src="${i}.jpg" alt="Student ${i}" class="responsive-placed-img">
                 <div class="dynamic-name-tag">
                     Congratulations <br> <strong>${name}</strong>
                 </div>
@@ -71,12 +82,13 @@ function showSlidesStudent(n) {
 
 function autoShowSlidesStudent() {
     var slides = document.getElementsByClassName("mySlides-student");
-    if (slides.length === 0) return; 
-    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    if (slides.length === 0) return;
+
     slideIndexStudent++;
-    if (slideIndexStudent >= slides.length) { slideIndexStudent = 0; }
-    slides[slideIndexStudent].style.display = "block";  
-    setTimeout(autoShowSlidesStudent, 4000); 
+    showSlidesStudent(slideIndexStudent);
+    
+    setTimeout(autoShowSlidesStudent, 4000);
 }
 
+// Ensure the function runs on page load
 document.addEventListener('DOMContentLoaded', loadStudentDataAndCreateSlides);
