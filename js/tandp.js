@@ -5,7 +5,7 @@ let studentNames = {};
 async function loadStudentDataAndCreateSlides() {
     try {
         // Fetch the data file
-        const response = await fetch('placed26.dat');
+        const response = await fetch('../placed/2026/placed26.dat');
         if (!response.ok) throw new Error("File not found");
 
         const data = await response.text();
@@ -41,7 +41,7 @@ function createStudentSlides() {
         const name = studentNames[i] || "Student"; 
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
+                <img src="../placed/2026/${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
                 <div class="dynamic-name-tag">
                     Congratulations <br> <strong>${name}</strong>
                 </div>
