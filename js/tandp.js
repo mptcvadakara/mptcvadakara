@@ -63,7 +63,7 @@ function renderSlides() {
                      class="responsive-placed-img" 
                      onerror="this.src='placeholder.jpg';">
                 <div class="dynamic-name-tag">
-                    !! CONGRATULATIONS !! <br> <strong>${displayName}</strong>
+                    <strong>!! CONGRATULATIONS !! <br> ${displayName}</strong>
                 </div>
             </div>
         `;
