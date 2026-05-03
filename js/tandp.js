@@ -42,7 +42,7 @@ function renderSlides() {
         
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="../placed/2026/${i}.jpg" alt="Student ${i}" class="responsive-placed-img">
+                <img src="placed/2026/${i}.jpg" alt="Student ${i}" class="responsive-placed-img">
                 <div class="dynamic-name-tag">
                     Congratulations <br> <strong>${displayName}</strong>
                 </div>
