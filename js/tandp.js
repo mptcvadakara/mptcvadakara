@@ -1,20 +1,50 @@
-const TOTAL_STUDENT_SLIDES = 48; // Set the total number of images (1.jpg to 15.jpg)
-var slideIndexStudent = 0; // Start at 0 for initial auto-run logic
+const TOTAL_STUDENT_SLIDES = 5; // Matches the 5 students in your .dat file
+var slideIndexStudent = 0; 
+let studentNames = {}; 
 
-// Function to dynamically generate the slideshow HTML
-function createStudentSlides() {
-    // Ensure the path is correct: assumes placed/ is a folder next to index.html
-    const container = document.getElementById("studentSlidesPlaceholder");
-    if (!container) {
-        console.error("Slideshow placeholder element not found.");
-        return; 
+async function loadStudentDataAndCreateSlides() {
+    try {
+        // Fetch the data file
+        const response = await fetch('placed26.dat');
+        if (!response.ok) throw new Error("File not found");
+
+        const data = await response.text();
+        const lines = data.split('\n');
+        
+        lines.forEach(line => {
+            const trimLine = line.trim();
+            if (trimLine) {
+                // Split by first space to get Roll No and Name[cite: 5, 7]
+                const firstSpaceIndex = trimLine.indexOf(' ');
+                if (firstSpaceIndex !== -1) {
+                    const rollNo = trimLine.substring(0, firstSpaceIndex).trim();
+                    const name = trimLine.substring(firstSpaceIndex + 1).trim();
+                    studentNames[rollNo] = name;
+                }
+            }
+        });
+
+        createStudentSlides();
+        setTimeout(autoShowSlidesStudent, 100); 
+    } catch (error) {
+        console.error("Error loading student data:", error);
+        createStudentSlides(); // Fallback to show images only
     }
+}
+
+function createStudentSlides() {
+    const container = document.getElementById("studentSlidesPlaceholder");
+    if (!container) return; 
 
     let slidesHTML = '';
     for (let i = 1; i <= TOTAL_STUDENT_SLIDES; i++) {
+        const name = studentNames[i] || "Student"; 
         slidesHTML += `
             <div class="mySlides-student fade">
-                <img src="placed/2026/${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
+                <img src="${i}.jpg" alt="Placed Student ${i}" class="responsive-placed-img">
+                <div class="dynamic-name-tag">
+                    Congratulations <br> <strong>${name}</strong>
+                </div>
             </div>
         `;
     }
@@ -22,59 +52,31 @@ function createStudentSlides() {
 }
 
 function plusSlidesStudent(n) {
-  slideIndexStudent += n;
-  showSlidesStudent(slideIndexStudent);
+    slideIndexStudent += n;
+    showSlidesStudent(slideIndexStudent);
 }
 
-// Main function to show a specific slide
 function showSlidesStudent(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides-student"); 
-  if (slides.length === 0) return; 
+    var slides = document.getElementsByClassName("mySlides-student");
+    if (slides.length === 0) return;
 
-  // Wrap around logic
-  if (n >= slides.length) {slideIndexStudent = 0} 
-  if (n < 0) {slideIndexStudent = slides.length - 1}
-  
-  // Hide all slides
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"; 
-  }
-  
-  // Display the current slide
-  slides[slideIndexStudent].style.display = "block"; 
+    if (n >= slides.length) { slideIndexStudent = 0; }
+    if (n < 0) { slideIndexStudent = slides.length - 1; }
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndexStudent].style.display = "block";
 }
 
-// Automatic Slideshow Function
 function autoShowSlidesStudent() {
-  var slides = document.getElementsByClassName("mySlides-student");
-  
-  // Safety check, in case the element was removed from the DOM
-  if (slides.length === 0) return; 
-
-  // Hide all slides
-  for (var i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  
-  // Increment slide index
-  slideIndexStudent++;
-  if (slideIndexStudent >= slides.length) {slideIndexStudent = 0}    
-  
-  // Display the current slide
-  slides[slideIndexStudent].style.display = "block";  
-  
-  // Change image every 4 seconds (4000 milliseconds)
-  setTimeout(autoShowSlidesStudent, 4000); 
+    var slides = document.getElementsByClassName("mySlides-student");
+    if (slides.length === 0) return; 
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    slideIndexStudent++;
+    if (slideIndexStudent >= slides.length) { slideIndexStudent = 0; }
+    slides[slideIndexStudent].style.display = "block";  
+    setTimeout(autoShowSlidesStudent, 4000); 
 }
 
-// --- Initialization ---
-// Use DOMContentLoaded to ensure the HTML is loaded before running the script
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Dynamically create the slides
-    createStudentSlides();
-    
-    // 2. Start the automatic slideshow after a short delay
-    // This delay gives the slides time to be created and measured by the browser
-    setTimeout(autoShowSlidesStudent, 100); 
-});
+document.addEventListener('DOMContentLoaded', loadStudentDataAndCreateSlides);
