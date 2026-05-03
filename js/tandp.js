@@ -1,6 +1,6 @@
 // 1. Configuration Constants
 const TOTAL_STUDENT_SLIDES = 5; 
-const DATA_FILE_PATH = "placed/2026/placed26.dat";
+const DATA_FILE_PATH = "../placed/2026/placed26.dat";
 const IMAGE_FOLDER_PATH = "placed/2026/";
 
 // 2. Global State
