@@ -127,55 +127,49 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav');
 
     if (navToggle && navMenu) {
-        // 1. Toggle the main menu
+        // Toggle the main burger menu
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu--open');
         });
 
-        // 2. Handle ALL levels of submenus
-        // We look for any LI that contains a UL (sub or fly-out)
-        const allParentItems = navMenu.querySelectorAll('li');
+        const allLinks = navMenu.querySelectorAll('a');
         
-        allParentItems.forEach(li => {
-            const subMenu = li.querySelector('ul');
-            if (subMenu) {
-                const link = li.querySelector(':scope > a');
-                
-                link.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault(); // Stop navigation
-                        e.stopPropagation(); // Stop parent menus from closing
+        allLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const li = this.parentElement;
+                const hasSubMenu = li.querySelector('ul');
 
-                        // Toggle the 'item--open' class on the clicked LI
+                if (window.innerWidth <= 768) {
+                    if (hasSubMenu) {
+                        // It's a parent menu item: Toggle the submenu
+                        e.preventDefault(); 
+                        e.stopPropagation();
+                        
                         const isOpen = li.classList.contains('item--open');
                         
-                        // Optional: Close other open menus at the same level
+                        // Close other parallel menus
                         const siblings = li.parentElement.querySelectorAll(':scope > li');
                         siblings.forEach(sib => sib.classList.remove('item--open'));
 
                         if (!isOpen) {
                             li.classList.add('item--open');
                         }
+                    } else {
+                        // It's a final link (Action link): Collapse everything
+                        navMenu.classList.remove('nav-menu--open');
+                        
+                        // Close all expanded submenus for next time
+                        const allOpenItems = navMenu.querySelectorAll('.item--open');
+                        allOpenItems.forEach(item => item.classList.remove('item--open'));
                     }
-                });
-            }
-        });
-
-        // 3. Close menu when clicking a final link (one without a submenu)
-        const leafLinks = navMenu.querySelectorAll('a:not(:only-child)');
-        leafLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (!this.parentElement.querySelector('ul') && window.innerWidth <= 768) {
-                    navMenu.classList.remove('nav-menu--open');
                 }
             });
         });
     }
 });
-
 // --- UPDATED SLIDESHOW LOGIC WITH FADE TRANSITION ---
 const images = [];
-const numImages = 15; 
+const numImages = 3; 
 for (let i = 1; i <= numImages; i++) {
     images.push(`${i}.jpg`);
 }
